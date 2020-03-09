@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace seph_FullWindowsOptimitation_FWO_f
+namespace RegistryTools
 {
     static class Program
     {

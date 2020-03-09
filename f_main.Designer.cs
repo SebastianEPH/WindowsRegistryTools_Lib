@@ -1,4 +1,4 @@
-﻿namespace seph_FullWindowsOptimitation_FWO_f
+﻿namespace RegistryTools
 {
     partial class f_main
     {

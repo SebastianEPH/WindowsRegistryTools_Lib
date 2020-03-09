@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace seph_FullWindowsOptimitation_FWO_f.Libs {
+namespace RegistryTools.Libs {
     class Regedit {
         private string message = "";
         public string readRegistry_valueString(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/){

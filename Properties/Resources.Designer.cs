@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace seph_FullWindowsOptimitation_FWO_f.Properties {
+namespace RegistryTools.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace seph_FullWindowsOptimitation_FWO_f.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("seph_FullWindowsOptimitation_FWO_f.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RegistryTools.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

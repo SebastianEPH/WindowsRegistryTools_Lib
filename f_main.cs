@@ -1,9 +1,9 @@
-﻿using seph_FullWindowsOptimitation_FWO_f.Libs;
+﻿using RegistryTools.Libs;
 using System;
 using System.Windows.Forms;
 
 
-namespace seph_FullWindowsOptimitation_FWO_f {
+namespace RegistryTools {
     public partial class f_main : Form
     {
 

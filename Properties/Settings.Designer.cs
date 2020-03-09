@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace seph_FullWindowsOptimitation_FWO_f.Properties
+namespace RegistryTools.Properties
 {
 
 
