@@ -45,9 +45,9 @@ namespace RegistryTools {
             key_ruta = tbCreateOrDelete.Text;
             key_name = tbKeyName.Text;
             key_value = tbCreateValue.Text;
-      
 
-            Console.WriteLine("Key ruta, solo:                                              " +key_ruta);
+           
+           Console.WriteLine("Key ruta, solo:                                              " +key_ruta);
             Console.WriteLine("Key ruta, Utilizando getKeyRutaSingetTypeRegistry(key_ruta): " + registro.getKeyRutaSingetTypeRegistry(key_ruta));
             Console.WriteLine("Key ruta, getTypeRegistry:                                   " + registro.getTypeRegistry(key_ruta));
             Console.WriteLine("Key ruta, getConteinerRegistry:                              " + registro.getConteinerRegistry(key_ruta));

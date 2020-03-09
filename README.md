@@ -5,16 +5,6 @@
 ## Descripción
 Ésta librería está pensaba para crear, leer y eliminar llaves, sin escribir tanto codigo, o tener que saber muchos sobre los registros de Windows
 
-[^1] : Aquí encuentras el texto de la nota al pie de página.
-
-[^2]: **Las notas de pie de página** pueden *formatearse* también.
-
--
--
-
-[ ] A
-[x] B
-[ ] C
 
 <!-- Herramientas -->
 # Registros:
@@ -63,9 +53,21 @@ En el apartado de Backup, se buscará realizar una copia de seguridad de los reg
     Regedit registro = new Regedit();
     ````
 **NOTA:** Cada vez que desee usar las funciones de la librería, deberá llamarlo con el nombre *registro* o el nombre que ustedes escogieron.
+# Uso de Funciones
+### **NOTA:** Es importante detallar que todas éstas funciones devolverán un mensaje de `"Exito"` o `"Error"`, según sea el caso,
+### Cuando la función sea llamada, deberá almacenarse en una variable tipo `string ` o `String`
 ## Función - Crear Contenedor
+No hay misterio, solo tenemos que colocar la ruta y el nombre que deseamos que tenga nuestra carpeta contenedora
 ````csharp
-    int fdgd = 4; 
+    //En ésta variable se almacenará el mensaje de Exito o Falló
+    string mensaje = "";
+
+    //En ésta variable se almacenará el nombre del contenedor
+    string nombreContenedor = "SoftwareX";
+
+    mensaje = 
+    
+    
 ````
 ## Función - Crear llave
 ````csharp
