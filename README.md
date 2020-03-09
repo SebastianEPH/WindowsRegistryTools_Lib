@@ -5,6 +5,17 @@
 ## Descripción
 Ésta librería está pensaba para crear, leer y eliminar llaves, sin escribir tanto codigo, o tener que saber muchos sobre los registros de Windows
 
+[^1] : Aquí encuentras el texto de la nota al pie de página.
+
+[^2]: **Las notas de pie de página** pueden *formatearse* también.
+
+-
+-
+
+[ ] A
+[x] B
+[ ] C
+
 <!-- Herramientas -->
 # Registros:
  **Cuenta con un apartado completo para la siguientes herramientas.**
@@ -42,21 +53,34 @@ En el apartado de Backup, se buscará realizar una copia de seguridad de los reg
     ![01 - Explorador de Soluciones - C# ](https://i.imgur.com/8tqiZYc.png)
 
 2. Importamos la carpeta donde se encuentra el archivo *Regedit.cs*
-    ````c
+    ````csharp
     using RegistryTools.Libs;
     ````
 3. Instanciamos la librería dentro de la clase, para así poder usarlo.
     - *El nombre que se le dará a ésta instancia será* **registro**.  
 (Usted puede colocarle el nombre que desee)
-    ````c
+    ```` csharp
     Regedit registro = new Regedit();
     ````
 **NOTA:** Cada vez que desee usar las funciones de la librería, deberá llamarlo con el nombre *registro* o el nombre que ustedes escogieron.
 ## Función - Crear Contenedor
+````csharp
+    int fdgd = 4; 
+````
 ## Función - Crear llave
+````csharp
+````
+
 ## Función - Leer llaves
+````csharp
+````
 ## Función - Eliminar contenedores
+````csharp
+````
+
 ## Función - Eliminar llaves
+````csharp
+````
 
 
 
@@ -80,5 +104,5 @@ You also need to install the following individual components:
 
 <!-- Creador  -->
 ---
-### By SebastianEPH
+## By SebastianEPH
 ---
