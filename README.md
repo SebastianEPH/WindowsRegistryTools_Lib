@@ -1,15 +1,12 @@
-# FullWindowsOptimitation FWO
+# Librería -Regedit de Windows v1.0
 <!-- Botones -->
 
 <!-- Descripción -->
 ## Descripción
+Ésta librería Hace mucho más 
 
-Software All in ONE para optimizar Windows 10
- **Todavía está en proceso de desarrollo**
 <!-- Herramientas -->
-# Herramientas
- ### Personalización:
- ### Registros:
+# Registros:
  **Cuenta con un apartado completo para la siguientes herramientas.**
 ![FWO-Regedit](https://i.imgur.com/VxvRqCN.png)
 - Lee Registros
@@ -37,29 +34,7 @@ En el apartado de Backup, se buscará realizar una copia de seguridad de los reg
     - Programas predeterminados al abrir x archivo
 - clic derecho del Mouse
     -Información 
- ### Desactiva o Activa Apps metro de Windows 8, 8.1 y 10
- El detalle de éste apartado es poder tener en una lista todas las apps metro deactivadas y activadas, y decidir cual de ellas no necesitas y poder desactivarlas
- - Contará en el futuro con una opción para eliminar los archivos de las apps metro, sin posibilidad de volver a activarlas
- ### Desintala Edge (No chromiun)
- Se tratará de no dejar ningún rastro de Edge
-- Desactiva servicios
-- Eliminar archivos de instalación del sistema
- ### Desintala Windows Defender
-- Desactiva servicios
- ### clic derecho del Mouse
-- Información de programas del clic derecho del mouse
-    - Según sea el caso
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
+ 
 <!-- Información de codificación -->
 ## Código Fuente
 Éste proyecto se creó con el IDE Visual Studio 2019 [Puedes obtener la version comunidad gratis aquí](https://www.visualstudio.com/vs/community/).
