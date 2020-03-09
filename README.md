@@ -37,10 +37,28 @@ En el apartado de Backup, se buscará realizar una copia de seguridad de los reg
  
 <!-- Información de codificación -->
 # ¿Cómo uso la librería?
+1. Coloque el archivo *Regedit.cs* dentro de su proyecto. 
 
-## Crear llave y contenedor
-## Leer llaves
-## Eliminar llaves y contenedores
+    ![01 - Explorador de Soluciones - C# ](https://i.imgur.com/8tqiZYc.png)
+
+2. Importamos la carpeta donde se encuentra el archivo *Regedit.cs*
+    ````c
+    using RegistryTools.Libs;
+    ````
+3. Instanciamos la librería dentro de la clase, para así poder usarlo.
+    - *El nombre que se le dará a ésta instancia será* **registro**.  
+(Usted puede colocarle el nombre que desee)
+    ````c
+    Regedit registro = new Regedit();
+    ````
+**NOTA:** Cada vez que desee usar las funciones de la librería, deberá llamarlo con el nombre *registro* o el nombre que ustedes escogieron.
+## Función - Crear Contenedor
+## Función - Crear llave
+## Función - Leer llaves
+## Función - Eliminar contenedores
+## Función - Eliminar llaves
+
+
 
 # Código Fuente
 Éste proyecto se creó con el IDE Visual Studio 2019 [Puedes obtener la version comunidad gratis aquí](https://www.visualstudio.com/vs/community/).
