@@ -3,7 +3,7 @@
 
 <!-- Descripción -->
 ## Descripción
-Ésta librería Hace mucho más 
+Ésta librería está pensaba para crear, leer y eliminar llaves, sin escribir tanto codigo, o tener que saber muchos sobre los registros de Windows
 
 <!-- Herramientas -->
 # Registros:
@@ -36,7 +36,13 @@ En el apartado de Backup, se buscará realizar una copia de seguridad de los reg
     -Información 
  
 <!-- Información de codificación -->
-## Código Fuente
+# ¿Cómo uso la librería?
+
+## Crear llave y contenedor
+## Leer llaves
+## Eliminar llaves y contenedores
+
+# Código Fuente
 Éste proyecto se creó con el IDE Visual Studio 2019 [Puedes obtener la version comunidad gratis aquí](https://www.visualstudio.com/vs/community/).
 Verificar las siguientes herramientas estén descargadas e instaladas correctamente:
 
