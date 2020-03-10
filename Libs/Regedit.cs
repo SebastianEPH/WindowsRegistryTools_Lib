@@ -18,11 +18,11 @@ namespace RegistryTools.Libs {
                      *          5   =       Multi-String Value
                      *          6   =       Expandable String                                                           */
 
-        public void createKeyValue_String(string key_ruta, string key_name, string key_values) {        //Función crear llave de Registro
+        public string createKeyValue_String(string key_ruta, string key_name, string key_values) {        //Función crear llave de Registro
             // key_ruta     = Ruta de Regedit de Windows
             // key_name     = Es el nombre que tendrá llave
             // key_values   = Son los valores que almacenará la llave - String
-            message = createOrWriteRegistry_conteinerAndValue(key_ruta, key_name,key_values,1);
+            return message = createOrWriteRegistry_conteinerAndValue(key_ruta, key_name,key_values,1);
         }
         public void createKeyValue_Binarie() {        //Función crear llave de Registro
 

@@ -56,12 +56,14 @@ En el apartado de Backup, se buscará realizar una copia de seguridad de los reg
 # Uso de Funciones
 ### **NOTA:** Es importante detallar que todas éstas funciones devolverán un mensaje de `"Exito"` o `"Error"`, según sea el caso,
 ### Cuando la función sea llamada, deberá almacenarse en una variable tipo `string ` o `String`
+---
 <!-- Funciones e información de usos -->
 ## Función - Crear Contenedor
 No hay misterio, solo tenemos que colocar la ruta y el nombre que deseamos que tenga nuestra carpeta contenedora
 ````csharp
     // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
 ````
+---
 ## Función - Crear llave
 Las llaves de registro, aceptas distintos tipos de datos, como lo son:
 - String Value
@@ -72,11 +74,37 @@ Las llaves de registro, aceptas distintos tipos de datos, como lo son:
 - Expandable String
 
 Entonces veremos cómo podemos crear llaves con todos estos distintos tipos de datos
-#### String Value:
 
+#### String Value:
+![02 -](https://i.imgur.com/rGUjWwS.png)
 ````csharp
-    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+// key_ruta     = Ruta de Regedit de Windows
+string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+
+// key_name     = Es el nombre que tendrá llave
+string key_name = "Soy una llave";
+
+// key_values   = Son los valores que almacenará la llave - String
+string key_values = "Soy un valor String";
+
+//message       = Se mostrará un mensaje de exito, si se ejecutocorrectamente o uno de error, si hubo algún inconveniente
+string message = "";
+
+//Ejecutando
+message = registro.createKeyValue_String(key_ruta, key_name, key_values);
+
+// Muestra en consola mensaje de error o exito
+Console.WriteLine(message);
 ````
+- Antes de la ejecución
+
+![03](https://i.imgur.com/OOknWxs.png)
+
+- Luego de la ejecución
+
+![04](https://i.imgur.com/4mS08zL.png)
+
+---
 #### Binarie Value:
 
 ````csharp
