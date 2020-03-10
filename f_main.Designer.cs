@@ -53,6 +53,7 @@
             this.btnDeleteRegistry = new System.Windows.Forms.Button();
             this.btnCreateRegistry = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.groupReadRegistryValue.SuspendLayout();
             this.group_create_registry.SuspendLayout();
@@ -63,7 +64,7 @@
             // 
             this.l_name.AutoSize = true;
             this.l_name.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_name.Location = new System.Drawing.Point(48, 126);
+            this.l_name.Location = new System.Drawing.Point(51, 100);
             this.l_name.Name = "l_name";
             this.l_name.Size = new System.Drawing.Size(549, 27);
             this.l_name.TabIndex = 0;
@@ -179,6 +180,7 @@
             // 
             this.group_create_registry.Controls.Add(this.cbTypeKeyValue);
             this.group_create_registry.Controls.Add(this.label4);
+            this.group_create_registry.Controls.Add(this.label5);
             this.group_create_registry.Controls.Add(this.l_name);
             this.group_create_registry.Controls.Add(this.txtValue);
             this.group_create_registry.Controls.Add(this.txtKeyName);
@@ -318,6 +320,16 @@
             this.tabControl1.Size = new System.Drawing.Size(711, 419);
             this.tabControl1.TabIndex = 1;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(-5, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(661, 27);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Lea la documentación que se encuentra en el archivo README.md";
+            // 
             // f_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,6 +376,7 @@
         private System.Windows.Forms.Button btnDeleteRegistry;
         private System.Windows.Forms.Button btnCreateRegistry;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label label5;
     }
 }
 

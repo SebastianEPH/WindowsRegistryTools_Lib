@@ -87,7 +87,7 @@ string key_name = "Soy una llave";
 // key_values   = Son los valores que almacenará la llave - String
 string key_values = "Soy un valor String";
 
-//message       = Se mostrará un mensaje de exito, si se ejecutocorrectamente o uno de error, si hubo algún inconveniente
+//message       = Se mostrará un mensaje de exito si se ejecutocorrectamente o uno de error si hubo algún inconveniente
 string message = "";
 
 //Ejecutando
