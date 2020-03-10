@@ -77,7 +77,7 @@ Entonces veremos cómo podemos crear llaves con todos estos distintos tipos de d
 
 #### String Value:
 ![02 -](https://i.imgur.com/rGUjWwS.png)
-````csharp
+````cpp
 // key_ruta     = Ruta de Regedit de Windows
 string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 
