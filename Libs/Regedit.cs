@@ -9,8 +9,20 @@ using System.Threading.Tasks;
 namespace RegistryTools.Libs {
     class Regedit {
         private string message = "";
-        public void createKeyValue_String() {        //Función crear llave de Registro
-        
+
+        /*          0   =       °Se crea un conteiner no una llave°
+                     *          1   =       String Value
+                     *          2   =       Binarie Value
+                     *          3   =       DWORD (32bits) Value
+                     *          4   =       QWORD (64bits) Value
+                     *          5   =       Multi-String Value
+                     *          6   =       Expandable String                                                           */
+
+        public void createKeyValue_String(string key_ruta, string key_name, string key_values) {        //Función crear llave de Registro
+            // key_ruta     = Ruta de Regedit de Windows
+            // key_name     = Es el nombre que tendrá llave
+            // key_values   = Son los valores que almacenará la llave - String
+            message = createOrWriteRegistry_conteinerAndValue(key_ruta, key_name,key_values,1);
         }
         public void createKeyValue_Binarie() {        //Función crear llave de Registro
 
@@ -28,8 +40,8 @@ namespace RegistryTools.Libs {
 
         }
 
-        public void createConteiner() {  //Función crear carpeta contenedora
-
+        public void createConteiner(string key_ruta) {  //Función crear carpeta contenedora
+           
         }
 
 
@@ -65,7 +77,7 @@ namespace RegistryTools.Libs {
   
             return message; 
         }
-        private string createOrWriteRegistry_conteinerAndValue(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/,string key_values, long key_value_n, byte key_value_type) {
+        private string createOrWriteRegistry_conteinerAndValue(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/,string key_values/*valores de la llave*/, byte key_value_type) {
 
 
             //Si el nombre de la llave *Key_name* está vacía, entonces 

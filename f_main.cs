@@ -17,8 +17,6 @@ namespace RegistryTools {
                                                     *QWord*
                                                     *Multi-String*
                                                     *Expanz-String*                     */
-
-
         bool value =  false;
 
         public f_main(){
