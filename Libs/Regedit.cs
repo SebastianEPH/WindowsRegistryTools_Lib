@@ -8,11 +8,44 @@ using System.Threading.Tasks;
 
 namespace RegistryTools.Libs {
     class Regedit {
+                            /*          0   =       °Se crea un conteiner no una llave°
+                     *          1   =       String Value
+                     *          2   =       Binarie Value
+                     *          3   =       DWORD (32bits) Value
+                     *          4   =       QWORD (64bits) Value
+                     *          5   =       Multi-String Value
+                     *          6   =       Expandable String   
+                     *          */
 
-        public void createNewRegistryKey() {        //Función crear llave de Registro
+        public void createNewRegistryKeyValue_String() {        //Función crear llave de Registro
         
         }
-        public void createNewRegistryConteiner() {  //Finción crear carpeta contenedora
+        public void createNewRegistryKeyValue_Binarie() {        //Función crear llave de Registro
+
+        }
+        public void createNewRegistryKey_DWORD() {        //Función crear llave de Registro
+
+        }
+        public void createNewRegistryKey_QWORD() {        //Función crear llave de Registro
+
+        }
+        public void createNewRegistryKey_MultiString() {        //Función crear llave de Registro
+
+        }
+        public void createNewRegistryKey_ExpandableString() {        //Función crear llave de Registro
+
+        }
+
+        public void createNewRegistryConteiner() {  //Función crear carpeta contenedora
+
+        }
+        public void createNewRegistryConteiner() {  //Función crear carpeta contenedora
+
+        }
+        public void createNewRegistryConteiner() {  //Función crear carpeta contenedora
+
+        }
+        public void createNewRegistryConteiner() {  //Función crear carpeta contenedora
 
         }
 
