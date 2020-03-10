@@ -56,32 +56,65 @@ En el apartado de Backup, se buscará realizar una copia de seguridad de los reg
 # Uso de Funciones
 ### **NOTA:** Es importante detallar que todas éstas funciones devolverán un mensaje de `"Exito"` o `"Error"`, según sea el caso,
 ### Cuando la función sea llamada, deberá almacenarse en una variable tipo `string ` o `String`
+<!-- Funciones e información de usos -->
 ## Función - Crear Contenedor
 No hay misterio, solo tenemos que colocar la ruta y el nombre que deseamos que tenga nuestra carpeta contenedora
 ````csharp
-    //En ésta variable se almacenará el mensaje de Exito o Falló
-    string mensaje = "";
-
-    //En ésta variable se almacenará el nombre del contenedor
-    string nombreContenedor = "SoftwareX";
-
-    mensaje = 
-    
-    
+    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
 ````
 ## Función - Crear llave
+Las llaves de registro, aceptas distintos tipos de datos, como lo son:
+- String Value
+- Binarie Value
+- DWORD (32bits) Value
+- QWORD (64bits) Value
+- Multi-String Value
+- Expandable String
+
+Entonces veremos cómo podemos crear llaves con todos estos distintos tipos de datos
+#### String Value:
+
 ````csharp
+    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+````
+#### Binarie Value:
+
+````csharp
+    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+````
+#### DWORD (32bits) Value:
+
+````csharp
+    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+````
+#### QWORD (64bits) Value:
+
+````csharp
+    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+````
+#### Multi-String Value:
+
+````csharp
+    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+````
+#### Expandable String:
+
+````csharp
+    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
 ````
 
 ## Función - Leer llaves
 ````csharp
+    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
 ````
 ## Función - Eliminar contenedores
 ````csharp
+    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
 ````
 
 ## Función - Eliminar llaves
 ````csharp
+    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
 ````
 
 
