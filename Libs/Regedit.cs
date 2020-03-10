@@ -8,8 +8,28 @@ using System.Threading.Tasks;
 
 namespace RegistryTools.Libs {
     class Regedit {
+
+        public void createNewRegistryKey() {        //Función crear llave de Registro
+        
+        }
+        public void createNewRegistryConteiner() {  //Finción crear carpeta contenedora
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         private string message = "";
-        public string readRegistry_valueString(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/){
+        private string readRegistry_valueString(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/){
 
             try {
 
@@ -34,7 +54,7 @@ namespace RegistryTools.Libs {
   
             return message; 
         }
-        public string createOrWriteRegistry_conteinerAndValue(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/,string key_values, long key_value_n, byte key_value_type) {
+        private string createOrWriteRegistry_conteinerAndValue(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/,string key_values, long key_value_n, byte key_value_type) {
 
 
             //Si el nombre de la llave *Key_name* está vacía, entonces 
@@ -126,7 +146,7 @@ namespace RegistryTools.Libs {
             //Retorna el mensaje
             return message;
         }
-        public string deleteRegistry_conteinerAndValue(bool value/*Verifica si se usara valores*/, string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/, string key_value) {
+        private string deleteRegistry_conteinerAndValue(bool value/*Verifica si se usara valores*/, string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/, string key_value) {
                     
             //Se verificará que la ruta del registro no esté vacía
             if (key_ruta == "") {
@@ -243,7 +263,7 @@ namespace RegistryTools.Libs {
             }
             return message;
         }
-        public string getTypeRegistry(string key_ruta){
+        private string getTypeRegistry(string key_ruta){
             /* 
              * Ésta función recorrerá toda la variable °key_ruta°
              * y retornará solo uno de los siguientes textos:
@@ -283,7 +303,7 @@ namespace RegistryTools.Libs {
             }
             return message;
         }   
-        public string getKeyRutaSingetTypeRegistry(string key_ruta){
+        private string getKeyRutaSingetTypeRegistry(string key_ruta){
             /* Ésta función leerá la variable *key_ruta* 
              * buscando y eliminando los siguientes textos
              * que se obtendrán de la función °getTypeRegistry°: 
@@ -323,7 +343,7 @@ namespace RegistryTools.Libs {
             return message;
 
         }
-        public string getConteinerRegistry(string key_ruta) {
+        private string getConteinerRegistry(string key_ruta) {
             
             /* Ésta función busca retornar el "CONTENEDOR" de la variable °key_ruta°
              * 
@@ -354,7 +374,7 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        public string getKeyRutaSingetConteinerRegistry(string key_ruta) {
+        private string getKeyRutaSingetConteinerRegistry(string key_ruta) {
             /* Ésta función busca eliminar el "TIPO DE REGISTRO" y el "CONTENEDOR" 
              * de la variable °key_ruta°
              * 

@@ -47,11 +47,11 @@ namespace RegistryTools {
             key_value = tbCreateValue.Text;
 
            
-           Console.WriteLine("Key ruta, solo:                                              " +key_ruta);
-            Console.WriteLine("Key ruta, Utilizando getKeyRutaSingetTypeRegistry(key_ruta): " + registro.getKeyRutaSingetTypeRegistry(key_ruta));
-            Console.WriteLine("Key ruta, getTypeRegistry:                                   " + registro.getTypeRegistry(key_ruta));
-            Console.WriteLine("Key ruta, getConteinerRegistry:                              " + registro.getConteinerRegistry(key_ruta));
-            Console.WriteLine("Key ruta, Ruta sin tipo y sin conteiner                      " + registro.getKeyRutaSingetConteinerRegistry(key_ruta));
+           //Console.WriteLine("Key ruta, solo:                                              " +key_ruta);
+           // Console.WriteLine("Key ruta, Utilizando getKeyRutaSingetTypeRegistry(key_ruta): " + registro.getKeyRutaSingetTypeRegistry(key_ruta));
+           // Console.WriteLine("Key ruta, getTypeRegistry:                                   " + registro.getTypeRegistry(key_ruta));
+           // Console.WriteLine("Key ruta, getConteinerRegistry:                              " + registro.getConteinerRegistry(key_ruta));
+           // Console.WriteLine("Key ruta, Ruta sin tipo y sin conteiner                      " + registro.getKeyRutaSingetConteinerRegistry(key_ruta));
 
 
 
@@ -69,12 +69,12 @@ namespace RegistryTools {
             cleanRegedit();
         }
         private void btnDeleteRegistry_Click(object sender, EventArgs e) {
-            key_ruta = tbCreateOrDelete.Text;
-            key_name = tbKeyName.Text;
-            key_value = "";
+            //key_ruta = tbCreateOrDelete.Text;
+            //key_name = tbKeyName.Text;
+            //key_value = "";
 
-            Console.WriteLine(registro.deleteRegistry_conteinerAndValue(value,key_ruta,key_name,key_value));
-            //cleanRegedit();
+            //Console.WriteLine(registro.deleteRegistry_conteinerAndValue(value,key_ruta,key_name,key_value));
+            ////cleanRegedit();
 
         }
         private void rbCreateConteiner_CheckedChanged(object sender, EventArgs e) {
@@ -138,14 +138,14 @@ namespace RegistryTools {
             key_ruta = tbReadRegistryPath.Text;
             key_name = tbReadKeyName.Text;
 
-            try {
+            //try {
 
-                tbReadResultValue.Text = (registro.readRegistry_valueString(key_ruta, key_name));
-                cleanRegedit();
-            } catch (Exception ex) {
+            //    tbReadResultValue.Text = (registro.readRegistry_valueString(key_ruta, key_name));
+            //    cleanRegedit();
+            //} catch (Exception ex) {
                 
-                 Console.WriteLine("Hubo un error al leer la llave" + ex);
-            }
+            //     Console.WriteLine("Hubo un error al leer la llave" + ex);
+            //}
 
 
         }
