@@ -121,34 +121,65 @@ Console.WriteLine(message);
 #### Binarie Value:
 
 ````csharp
-    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+    //Ésta funcionalidad se está trabajando, porfavor espere...
 ````
 #### DWORD (32bits) Value:
 
 ````csharp
-    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+    //Ésta funcionalidad se está trabajando, porfavor espere...
 ````
 #### QWORD (64bits) Value:
 
 ````csharp
-    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+    //Ésta funcionalidad se está trabajando, porfavor espere...
 ````
 #### Multi-String Value:
 
 ````csharp
-    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+    //Ésta funcionalidad se está trabajando, porfavor espere...
 ````
 #### Expandable String:
 
 ````csharp
-    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+    //Ésta funcionalidad se está trabajando, porfavor espere...
 ````
 
 ## Función - Leer llaves
-#### Llave Tipo (Binario, DWORD, QWORD):
+### Obtiene Valores tipo: (Binario, DWORD, QWORD).
 
 ````csharp
-    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+// key_ruta     = Ruta de Regedit de Windows
+string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+
+// key_name     = Es el nombre que tendrá llave
+string key_name = "activate";
+
+//message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
+string message = "";
+
+//Ejecutando
+message = registro.readKeyValueInt(key_ruta,key_name);
+
+// Devolverá el valor de la llave key_name, en un String
+Console.WriteLine(message);
+````
+### Obtiene Valores tipo: (String, Multi-String, Expanz-String).
+
+````csharp
+    // key_ruta     = Ruta de Regedit de Windows
+string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+
+// key_name     = Es el nombre que tendrá llave
+string key_name = "licencia";
+
+//message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
+string message = "";
+
+//Ejecutando
+message = registro.readKeyValueString(key_ruta,key_name);
+
+// Devolverá el valor de la llave key_name, en un String
+Console.WriteLine(message);
 ````
 ## Función - Eliminar contenedor
 NOTA: Al Eliminar un contendor, ésta borarrá todas las llaves que pueda almacenar.
@@ -206,4 +237,7 @@ You also need to install the following individual components:
 <!-- Creador  -->
 ---
 ## By SebastianEPH
+- [Github](https://github.com/SebastianEPH)
+- [Facebook](https://www.facebook.com/SebastianEPH)
+- [Linkin](https://www.linkedin.com/in/sebastianeph/)
 ---
