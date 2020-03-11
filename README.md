@@ -135,9 +135,18 @@ Console.WriteLine(message);
 ````csharp
     // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
 ````
-## Función - Eliminar contenedores
+## Función - Eliminar contenedor
 ````csharp
-    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+// key_ruta     = Ruta de Regedit de Windows
+string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+//message       = Se mostrará un mensaje de exito si se ejecutocorrectamente o uno de error si hubo algún inconveniente
+string message = "";
+
+//Ejecutando
+message = registro.deleteConteinerAll(key_ruta, );
+
+// Muestra en consola mensaje de error o exito
+Console.WriteLine(message);
 ````
 
 ## Función - Eliminar llaves
