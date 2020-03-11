@@ -82,7 +82,7 @@ namespace RegistryTools.Libs {
         /// <summary>
         /// Creará la Carpeta en la cuál se se podrán almacenar llaves 
         /// </summary>
-        public string createConteiner(string key_ruta, string key_name, string key_conteiner) { 
+        public string createConteiner(string key_ruta, string key_conteiner) { 
             // key_ruta     = Ruta de Regedit de Windows
             // key_name     = Es el nombre que tendrá llave
             // key_values   = Son los valores que almacenará la llave - String
@@ -104,8 +104,20 @@ namespace RegistryTools.Libs {
             message = deleteRegistry_conteinerAndValue(true, key_ruta,key_name);
             return message;
         }
+        /// <summary>
+        /// Lee el valor que tenga la llave
+        /// </summary>
+        public string readKeyValueString(string key_ruta , string key_name, bool type) {
+            readRegistry_valueString(key_ruta, key_name, true);
+            return message;
+        }
+        public string readKeyValueInt(string key_ruta, string key_name, bool type) {
+            readRegistry_valueString(key_ruta, key_name, false);
+            return message;
+        }
 
-        private string readRegistry_valueString(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/){
+
+        private string readRegistry_valueString(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/, bool type /*TRUE : string & FALSE: int*/){
 
             try {
 
@@ -118,7 +130,17 @@ namespace RegistryTools.Libs {
                     return message = "El nombre ingresado está vacío";
                 }
 
-                message = (string)Registry.GetValue(key_ruta, key_name, "¡No se encontró el Key!");
+                //True : El valor que se obtendrá es Tipo Cadena
+                //False: El valor que se obtendrá es Entero
+                if (type) {
+                    ///String
+                    message = (string)Registry.GetValue(key_ruta, key_name, "¡No se encontró el Key!");
+                } else {
+                    /// Int
+                    int entero = 0;
+                    entero = (int)Registry.GetValue(key_ruta, key_name, "¡No se encontró el Key!");
+                    message = entero.ToString();
+                }
 
                 // Retorna el valor de la llave
                 // ó
@@ -127,7 +149,8 @@ namespace RegistryTools.Libs {
                 //Mensaje de error +  su Codigo de error
                 message = "Hubo un error al leer la llave: " + e;
             }
-  
+
+            
             return message; 
         }
         private string createOrWriteRegistry_conteinerAndValue(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/,string key_conteiner/*Nombre del contenedor*/,string key_values/*valores de la llave*/, byte key_value_type) {

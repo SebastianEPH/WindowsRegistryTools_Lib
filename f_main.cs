@@ -35,7 +35,7 @@ namespace RegistryTools {
 
 
           //  Console.WriteLine(registro.deleteRegistry_conteinerAndValue(key_n,key_ruta,key_name,key_value));
-
+         
         }
         private void pruebakey(object sender, EventArgs e){
             key_ruta = tbCreateOrDelete.Text;
@@ -126,6 +126,8 @@ namespace RegistryTools {
             enableValue();
 
             value = true;   //Si es verdadero , significa que se trabajarán con Llaves y/o Valores
+
+
         }
         private void registryStartEvent(object sender, EventArgs e) {
            
@@ -191,6 +193,18 @@ namespace RegistryTools {
 
 
             }
+
+        }
+
+        private void EliminaresteBotton_Click(object sender, EventArgs e) {
+            key_ruta = @"HKEY_CURRENT_USER\Keyboard Layout\Preload\New Key #1";  // La ruta del Registro
+            key_name = "123";   // Nombre del Nuevo registro
+           string key_values = "soy un string";   // Valor del Registro
+            key_value_type = 0;
+            string key_conteiner = "soy un contenedor";
+
+            Console.WriteLine("El key contiene:    " + registro.readKeyValueString(key_ruta,key_name));
+
 
         }
     }
