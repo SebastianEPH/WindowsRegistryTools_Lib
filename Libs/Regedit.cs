@@ -105,13 +105,19 @@ namespace RegistryTools.Libs {
             return message;
         }
         /// <summary>
-        /// Lee el valor que tenga la llave
+        /// Lee el valor que tenga la llave tipo texto
+        /// Devolverá un String
         /// </summary>
-        public string readKeyValueString(string key_ruta , string key_name, bool type) {
+        public string readKeyValueString(string key_ruta , string key_name) {
             readRegistry_valueString(key_ruta, key_name, true);
             return message;
         }
-        public string readKeyValueInt(string key_ruta, string key_name, bool type) {
+
+        /// <summary>
+        /// Lee el valor que tenga la llave tipo Entero
+        /// Devolverá un String
+        /// </summary>
+        public string readKeyValueInt(string key_ruta, string key_name) {
             readRegistry_valueString(key_ruta, key_name, false);
             return message;
         }
