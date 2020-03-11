@@ -54,8 +54,8 @@ En el apartado de Backup, se buscará realizar una copia de seguridad de los reg
     ````
 **NOTA:** Cada vez que desee usar las funciones de la librería, deberá llamarlo con el nombre *registro* o el nombre que ustedes escogieron.
 # Uso de Funciones
-### **NOTA:** Es importante detallar que todas éstas funciones devolverán un mensaje de `"Exito"` o `"Error"`, según sea el caso,
-### Cuando la función sea llamada, deberá almacenarse en una variable tipo `string ` o `String`
+ **NOTA:** Es importante detallar que todas éstas funciones devolverán un mensaje de `"Exito"` o `"Error"`, según sea el caso,
+ Cuando la función sea llamada, deberá almacenarse en una variable tipo `string ` o `String`
 ---
 <!-- Funciones e información de usos -->
 ## Función - Crear Contenedor
@@ -100,7 +100,7 @@ string key_name = "Soy una llave";
 // key_values   = Son los valores que almacenará la llave - String
 string key_values = "Soy un valor String";
 
-//message       = Se mostrará un mensaje de exito si se ejecutocorrectamente o uno de error si hubo algún inconveniente
+//message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
 string message = "";
 
 //Ejecutando
@@ -145,14 +145,17 @@ Console.WriteLine(message);
 ````
 
 ## Función - Leer llaves
+#### Llave Tipo (Binario, DWORD, QWORD):
+
 ````csharp
     // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
 ````
 ## Función - Eliminar contenedor
+NOTA: Al Eliminar un contendor, ésta borarrá todas las llaves que pueda almacenar.
 ````csharp
 // key_ruta     = Ruta de Regedit de Windows
 string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
-//message       = Se mostrará un mensaje de exito si se ejecutocorrectamente o uno de error si hubo algún inconveniente
+//message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
 string message = "";
 
 //Ejecutando
@@ -162,9 +165,22 @@ message = registro.deleteConteinerAll(key_ruta);
 Console.WriteLine(message);
 ````
 
-## Función - Eliminar llaves
+## Función - Eliminar una llave
 ````csharp
-    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+// key_ruta     = Ruta de Regedit de Windows
+string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+
+// key_name     = El nombre de la llave la cual queremos eliminar
+string key_name = "config";
+
+//message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
+string message = "";
+
+//Ejecutando
+message = registro.deleteKeyValue(key_ruta, key_name);
+
+// Muestra en consola mensaje de error o exito
+Console.WriteLine(message);
 ````
 
 
