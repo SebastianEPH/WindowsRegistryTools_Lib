@@ -18,7 +18,7 @@ namespace RegistryTools {
                                                     *Multi-String*
                                                     *Expanz-String*                     */
         bool value =  false;
-
+       
         public f_main(){
             InitializeComponent();
             disableValue();
@@ -35,8 +35,6 @@ namespace RegistryTools {
 
 
           //  Console.WriteLine(registro.deleteRegistry_conteinerAndValue(key_n,key_ruta,key_name,key_value));
-
-           
 
         }
         private void pruebakey(object sender, EventArgs e){

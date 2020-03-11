@@ -7,49 +7,99 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RegistryTools.Libs {
+
+    /// <summary>
+    /// WindowsRegistryTools 2.0
+    /// </summary>
+    /// <remarks>
+    /// <para>esto da formato a un remark.</para>
+    /// </remarks>     
+    /// <returns>
+    /// Ésto es retorno
+    /// </returns>
+    /// <example>
+    /// <code>
+    /// int c = Math.Add(4, 5);
+    /// if (c > 10)
+    /// {
+    ///     Console.WriteLine(c);
+    /// }
+    /// </code>
+    /// </example>
+    /// <param name="a">paremtros info .</param>
+    /// <param name="b">A double precision number.</param>
+    /// <exception cref="System.DivideByZeroException">Marcará error si tu no ingresas o ingrasas tal cosa</exception>
     class Regedit {
         private string message = "";
 
-        /*          0   =       °Se crea un conteiner no una llave°
-                     *          1   =       String Value
-                     *          2   =       Binarie Value
-                     *          3   =       DWORD (32bits) Value
-                     *          4   =       QWORD (64bits) Value
-                     *          5   =       Multi-String Value
-                     *          6   =       Expandable String                                                           */
-
-        public string createKeyValue_String(string key_ruta, string key_name, string key_values) {        //Función crear llave de Registro en formato String
-            // key_ruta     = Ruta de Regedit de Windows
-            // key_name     = Es el nombre que tendrá llave
-            // key_values   = Son los valores que almacenará la llave - String
+        /// <summary>
+        /// Creará una llave de Registro tipo String
+        /// </summary>
+        public string createKeyValue_String(string key_ruta, string key_name, string key_values) {
+            /// key_ruta     = Ruta de Regedit de Windows
+            /// key_name     = Es el nombre que tendrá llave
+            /// key_values   = Son los valores que almacenará la llave - String
             return message = createOrWriteRegistry_conteinerAndValue(key_ruta, key_name,"",key_values,1);
         }
-        public void createKeyValue_Binarie() {        //Función crear llave de Registro en formato Binario
+
+        /// <summary>
+        /// Creará una llave de Registro tipo Binario
+        /// </summary>
+        public void createKeyValue_Binarie() {
 
         }
-        public void createKeyValue_DWORD() {        //Función crear llave de Registro en formato DWORD
+
+        /// <summary>
+        /// Creará una llave de Registro tipo DWORD (32 Bits)
+        /// </summary>
+        public void createKeyValue_DWORD() { 
 
         }
-        public void createKeyValue_QWORD() {        //Función crear llave de Registro en formato QWORD
+
+        /// <summary>
+        /// Creará una llave de Registro tipo QWORD (64 Bits)
+        /// </summary>
+        public void createKeyValue_QWORD() {        
 
         }
-        public void createKeyValue_MultiString() {        //Función crear llave de Registro en formato MultiString
+
+        /// <summary>
+        /// Creará una llave de Registro tipo MultiString
+        /// Permite guardar una llave con saltos de linea
+        /// </summary>
+        public void createKeyValue_MultiString() {
 
         }
+
+        /// <summary>
+        /// Creará una llave de Registro tipo ExpandableString
+        /// Permite guardar llave con una gran cantidad de caracteres.
+        /// </summary>
         public void createKeyValue_ExpandableString() {        //Función crear llave de Registro en formato ExpandableString
 
         }
-        public string createConteiner(string key_ruta, string key_name, string key_conteiner) {  //Función crear carpeta contenedora // hacer prueba antibugs
+
+        /// <summary>
+        /// Creará la Carpeta en la cuál se se podrán almacenar llaves 
+        /// </summary>
+        public string createConteiner(string key_ruta, string key_name, string key_conteiner) { 
             // key_ruta     = Ruta de Regedit de Windows
             // key_name     = Es el nombre que tendrá llave
             // key_values   = Son los valores que almacenará la llave - String
             return message = createOrWriteRegistry_conteinerAndValue(key_ruta, "",key_conteiner, "",0);
         }
 
-        public string deleteConteinerAll(string key_ruta) {                 //Función Elimina, el contenedor con todas las llaves que puedan estar adentro.
+        /// <summary>
+        /// Eliminará la carpeta y todas las llaves de dicha carpeta contenedora.
+        /// </summary>
+        public string deleteConteinerAll(string key_ruta) {
             message = deleteRegistry_conteinerAndValue(false,key_ruta,"");
             return message;
         }
+
+        /// <summary>
+        /// Eliminará una llave del registro de Windows
+        /// </summary>
         public string deleteKeyValue(string key_ruta,string key_name) {     //Función Elimina, solo la Llave eleccionad dentro del contenedor
             message = deleteRegistry_conteinerAndValue(true, key_ruta,key_name);
             return message;
