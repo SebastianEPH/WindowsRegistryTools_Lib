@@ -65,7 +65,7 @@ No hay misterio, solo tenemos que colocar la ruta y el nombre que deseamos que t
 ````
 ---
 ## Función - Crear llave
-Las llaves de registro, aceptas distintos tipos de datos, como lo son:
+Las llaves de registro, aceptan distintos tipos de datos, como lo son:
 - String Value
 - Binarie Value
 - DWORD (32bits) Value

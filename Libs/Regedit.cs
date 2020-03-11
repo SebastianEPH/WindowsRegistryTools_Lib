@@ -18,40 +18,43 @@ namespace RegistryTools.Libs {
                      *          5   =       Multi-String Value
                      *          6   =       Expandable String                                                           */
 
-        public string createKeyValue_String(string key_ruta, string key_name, string key_values) {        //Función crear llave de Registro
+        public string createKeyValue_String(string key_ruta, string key_name, string key_values) {        //Función crear llave de Registro en formato String
             // key_ruta     = Ruta de Regedit de Windows
             // key_name     = Es el nombre que tendrá llave
             // key_values   = Son los valores que almacenará la llave - String
-            return message = createOrWriteRegistry_conteinerAndValue(key_ruta, key_name,key_values,1);
+            return message = createOrWriteRegistry_conteinerAndValue(key_ruta, key_name,"",key_values,1);
         }
-        public void createKeyValue_Binarie() {        //Función crear llave de Registro
-
-        }
-        public void createKeyValue_DWORD() {        //Función crear llave de Registro
+        public void createKeyValue_Binarie() {        //Función crear llave de Registro en formato Binario
 
         }
-        public void createKeyValue_QWORD() {        //Función crear llave de Registro
+        public void createKeyValue_DWORD() {        //Función crear llave de Registro en formato DWORD
 
         }
-        public void createKeyValue_MultiString() {        //Función crear llave de Registro
+        public void createKeyValue_QWORD() {        //Función crear llave de Registro en formato QWORD
 
         }
-        public void createKeyValue_ExpandableString() {        //Función crear llave de Registro
+        public void createKeyValue_MultiString() {        //Función crear llave de Registro en formato MultiString
 
         }
+        public void createKeyValue_ExpandableString() {        //Función crear llave de Registro en formato ExpandableString
 
-        public void createConteiner(string key_ruta) {  //Función crear carpeta contenedora
-           
+        }
+        public string createConteiner(string key_ruta, string key_name, string key_conteiner) {  //Función crear carpeta contenedora // hacer prueba antibugs
+            // key_ruta     = Ruta de Regedit de Windows
+            // key_name     = Es el nombre que tendrá llave
+            // key_values   = Son los valores que almacenará la llave - String
+            return message = createOrWriteRegistry_conteinerAndValue(key_ruta, "",key_conteiner, "",0);
         }
 
+        public string deleteConteinerAll(string key_ruta) {                 //Función Elimina, el contenedor con todas las llaves que puedan estar adentro.
+            message = deleteRegistry_conteinerAndValue(false,key_ruta,"");
+            return message;
+        }
+        public string deleteKeyValue(string key_ruta,string key_name) {     //Función Elimina, solo la Llave eleccionad dentro del contenedor
+            message = deleteRegistry_conteinerAndValue(true, key_ruta,key_name);
+            return message;
+        }
 
-
-
-
-
-
-
-    
         private string readRegistry_valueString(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/){
 
             try {
@@ -77,7 +80,7 @@ namespace RegistryTools.Libs {
   
             return message; 
         }
-        private string createOrWriteRegistry_conteinerAndValue(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/,string key_values/*valores de la llave*/, byte key_value_type) {
+        private string createOrWriteRegistry_conteinerAndValue(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/,string key_conteiner/*Nombre del contenedor*/,string key_values/*valores de la llave*/, byte key_value_type) {
 
 
             //Si el nombre de la llave *Key_name* está vacía, entonces 
@@ -107,7 +110,7 @@ namespace RegistryTools.Libs {
                      *          6   =       Expandable String                                                           */
                     case 0:
                         //Solo se crea el conteiner, y no una llave
-                        Registry.SetValue(key_ruta, key_name, key_values);  
+                        Registry.SetValue(key_ruta+@"\"+key_conteiner, key_name, key_values);  
                     break;
 
                     case 1:
@@ -116,15 +119,15 @@ namespace RegistryTools.Libs {
                     break;
 
                     case 2:
-                        Registry.SetValue(key_ruta, key_name, key_value_n,RegistryValueKind.Binary);   // Se crea la llave en el registro
+                        Registry.SetValue(key_ruta, key_name, key_values,RegistryValueKind.Binary);   // Se crea la llave en el registro
                     break;
 
                     case 3:
-                        Registry.SetValue(key_ruta, key_name, key_value_n, RegistryValueKind.DWord);   // Se crea la llave en el registro
+                        Registry.SetValue(key_ruta, key_name, key_values, RegistryValueKind.DWord);   // Se crea la llave en el registro
                     break;
 
                     case 4:
-                        Registry.SetValue(key_ruta, key_name, key_value_n, RegistryValueKind.QWord);   // Se crea la llave en el registro
+                        Registry.SetValue(key_ruta, key_name, key_values, RegistryValueKind.QWord);   // Se crea la llave en el registro
                     break;
 
                     case 5:
@@ -140,21 +143,6 @@ namespace RegistryTools.Libs {
                     break;
                 }
 
-
-
-
-                
-
-
-
-
-
-
-
-
-
-
-
                 //Condición para fines de personalización del mensaje
                 if (key_name == "") {
                     message = "Se creo el contenedor";
@@ -169,7 +157,7 @@ namespace RegistryTools.Libs {
             //Retorna el mensaje
             return message;
         }
-        private string deleteRegistry_conteinerAndValue(bool value/*Verifica si se usara valores*/, string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/, string key_value) {
+        private string deleteRegistry_conteinerAndValue(bool value/*Verifica si se usara valores*/, string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/) {
                     
             //Se verificará que la ruta del registro no esté vacía
             if (key_ruta == "") {
@@ -243,7 +231,7 @@ namespace RegistryTools.Libs {
             }
             else{               //Se borrara solo el contenedor
                 key_name = "";
-                key_value = "";
+
                 
                 try {
                     RegistryKey k;
@@ -286,6 +274,10 @@ namespace RegistryTools.Libs {
             }
             return message;
         }
+
+
+
+        //Éstas son funciones, propias de la librería, no modificar..
         private string getTypeRegistry(string key_ruta){
             /* 
              * Ésta función recorrerá toda la variable °key_ruta°
