@@ -61,7 +61,20 @@ En el apartado de Backup, se buscará realizar una copia de seguridad de los reg
 ## Función - Crear Contenedor
 No hay misterio, solo tenemos que colocar la ruta y el nombre que deseamos que tenga nuestra carpeta contenedora
 ````csharp
-    // La documentación está en proceso de escritura, en estos días se terminará por completo, porfavor espere...
+// key_ruta     = Ruta de Regedit de Windows
+string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+
+// key_Conteiner     = Es el nombre que tendrá la carpeta contenedora
+string key_Conteiner = "Soy un contenedor";
+
+//message       = Se mostrará un mensaje de exito si se ejecutocorrectamente o uno de error si hubo algún inconveniente
+string message = "";
+
+//Ejecutando
+message = registro.createConteiner(key_ruta, key_Conteiner);
+
+// Muestra en consola mensaje de error o exito
+Console.WriteLine(message);
 ````
 ---
 ## Función - Crear llave
@@ -143,7 +156,7 @@ string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 string message = "";
 
 //Ejecutando
-message = registro.deleteConteinerAll(key_ruta, );
+message = registro.deleteConteinerAll(key_ruta);
 
 // Muestra en consola mensaje de error o exito
 Console.WriteLine(message);
