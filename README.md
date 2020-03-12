@@ -239,5 +239,5 @@ You also need to install the following individual components:
 ## By SebastianEPH
 - [Github](https://github.com/SebastianEPH)
 - [Facebook](https://www.facebook.com/SebastianEPH)
-- [Linkin](https://www.linkedin.com/in/sebastianeph/)
+- [Linkedin](https://www.linkedin.com/in/sebastianeph/)
 ---
