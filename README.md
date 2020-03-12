@@ -5,37 +5,6 @@
 ## Descripción
 Ésta librería está pensaba para crear, leer y eliminar llaves, sin escribir tanto codigo, o tener que saber muchos sobre los registros de Windows
 
-
-<!-- Herramientas -->
-# Registros:
- **Cuenta con un apartado completo para la siguientes herramientas.**
-![FWO-Regedit](https://i.imgur.com/VxvRqCN.png)
-- Lee Registros
-    - Ingresa la ruta de la llave, y poderá obtener el valor dentro de ella
-- Crea Contenedor de Registros
-    - Ingrese la ruta donde desea crear el contenedor e ingrese el nombre
-- Crea Llave de Registros
-    - Ingrese la ruta del contenedor donde desea crear la llave de registro
-    - **El valor de la llave puede tener distintos formatos**
-```md
-            *String Value*
-            *Binarie Value*
-            *DWORD (32bits) Value*
-            *QWORD (64bits) Value*
-            *Multi-String Value*
-            *Expandable String* 
-```    
-- Elimina Registros
-    - Puede eliminar un contenedor con todas la llaves adentro
-    - Puede eliminar solo una llave especifica
-
-En el apartado de Backup, se buscará realizar una copia de seguridad de los registros importantes del sistema, como por ejemplo:
-- Programas que se inician automaticamente al encender la PC
-- Información de Extensión de Archivos
-    - Programas predeterminados al abrir x archivo
-- clic derecho del Mouse
-    -Información 
- 
 <!-- Información de codificación -->
 # ¿Cómo uso la librería?
 1. Coloque el archivo *Regedit.cs* dentro de su proyecto. 
@@ -54,9 +23,8 @@ En el apartado de Backup, se buscará realizar una copia de seguridad de los reg
     ````
 **NOTA:** Cada vez que desee usar las funciones de la librería, deberá llamarlo con el nombre *registro* o el nombre que ustedes escogieron.
 # Uso de Funciones
- **NOTA:** Es importante detallar que todas éstas funciones devolverán un mensaje de `"Exito"` o `"Error"`, según sea el caso,
- Cuando la función sea llamada, deberá almacenarse en una variable tipo `string ` o `String`
----
+**NOTA:** Es importante detallar que todas éstas funciones devolverán un mensaje de `"Exito"` o `"Error"`, según sea el caso. Cuando la función sea llamada, deberá almacenarse en una variable tipo `string ` o `String`.
+
 <!-- Funciones e información de usos -->
 ## Función - Crear Contenedor
 No hay misterio, solo tenemos que colocar la ruta y el nombre que deseamos que tenga nuestra carpeta contenedora
@@ -213,9 +181,21 @@ message = registro.deleteKeyValue(key_ruta, key_name);
 // Muestra en consola mensaje de error o exito
 Console.WriteLine(message);
 ````
+# Software Funcional de la librería
+Éste pequeño formulario fue creado, solo con el fin de mostrar cada una de las funcionalidades de ésta librería.
+### Crear Contenedor:
+![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
 
-
-
+Podemos observar que se creó *Conteiner* dentro de la *Software*
+![función - crear conteiner - regedit ](https://i.imgur.com/IO0ZMYt.png)
+### Crear Llave:
+![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
+### Leer llave:
+![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
+### Eliminar llave:
+![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
+### Eliminar contenedor:
+![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
 # Código Fuente
 Éste proyecto se creó con el IDE Visual Studio 2019 [Puedes obtener la version comunidad gratis aquí](https://www.visualstudio.com/vs/community/).
 Verificar las siguientes herramientas estén descargadas e instaladas correctamente:
