@@ -60,19 +60,25 @@
             this.btnleerLlave_name = new System.Windows.Forms.TextBox();
             this.btnleerLlave_ruta = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.deleteLlave = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.deleteLlave_name = new System.Windows.Forms.TextBox();
+            this.deleteLlave_ruta = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.txt_info = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 18);
+            this.label1.Location = new System.Drawing.Point(31, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(378, 25);
             this.label1.TabIndex = 4;
@@ -80,7 +86,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(346, 268);
+            this.button6.Location = new System.Drawing.Point(361, 268);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(73, 23);
             this.button6.TabIndex = 2;
@@ -94,7 +100,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(24, 62);
+            this.tabControl1.Location = new System.Drawing.Point(20, 62);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(414, 190);
@@ -318,7 +324,7 @@
             // 
             // btnleerLave
             // 
-            this.btnleerLave.Location = new System.Drawing.Point(207, 107);
+            this.btnleerLave.Location = new System.Drawing.Point(15, 117);
             this.btnleerLave.Name = "btnleerLave";
             this.btnleerLave.Size = new System.Drawing.Size(165, 23);
             this.btnleerLave.TabIndex = 21;
@@ -329,7 +335,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(204, 15);
+            this.label6.Location = new System.Drawing.Point(204, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 13);
             this.label6.TabIndex = 18;
@@ -338,7 +344,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 91);
+            this.label8.Location = new System.Drawing.Point(12, 66);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(142, 13);
             this.label8.TabIndex = 19;
@@ -347,7 +353,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 34);
+            this.label9.Location = new System.Drawing.Point(12, 11);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 13);
             this.label9.TabIndex = 20;
@@ -355,7 +361,7 @@
             // 
             // btnleerLlave_valor
             // 
-            this.btnleerLlave_valor.Location = new System.Drawing.Point(207, 34);
+            this.btnleerLlave_valor.Location = new System.Drawing.Point(207, 85);
             this.btnleerLlave_valor.Multiline = true;
             this.btnleerLlave_valor.Name = "btnleerLlave_valor";
             this.btnleerLlave_valor.Size = new System.Drawing.Size(165, 55);
@@ -363,26 +369,73 @@
             // 
             // btnleerLlave_name
             // 
-            this.btnleerLlave_name.Location = new System.Drawing.Point(15, 110);
+            this.btnleerLlave_name.Location = new System.Drawing.Point(15, 91);
             this.btnleerLlave_name.Name = "btnleerLlave_name";
             this.btnleerLlave_name.Size = new System.Drawing.Size(165, 20);
             this.btnleerLlave_name.TabIndex = 16;
             // 
             // btnleerLlave_ruta
             // 
-            this.btnleerLlave_ruta.Location = new System.Drawing.Point(15, 53);
+            this.btnleerLlave_ruta.Location = new System.Drawing.Point(12, 30);
             this.btnleerLlave_ruta.Name = "btnleerLlave_ruta";
-            this.btnleerLlave_ruta.Size = new System.Drawing.Size(165, 20);
+            this.btnleerLlave_ruta.Size = new System.Drawing.Size(379, 20);
             this.btnleerLlave_ruta.TabIndex = 17;
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.deleteLlave);
+            this.tabPage4.Controls.Add(this.label10);
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Controls.Add(this.deleteLlave_name);
+            this.tabPage4.Controls.Add(this.deleteLlave_ruta);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(406, 164);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Eliminar Llave";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // deleteLlave
+            // 
+            this.deleteLlave.Location = new System.Drawing.Point(41, 117);
+            this.deleteLlave.Name = "deleteLlave";
+            this.deleteLlave.Size = new System.Drawing.Size(324, 23);
+            this.deleteLlave.TabIndex = 8;
+            this.deleteLlave.Text = "Ejecutar";
+            this.deleteLlave.UseVisualStyleBackColor = true;
+            this.deleteLlave.Click += new System.EventHandler(this.btndeleteLlave);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(41, 72);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(165, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Ingrese el nombre del contenedor";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(41, 24);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 13);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Ingrese la ruta:";
+            // 
+            // deleteLlave_name
+            // 
+            this.deleteLlave_name.Location = new System.Drawing.Point(41, 91);
+            this.deleteLlave_name.Name = "deleteLlave_name";
+            this.deleteLlave_name.Size = new System.Drawing.Size(165, 20);
+            this.deleteLlave_name.TabIndex = 4;
+            // 
+            // deleteLlave_ruta
+            // 
+            this.deleteLlave_ruta.Location = new System.Drawing.Point(41, 43);
+            this.deleteLlave_ruta.Name = "deleteLlave_ruta";
+            this.deleteLlave_ruta.Size = new System.Drawing.Size(324, 20);
+            this.deleteLlave_ruta.TabIndex = 5;
             // 
             // tabPage5
             // 
@@ -396,7 +449,7 @@
             // txt_info
             // 
             this.txt_info.AutoSize = true;
-            this.txt_info.Location = new System.Drawing.Point(25, 278);
+            this.txt_info.Location = new System.Drawing.Point(21, 268);
             this.txt_info.Name = "txt_info";
             this.txt_info.Size = new System.Drawing.Size(16, 13);
             this.txt_info.TabIndex = 2;
@@ -406,7 +459,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 318);
+            this.ClientSize = new System.Drawing.Size(452, 306);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.txt_info);
             this.Controls.Add(this.label1);
@@ -420,6 +473,8 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,6 +515,11 @@
         private System.Windows.Forms.TextBox btnleerLlave_valor;
         private System.Windows.Forms.TextBox btnleerLlave_name;
         private System.Windows.Forms.TextBox btnleerLlave_ruta;
+        private System.Windows.Forms.Button deleteLlave;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox deleteLlave_name;
+        private System.Windows.Forms.TextBox deleteLlave_ruta;
     }
 }
 

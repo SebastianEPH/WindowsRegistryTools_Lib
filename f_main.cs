@@ -67,7 +67,6 @@ namespace RegistryTools {
         }
 
         private void btnleerLlave(object sender, EventArgs e) {
-            
 
             string ruta = btnleerLlave_ruta.Text.ToString();
 
@@ -76,11 +75,19 @@ namespace RegistryTools {
             //Valor tipos texto
             string valor = createLlave_value.Text.ToString();
 
+            txt_info.Text = btnleerLlave_valor.Text = registro.readKeyValue(ruta,nombre);
+        }
 
-            btnleerLlave_valor.Text = registro.readKeyValue(ruta,nombre);
+        private void btndeleteLlave(object sender, EventArgs e) {
 
+            string ruta = deleteLlave_ruta.Text.ToString();
 
+            // nombre del la llave
+            string nombre = deleteLlave_name.Text.ToString();
 
+            txt_info.Text = registro.deleteKeyValue(ruta, nombre);
+            
         }
     }  
+
 }
