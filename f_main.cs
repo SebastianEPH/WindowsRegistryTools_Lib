@@ -35,8 +35,37 @@ namespace RegistryTools {
             string valors = createLlave_value.Text.ToString();
             //Valor tipo Entero
             int valori = 0;
-            // El mensaje de confirmación o de Falló se mostrará en la pantalla
-            txt_info.Text = registro.createKeyValue_String(ruta, nombre, valors);
+
+            // String
+            if (rb_String.Checked) {
+                // El mensaje de confirmación o de Falló se mostrará en la pantalla
+                txt_info.Text = registro.createKeyValue_String(ruta, nombre, valors);
+            }
+            //Binarie
+            if (rb_binarie.Checked) {
+                // El mensaje de confirmación o de Falló se mostrará en la pantalla
+              //  txt_info.Text = registro.createKeyValue_Binarie(ruta, nombre, valori);
+            }
+            //DWORD
+            if (rb_DWORD.Checked) {
+                // El mensaje de confirmación o de Falló se mostrará en la pantalla
+                //txt_info.Text = registro.createKeyValue_DWORD(ruta, nombre, valori);
+            }
+            //QWORD
+            if (rb_QWORD.Checked) {
+                // El mensaje de confirmación o de Falló se mostrará en la pantalla
+                //txt_info.Text = registro.createKeyValue_QWORD(ruta, nombre, valori);
+            }
+            //MultiString
+            if (rb_multiString.Checked) {
+                // El mensaje de confirmación o de Falló se mostrará en la pantalla
+                txt_info.Text = registro.createKeyValue_String(ruta, nombre, valors);
+            }
+            //Expandable String
+            if (rb_expString.Checked) {
+                // El mensaje de confirmación o de Falló se mostrará en la pantalla
+                //txt_info.Text = registro.createKeyValue_ExpandableString(ruta, nombre, valors);
+            }
         }
 
      

@@ -38,23 +38,23 @@
             this.crearConteiner_Contenedor = new System.Windows.Forms.TextBox();
             this.crearConteiner_ruta = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rb_String = new System.Windows.Forms.RadioButton();
+            this.rb_expString = new System.Windows.Forms.RadioButton();
+            this.rb_multiString = new System.Windows.Forms.RadioButton();
+            this.rb_DWORD = new System.Windows.Forms.RadioButton();
+            this.rb_QWORD = new System.Windows.Forms.RadioButton();
+            this.rb_binarie = new System.Windows.Forms.RadioButton();
             this.crearLlave = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.createLlave_value = new System.Windows.Forms.TextBox();
             this.crearLlave_name = new System.Windows.Forms.TextBox();
             this.crearLlave_ruta = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.txt_info = new System.Windows.Forms.Label();
-            this.createLlave_value = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.rb_binario = new System.Windows.Forms.RadioButton();
-            this.rb_QWORD = new System.Windows.Forms.RadioButton();
-            this.rb_DWORD = new System.Windows.Forms.RadioButton();
-            this.rb_multiString = new System.Windows.Forms.RadioButton();
-            this.rb_expString = new System.Windows.Forms.RadioButton();
-            this.rb_String = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -156,7 +156,7 @@
             this.tabPage2.Controls.Add(this.rb_multiString);
             this.tabPage2.Controls.Add(this.rb_DWORD);
             this.tabPage2.Controls.Add(this.rb_QWORD);
-            this.tabPage2.Controls.Add(this.rb_binario);
+            this.tabPage2.Controls.Add(this.rb_binarie);
             this.tabPage2.Controls.Add(this.crearLlave);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label4);
@@ -172,6 +172,68 @@
             this.tabPage2.Text = "Crear Llave";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // rb_String
+            // 
+            this.rb_String.AutoSize = true;
+            this.rb_String.Checked = true;
+            this.rb_String.Location = new System.Drawing.Point(200, 21);
+            this.rb_String.Name = "rb_String";
+            this.rb_String.Size = new System.Drawing.Size(81, 17);
+            this.rb_String.TabIndex = 14;
+            this.rb_String.TabStop = true;
+            this.rb_String.Text = "String value";
+            this.rb_String.UseVisualStyleBackColor = true;
+            // 
+            // rb_expString
+            // 
+            this.rb_expString.AutoSize = true;
+            this.rb_expString.Location = new System.Drawing.Point(283, 21);
+            this.rb_expString.Name = "rb_expString";
+            this.rb_expString.Size = new System.Drawing.Size(108, 17);
+            this.rb_expString.TabIndex = 13;
+            this.rb_expString.Text = "ExpandableString";
+            this.rb_expString.UseVisualStyleBackColor = true;
+            // 
+            // rb_multiString
+            // 
+            this.rb_multiString.AutoSize = true;
+            this.rb_multiString.Location = new System.Drawing.Point(200, 113);
+            this.rb_multiString.Name = "rb_multiString";
+            this.rb_multiString.Size = new System.Drawing.Size(103, 17);
+            this.rb_multiString.TabIndex = 12;
+            this.rb_multiString.Text = "MultiString value";
+            this.rb_multiString.UseVisualStyleBackColor = true;
+            // 
+            // rb_DWORD
+            // 
+            this.rb_DWORD.AutoSize = true;
+            this.rb_DWORD.Location = new System.Drawing.Point(200, 67);
+            this.rb_DWORD.Name = "rb_DWORD";
+            this.rb_DWORD.Size = new System.Drawing.Size(97, 17);
+            this.rb_DWORD.TabIndex = 11;
+            this.rb_DWORD.Text = "DWORD value";
+            this.rb_DWORD.UseVisualStyleBackColor = true;
+            // 
+            // rb_QWORD
+            // 
+            this.rb_QWORD.AutoSize = true;
+            this.rb_QWORD.Location = new System.Drawing.Point(200, 90);
+            this.rb_QWORD.Name = "rb_QWORD";
+            this.rb_QWORD.Size = new System.Drawing.Size(97, 17);
+            this.rb_QWORD.TabIndex = 10;
+            this.rb_QWORD.Text = "QWORD value";
+            this.rb_QWORD.UseVisualStyleBackColor = true;
+            // 
+            // rb_binarie
+            // 
+            this.rb_binarie.AutoSize = true;
+            this.rb_binarie.Location = new System.Drawing.Point(200, 44);
+            this.rb_binarie.Name = "rb_binarie";
+            this.rb_binarie.Size = new System.Drawing.Size(86, 17);
+            this.rb_binarie.TabIndex = 9;
+            this.rb_binarie.Text = "Binarie value";
+            this.rb_binarie.UseVisualStyleBackColor = true;
+            // 
             // crearLlave
             // 
             this.crearLlave.Location = new System.Drawing.Point(200, 135);
@@ -181,6 +243,15 @@
             this.crearLlave.Text = "Ejecutar";
             this.crearLlave.UseVisualStyleBackColor = true;
             this.crearLlave.Click += new System.EventHandler(this.btncrearLlave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 109);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Valor de la llave";
             // 
             // label4
             // 
@@ -199,6 +270,13 @@
             this.label5.Size = new System.Drawing.Size(77, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Ingrese la ruta:";
+            // 
+            // createLlave_value
+            // 
+            this.createLlave_value.Location = new System.Drawing.Point(18, 128);
+            this.createLlave_value.Name = "createLlave_value";
+            this.createLlave_value.Size = new System.Drawing.Size(165, 20);
+            this.createLlave_value.TabIndex = 4;
             // 
             // crearLlave_name
             // 
@@ -250,84 +328,6 @@
             this.txt_info.TabIndex = 2;
             this.txt_info.Text = "---";
             // 
-            // createLlave_value
-            // 
-            this.createLlave_value.Location = new System.Drawing.Point(18, 128);
-            this.createLlave_value.Name = "createLlave_value";
-            this.createLlave_value.Size = new System.Drawing.Size(165, 20);
-            this.createLlave_value.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 109);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Valor de la llave";
-            // 
-            // rb_binario
-            // 
-            this.rb_binario.AutoSize = true;
-            this.rb_binario.Location = new System.Drawing.Point(200, 44);
-            this.rb_binario.Name = "rb_binario";
-            this.rb_binario.Size = new System.Drawing.Size(86, 17);
-            this.rb_binario.TabIndex = 9;
-            this.rb_binario.Text = "Binario value";
-            this.rb_binario.UseVisualStyleBackColor = true;
-            // 
-            // rb_QWORD
-            // 
-            this.rb_QWORD.AutoSize = true;
-            this.rb_QWORD.Location = new System.Drawing.Point(200, 90);
-            this.rb_QWORD.Name = "rb_QWORD";
-            this.rb_QWORD.Size = new System.Drawing.Size(97, 17);
-            this.rb_QWORD.TabIndex = 10;
-            this.rb_QWORD.Text = "QWORD value";
-            this.rb_QWORD.UseVisualStyleBackColor = true;
-            // 
-            // rb_DWORD
-            // 
-            this.rb_DWORD.AutoSize = true;
-            this.rb_DWORD.Location = new System.Drawing.Point(200, 67);
-            this.rb_DWORD.Name = "rb_DWORD";
-            this.rb_DWORD.Size = new System.Drawing.Size(97, 17);
-            this.rb_DWORD.TabIndex = 11;
-            this.rb_DWORD.Text = "DWORD value";
-            this.rb_DWORD.UseVisualStyleBackColor = true;
-            // 
-            // rb_multiString
-            // 
-            this.rb_multiString.AutoSize = true;
-            this.rb_multiString.Location = new System.Drawing.Point(200, 113);
-            this.rb_multiString.Name = "rb_multiString";
-            this.rb_multiString.Size = new System.Drawing.Size(103, 17);
-            this.rb_multiString.TabIndex = 12;
-            this.rb_multiString.Text = "MultiString value";
-            this.rb_multiString.UseVisualStyleBackColor = true;
-            // 
-            // rb_expString
-            // 
-            this.rb_expString.AutoSize = true;
-            this.rb_expString.Location = new System.Drawing.Point(283, 21);
-            this.rb_expString.Name = "rb_expString";
-            this.rb_expString.Size = new System.Drawing.Size(108, 17);
-            this.rb_expString.TabIndex = 13;
-            this.rb_expString.Text = "ExpandableString";
-            this.rb_expString.UseVisualStyleBackColor = true;
-            // 
-            // rb_String
-            // 
-            this.rb_String.AutoSize = true;
-            this.rb_String.Checked = true;
-            this.rb_String.Location = new System.Drawing.Point(200, 21);
-            this.rb_String.Name = "rb_String";
-            this.rb_String.Size = new System.Drawing.Size(81, 17);
-            this.rb_String.TabIndex = 14;
-            this.rb_String.TabStop = true;
-            this.rb_String.Text = "String value";
-            this.rb_String.UseVisualStyleBackColor = true;
-            // 
             // f_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,7 +376,7 @@
         private System.Windows.Forms.RadioButton rb_multiString;
         private System.Windows.Forms.RadioButton rb_DWORD;
         private System.Windows.Forms.RadioButton rb_QWORD;
-        private System.Windows.Forms.RadioButton rb_binario;
+        private System.Windows.Forms.RadioButton rb_binarie;
     }
 }
 
