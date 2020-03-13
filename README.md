@@ -113,28 +113,9 @@ Console.WriteLine(message);
 ````
 
 ## Función - Leer llaves
-### Obtiene Valores tipo: (Binario, DWORD, QWORD).
-
+**NOTA:** 13/03/20 Hay un problema al leer valores tipos (MultiString), se pretende resolver éste problema en las proximas actualizaciones
 ````csharp
 // key_ruta     = Ruta de Regedit de Windows
-string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
-
-// key_name     = Es el nombre que tendrá llave
-string key_name = "activate";
-
-//message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
-string message = "";
-
-//Ejecutando
-message = registro.readKeyValueInt(key_ruta,key_name);
-
-// Devolverá el valor de la llave key_name, en un String
-Console.WriteLine(message);
-````
-### Obtiene Valores tipo: (String, Multi-String, Expanz-String).
-
-````csharp
-    // key_ruta     = Ruta de Regedit de Windows
 string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 
 // key_name     = Es el nombre que tendrá llave
@@ -144,7 +125,7 @@ string key_name = "licencia";
 string message = "";
 
 //Ejecutando
-message = registro.readKeyValueString(key_ruta,key_name);
+message = registro.readKeyValue(key_ruta,key_name);
 
 // Devolverá el valor de la llave key_name, en un String
 Console.WriteLine(message);
