@@ -6,14 +6,10 @@ using System.Windows.Forms;
 namespace RegistryTools {
     public partial class f_main : Form
     {
-
         Regedit registro = new Regedit();
         public f_main(){
             InitializeComponent();
-           
-
         }
-
         private void btnCrearContenedor(object sender, EventArgs e) {
             // Ruta completa del registro
             //Ejemplo: @"HKEY_CURRENT_USER\Contenedor1"
@@ -35,10 +31,11 @@ namespace RegistryTools {
             string valors = createLlave_value.Text.ToString();
             //Valor tipo Entero
             int valori = 0;
-
+            
             // String
             if (rb_String.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
+               
                 txt_info.Text = registro.createKeyValue_String(ruta, nombre, valors);
             }
             //Binarie
@@ -59,7 +56,8 @@ namespace RegistryTools {
             //MultiString
             if (rb_multiString.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
-                txt_info.Text = registro.createKeyValue_String(ruta, nombre, valors);
+               this.createLlave_value.Multiline = true;
+                txt_info.Text = registro.createKeyValue_MultiString(ruta, nombre, valors);
             }
             //Expandable String
             if (rb_expString.Checked) {
@@ -67,8 +65,6 @@ namespace RegistryTools {
                 //txt_info.Text = registro.createKeyValue_ExpandableString(ruta, nombre, valors);
             }
         }
-
-     
     }
     
 }

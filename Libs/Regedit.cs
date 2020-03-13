@@ -24,12 +24,15 @@ namespace RegistryTools.Libs {
     /// {
     ///     Console.WriteLine(c);
     /// }
+    
     /// </code>
     /// </example>
     /// <param name="a">paremtros info .</param>
     /// <param name="b">A double precision number.</param>
     /// <exception cref="System.DivideByZeroException">Marcará error si tu no ingresas o ingrasas tal cosa</exception>
     class Regedit {
+
+
         private string message = "";
 
         /// <summary>
@@ -41,7 +44,7 @@ namespace RegistryTools.Libs {
             /// key_values   = Son los valores que almacenará la llave - String
             return message = createOrWriteRegistry_conteinerAndValue(key_ruta, key_name,"",key_values,1);
         }
-
+         
         /// <summary>
         /// Creará una llave de Registro tipo Binario
         /// </summary>
@@ -67,8 +70,11 @@ namespace RegistryTools.Libs {
         /// Creará una llave de Registro tipo MultiString
         /// Permite guardar una llave con saltos de linea
         /// </summary>
-        public void createKeyValue_MultiString() {
-
+        public string createKeyValue_MultiString(string key_ruta, string key_name, string key_values) {
+            /// key_ruta     = Ruta de Regedit de Windows
+            /// key_name     = Es el nombre que tendrá llave
+            /// key_values   = Son los valores que almacenará la llave - String
+            return message = createOrWriteRegistry_conteinerAndValue(key_ruta, key_name, "", key_values, 5);
         }
 
         /// <summary>
@@ -120,6 +126,7 @@ namespace RegistryTools.Libs {
         public string readKeyValueInt(string key_ruta, string key_name) {
             readRegistry_valueString(key_ruta, key_name, false);
             return message;
+         
         }
 
 
@@ -161,7 +168,6 @@ namespace RegistryTools.Libs {
         }
         private string createOrWriteRegistry_conteinerAndValue(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/,string key_conteiner/*Nombre del contenedor*/,string key_values/*valores de la llave*/, byte key_value_type) {
 
-
             //Si el nombre de la llave *Key_name* está vacía, entonces 
             //no se creará la llave, solo las carpetas contendoras
             if (key_ruta == "") {
@@ -173,8 +179,6 @@ namespace RegistryTools.Libs {
                 // convertirá el *key_value* a vacío
                 key_values = "";
             }
-
-
             //Crea o Escribe una llave del registro
             try {
 
