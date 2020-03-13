@@ -67,11 +67,15 @@
             this.deleteLlave_ruta = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.txt_info = new System.Windows.Forms.Label();
+            this.btndeleteAll = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.deleteAll_ruta = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -86,7 +90,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(361, 268);
+            this.button6.Location = new System.Drawing.Point(361, 263);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(73, 23);
             this.button6.TabIndex = 2;
@@ -439,6 +443,9 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.btndeleteAll);
+            this.tabPage5.Controls.Add(this.label13);
+            this.tabPage5.Controls.Add(this.deleteAll_ruta);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(406, 164);
@@ -449,17 +456,43 @@
             // txt_info
             // 
             this.txt_info.AutoSize = true;
-            this.txt_info.Location = new System.Drawing.Point(21, 268);
+            this.txt_info.Location = new System.Drawing.Point(33, 268);
             this.txt_info.Name = "txt_info";
             this.txt_info.Size = new System.Drawing.Size(16, 13);
             this.txt_info.TabIndex = 2;
             this.txt_info.Text = "---";
             // 
+            // btndeleteAll
+            // 
+            this.btndeleteAll.Location = new System.Drawing.Point(40, 107);
+            this.btndeleteAll.Name = "btndeleteAll";
+            this.btndeleteAll.Size = new System.Drawing.Size(324, 23);
+            this.btndeleteAll.TabIndex = 13;
+            this.btndeleteAll.Text = "Ejecutar";
+            this.btndeleteAll.UseVisualStyleBackColor = true;
+            this.btndeleteAll.Click += new System.EventHandler(this.btndeleteAll_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(40, 28);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 13);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Ingrese la ruta:";
+            // 
+            // deleteAll_ruta
+            // 
+            this.deleteAll_ruta.Location = new System.Drawing.Point(40, 47);
+            this.deleteAll_ruta.Name = "deleteAll_ruta";
+            this.deleteAll_ruta.Size = new System.Drawing.Size(324, 20);
+            this.deleteAll_ruta.TabIndex = 10;
+            // 
             // f_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 306);
+            this.ClientSize = new System.Drawing.Size(452, 298);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.txt_info);
             this.Controls.Add(this.label1);
@@ -475,6 +508,8 @@
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,6 +555,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox deleteLlave_name;
         private System.Windows.Forms.TextBox deleteLlave_ruta;
+        private System.Windows.Forms.Button btndeleteAll;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox deleteAll_ruta;
     }
 }
 

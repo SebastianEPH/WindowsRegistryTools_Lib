@@ -99,6 +99,7 @@ namespace RegistryTools.Libs {
         /// Eliminará la carpeta y todas las llaves de dicha carpeta contenedora.
         /// </summary>
         public string deleteConteinerAll(string key_ruta) {
+
             message = deleteRegistry_conteinerAndValue(false,key_ruta,"");
             return message;
         }
@@ -123,8 +124,6 @@ namespace RegistryTools.Libs {
         /// Lee el valor que tenga la llave tipo Entero
         /// Devolverá un String
         /// </summary>
-
-
 
         private string readRegistry_valueString(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/){
 

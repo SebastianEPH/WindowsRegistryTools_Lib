@@ -81,12 +81,14 @@ namespace RegistryTools {
         private void btndeleteLlave(object sender, EventArgs e) {
 
             string ruta = deleteLlave_ruta.Text.ToString();
-
-            // nombre del la llave
             string nombre = deleteLlave_name.Text.ToString();
-
-            txt_info.Text = registro.deleteKeyValue(ruta, nombre);
+            txt_info.Text = registro.deleteKeyValue(ruta,nombre);
             
+        }
+
+        private void btndeleteAll_Click(object sender, EventArgs e) {
+            string ruta = deleteAll_ruta.Text.ToString();
+            txt_info.Text = registro.deleteConteinerAll(ruta);
         }
     }  
 
