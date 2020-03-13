@@ -170,13 +170,13 @@ Console.WriteLine(message);
 Podemos observar que se creó *Conteiner* dentro de la *Software*
 ![función - crear conteiner - regedit ](https://i.imgur.com/IO0ZMYt.png)
 ### Crear Llave:
-![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
+![función - Llave](https://i.imgur.com/qp6BicO.png)
 ### Leer llave:
-![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
+![función - Leer Llave](https://i.imgur.com/9TfWNW2.png)
 ### Eliminar llave:
-![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
+![función - Eliminar Llave](https://i.imgur.com/aASUe3w.png)
 ### Eliminar contenedor:
-![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
+![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png)
 # Código Fuente
 Éste proyecto se creó con el IDE Visual Studio 2019 [Puedes obtener la version comunidad gratis aquí](https://www.visualstudio.com/vs/community/).
 Verificar las siguientes herramientas estén descargadas e instaladas correctamente:
