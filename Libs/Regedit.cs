@@ -114,8 +114,8 @@ namespace RegistryTools.Libs {
         /// Lee el valor que tenga la llave tipo texto
         /// Devolverá un String
         /// </summary>
-        public string readKeyValueString(string key_ruta , string key_name) {
-            readRegistry_valueString(key_ruta, key_name, true);
+        public string readKeyValue(string key_ruta , string key_name) {
+            readRegistry_valueString(key_ruta, key_name);
             return message;
         }
 
@@ -123,14 +123,10 @@ namespace RegistryTools.Libs {
         /// Lee el valor que tenga la llave tipo Entero
         /// Devolverá un String
         /// </summary>
-        public string readKeyValueInt(string key_ruta, string key_name) {
-            readRegistry_valueString(key_ruta, key_name, false);
-            return message;
-         
-        }
 
 
-        private string readRegistry_valueString(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/, bool type /*TRUE : string & FALSE: int*/){
+
+        private string readRegistry_valueString(string key_ruta /*Ruta completa del key*/, string key_name /*Nombre del Key*/){
 
             try {
 
@@ -143,17 +139,26 @@ namespace RegistryTools.Libs {
                     return message = "El nombre ingresado está vacío";
                 }
 
-                //True : El valor que se obtendrá es Tipo Cadena
-                //False: El valor que se obtendrá es Entero
-                if (type) {
-                    ///String
+                ////True : El valor que se obtendrá es Tipo Cadena
+                ////False: El valor que se obtendrá es Entero
+                //if (type) {
+                //    // String
+                    
+                //} else {
+                //    // Int
+                    
+                //    message = entero.ToString();
+                //}
+
+                try {
                     message = (string)Registry.GetValue(key_ruta, key_name, "¡No se encontró el Key!");
-                } else {
-                    /// Int
+                } catch (Exception e) {
                     int entero = 0;
                     entero = (int)Registry.GetValue(key_ruta, key_name, "¡No se encontró el Key!");
                     message = entero.ToString();
                 }
+
+
 
                 // Retorna el valor de la llave
                 // ó

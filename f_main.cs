@@ -65,6 +65,21 @@ namespace RegistryTools {
                 //txt_info.Text = registro.createKeyValue_ExpandableString(ruta, nombre, valors);
             }
         }
-    }
-    
+
+        private void btnleerLlave(object sender, EventArgs e) {
+            
+
+            string ruta = btnleerLlave_ruta.Text.ToString();
+
+            // nombre del la llave
+            string nombre = btnleerLlave_name.Text.ToString();
+            //Valor tipos texto
+            string valor = createLlave_value.Text.ToString();
+            //Valor tipo Entero
+
+   
+
+
+        }
+    }  
 }
