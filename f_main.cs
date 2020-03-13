@@ -75,9 +75,10 @@ namespace RegistryTools {
             string nombre = btnleerLlave_name.Text.ToString();
             //Valor tipos texto
             string valor = createLlave_value.Text.ToString();
-            //Valor tipo Entero
 
-   
+
+            btnleerLlave_valor.Text = registro.readKeyValue(ruta,nombre);
+
 
 
         }

@@ -153,9 +153,15 @@ namespace RegistryTools.Libs {
                 try {
                     message = (string)Registry.GetValue(key_ruta, key_name, "¡No se encontró el Key!");
                 } catch (Exception e) {
-                    int entero = 0;
-                    entero = (int)Registry.GetValue(key_ruta, key_name, "¡No se encontró el Key!");
-                    message = entero.ToString();
+                    try {
+                        int entero = 0;
+                        entero = (int)Registry.GetValue(key_ruta, key_name, "¡No se encontró el Key!");
+                        message = entero.ToString();
+                    } catch (Exception c) {
+                        long entero = 0;
+                        entero = (long)Registry.GetValue(key_ruta, key_name, "¡No se encontró el Key!");
+                        message = entero.ToString();
+                    }
                 }
 
 
