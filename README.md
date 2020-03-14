@@ -177,6 +177,11 @@ Podemos observar que se creó *Conteiner* dentro de la *Software*
 ![función - Eliminar Llave](https://i.imgur.com/aASUe3w.png)
 ### Eliminar contenedor:
 ![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png)
+# Código de errores u advertencias: 
+### E#R001 = La Ruta ingresada está vacía
+
+
+
 # Código Fuente
 Éste proyecto se creó con el IDE Visual Studio 2019 [Puedes obtener la version comunidad gratis aquí](https://www.visualstudio.com/vs/community/).
 Verificar las siguientes herramientas estén descargadas e instaladas correctamente:
