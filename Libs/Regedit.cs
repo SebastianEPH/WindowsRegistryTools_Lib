@@ -48,8 +48,71 @@ namespace RegistryTools.Libs {
         /// <summary>
         /// Creará una llave de Registro tipo Binario
         /// </summary>
-        public void createKeyValue_Binarie() {
+        public string createKeyValue_Binarie(string key_ruta, string key_name, string key_values) {
+            /// key_ruta     = Ruta de Regedit de Windows
+            /// key_name     = Es el nombre que tendrá llave
+            /// key_values   = Son los valores que almacenará la llave - String
+            string tipo = getTypeRegistry(key_ruta);
+            string ruta_sin_tipo = getKeyRutaSingetTypeRegistry(key_ruta);
 
+            RegistryKey k;
+
+            switch (tipo) {
+                case "HKEY_CLASSES_ROOT":
+                k = Registry.CurrentUser.CreateSubKey(ruta_sin_tipo,true);
+                k.SetValue("BinaryValue", new byte[] { 10, 43, 44, 45, 14, 255 }, RegistryValueKind.Binary);
+                
+                k.Close();
+                break;
+                case "HKEY_CURRENT_USER":
+                k = Registry.CurrentUser.OpenSubKey(ruta_sin_tipo, true);
+                // This overload supports QWord (long) values. 
+                k.SetValue("QuadWordValue", 42, RegistryValueKind.QWord);
+
+                // The following SetValue calls have the same effect as using the
+                // SetValue overload that does not specify RegistryValueKind.
+                //
+                k.SetValue("DWordValue", 42, RegistryValueKind.DWord);
+                k.SetValue("MultipleStringValue", new string[] { "One", "Two", "Three" }, RegistryValueKind.MultiString);
+                k.SetValue("BinaryValue", new byte[] { 10, 43, 44, 45, 14, 255 }, RegistryValueKind.Binary);
+                k.SetValue("StringValue", "The path is %PATH%", RegistryValueKind.String);
+
+                // This overload supports setting expandable string values. Compare
+                // the output from this value with the previous string value.
+                k.SetValue("ExpandedStringValue", "The path is %PATH%", RegistryValueKind.ExpandString);
+                k.Close();
+                break;
+                case "HKEY_LOCAL_MACHINE":
+                k = Registry.LocalMachine.OpenSubKey(ruta_sin_tipo, true);
+                k.DeleteValue(key_name);
+                k.Close();
+                break;
+                case "HKEY_USERS":
+                k = Registry.Users.OpenSubKey(ruta_sin_tipo, true);
+                k.DeleteValue(key_name);
+                k.Close();
+                break;
+                case "HKEY_CURRENT_CONFIG":
+                k = Registry.CurrentConfig.OpenSubKey(ruta_sin_tipo, true);
+                k.DeleteValue(key_name);
+                k.Close();
+                break;
+
+                default:
+                message = "Hubo un problema con la ruta ingresada";
+                break;
+            }
+
+
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey("RegistryValueKindExample");
+
+
+
+
+
+
+
+            return message;
         }
 
         /// <summary>
@@ -212,7 +275,7 @@ namespace RegistryTools.Libs {
                     break;
 
                     case 2:
-                        Registry.SetValue(key_ruta, key_name, key_values,RegistryValueKind.Binary);   // Se crea la llave en el registro
+                        Registry.SetValue(key_ruta, key_name, "",RegistryValueKind.Binary);   // Se crea la llave en el registro
                     break;
 
                     case 3:
@@ -368,10 +431,8 @@ namespace RegistryTools.Libs {
             return message;
         }
 
-
-
         //Éstas son funciones, propias de la librería, no modificar..
-        private string getTypeRegistry(string key_ruta){
+        public string getTypeRegistry(string key_ruta){
             /* 
              * Ésta función recorrerá toda la variable °key_ruta°
              * y retornará solo uno de los siguientes textos:
@@ -411,7 +472,7 @@ namespace RegistryTools.Libs {
             }
             return message;
         }   
-        private string getKeyRutaSingetTypeRegistry(string key_ruta){
+        public string getKeyRutaSingetTypeRegistry(string key_ruta){
             /* Ésta función leerá la variable *key_ruta* 
              * buscando y eliminando los siguientes textos
              * que se obtendrán de la función °getTypeRegistry°: 
@@ -451,7 +512,7 @@ namespace RegistryTools.Libs {
             return message;
 
         }
-        private string getConteinerRegistry(string key_ruta) {
+        public string getConteinerRegistry(string key_ruta) {
             
             /* Ésta función busca retornar el "CONTENEDOR" de la variable °key_ruta°
              * 
@@ -482,7 +543,7 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        private string getKeyRutaSingetConteinerRegistry(string key_ruta) {
+        public string getKeyRutaSingetConteinerRegistry(string key_ruta) {
             /* Ésta función busca eliminar el "TIPO DE REGISTRO" y el "CONTENEDOR" 
              * de la variable °key_ruta°
              * 

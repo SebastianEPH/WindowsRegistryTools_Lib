@@ -66,10 +66,11 @@
             this.deleteLlave_name = new System.Windows.Forms.TextBox();
             this.deleteLlave_ruta = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.txt_info = new System.Windows.Forms.Label();
             this.btndeleteAll = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.deleteAll_ruta = new System.Windows.Forms.TextBox();
+            this.txt_info = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -453,15 +454,6 @@
             this.tabPage5.Text = "Eliminar Contenedor";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // txt_info
-            // 
-            this.txt_info.AutoSize = true;
-            this.txt_info.Location = new System.Drawing.Point(33, 268);
-            this.txt_info.Name = "txt_info";
-            this.txt_info.Size = new System.Drawing.Size(16, 13);
-            this.txt_info.TabIndex = 2;
-            this.txt_info.Text = "---";
-            // 
             // btndeleteAll
             // 
             this.btndeleteAll.Location = new System.Drawing.Point(40, 107);
@@ -488,11 +480,31 @@
             this.deleteAll_ruta.Size = new System.Drawing.Size(324, 20);
             this.deleteAll_ruta.TabIndex = 10;
             // 
+            // txt_info
+            // 
+            this.txt_info.AutoSize = true;
+            this.txt_info.Location = new System.Drawing.Point(33, 268);
+            this.txt_info.Name = "txt_info";
+            this.txt_info.Size = new System.Drawing.Size(16, 13);
+            this.txt_info.TabIndex = 2;
+            this.txt_info.Text = "---";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(131, 268);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "ejecutar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // f_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 298);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.txt_info);
             this.Controls.Add(this.label1);
@@ -558,6 +570,7 @@
         private System.Windows.Forms.Button btndeleteAll;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox deleteAll_ruta;
+        private System.Windows.Forms.Button button1;
     }
 }
 

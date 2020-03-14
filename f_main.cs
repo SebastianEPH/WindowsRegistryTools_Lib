@@ -7,6 +7,7 @@ namespace RegistryTools {
     public partial class f_main : Form
     {
         Regedit registro = new Regedit();
+        Regedito registro3 = new Regedito();
         public f_main(){
             InitializeComponent();
         }
@@ -29,9 +30,8 @@ namespace RegistryTools {
             string nombre = crearLlave_name.Text.ToString();
             //Valor tipos texto
             string valors = createLlave_value.Text.ToString();
-            //Valor tipo Entero
-            int valori = 0;
-            
+
+
             // String
             if (rb_String.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
@@ -41,7 +41,7 @@ namespace RegistryTools {
             //Binarie
             if (rb_binarie.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
-              //  txt_info.Text = registro.createKeyValue_Binarie(ruta, nombre, valori);
+                txt_info.Text = registro.createKeyValue_Binarie(ruta, nombre, valors);
             }
             //DWORD
             if (rb_DWORD.Checked) {
@@ -89,6 +89,21 @@ namespace RegistryTools {
         private void btndeleteAll_Click(object sender, EventArgs e) {
             string ruta = deleteAll_ruta.Text.ToString();
             txt_info.Text = registro.deleteConteinerAll(ruta);
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            string key_ruta = crearConteiner_ruta.Text;
+
+
+            //Console.WriteLine("getType_Registry                  = " + registro.getTypeRegistry(key_ruta));
+            //Console.WriteLine("getKeyRutaSingetTypeRegistry      = " + registro.getKeyRutaSingetTypeRegistry(key_ruta));
+            //Console.WriteLine("ggetConteinerRegistry             = " + registro.getConteinerRegistry(key_ruta));
+            //Console.WriteLine("getKeyRutaSingetConteinerRegistry = " + registro.getKeyRutaSingetConteinerRegistry(key_ruta));
+
+
+            //Console.WriteLine(""+registro3.getTypeRegistry(key_ruta));
+            Console.WriteLine("" + registro3.routePath(key_ruta));
+
         }
     }  
 
