@@ -20,7 +20,30 @@ namespace RegistryTools.Libs {
 
 
         /// Funcionalidades pertenecientes solo a ésta librería, no modificar
+        public string getPathFiles(string path) {
+            //Obtenemos el dato
+            path = routePath(path);
 
+            //Verifica algún codigo de Error
+            if (path == "E#R001" || path == "E#R002") {
+                return path; //Devuelve el mensaje de error obtenido
+            }
+
+            int nini;
+            int nfin = path.Length;
+
+            int ver1 = path.IndexOf(getTypeRegistry(path)); //Ingles UK
+            if (ver1 != -1) {
+                // Significa que si se encontró ésta palabra
+                nini = getTypeRegistry(path).Length;
+                nfin = nfin - nini;
+                return path = path.Substring(nini, nfin);
+            }
+
+
+
+                return "";
+        }
         public string getTypeRegistry(string path) {
             /* 
              * Ésta función recorrerá toda la variable °path°

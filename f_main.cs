@@ -102,7 +102,7 @@ namespace RegistryTools {
 
 
             //Console.WriteLine(""+registro3.getTypeRegistry(key_ruta));
-            Console.WriteLine("" + registro3.getTypeRegistry(key_ruta));
+            Console.WriteLine("" + registro3.getPathFiles(key_ruta));
 
         }
     }  
