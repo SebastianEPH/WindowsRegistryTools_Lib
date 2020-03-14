@@ -491,12 +491,13 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Yellow;
             this.button1.Location = new System.Drawing.Point(131, 268);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(160, 23);
             this.button1.TabIndex = 7;
-            this.button1.Text = "ejecutar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Prueba de Bugs";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // f_main
