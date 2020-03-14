@@ -19,17 +19,14 @@ namespace RegistryTools.Libs {
             path = routePath(path);
 
 
+            int inin = getTypeRegistry(path).Length;
+            int ifin = path.Length;
+            
+            int ver = path.IndexOf(getTypeRegistry(path)); //Ingles UK
 
-        
-            int nini;
-            int nfin = path.Length;
-
-            int ver1 = path.IndexOf(path); //Ingles UK
-            if (ver1 != -1) {
+            if (ver != -1) {
                 // Significa que si se encontró ésta palabra
-                nini = getTypeRegistry(path).Length;
-                nfin = nfin - nini;
-                path = path.Substring(nini, nfin);
+                return  path.Substring(inin,ifin);
             }
 
 
@@ -86,35 +83,35 @@ namespace RegistryTools.Libs {
                 // Significa que si se encontró ésta palabra
                 ifin = @"HKEY_CLASSES_ROOT".Length;
                 
-                return path = path.Substring(inin, ifin);
+                return path.Substring(inin, ifin);
             }
             int user = path.IndexOf(@"HKEY_CURRENT_USER") - inin; //Ingles UK
             if (user != -1) {
                 // Significa que si se encontró ésta palabra
                 ifin = @"HKEY_CURRENT_USER".Length;
                 
-                return path = path.Substring(inin, ifin);
+                return path.Substring(inin, ifin);
             }
             int machine = path.IndexOf(@"HKEY_LOCAL_MACHINE") - inin; //Ingles UK
             if (machine != -1) {
                 // Significa que si se encontró ésta palabra
                 ifin = @"HKEY_LOCAL_MACHINE".Length;
                 
-                return path = path.Substring(inin, ifin);
+                return path.Substring(inin, ifin);
             }
             int users = path.IndexOf(@"HKEY_USERS") - inin; //Ingles UK
             if (users != -1) {
                 // Significa que si se encontró ésta palabra
                 ifin = @"HKEY_USERS".Length;
                 
-                return path = path.Substring(inin, ifin);
+                return path.Substring(inin, ifin);
             }
             int config = path.IndexOf(@"HKEY_CURRENT_CONFIG") - inin; //Ingles UK
             if (config != -1) {
                 // Significa que si se encontró ésta palabra
                 ifin = @"HKEY_CURRENT_CONFIG".Length;
                 
-                return path = path.Substring(inin, ifin);
+                return path.Substring(inin, ifin);
             }
             if (root == -1 && user == -1 && machine == -1 && users == -1 && config == -1) {
                 return "E#R002";   // Manda mensaje de error de ruta no valida
@@ -138,10 +135,10 @@ namespace RegistryTools.Libs {
             int nini;              // Número de caracter de Inicio
             int nfin = path.Length; // Número de caracter Final
 
-            //Si no existe la palabra - int ver1  = -1
+            //Si no existe la palabra - int ver  = -1
             int ver1 = path.IndexOf(@"Computer\"); //Ingles UK
 
-            //Si no existe la palabra - int ver1  = -1
+            //Si no existe la palabra - int ver  = -1
             int ver2 = path.IndexOf(@"Equipo\");   //Español
 
             if (ver2 != -1) {
@@ -156,7 +153,7 @@ namespace RegistryTools.Libs {
                 nfin = nfin - nini;
                 return path = path.Substring(nini, nfin);
             }
-            //if (ver1 == -1 && ver2 == -2) {
+            //if (ver == -1 && ver2 == -2) {
             //    return "";
             //}
             return path;

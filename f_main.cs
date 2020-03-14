@@ -103,10 +103,30 @@ namespace RegistryTools {
 
             Console.WriteLine("gettypeRegistry = "+registro3.getTypeRegistry(key_ruta));
             Console.WriteLine("reoutePath      = "+registro3.routePath(key_ruta));
-            Console.WriteLine("getSubFiles     = " + registro3.getSubFiles(key_ruta)+"-\n\n\n\n");
+           // Console.WriteLine("getSubFiles     = " + registro3.getSubFiles(key_ruta)+"-\n\n\n\n");
 
 
+            string path = registro3.routePath(key_ruta);
+            //string gettype = ;
 
+
+            int inin = registro3.getTypeRegistry(path).Length;
+            
+            int ifin = path.Length;
+            
+            //Verifica si encontró typeRegistry
+            int ver = path.IndexOf(registro3.getTypeRegistry(path)); //Ingles UK
+
+            if (ver != -1) {
+                // Significa que si se encontró ésta palabra
+              ifin = ifin - inin;
+                path.Substring(inin, ifin);
+            }
+
+        Console.WriteLine("Inin      = " + inin);
+            Console.WriteLine("Ifin      = " + ifin);
+            Console.WriteLine("Verificar = " + ver);
+            Console.WriteLine("Path      = " + path+"\n\n\n");
 
             //string path;
 
@@ -124,7 +144,7 @@ namespace RegistryTools {
             //if (root != -1) {
             //    // Significa que si se encontró ésta palabra
             //    ifin = @"HKEY_CLASSES_ROOT".Length;
-                
+
             //     path = path.Substring(inin, ifin);
             //}
             //int user = path.IndexOf(@"HKEY_CURRENT_USER"); //Ingles UK
@@ -132,7 +152,7 @@ namespace RegistryTools {
             //if (user != -1) {
             //    // Significa que si se encontró ésta palabra
             //    ifin = @"HKEY_CURRENT_USER".Length;
-                
+
             //    path = path.Substring(inin, ifin);
             //}
 
@@ -169,7 +189,7 @@ namespace RegistryTools {
             //    Console.WriteLine( "E#R002");   // Manda mensaje de error de ruta no valida
             //}
 
-            
+
             //Console.WriteLine("Esto es el ifin : " + ifin);
             //Console.WriteLine("Esto es el inin : " + inin);
             //Console.WriteLine("Esto es el USER : " + user);
