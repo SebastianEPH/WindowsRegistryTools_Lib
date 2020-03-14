@@ -61,46 +61,39 @@ namespace RegistryTools.Libs {
             if (root != -1) {
                 // Significa que si se encontró ésta palabra
                 nini = @"HKEY_CLASSES_ROOT".Length;
-                nfin = nfin - nini;
-                path = path.Substring(nini, nfin);
+                //nfin = nfin - nini;
+                return path = path.Substring(0, nini);
             }
             int user = path.IndexOf(@"HKEY_CURRENT_USER"); //Ingles UK
             if (user != -1) {
                 // Significa que si se encontró ésta palabra
                 nini = @"HKEY_CURRENT_USER".Length;
-                nfin = nfin - nini;
-                path = path.Substring(nini, nfin);
+                //nfin = nfin - nini;
+                return path = path.Substring(0,nini);
             }
             int machine = path.IndexOf(@"HKEY_LOCAL_MACHINE"); //Ingles UK
             if (machine != -1) {
                 // Significa que si se encontró ésta palabra
                 nini = @"HKEY_LOCAL_MACHINE".Length;
-                nfin = nfin - nini;
-                path = path.Substring(nini, nfin);
+                //nfin = nfin - nini;
+                return path = path.Substring(0, nini);
             }
             int users = path.IndexOf(@"HKEY_USERS"); //Ingles UK
             if (users != -1) {
                 // Significa que si se encontró ésta palabra
                 nini = @"HKEY_USERS".Length;
-                nfin = nfin - nini;
-                path = path.Substring(nini, nfin);
+                //nfin = nfin - nini;
+                return path = path.Substring(0, nini);
             }
             int config = path.IndexOf(@"HKEY_CURRENT_CONFIG"); //Ingles UK
             if (config != -1) {
                 // Significa que si se encontró ésta palabra
                 nini = @"HKEY_CURRENT_CONFIG".Length;
-                nfin = nfin - nini;
-                path = path.Substring(nini, nfin);
+                // nfin = nfin - nini;
+                return path = path.Substring(0, nini);
             }
 
-
-
-
-
-
-
-
-            return "";
+            return "E#R002 ";   // Manda mensaje de error de ruta no valida
            
         }
 
