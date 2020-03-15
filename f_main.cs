@@ -103,30 +103,65 @@ namespace RegistryTools {
 
             Console.WriteLine("gettypeRegistry = "+registro3.getTypeRegistry(key_ruta));
             Console.WriteLine("reoutePath      = "+registro3.routePath(key_ruta));
-           // Console.WriteLine("getSubFiles     = " + registro3.getSubFiles(key_ruta)+"-\n\n\n\n");
+           Console.WriteLine("getSubFiles      = " + registro3.getSubFiles(key_ruta)+"\n\n\n\n");
 
 
-            string path = registro3.routePath(key_ruta);
-            //string gettype = ;
 
 
-            int inin = registro3.getTypeRegistry(path).Length;
+
+
+
+
+
+
+
+
+
+            ////Ruta limpia
+            //string path = registro3.routePath(key_ruta);
+            ////string gettype = ;
+
+            ////    // Tipo de R
+
             
-            int ifin = path.Length;
+
             
-            //Verifica si encontró typeRegistry
-            int ver = path.IndexOf(registro3.getTypeRegistry(path)); //Ingles UK
 
-            if (ver != -1) {
-                // Significa que si se encontró ésta palabra
-              ifin = ifin - inin;
-                path.Substring(inin, ifin);
-            }
+            ////Verifica si encontró typeRegistry
+            //int ver = path.LastIndexOf(registro3.getTypeRegistry(path)); //Ingles UK
 
-        Console.WriteLine("Inin      = " + inin);
-            Console.WriteLine("Ifin      = " + ifin);
-            Console.WriteLine("Verificar = " + ver);
-            Console.WriteLine("Path      = " + path+"\n\n\n");
+            //int inin = registro3.getTypeRegistry(path).Length;
+            //int ifin = path.Length - inin;
+            ////int inin = path.IndexOf(registro3.getTypeRegistry(path));
+            //if (ver == 0) {
+            //    path = path.Substring(inin, ifin);
+            //} else {
+            //    path = "E#R002"; // Ruta invalida
+            //}
+            
+
+            //Console.WriteLine("Inin      = " + inin);
+            //Console.WriteLine("Ifin      = " + ifin);
+            //Console.WriteLine("Verificar = " + ver);
+            //Console.WriteLine("Path      = " + path + "\n\n\n");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             //string path;
 
@@ -145,7 +180,7 @@ namespace RegistryTools {
             //    // Significa que si se encontró ésta palabra
             //    ifin = @"HKEY_CLASSES_ROOT".Length;
 
-            //     path = path.Substring(inin, ifin);
+            //    path = path.Substring(inin, ifin);
             //}
             //int user = path.IndexOf(@"HKEY_CURRENT_USER"); //Ingles UK
             //user = user - inin;
@@ -193,7 +228,7 @@ namespace RegistryTools {
             //Console.WriteLine("Esto es el ifin : " + ifin);
             //Console.WriteLine("Esto es el inin : " + inin);
             //Console.WriteLine("Esto es el USER : " + user);
-            //Console.WriteLine("Esto es el PATH : " + path+"\n\n\n\n\n");
+            //Console.WriteLine("Esto es el PATH : " + path + "\n\n\n\n\n");
 
 
 

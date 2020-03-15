@@ -19,19 +19,26 @@ namespace RegistryTools.Libs {
             path = routePath(path);
 
 
+            // Tipo de R
+            // int inin = .Length;    // Obtiene el número de longuitud de la cadena de caracteres de getTypeRegistry
             int inin = getTypeRegistry(path).Length;
-            int ifin = path.Length;
-            
-            int ver = path.IndexOf(getTypeRegistry(path)); //Ingles UK
 
-            if (ver != -1) {
-                // Significa que si se encontró ésta palabra
-                return  path.Substring(inin,ifin);
+            int ifin = path.Length - inin;                    // Obtiene el número de longuituc de caracteres de la ruta completa
+
+            //Verifica si encontró typeRegistry
+            int ver = path.LastIndexOf(getTypeRegistry(path)); //    Busca el typo de registro en la ruta ingresada, 
+
+            if (ver == 0) {
+                if (path.Substring(inin, ifin) == @"\") {   //Verifica si la ruta lleva un \ , estó podria causar problemas, por ende se decidió eliminarlo
+                    return "";
+                } else {
+                    return path.Substring(inin, ifin);
+                }
+            } else {
+                return path = "E#R002"; // Ruta invalida
             }
 
 
-
-            return path;
         }
         public string getTypeRegistry(string path) {
             /* 
@@ -113,6 +120,7 @@ namespace RegistryTools.Libs {
                 
                 return path.Substring(inin, ifin);
             }
+
             if (root == -1 && user == -1 && machine == -1 && users == -1 && config == -1) {
                 return "E#R002";   // Manda mensaje de error de ruta no valida
             }
@@ -121,7 +129,6 @@ namespace RegistryTools.Libs {
             return "E#R002";   // Manda mensaje de error de ruta no valida
 
             }   // Funcional sin bugs
-
         public string routePath(string path) {
             // Ésta función solo devuelve la ruta sin las palabras  Equipo\ && Computer\
             // Y solo detectará si la ruta ingresada está vacía
