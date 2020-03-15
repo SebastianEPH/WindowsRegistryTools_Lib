@@ -1,4 +1,4 @@
-# Librería -Regedit de Windows v1.0
+# Librería -Regedit de Windows v3.0
 <!-- Botones -->
 
 <!-- Descripción -->
@@ -12,7 +12,7 @@
     ![01 - Explorador de Soluciones - C# ](https://i.imgur.com/8tqiZYc.png)
 
 2. Importamos la carpeta donde se encuentra el archivo *Regedit.cs*
-    ````csharp
+    ````csharphttps://www.youtube.com/watch?v=axYhF2LgKEs
     using RegistryTools.Libs;
     ````
 3. Instanciamos la librería dentro de la clase, para así poder usarlo.
@@ -177,14 +177,18 @@ Podemos observar que se creó *Conteiner* dentro de la *Software*
 ![función - Eliminar Llave](https://i.imgur.com/aASUe3w.png)
 ### Eliminar contenedor:
 ![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png)
-# Código de errores u advertencias: 
+# Código de errores y advertencias: 
 - E#R001 = La Ruta ingresada está vacía.
 - E#R002 = La Ruta ingresada no es valida.
 - E#R003 = La Nombre del valor está vacía
 - E#RR01 = Hubo un error al Leer el Valor
-- E#RR02 = No se encontró ningún valón con ese nombre
+- E#RR02 = No se encontró ningún valór con ese nombre
+- E#RR03 = El nombre del valor ingresado está vacío
 
+- E#XITO = La Función se ejecuto correctamente; 
 
+# Usos en Softwares
+Ésta librería es utilizada en el Software [FullWindowsOptimitation](https://github.com/SebastianEPH/FullWindowsOptimitation_FWO_C-Charp)
 
 
 # Código Fuente
