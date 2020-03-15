@@ -30,8 +30,8 @@ Ver todas sus funcionalidades [aquí.](https://github.com/SebastianEPH/WindowsRe
 ## Función - Crear Contenedor
 No hay misterio, solo tenemos que colocar la ruta y el nombre que deseamos que tenga nuestra carpeta contenedora
 ````csharp
-// key_ruta     = Ruta de Regedit de Windows
-string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+// path     = Ruta de Regedit de Windows
+string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 
 // key_Conteiner     = Es el nombre que tendrá la carpeta contenedora
 string key_Conteiner = "Soy un contenedor";
@@ -40,7 +40,7 @@ string key_Conteiner = "Soy un contenedor";
 string message = "";
 
 //Ejecutando
-message = registro.createConteiner(key_ruta, key_Conteiner);
+message = registro.createConteiner(path, key_Conteiner);
 
 // Muestra en consola mensaje de error o exito
 Console.WriteLine(message);
@@ -60,20 +60,20 @@ Entonces veremos cómo podemos crear llaves con todos estos distintos tipos de d
 #### String Value:
 ![02 -](https://i.imgur.com/rGUjWwS.png)
 ````csharp
-// key_ruta     = Ruta de Regedit de Windows
-string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+// path     = Ruta de Regedit de Windows
+string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 
-// key_name     = Es el nombre que tendrá llave
-string key_name = "Soy una llave";
+// nameValue     = Es el nombre que tendrá llave
+string nameValue = "Soy una llave";
 
-// key_values   = Son los valores que almacenará la llave - String
-string key_values = "Soy un valor String";
+// data   = Son los valores que almacenará la llave - String
+string data = "Soy un valor String";
 
 //message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
 string message = "";
 
 //Ejecutando
-message = registro.createKeyValue_String(key_ruta, key_name, key_values);
+message = registro.createKeyValue_String(path, nameValue, data);
 
 // Muestra en consola mensaje de error o exito
 Console.WriteLine(message);
@@ -86,7 +86,6 @@ Console.WriteLine(message);
 
 ![04](https://i.imgur.com/4mS08zL.png)
 
----
 #### Binarie Value:
 
 ````csharp
@@ -112,35 +111,35 @@ Console.WriteLine(message);
 ````csharp
     //Ésta funcionalidad se está trabajando, porfavor espere...
 ````
-
+---
 ## Función - Leer llaves
 **NOTA:** 13/03/20 Hay un problema al leer valores tipos (MultiString), se pretende resolver éste problema en las proximas actualizaciones
 ````csharp
-// key_ruta     = Ruta de Regedit de Windows
-string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+// path     = Ruta de Regedit de Windows
+string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 
-// key_name     = Es el nombre que tendrá llave
-string key_name = "licencia";
+// nameValue     = Es el nombre que tendrá llave
+string nameValue = "licencia";
 
 //message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
 string message = "";
 
 //Ejecutando
-message = registro.readKeyValue(key_ruta,key_name);
+message = registro.readKeyValue(path,nameValue);
 
-// Devolverá el valor de la llave key_name, en un String
+// Devolverá el valor de la llave nameValue, en un String
 Console.WriteLine(message);
 ````
 ## Función - Eliminar contenedor
 NOTA: Al Eliminar un contendor, ésta borarrá todas las llaves que pueda almacenar.
 ````csharp
-// key_ruta     = Ruta de Regedit de Windows
-string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+// path     = Ruta de Regedit de Windows
+string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 //message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
 string message = "";
 
 //Ejecutando
-message = registro.deleteConteinerAll(key_ruta);
+message = registro.deleteConteinerAll(path);
 
 // Muestra en consola mensaje de error o exito
 Console.WriteLine(message);
@@ -148,21 +147,22 @@ Console.WriteLine(message);
 
 ## Función - Eliminar una llave
 ````csharp
-// key_ruta     = Ruta de Regedit de Windows
-string key_ruta = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+// path     = Ruta de Regedit de Windows
+string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 
-// key_name     = El nombre de la llave la cual queremos eliminar
-string key_name = "config";
+// nameValue     = El nombre de la llave la cual queremos eliminar
+string nameValue = "config";
 
 //message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
 string message = "";
 
 //Ejecutando
-message = registro.deleteKeyValue(key_ruta, key_name);
+message = registro.deleteKeyValue(path, nameValue);
 
 // Muestra en consola mensaje de error o exito
 Console.WriteLine(message);
 ````
+---
 # Software Funcional de la librería
 Éste pequeño formulario fue creado, solo con el fin de mostrar cada una de las funcionalidades de ésta librería.
 ### Crear Contenedor:
@@ -178,6 +178,7 @@ Podemos observar que se creó *Conteiner* dentro de la *Software*
 ![función - Eliminar Llave](https://i.imgur.com/aASUe3w.png)
 ### Eliminar contenedor:
 ![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png)
+---
 # Código de errores y advertencias: 
 - E#R001 = La Ruta ingresada está vacía.
 - E#R002 = La Ruta ingresada no es valida.
@@ -187,11 +188,11 @@ Podemos observar que se creó *Conteiner* dentro de la *Software*
 - E#RR03 = El nombre del valor ingresado está vacío
 
 - E#XITO = La Función se ejecuto correctamente; 
-
+---
 # Usos en Softwares
 Ésta librería es utilizada en el Software [FullWindowsOptimitation](https://github.com/SebastianEPH/FullWindowsOptimitation_FWO_C-Charp)
 
-
+---
 # Código Fuente
 Éste proyecto se creó con el IDE Visual Studio 2019 [Puedes obtener la version comunidad gratis aquí](https://www.visualstudio.com/vs/community/).
 Verificar las siguientes herramientas estén descargadas e instaladas correctamente:
@@ -206,10 +207,10 @@ You also need to install the following individual components:
 - .NET Framework 4.7 SDK
 - .NET Framework 4.7 targeting pack
 
-
+---
 <!-- Licencia -->
 ## Licencia
-
+--- 
 <!-- Creador  -->
 ---
 ## By SebastianEPH
