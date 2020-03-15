@@ -3,10 +3,11 @@
 Nueva documentación  v3.0    "Beta"
 <!-- Descripción -->
 ## Descripción
-Ésta librería está pensaba para crear, leer y eliminar llaves, sin escribir tanto codigo, o tener que saber muchos sobre los registros de Windows
+Ésta librería sirve para poder crear , leer y eliminar llaves de registro de Windows, de una manera sencilla en C#.
+Ver todas sus funcionalidades [aquí.](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#uso-de-funciones)
 
 <!-- Información de codificación -->
-# ¿Cómo uso la librería?
+# ¿Cómo agrego ésta librería a mi proyecto?
 1. Coloque el archivo *Regedit.cs* dentro de su proyecto. 
 
     ![01 - Explorador de Soluciones - C# ](https://i.imgur.com/8tqiZYc.png)
