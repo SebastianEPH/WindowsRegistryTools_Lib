@@ -178,8 +178,12 @@ Podemos observar que se creó *Conteiner* dentro de la *Software*
 ### Eliminar contenedor:
 ![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png)
 # Código de errores u advertencias: 
-### E#R001 = La Ruta ingresada está vacía.
-### E#R002 = La Ruta ingresada no es valida.
+- E#R001 = La Ruta ingresada está vacía.
+- E#R002 = La Ruta ingresada no es valida.
+- E#R003 = La Nombre del valor está vacía
+- E#RR01 = Hubo un error al Leer el Valor
+- E#RR02 = No se encontró ningún valón con ese nombre
+
 
 
 

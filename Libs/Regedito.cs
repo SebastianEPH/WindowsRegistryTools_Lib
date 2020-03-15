@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Win32;  //Librería importante 
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,52 @@ namespace RegistryTools.Libs {
         string message = "";
 
         /// Funcionalidades pertenecientes solo a ésta librería, no modificar
+        /// 
+
+
+
+
+
+
+        public string getValues(string path /*camino completa del valor*/, string nameValue /*Nombre del valor*/) {
+            
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
+            // Verifica si el NombreValue
+            if (nameValue == "") {
+                //Verifica si el nombre del Key no esté vacío
+                return "E#R003";    // El nombre del valor está vacio
+            }
+
+            //Limpiando Ruta y obtiene datos
+            path = routePath(path);
+
+            try {
+
+
+                try {
+                    message = (string)Registry.GetValue(path, nameValue, "E#RR02");
+                } catch (Exception e) {
+                    try {
+                        int entero = 0;
+                        entero = (int)Registry.GetValue(path, nameValue, "E#RR02");
+                        message = entero.ToString();
+                    } catch (Exception c) {
+                        long entero = 0;
+                        entero = (long)Registry.GetValue(path, nameValue, "E#RR02");
+                        message = entero.ToString();
+                    }
+                }
+
+            } catch (Exception e) {
+                //Mensaje de error +  su Codigo de error
+                message = "E#RR01"; // Hubo un error al leer la llave
+            }
+
+            return message;
+        }
         public string getSubFiles(string path) {
             //Verifica si la ruta ingresada tiene un formato aceptado
             string typeRegistry = getTypeRegistry(path);
