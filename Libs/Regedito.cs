@@ -15,12 +15,73 @@ namespace RegistryTools.Libs {
 
 
 
+        public string dfdf() {
 
 
+            return message;
+        }
+        public string deleteValues(string path /*camino completa del valor*/, string nameValue /*Nombre del valor*/) {
+            
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
+            // Verifica NameValue
+            if (nameValue == "") {
+                return "E#RR03";    // Mensaje de Error, El nombre ingresado del valor está vacío
+            }
+            //Limpiando Ruta y obtiene datos
+            path = routePath(path);
+
+            try {
+                RegistryKey k;
+                switch (getTypeRegistry(path)) {
+                    case "HKEY_CLASSES_ROOT":
+                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k.DeleteValue(nameValue);
+                    k.Close();
+                    break;
+                    case "HKEY_CURRENT_USER":
+                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k.DeleteValue(nameValue);
+                    k.Close();
+                    break;
+                    case "HKEY_LOCAL_MACHINE":
+                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k.DeleteValue(nameValue);
+                    k.Close();
+                    break;
+                    case "HKEY_USERS":
+                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k.DeleteValue(nameValue);
+                    k.Close();
+                    break;
+                    case "HKEY_CURRENT_CONFIG":
+                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k.DeleteValue(nameValue);
+                    k.Close();
+                    break;
+
+                    default:
+                    return "E#R002"; // La ruta ingresada no es válida
+
+                }
+                return "E#XITO";
+            } catch (Exception) {
+                message = "E#RR02";
+               
+            }
+
+
+
+
+
+            return message;
+        }
         public string getValues(string path /*camino completa del valor*/, string nameValue /*Nombre del valor*/) {
             
             string typeRegistry = getTypeRegistry(path);
-            if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry =="E#RR02") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
             // Verifica si el NombreValue
@@ -79,6 +140,9 @@ namespace RegistryTools.Libs {
                 if (path.Substring(inin, ifin) == @"\") {   //Verifica si la ruta lleva un \ , estó podria causar problemas, por ende se decidió eliminarlo
                     return "";
                 } else {
+                     inin = getTypeRegistry(path).Length+1;
+                     ifin = path.Length - inin;
+
                     return path.Substring(inin, ifin);
                 }
             } else {

@@ -93,7 +93,7 @@ namespace RegistryTools {
 
         private void button1_Click(object sender, EventArgs e) {
             string key_ruta = crearConteiner_ruta.Text;
-
+            string nameValue = crearConteiner_Contenedor.Text;
 
             //Console.WriteLine("getType_Registry                  = " + registro.getTypeRegistry(key_ruta));
             //Console.WriteLine("getKeyRutaSingetTypeRegistry      = " + registro.getKeyRutaSingetTypeRegistry(key_ruta));
@@ -101,9 +101,11 @@ namespace RegistryTools {
             //Console.WriteLine("getKeyRutaSingetConteinerRegistry = " + registro.getKeyRutaSingetConteinerRegistry(key_ruta));
 
 
-            Console.WriteLine("gettypeRegistry = "+registro3.getTypeRegistry(key_ruta));
-            Console.WriteLine("reoutePath      = "+registro3.routePath(key_ruta));
-           Console.WriteLine("getSubFiles      = " + registro3.getSubFiles(key_ruta)+"\n\n\n\n");
+            // Console.WriteLine("gettypeRegistry = "+registro3.getTypeRegistry(key_ruta));
+            // Console.WriteLine("reoutePath      = "+registro3.routePath(key_ruta));
+            // Console.WriteLine("getSubFiles     = "+ registro3.getSubFiles(key_ruta)+"\n\n\n\n");
+            Console.WriteLine(nameValue);
+           Console.WriteLine("deleteValues     = " + registro3.deleteValues(key_ruta,nameValue) + "\n\n\n\n");
 
 
 
@@ -123,25 +125,33 @@ namespace RegistryTools {
 
             ////    // Tipo de R
 
-            
 
-            
+
+
 
             ////Verifica si encontró typeRegistry
             //int ver = path.LastIndexOf(registro3.getTypeRegistry(path)); //Ingles UK
 
-            //int inin = registro3.getTypeRegistry(path).Length;
-            //int ifin = path.Length - inin;
+            
             ////int inin = path.IndexOf(registro3.getTypeRegistry(path));
             //if (ver == 0) {
-            //    path = path.Substring(inin, ifin);
+            //    try {
+            //        int inin = registro3.getTypeRegistry(path).Length +1;
+            //        int ifin = path.Length - inin;
+            //        path = path.Substring(inin, ifin);
+            //    } catch (Exception ess) {
+            //        int inin = registro3.getTypeRegistry(path).Length;
+            //        int ifin = path.Length - inin;
+            //        path = path.Substring(inin, ifin);
+            //    }
+                
             //} else {
             //    path = "E#R002"; // Ruta invalida
             //}
-            
 
-            //Console.WriteLine("Inin      = " + inin);
-            //Console.WriteLine("Ifin      = " + ifin);
+
+            ////Console.WriteLine("Inin      = " + inin);
+            ////Console.WriteLine("Ifin      = " + ifin);
             //Console.WriteLine("Verificar = " + ver);
             //Console.WriteLine("Path      = " + path + "\n\n\n");
 

@@ -1,6 +1,6 @@
 # Librería -Regedit de Windows v3.0
 <!-- Botones -->
-
+Nueva documentación  v3.0    "Beta"
 <!-- Descripción -->
 ## Descripción
 Ésta librería está pensaba para crear, leer y eliminar llaves, sin escribir tanto codigo, o tener que saber muchos sobre los registros de Windows
