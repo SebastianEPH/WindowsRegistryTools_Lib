@@ -14,7 +14,7 @@ namespace RegistryTools.Libs {
 
 
 
-        public string createKey(string path /*Ruta completa del key*/, ) {
+        public string createKey(string path /*Ruta completa del key*/,string nameKey ) {
             //Verifica algún código de error o advertenciaa
             string typeRegistry = getTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
@@ -22,8 +22,16 @@ namespace RegistryTools.Libs {
             }
 
             try {
-                Registry.SetValue(routePath(path), "", "");
-                return "E#XITO";  // Se creó correctamente el contenedor
+                //Verificar si el Nombre ingresado está vacío
+                if (nameKey == "") {
+                    return "E#R005 ";  //
+                } else {
+                    Registry.SetValue(routePath(path) + @"\" + nameKey, "", "");
+                    return "E#XITO";  // Se creó correctamente el contenedor
+                }
+
+
+                
             } catch (Exception) {
                 return "E#CR01";    // No pudo crear la llave contenedora
             }
@@ -31,7 +39,6 @@ namespace RegistryTools.Libs {
 
             return message;
         } 
-   
         public string deleteKey(string path /*camino completa del valor*/) {
             string typeRegistry = getTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
