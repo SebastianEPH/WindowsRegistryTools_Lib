@@ -13,8 +13,13 @@ namespace RegistryTools.Libs {
         /// 
 
 
-
-        public string createKey(string path /*Ruta completa del key*/,string nameKey ) {
+        public string createKeyValue_string(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, string dataValue /*Datos almacenados del valor*/) {
+      
+            // Ruta // Nomve del valor // Datos del valor 
+            Registry.SetValue(path,nameValue,dataValue, RegistryValueKind.String);
+            return message;
+        }
+        public string createKey(string path /*Ruta completa del key*/,string nameKey /*Nombre del Key*/ ) {
             //Verifica algún código de error o advertenciaa
             string typeRegistry = getTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
@@ -35,10 +40,60 @@ namespace RegistryTools.Libs {
             } catch (Exception) {
                 return "E#CR01";    // No pudo crear la llave contenedora
             }
+        } 
+        public string EliiminarestafuncionalidadpleaseSoloEsDePrueba(string path /*Ruta completa del key*/,  string nameValue/*valores de la llave*/, byte typeValue /*Tipo de value*/) {
+
+            switch (typeValue) {
+
+                /*          0   =       °Se crea un conteiner no una llave°
+                 *          1   =       String Value
+                 *          2   =       Binarie Value
+                 *          3   =       DWORD (32bits) Value
+                 *          4   =       QWORD (64bits) Value
+                 *          5   =       Multi-String Value
+                 *          6   =       Expandable String                                                           */
+                
+
+
+
+                
+
+
+
+                case 1:
+                //String Value
+                Registry.SetValue(path, key_values, RegistryValueKind.String);   // Se crea la llave en el registro
+                break;
+
+                case 2:
+                Registry.SetValue(path, "", RegistryValueKind.Binary);   // Se crea la llave en el registro
+                break;
+
+                case 3:
+                Registry.SetValue(path, key_values, RegistryValueKind.DWord);   // Se crea la llave en el registro
+                break;
+
+                case 4:
+                Registry.SetValue(path, key_values, RegistryValueKind.QWord);   // Se crea la llave en el registro
+                break;
+
+                case 5:
+                Registry.SetValue(path, key_values, RegistryValueKind.MultiString);   // Se crea la llave en el registro
+                break;
+
+                case 6:
+                Registry.SetValue(path,  key_values, RegistryValueKind.ExpandString);   // Se crea la llave en el registro
+                break;
+
+                default:
+                message = "Especifique el tipo de valor del key";
+                break;
+            }
+
 
 
             return message;
-        } 
+        }
         public string deleteKey(string path /*camino completa del valor*/) {
             string typeRegistry = getTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
