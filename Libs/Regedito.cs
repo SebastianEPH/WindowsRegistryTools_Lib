@@ -15,15 +15,96 @@ namespace RegistryTools.Libs {
 
 
 
-        public string dfdf() {
+        public string deleteKey(string path /*camino completa del valor*/) {
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
+
+            //Se obtiene key 
+            if (getkeyName(path) == "") {
+                return "E#R004";    //No se encontró el nombre del la llave
+            }
+
+            // Proceso de quitar el nombre del key de la ruta
+            //ejemplo 
 
 
-            return message;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            try {
+                RegistryKey k;
+
+                switch (getTypeRegistry(path)) {
+                    case "HKEY_CLASSES_ROOT":
+                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k.DeleteSubKeyTree(getkeyName(path));
+                    k.Close();
+                    break;
+                    case "HKEY_CURRENT_USER":
+                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k.DeleteSubKeyTree(getkeyName(path));
+                    k.Close();
+                    break;
+                    case "HKEY_LOCAL_MACHINE":
+                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k.DeleteSubKeyTree(getkeyName(path));
+                    k.Close();
+                    break;
+                    case "HKEY_USERS":
+                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k.DeleteSubKeyTree(getkeyName(path));
+                    k.Close();
+                    break;
+                    case "HKEY_CURRENT_CONFIG":
+                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k.DeleteSubKeyTree(getkeyName(path));
+                    k.Close();
+                    break;
+                    default:
+                    message = "";
+                    break;
+                }
+                return "E#XITO";
+            } catch (Exception) {
+                return "E#NN01";    // No se pudo eliminar la llave (Quizas por permisos)
+            }
         }
         public string deleteValues(string path /*camino completa del valor*/, string nameValue /*Nombre del valor*/) {
             
             string typeRegistry = getTypeRegistry(path);
-            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
             // Verifica NameValue
@@ -150,6 +231,75 @@ namespace RegistryTools.Libs {
             }
 
 
+        }
+        public string getsubfilesSinKeyName(string path) {
+            //Verifica posibles mensajes de fallos 
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
+
+
+            // Evita posible Errores 
+            if (getkeyName(path) == "") {
+                return "";
+            }
+
+
+
+            // Numero completo subruta - el nombre del key
+            int final = getSubFiles(path).Length - getkeyName(path).Length;
+
+            //Convierte la ruta completa a ruta reducida
+            // Solo obtiene las subRutas y no la ruta completa 
+            path = getSubFiles(path);
+            if (final <= 0 ) {
+                return "";  // Significa que no existe SubFiles, la llave está creada directamente en el directorio 
+            }
+
+               message =  path.Substring(0, final-1);
+
+            return message;
+        }
+        public string getkeyName(string path) {
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
+            path = getSubFiles(path);
+
+            /* Ésta función busca retornar el "CONTENEDOR" de la variable °key_ruta°
+             * 
+             * =Ejemplo:
+             * [Antes]    key_ruta = @"HKEY_CURRENT_USER\Contenedor1\Contenedor2\Contenedor3"
+             * [Despues]  key_ruta =  "Contenedor3"
+             * 
+             */
+            if (path == "") {
+                //Verifica si La Ruta ingresada no esté vacío
+                return message = "E#R001";
+            }
+
+            try {
+                /* Utiliza la variable para obtener el ultimo contendor 
+                 * =Ejemplo:
+                 * [Antes]    key_ruta = @"Contenedor1\Contenedor2\Contenedor3" 
+                 * [Despues]  key_ruta =  "Contenedor3"                                                     */
+                int palabraClave = path.LastIndexOf(@"\");
+                path = path.Substring(palabraClave + 1);
+                if (path == @"\") {
+                    return path = "";
+                } else {
+                    return path;
+                }
+
+                
+            } catch (Exception) {
+                
+                message = ""; //Retornará vacío ya que no se encuentra 
+            }
+
+            return message;
         }
         public string getTypeRegistry(string path) {
             /* 

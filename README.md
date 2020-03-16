@@ -6,6 +6,7 @@ Nueva documentación  v3.0    "Beta"
 Ésta librería sirve para poder crear , leer y eliminar llaves de registro de Windows, de una manera sencilla en C#.
 Ver todas sus funcionalidades [aquí.](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#uso-de-funciones)
 
+---
 <!-- Información de codificación -->
 # ¿Cómo agrego ésta librería a mi proyecto?
 1. Coloque el archivo *Regedit.cs* dentro de su proyecto. 
@@ -22,9 +23,15 @@ Ver todas sus funcionalidades [aquí.](https://github.com/SebastianEPH/WindowsRe
     ```` csharp
     Regedit registro = new Regedit();
     ````
-**NOTA:** Cada vez que desee usar las funciones de la librería, deberá llamarlo con el nombre *registro* o el nombre que ustedes escogieron.
+    **NOTA:** Cada vez que desee usar las funciones de la librería, deberá llamarlo con el nombre *registro* o el nombre que ustedes escogieron.
+
+---
 # Uso de Funciones
-**NOTA:** Es importante detallar que todas éstas funciones devolverán un mensaje de `"Exito"` o `"Error"`, según sea el caso. Cuando la función sea llamada, deberá almacenarse en una variable tipo `string ` o `String`.
+**NOTA:** Es importante detallar que todas éstas funciones devolverán un *Código de errores, advertencias o de exito*, La lista completa puedes verla [aquí](link)
+
+
+
+de `"Exito"` o `"Error"`, según sea el caso. Cuando la función sea llamada, deberá almacenarse en una variable tipo `string ` o `String`.
 
 <!-- Funciones e información de usos -->
 ## Función - Crear Contenedor
@@ -178,16 +185,20 @@ Podemos observar que se creó *Conteiner* dentro de la *Software*
 ![función - Eliminar Llave](https://i.imgur.com/aASUe3w.png)
 ### Eliminar contenedor:
 ![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png)
+
 ---
-# Código de errores y advertencias: 
+# Código de errores, advertencias y exito: 
 - E#R001 = La Ruta ingresada está vacía.
 - E#R002 = La Ruta ingresada no es valida.
 - E#R003 = La Nombre del valor está vacía
+- E#R004 = No se encontró el nombre del la llave en la ruta
+
 - E#RR01 = Hubo un error al Leer el Valor
 - E#RR02 = No se encontró ningún valór con ese nombre
 - E#RR03 = El nombre del valor ingresado está vacío
-
+- E#NN01 = No se pudo eliminar la llave (Quizas por permisos)
 - E#XITO = La Función se ejecuto correctamente; 
+
 ---
 # Usos en Softwares
 Ésta librería es utilizada en el Software [FullWindowsOptimitation](https://github.com/SebastianEPH/FullWindowsOptimitation_FWO_C-Charp)
@@ -210,6 +221,8 @@ You also need to install the following individual components:
 ---
 <!-- Licencia -->
 ## Licencia
+jh
+
 --- 
 <!-- Creador  -->
 ---

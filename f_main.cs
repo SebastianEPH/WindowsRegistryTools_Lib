@@ -92,23 +92,73 @@ namespace RegistryTools {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            string key_ruta = crearConteiner_ruta.Text;
+            string path = crearConteiner_ruta.Text;
             string nameValue = crearConteiner_Contenedor.Text;
 
-            //Console.WriteLine("getType_Registry                  = " + registro.getTypeRegistry(key_ruta));
-            //Console.WriteLine("getKeyRutaSingetTypeRegistry      = " + registro.getKeyRutaSingetTypeRegistry(key_ruta));
-            //Console.WriteLine("ggetConteinerRegistry             = " + registro.getConteinerRegistry(key_ruta));
-            //Console.WriteLine("getKeyRutaSingetConteinerRegistry = " + registro.getKeyRutaSingetConteinerRegistry(key_ruta));
+            //Console.WriteLine("getType_Registry                  = " + registro.getTypeRegistry(path));
+            //Console.WriteLine("getKeyRutaSingetTypeRegistry      = " + registro.getKeyRutaSingetTypeRegistry(path));
+            //Console.WriteLine("ggetConteinerRegistry             = " + registro.getConteinerRegistry(path));
+            ////Console.WriteLine("getKeyRutaSingetConteinerRegistry = " + registro.getKeyRutaSingetConteinerRegistry(path));
 
 
-            // Console.WriteLine("gettypeRegistry = "+registro3.getTypeRegistry(key_ruta));
-            // Console.WriteLine("reoutePath      = "+registro3.routePath(key_ruta));
-            // Console.WriteLine("getSubFiles     = "+ registro3.getSubFiles(key_ruta)+"\n\n\n\n");
-            Console.WriteLine(nameValue);
-           Console.WriteLine("deleteValues     = " + registro3.deleteValues(key_ruta,nameValue) + "\n\n\n\n");
+            //Console.WriteLine("gettypeRegistry = " + registro3.getTypeRegistry(path));
+            //Console.WriteLine("reoutePath      = " + registro3.routePath(path));
+            Console.WriteLine("getNameKey      = " + registro3.getkeyName(path));
+            Console.WriteLine("Ruta sin key    = " + registro3.getsubfilesSinKeyName(path));
+            Console.WriteLine("getSubFiles     = " + registro3.getSubFiles(path) + "\n\n\n\n");
 
 
 
+
+
+            //Console.WriteLine(nameValue);
+            //Console.WriteLine("deleteValues     = " + registro3.deleteValues(path, nameValue) + "\n\n\n\n");
+
+            //  Console.WriteLine("eliminar Key y sus datos= "+registro3.deleteKey(path));
+
+
+            /* Ésta función busca eliminar el "TIPO DE REGISTRO" y el "CONTENEDOR" 
+             * de la variable °path°
+             * 
+             * =Ejemplo:
+             * [Antes]    path = @"HKEY_CURRENT_USER\Contenedor1\Contenedor2\Contenedor3"
+             * [Despues]  path = @"Contenedor1\Contenedor2"
+             * 
+             */
+
+
+            //// Se obtiene la ruta limpia , sin gettypeKey
+            //int  total = registro3.getSubFiles(path).Length - registro3.getkeyName(path).Length;
+            ////string nameKey = registro3.getSubFiles(path);
+            //path = registro3.getSubFiles(path);
+            
+            //// Desde ésta palabra clave se termina de obtener el texto
+            //// string palabraFin = nameKey;                      //Solucionar bug, de cuando en la ruta hay dos carpetas con el mismo nombre
+
+            ////Obtiene el número de posición en la cual se encuentra la °palabra_inicio°
+            //int inicio = 0;// obtiene el numero de posición de esta palabra pero de atras hacia delante
+
+
+
+            
+            ////int newnumber = 
+            ////if (inicio > palabraInicio.Length) {
+
+            //int fin = path.Length - inicio;
+
+
+            //int fin2 = path.Length - fin;
+            ////Console.WriteLine("fin             " + fin);
+
+            //Console.WriteLine("Esto es el resultado         ********    " + path.Substring(0,total));
+            ////}
+
+
+            //Console.WriteLine("path             " + path);
+            //// Console.WriteLine("nameKey          " + nameKey);
+            ////Console.WriteLine("Fin 2            " + fin2);
+            ////Console.WriteLine("Palabra fin      " +newnumber);
+            ////Console.WriteLine("inicio           " + inicio);
 
 
 
@@ -120,7 +170,7 @@ namespace RegistryTools {
 
 
             ////Ruta limpia
-            //string path = registro3.routePath(key_ruta);
+            //string path = registro3.routePath(path);
             ////string gettype = ;
 
             ////    // Tipo de R
@@ -132,7 +182,7 @@ namespace RegistryTools {
             ////Verifica si encontró typeRegistry
             //int ver = path.LastIndexOf(registro3.getTypeRegistry(path)); //Ingles UK
 
-            
+
             ////int inin = path.IndexOf(registro3.getTypeRegistry(path));
             //if (ver == 0) {
             //    try {
@@ -144,7 +194,7 @@ namespace RegistryTools {
             //        int ifin = path.Length - inin;
             //        path = path.Substring(inin, ifin);
             //    }
-                
+
             //} else {
             //    path = "E#R002"; // Ruta invalida
             //}
@@ -175,7 +225,7 @@ namespace RegistryTools {
 
             //string path;
 
-            //path = registro3.routePath(key_ruta);
+            //path = registro3.routePath(path);
 
             //int ifin = 0;
             //int inin;
