@@ -192,10 +192,12 @@ Podemos observar que se creó *Conteiner* dentro de la *Software*
 - E#R002 = La Ruta ingresada no es valida.
 - E#R003 = La Nombre del valor está vacía
 - E#R004 = La llave tiene un nombre no valido 
+- E#R005 = El nombre de la llave está vacía
 
 - E#RR01 = Hubo un error al Leer el Valor
 - E#RR02 = No se encontró ningún valór con ese nombre
 - E#RR03 = El nombre del valor ingresado está vacío
+- E#RR04 = No se puedo crear una el valor de la llave
 - E#NN01 = No se encontó una llave con ese nombre ó (No se puedo eliminar por cuestiones de permisos)
 
 - E#CR01 = No se puedo crear la llave (contenedora)

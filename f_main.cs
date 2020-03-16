@@ -106,7 +106,7 @@ namespace RegistryTools {
             //Console.WriteLine("getNameKey      = " + registro3.getkeyName(path));
             //Console.WriteLine("Ruta sin key    = " + registro3.getsubfilesSinKeyName(path));
             //Console.WriteLine("getSubFiles     = " + registro3.getSubFiles(path) + "\n\n\n\n");
-            Console.WriteLine("Eliminar"+ registro3.createKey(path,nameValue));
+            Console.WriteLine("Eliminar"+ registro3.createKeyValue_string(path,nameValue,"este es un dato"));
 
 
 
