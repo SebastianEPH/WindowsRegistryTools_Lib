@@ -14,7 +14,24 @@ namespace RegistryTools.Libs {
 
 
 
+        public string createKey(string path /*Ruta completa del key*/, ) {
+            //Verifica algún código de error o advertenciaa
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
 
+            try {
+                Registry.SetValue(routePath(path), "", "");
+                return "E#XITO";  // Se creó correctamente el contenedor
+            } catch (Exception) {
+                return "E#CR01";    // No pudo crear la llave contenedora
+            }
+
+
+            return message;
+        } 
+   
         public string deleteKey(string path /*camino completa del valor*/) {
             string typeRegistry = getTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
@@ -26,69 +43,32 @@ namespace RegistryTools.Libs {
                 return "E#R004";    //No se encontró el nombre del la llave
             }
 
-            // Proceso de quitar el nombre del key de la ruta
-            //ejemplo 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             try {
                 RegistryKey k;
 
                 switch (getTypeRegistry(path)) {
                     case "HKEY_CLASSES_ROOT":
-                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.ClassesRoot.OpenSubKey(getsubfilesSinKeyName(path), true);
                     k.DeleteSubKeyTree(getkeyName(path));
                     k.Close();
                     break;
                     case "HKEY_CURRENT_USER":
-                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentUser.OpenSubKey(getsubfilesSinKeyName(path), true);
                     k.DeleteSubKeyTree(getkeyName(path));
                     k.Close();
                     break;
                     case "HKEY_LOCAL_MACHINE":
-                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.LocalMachine.OpenSubKey(getsubfilesSinKeyName(path), true);
                     k.DeleteSubKeyTree(getkeyName(path));
                     k.Close();
                     break;
                     case "HKEY_USERS":
-                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.Users.OpenSubKey(getsubfilesSinKeyName(path), true);
                     k.DeleteSubKeyTree(getkeyName(path));
                     k.Close();
                     break;
                     case "HKEY_CURRENT_CONFIG":
-                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentConfig.OpenSubKey(getsubfilesSinKeyName(path), true);
                     k.DeleteSubKeyTree(getkeyName(path));
                     k.Close();
                     break;
@@ -98,7 +78,7 @@ namespace RegistryTools.Libs {
                 }
                 return "E#XITO";
             } catch (Exception) {
-                return "E#NN01";    // No se pudo eliminar la llave (Quizas por permisos)
+                return "E#NN01";    // No se encontró la llave , o no se puedo eliminar por permisos 
             }
         }
         public string deleteValues(string path /*camino completa del valor*/, string nameValue /*Nombre del valor*/) {
@@ -179,19 +159,19 @@ namespace RegistryTools.Libs {
 
                 try {
                     message = (string)Registry.GetValue(path, nameValue, "E#RR02");
-                } catch (Exception e) {
+                } catch (Exception) {
                     try {
                         int entero = 0;
                         entero = (int)Registry.GetValue(path, nameValue, "E#RR02");
                         message = entero.ToString();
-                    } catch (Exception c) {
+                    } catch (Exception) {
                         long entero = 0;
                         entero = (long)Registry.GetValue(path, nameValue, "E#RR02");
                         message = entero.ToString();
                     }
                 }
 
-            } catch (Exception e) {
+            } catch (Exception) {
                 //Mensaje de error +  su Codigo de error
                 message = "E#RR01"; // Hubo un error al leer la llave
             }

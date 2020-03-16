@@ -103,10 +103,10 @@ namespace RegistryTools {
 
             //Console.WriteLine("gettypeRegistry = " + registro3.getTypeRegistry(path));
             //Console.WriteLine("reoutePath      = " + registro3.routePath(path));
-            Console.WriteLine("getNameKey      = " + registro3.getkeyName(path));
-            Console.WriteLine("Ruta sin key    = " + registro3.getsubfilesSinKeyName(path));
-            Console.WriteLine("getSubFiles     = " + registro3.getSubFiles(path) + "\n\n\n\n");
-
+            //Console.WriteLine("getNameKey      = " + registro3.getkeyName(path));
+            //Console.WriteLine("Ruta sin key    = " + registro3.getsubfilesSinKeyName(path));
+            //Console.WriteLine("getSubFiles     = " + registro3.getSubFiles(path) + "\n\n\n\n");
+            Console.WriteLine("Eliminar"+ registro3.deleteKey(path));
 
 
 
