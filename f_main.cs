@@ -135,21 +135,23 @@ namespace RegistryTools {
             //              Quieres separar por coma? Usa
             //              string[] arValores = tuTextBox.Text.Split(",");
             //              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
-            
-            
-            string[] valueData = { txtValueData.Text};
+            String[] Datos = {txtValueData.Text};
 
-            try {
-                RegistryKey k;
-                // Ruta // Nombre del valor // Datos del valor 
-                k = Registry.CurrentUser.OpenSubKey(path, true);
+            Console.WriteLine("Crear multiLinea: "+registro3.createKeyValue_MultiString(path,nameValue, Datos));
+            
+            //string[] valueData = { txtValueData.Text};
 
-                k.SetValue(nameValue, valueData, RegistryValueKind.MultiString);
-              //  Registry.SetValue(path, nameValue, {"Soy; un; dato"} RegistryValueKind.MultiString);
-                Console.WriteLine("Se gurado corerectamente ");
-            } catch (Exception) {
-                Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
-            }
+            //try {
+            //    RegistryKey k;
+            //    // Ruta // Nombre del valor // Datos del valor 
+            //    k = Registry.CurrentUser.OpenSubKey(path, true);
+
+            //    k.SetValue(nameValue, valueData, RegistryValueKind.MultiString);
+            //  //  Registry.SetValue(path, nameValue, {"Soy; un; dato"} RegistryValueKind.MultiString);
+            //    Console.WriteLine("Se gurado corerectamente ");
+            //} catch (Exception) {
+            //    Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
+            //}
 
 
 

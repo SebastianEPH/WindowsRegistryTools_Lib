@@ -191,40 +191,28 @@ namespace RegistryTools.Libs {
 
         }
 
-        public string createKeyValue_MultiString(string path, string nameKey,  string[] hola) {
-            /// path     = Ruta de Regedit de Windows
-            /// nameValue     = Es el nombre que tendrá llave
-            /// dataValue   = Son los valores que almacenará la llave - String
-            /// 
-
-            path = getSubFiles(path);
-
-
+        public string createKeyValue_MultiString(string path, string nameValue,  string[] dataValue) {
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
             //              Quieres separar por coma? Usa
             //              string[] arValores = tuTextBox.Text.Split(",");
             //              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
-
+            path = getSubFiles(path);
 
             try {
                 RegistryKey k;
                 // Ruta // Nombre del valor // Datos del valor 
                 k = Registry.CurrentUser.OpenSubKey(path, true);
 
-                k.SetValue("MultipleStringValue", hola, RegistryValueKind.MultiString);
+                k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
                 //  Registry.SetValue(path, nameValue, {"Soy; un; dato"} RegistryValueKind.MultiString);
-                Console.WriteLine("Se gurado corerectamente ");
+                return "Se gurado corerectamente ";
             } catch (Exception) {
-                Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
+                return "No se puedo guarsdar ";    // No se puedo crear el valor de la llave
             }
 
-
-
-
-
-
-
-
-            return "";
         }
 
         public void createKeyValue_ExpandableString() {        //Función crear llave de Registro en formato ExpandableString
