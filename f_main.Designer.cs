@@ -71,6 +71,7 @@
             this.deleteAll_ruta = new System.Windows.Forms.TextBox();
             this.txt_info = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtValueData = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -113,6 +114,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtValueData);
             this.tabPage1.Controls.Add(this.btn_CrearContenedor);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
@@ -500,6 +502,14 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtValueData
+            // 
+            this.txtValueData.Location = new System.Drawing.Point(221, 71);
+            this.txtValueData.Multiline = true;
+            this.txtValueData.Name = "txtValueData";
+            this.txtValueData.Size = new System.Drawing.Size(100, 39);
+            this.txtValueData.TabIndex = 4;
+            // 
             // f_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -572,6 +582,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox deleteAll_ruta;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtValueData;
     }
 }
 

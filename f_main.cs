@@ -1,4 +1,5 @@
-﻿using RegistryTools.Libs;
+﻿using Microsoft.Win32;
+using RegistryTools.Libs;
 using System;
 using System.Windows.Forms;
 
@@ -92,21 +93,116 @@ namespace RegistryTools {
         }
 
         private void button1_Click(object sender, EventArgs e) {
+
+            //byte[] bytesValues = { 0,2,1,4};
+            //    if (BitConverter.IsLittleEndian) 
+            //        Array.Reverse(bytesValues);
+
+            // int x = BitConverter.ToInt32(bytesValues, 0);
+            // Console.WriteLine($"int: {x}");
+
+            // Console.WriteLine("convertir atras byte ");
+            // byte[] bts = BitConverter.GetBytes(x);
+            // Console.WriteLine($"Byte Array: {BitConverter.ToString(bts)}\n\n\n\n");
+
+
+
+
+            //    byte[] bytes = { 01, 2, 02, 30 };
+
+            //    // If the system architecture is little-endian (that is, little end first),
+            //    // reverse the byte array.
+            //    if (BitConverter.IsLittleEndian)
+            //        Array.Reverse(bytes);
+
+            //    int i = BitConverter.ToInt32(bytes, 0);
+            //    Console.WriteLine("NEW NEW int: {0}", i);
+
+
+
             string path = crearConteiner_ruta.Text;
             string nameValue = crearConteiner_Contenedor.Text;
-
-            //Console.WriteLine("getType_Registry                  = " + registro.getTypeRegistry(path));
-            //Console.WriteLine("getKeyRutaSingetTypeRegistry      = " + registro.getKeyRutaSingetTypeRegistry(path));
-            //Console.WriteLine("ggetConteinerRegistry             = " + registro.getConteinerRegistry(path));
-            ////Console.WriteLine("getKeyRutaSingetConteinerRegistry = " + registro.getKeyRutaSingetConteinerRegistry(path));
+            path = registro3.routePath(path);
 
 
-            //Console.WriteLine("gettypeRegistry = " + registro3.getTypeRegistry(path));
-            //Console.WriteLine("reoutePath      = " + registro3.routePath(path));
-            //Console.WriteLine("getNameKey      = " + registro3.getkeyName(path));
-            //Console.WriteLine("Ruta sin key    = " + registro3.getsubfilesSinKeyName(path));
-            //Console.WriteLine("getSubFiles     = " + registro3.getSubFiles(path) + "\n\n\n\n");
-            Console.WriteLine("Eliminar"+ registro3.createKeyValue_string(path,nameValue,"este es un dato"));
+            //string[] arValores = crearConteiner_Contenedor.Text.Split();
+
+            //byte[] bytesValues = { };
+
+            path = registro3.getSubFiles(path);
+
+
+            //              Quieres separar por coma? Usa
+            //              string[] arValores = tuTextBox.Text.Split(",");
+            //              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
+            
+            
+            string[] valueData = { txtValueData.Text};
+
+            try {
+                RegistryKey k;
+                // Ruta // Nombre del valor // Datos del valor 
+                k = Registry.CurrentUser.OpenSubKey(path, true);
+
+                k.SetValue(nameValue, valueData, RegistryValueKind.MultiString);
+              //  Registry.SetValue(path, nameValue, {"Soy; un; dato"} RegistryValueKind.MultiString);
+                Console.WriteLine("Se gurado corerectamente ");
+            } catch (Exception) {
+                Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
+            }
+
+
+
+
+
+
+
+
+
+
+            //// _binarie Value 
+            //try {
+            //    // Ruta // Nombre del valor // Datos del valor 
+            //    Registry.SetValue(path, nameValue, bytesValues, RegistryValueKind.Binary);
+            //    Console.WriteLine("Se gurado corerectamente ");
+            //} catch (Exception) {
+            //    Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
+            //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+            ////Console.WriteLine("getType_Registry                  = " + registro.getTypeRegistry(path));
+            ////Console.WriteLine("getKeyRutaSingetTypeRegistry      = " + registro.getKeyRutaSingetTypeRegistry(path));
+            ////Console.WriteLine("ggetConteinerRegistry             = " + registro.getConteinerRegistry(path));
+            //////Console.WriteLine("getKeyRutaSingetConteinerRegistry = " + registro.getKeyRutaSingetConteinerRegistry(path));
+
+
+            ////Console.WriteLine("gettypeRegistry = " + registro3.getTypeRegistry(path));
+            ////Console.WriteLine("reoutePath      = " + registro3.routePath(path));
+            ////Console.WriteLine("getNameKey      = " + registro3.getkeyName(path));
+            ////Console.WriteLine("Ruta sin key    = " + registro3.getsubfilesSinKeyName(path));
+            ////Console.WriteLine("getSubFiles     = " + registro3.getSubFiles(path) + "\n\n\n\n");
+            //Console.WriteLine("Eliminar"+ registro3.createKeyValue_string(path,nameValue,"este es un dato"));
 
 
 

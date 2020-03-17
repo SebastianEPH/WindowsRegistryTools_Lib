@@ -9,10 +9,6 @@ namespace RegistryTools.Libs {
     class Regedito {
         string message = "";
 
-        /// Funcionalidades pertenecientes solo a ésta librería, no modificar
-        /// 
-
-
         public string createKeyValue_string(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, string dataValue /*Datos almacenados del valor*/) {
            
             string typeRegistry = getTypeRegistry(path);
@@ -25,6 +21,35 @@ namespace RegistryTools.Libs {
                 return "E#R003";    //Manda mensaje de error
             
             }
+            
+
+            path = routePath(path);
+            try {
+
+                RegistryKey k;
+                // Ruta // Nombre del valor // Datos del valor 
+                k = Registry.CurrentUser.OpenSubKey(path, true);
+
+                k.SetValue("MultipleStringValue", new string[] { "One", "Two", "Three" }, RegistryValueKind.MultiString);
+               // Registry.SetValue(path, nameValue, dataValue, RegistryValueKind.String);
+                return "E#XITO";
+            } catch (Exception) {
+                return "E#RR04";    // No se puedo crear el valor de la llave
+            }
+        }
+
+        public string createKeyValue_Binarie(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, string dataValue /*Datos almacenados del valor*/) {
+
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
+
+            if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
+                //
+                return "E#R003";    //Manda mensaje de error
+
+            }
 
             path = routePath(path);
             try {
@@ -34,7 +59,178 @@ namespace RegistryTools.Libs {
             } catch (Exception) {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
+
+            RegistryKey k;
+
+            //switch (tipo) {
+            //    case "HKEY_CLASSES_ROOT":
+            //    k = Registry.CurrentUser.CreateSubKey(ruta_sin_tipo, true);
+            //    k.SetValue("BinaryValue", new byte[] { 10, 43, 44, 45, 14, 255 }, RegistryValueKind.Binary);
+
+            //    k.Close();
+            //    break;
+            //    case "HKEY_CURRENT_USER":
+            //    k = Registry.CurrentUser.OpenSubKey(ruta_sin_tipo, true);
+            //    // This overload supports QWord (long) values. 
+            //    k.SetValue("QuadWordValue", 42, RegistryValueKind.QWord);
+
+            //    // The following SetValue calls have the same effect as using the
+            //    // SetValue overload that does not specify RegistryValueKind.
+            //    //
+            //    k.SetValue("DWordValue", 42, RegistryValueKind.DWord);
+            //    k.SetValue("MultipleStringValue", new string[] { "One", "Two", "Three" }, RegistryValueKind.MultiString);
+            //    k.SetValue("BinaryValue", new byte[] { 10, 43, 44, 45, 14, 255 }, RegistryValueKind.Binary);
+            //    k.SetValue("StringValue", "The path is %PATH%", RegistryValueKind.String);
+
+            //    // This overload supports setting expandable string values. Compare
+            //    // the output from this value with the previous string value.
+            //    k.SetValue("ExpandedStringValue", "The path is %PATH%", RegistryValueKind.ExpandString);
+            //    k.Close();
+            //    break;
+            //    case "HKEY_LOCAL_MACHINE":
+            //    k = Registry.LocalMachine.OpenSubKey(ruta_sin_tipo, true);
+            //    k.DeleteValue(nameValue);
+            //    k.Close();
+            //    break;
+            //    case "HKEY_USERS":
+            //    k = Registry.Users.OpenSubKey(ruta_sin_tipo, true);
+            //    k.DeleteValue(nameValue);
+            //    k.Close();
+            //    break;
+            //    case "HKEY_CURRENT_CONFIG":
+            //    k = Registry.CurrentConfig.OpenSubKey(ruta_sin_tipo, true);
+            //    k.DeleteValue(nameValue);
+            //    k.Close();
+            //    break;
+
+            //    default:
+            //    message = "Hubo un problema con la ruta ingresada";
+            //    break;
+            //}
+
+
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey("RegistryValueKindExample");
+
+
+
+
+
+
+
+            return message;
         }
+
+        public void createKeyValue_DWORD() {
+
+        }
+        ///// path     = Ruta de Regedit de Windows
+        ///// nameValue     = Es el nombre que tendrá llave
+        ///// dataValue   = Son los valores que almacenará la llave - String
+        //string tipo = getTypeRegistry(path);
+        //string ruta_sin_tipo = getKeyRutaSingetTypeRegistry(path);
+
+        //RegistryKey k;
+
+        //    switch (tipo) {
+        //        case "HKEY_CLASSES_ROOT":
+        //        k = Registry.CurrentUser.CreateSubKey(ruta_sin_tipo, true);
+        //        k.SetValue("BinaryValue", new byte[] { 10, 43, 44, 45, 14, 255 }, RegistryValueKind.Binary);
+
+        //        k.Close();
+        //        break;
+        //        case "HKEY_CURRENT_USER":
+        //        k = Registry.CurrentUser.OpenSubKey(ruta_sin_tipo, true);
+        //        // This overload supports QWord (long) values. 
+        //        k.SetValue("QuadWordValue", 42, RegistryValueKind.QWord);
+
+        //        // The following SetValue calls have the same effect as using the
+        //        // SetValue overload that does not specify RegistryValueKind.
+        //        //
+        //        k.SetValue("DWordValue", 42, RegistryValueKind.DWord);
+        //        k.SetValue("MultipleStringValue", new string[] { "One", "Two", "Three" }, RegistryValueKind.MultiString);
+        //        k.SetValue("BinaryValue", new byte[] { 10, 43, 44, 45, 14, 255 }, RegistryValueKind.Binary);
+        //        k.SetValue("StringValue", "The path is %PATH%", RegistryValueKind.String);
+
+        //        // This overload supports setting expandable string values. Compare
+        //        // the output from this value with the previous string value.
+        //        k.SetValue("ExpandedStringValue", "The path is %PATH%", RegistryValueKind.ExpandString);
+        //        k.Close();
+        //        break;
+        //        case "HKEY_LOCAL_MACHINE":
+        //        k = Registry.LocalMachine.OpenSubKey(ruta_sin_tipo, true);
+        //        k.DeleteValue(nameValue);
+        //        k.Close();
+        //        break;
+        //        case "HKEY_USERS":
+        //        k = Registry.Users.OpenSubKey(ruta_sin_tipo, true);
+        //        k.DeleteValue(nameValue);
+        //        k.Close();
+        //        break;
+        //        case "HKEY_CURRENT_CONFIG":
+        //        k = Registry.CurrentConfig.OpenSubKey(ruta_sin_tipo, true);
+        //        k.DeleteValue(nameValue);
+        //        k.Close();
+        //        break;
+
+        //        default:
+        //        message = "Hubo un problema con la ruta ingresada";
+        //        break;
+        //    }
+
+
+        //    RegistryKey rk = Registry.CurrentUser.CreateSubKey("RegistryValueKindExample");
+
+
+
+
+
+
+
+        //    return message;
+        public void createKeyValue_QWORD() {
+
+        }
+
+        public string createKeyValue_MultiString(string path, string nameKey,  string[] hola) {
+            /// path     = Ruta de Regedit de Windows
+            /// nameValue     = Es el nombre que tendrá llave
+            /// dataValue   = Son los valores que almacenará la llave - String
+            /// 
+
+            path = getSubFiles(path);
+
+
+            //              Quieres separar por coma? Usa
+            //              string[] arValores = tuTextBox.Text.Split(",");
+            //              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
+
+
+            try {
+                RegistryKey k;
+                // Ruta // Nombre del valor // Datos del valor 
+                k = Registry.CurrentUser.OpenSubKey(path, true);
+
+                k.SetValue("MultipleStringValue", hola, RegistryValueKind.MultiString);
+                //  Registry.SetValue(path, nameValue, {"Soy; un; dato"} RegistryValueKind.MultiString);
+                Console.WriteLine("Se gurado corerectamente ");
+            } catch (Exception) {
+                Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
+            }
+
+
+
+
+
+
+
+
+            return "";
+        }
+
+        public void createKeyValue_ExpandableString() {        //Función crear llave de Registro en formato ExpandableString
+
+        }
+
         public string createKey(string path /*Ruta completa del key*/,string nameKey /*Nombre del Key*/ ) {
             //Verifica algún código de error o advertenciaa
             string typeRegistry = getTypeRegistry(path);
@@ -78,7 +274,7 @@ namespace RegistryTools.Libs {
 
             //    case 1:
             //    //String Value
-            //    Registry.SetValue(path, key_values, RegistryValueKind.String);   // Se crea la llave en el registro
+            //    Registry.SetValue(path, dataValue, RegistryValueKind.String);   // Se crea la llave en el registro
             //    break;
 
             //    case 2:
@@ -86,19 +282,19 @@ namespace RegistryTools.Libs {
             //    break;
 
             //    case 3:
-            //    Registry.SetValue(path, key_values, RegistryValueKind.DWord);   // Se crea la llave en el registro
+            //    Registry.SetValue(path, dataValue, RegistryValueKind.DWord);   // Se crea la llave en el registro
             //    break;
 
             //    case 4:
-            //    Registry.SetValue(path, key_values, RegistryValueKind.QWord);   // Se crea la llave en el registro
+            //    Registry.SetValue(path, dataValue, RegistryValueKind.QWord);   // Se crea la llave en el registro
             //    break;
 
             //    case 5:
-            //    Registry.SetValue(path, key_values, RegistryValueKind.MultiString);   // Se crea la llave en el registro
+            //    Registry.SetValue(path, dataValue, RegistryValueKind.MultiString);   // Se crea la llave en el registro
             //    break;
 
             //    case 6:
-            //    Registry.SetValue(path,  key_values, RegistryValueKind.ExpandString);   // Se crea la llave en el registro
+            //    Registry.SetValue(path,  dataValue, RegistryValueKind.ExpandString);   // Se crea la llave en el registro
             //    break;
 
             //    default:
@@ -282,7 +478,11 @@ namespace RegistryTools.Libs {
                      inin = getTypeRegistry(path).Length+1;
                      ifin = path.Length - inin;
 
-                    return path.Substring(inin, ifin);
+                    if (ifin == -1) {
+                        return "";
+                    } else {
+                        return path.Substring(inin, ifin);          // Verificar esto , fue con Computer\HKEY_CURRENT_USER
+                    }
                 }
             } else {
                 return path = "E#R002"; // Ruta invalida
@@ -326,11 +526,11 @@ namespace RegistryTools.Libs {
             }
             path = getSubFiles(path);
 
-            /* Ésta función busca retornar el "CONTENEDOR" de la variable °key_ruta°
+            /* Ésta función busca retornar el "CONTENEDOR" de la variable °path°
              * 
              * =Ejemplo:
-             * [Antes]    key_ruta = @"HKEY_CURRENT_USER\Contenedor1\Contenedor2\Contenedor3"
-             * [Despues]  key_ruta =  "Contenedor3"
+             * [Antes]    path = @"HKEY_CURRENT_USER\Contenedor1\Contenedor2\Contenedor3"
+             * [Despues]  path =  "Contenedor3"
              * 
              */
             if (path == "") {
@@ -341,8 +541,8 @@ namespace RegistryTools.Libs {
             try {
                 /* Utiliza la variable para obtener el ultimo contendor 
                  * =Ejemplo:
-                 * [Antes]    key_ruta = @"Contenedor1\Contenedor2\Contenedor3" 
-                 * [Despues]  key_ruta =  "Contenedor3"                                                     */
+                 * [Antes]    path = @"Contenedor1\Contenedor2\Contenedor3" 
+                 * [Despues]  path =  "Contenedor3"                                                     */
                 int palabraClave = path.LastIndexOf(@"\");
                 path = path.Substring(palabraClave + 1);
                 if (path == @"\") {
