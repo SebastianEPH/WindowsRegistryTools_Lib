@@ -28,7 +28,7 @@ Esta librería fue desarollada para Crear, Leer y eliminar llaves del registro d
     - Multi-String Value......................................`(Retornará un String)`
     - Expandable String......................................`(Retornará un String)`
 
-    _**NOTA:** Para todos los valores obtenidos serán retornadas mediante una variable *Tipo String*, ésto sin importar el tipo de variable que almacene el valor. Ésta medidase tomó para hacer más sencilla el uso de la librería._
+    _**NOTA:** Todos los valores obtenidos serán retornadas mediante una variable *Tipo String*, ésto sin importar el tipo de variable que almacene el valor. Ésta medidase tomó para hacer más sencilla el uso de la librería._
 
 - **Eliminar Llave**
 
@@ -73,13 +73,13 @@ Esta librería fue desarollada para Crear, Leer y eliminar llaves del registro d
 string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 
 // Es el nombre de la Llave
-string nameKey = "Soy una Llave";
+string keyName = "Soy una Llave";
 
 // Ejecuta pero no muestra ningún mensaje
-registro.CreateKey(path, nameKey);
+registro.CreateKey(path, keyName);
 
 // Ejecutando y muestra en consola (Exito o algún código de error)
-Console.WriteLine(registro.CreateKey(path, nameKey));
+Console.WriteLine(registro.CreateKey(path, keyName));
 ````
 ---
 ## Función - Crear Valores 
@@ -100,51 +100,19 @@ Los registros de Windows nos permite poder crear Valores con distintos tipos de 
  *                      - Equipo\HKEY_CLASSES_ROOT
  */ 
 // Camino de ruta de la llave
-string path = @"HKEY_CURRENT_USER\Software\Adobe\";
+string path = @"HKEY_CURRENT_USER\Software\Adobe";
 
-// Es el nombre del Valor que se almacenará dentro de la llave
-string valueData = "Soy un dato tipoString";
+// Es el nombre del Valor 
+string valueName = "New Value TypeString";
 
 // Son los valores que se almacenarán en la llave
 string valueData = "Soy un dato tipoString";
 
 // Ejecuta pero no muestra ningún mensaje
-registro.CreateKeyValue_String(path, nameKey);
+registro.CreateKeyValue_String((path, keyName,valueData);
 
 // Ejecutando y muestra en consola (Exito o algún código de error)
-Console.WriteLine(registro.CreateKeyValue_String(path, nameKey));
-
-
-
-
-string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, string valueData /*Datos almacenados del valor*/
-
-
-
-
-
-
-
-
-
-
-// path     = Ruta de Regedit de Windows
-string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
-
-// nameValue     = Es el nombre que tendrá llave
-string nameValue = "Soy una llave";
-
-// data   = Son los valores que almacenará la llave - String
-string data = "Soy un valor String";
-
-//message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
-string message = "";
-
-//Ejecutando
-message = registro.createKeyValue_String(path, nameValue, data);
-
-// Muestra en consola mensaje de error o exito
-Console.WriteLine(message);
+Console.WriteLine(registro.CreateKeyValue_String((path, keyName, valueData));
 ````
 - Antes de la ejecución
 
@@ -157,12 +125,11 @@ Console.WriteLine(message);
 #### Binarie Value:
 
 ````csharp
-    //Ésta funcionalidad se está trabajando, porfavor espere...
+    // Es la unica funcionalidad la cual me está causando problemas al poder crearla
 ````
 #### DWORD (32bits) Value:
-
 ````csharp
-    //Ésta funcionalidad se está trabajando, porfavor espere...
+
 ````
 #### QWORD (64bits) Value:
 
