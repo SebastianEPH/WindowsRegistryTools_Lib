@@ -213,7 +213,61 @@ namespace RegistryTools.Libs {
 
 
         //    return message;
-        public void createKeyValue_QWORD() {
+        public string createKeyValue_QWORD(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, Int64 dataValue /*Datos almacenados del valor*/) {
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
+            
+            path = routePath(path);
+
+            if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
+                //
+                return "E#R003";    //Manda mensaje de error
+            }
+            RegistryKey k;
+
+            try {
+                switch (getTypeRegistry(path)) {
+
+                    case "HKEY_CLASSES_ROOT":
+                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.QWord);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_USER":
+                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.QWord);
+                    k.Close();
+                    break;
+
+                    case "HKEY_LOCAL_MACHINE":
+                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.QWord);
+                    k.Close();
+                    break;
+
+                    case "HKEY_USERS":
+                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.QWord);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_CONFIG":
+                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.QWord);
+                    k.Close();
+                    break;
+
+                    default:
+                    message = "La ruta ingresada tiene un problema ";
+                    break;
+                }
+                return "E#XITO";
+            } catch (Exception) {
+                return "E#RR04";    // No se puedo crear el valor de la llave
+            }
 
         }
 
