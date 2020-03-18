@@ -326,7 +326,7 @@ namespace RegistryTools.Libs {
             string key_ruta_sin_Type = getKeyRutaSingetTypeRegistry(key_ruta);
 
            /* Se eliminarán los siguientes textos de °key_name°
-            * que se obtendrán de la función °getTypeRegistry°: 
+            * que se obtendrán de la función °GetTypeRegistry°: 
             *         "HKEY_CLASSES_ROOT\"  "HKEY_CURRENT_USER\"    "HKEY_USERS\"
             *         "HKEY_LOCAL_MACHINE\" "HKEY_CURRENT_CONFIG\"
             * Dando como resultado solo la sub ruta.
@@ -475,7 +475,7 @@ namespace RegistryTools.Libs {
         public string getKeyRutaSingetTypeRegistry(string key_ruta){
             /* Ésta función leerá la variable *key_ruta* 
              * buscando y eliminando los siguientes textos
-             * que se obtendrán de la función °getTypeRegistry°: 
+             * que se obtendrán de la función °GetTypeRegistry°: 
              *         "HKEY_CLASSES_ROOT\"  
              *         "HKEY_CURRENT_USER\"   
              *         "HKEY_USERS\"

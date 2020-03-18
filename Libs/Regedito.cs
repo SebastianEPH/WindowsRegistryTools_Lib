@@ -9,9 +9,9 @@ namespace RegistryTools.Libs {
     class Regedito {
         string message = "";
 
-        public string createKeyValue_String(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, string dataValue /*Datos almacenados del valor*/) {
+        public string CreateKeyValue_String(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, string dataValue /*Datos almacenados del valor*/) {
            
-            string typeRegistry = getTypeRegistry(path);
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
@@ -23,34 +23,34 @@ namespace RegistryTools.Libs {
             RegistryKey k;
 
             try {
-                switch (getTypeRegistry(path)) {
+                switch (GetTypeRegistry(path)) {
 
                     case "HKEY_CLASSES_ROOT":
-                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.ClassesRoot.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.String);
                     k.Close();
                     break;
 
                     case "HKEY_CURRENT_USER":
-                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentUser.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.String);
                     k.Close();
                     break;
 
                     case "HKEY_LOCAL_MACHINE":
-                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.LocalMachine.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.String);
                     k.Close();
                     break;
 
                     case "HKEY_USERS":
-                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.Users.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.String);
                     k.Close();
                     break;
 
                     case "HKEY_CURRENT_CONFIG":
-                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentConfig.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.String);
                     k.Close();
                     break;
@@ -64,10 +64,9 @@ namespace RegistryTools.Libs {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
         }
+        public string CreateKeyValue_Binarie(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, byte [] dataValue /*Datos almacenados del valor*/) {
 
-        public string createKeyValue_Binarie(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, string dataValue /*Datos almacenados del valor*/) {
-
-            string typeRegistry = getTypeRegistry(path);
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
@@ -77,16 +76,93 @@ namespace RegistryTools.Libs {
                 return "E#R003";    //Manda mensaje de error
             }
 
-            path = routePath(path);
+         
+
+
+
+
+
+            //string typeRegistry = GetTypeRegistry(path);
+            //if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
+            //    return typeRegistry;
+            //}
+            ////              Quieres separar por coma? Usa
+            ////              string[] arValores = tuTextBox.Text.Split(",");
+            ////              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
+            ////Limpiar path 
+
+
+            //if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
+            //    //
+            //    return "E#R003";    //Manda mensaje de error
+            //}
+
+            RegistryKey k;
+
             try {
-                // Ruta // Nombre del valor // Datos del valor 
-                Registry.SetValue(path, nameValue, dataValue, RegistryValueKind.String);
+                switch (GetTypeRegistry(path)) {
+
+                    case "HKEY_CLASSES_ROOT":
+                    k = Registry.ClassesRoot.OpenSubKey(GetSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.Binary);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_USER":
+                    k = Registry.CurrentUser.OpenSubKey(GetSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.Binary);
+                    k.Close();
+                    break;
+
+                    case "HKEY_LOCAL_MACHINE":
+                    k = Registry.LocalMachine.OpenSubKey(GetSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.Binary);
+                    k.Close();
+                    break;
+
+                    case "HKEY_USERS":
+                    k = Registry.Users.OpenSubKey(GetSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.Binary);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_CONFIG":
+                    k = Registry.CurrentConfig.OpenSubKey(GetSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.Binary);
+                    k.Close();
+                    break;
+
+                    default:
+                    message = "La ruta ingresada tiene un problema ";
+                    break;
+                }
                 return "E#XITO";
             } catch (Exception) {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
 
-            RegistryKey k;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             //switch (tipo) {
             //    case "HKEY_CLASSES_ROOT":
@@ -145,14 +221,13 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-
-        public string createKeyValue_DWORD(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, Int32 dataValue /*Datos almacenados del valor*/) {
-            string typeRegistry = getTypeRegistry(path);
+        public string CreateKeyValue_DWORD(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, Int32 dataValue /*Datos almacenados del valor*/) {
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
 
-            path = routePath(path);
+            path = RoutePath(path);
 
             if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
                 //
@@ -167,38 +242,35 @@ namespace RegistryTools.Libs {
 
 
 
-
-
-
             try {
-                switch (getTypeRegistry(path)) {
+                switch (GetTypeRegistry(path)) {
 
                     case "HKEY_CLASSES_ROOT":
-                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.ClassesRoot.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.DWord);
                     k.Close();
                     break;
 
                     case "HKEY_CURRENT_USER":
-                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentUser.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.DWord);
                     k.Close();
                     break;
 
                     case "HKEY_LOCAL_MACHINE":
-                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.LocalMachine.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.DWord);
                     k.Close();
                     break;
 
                     case "HKEY_USERS":
-                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.Users.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.DWord);
                     k.Close();
                     break;
 
                     case "HKEY_CURRENT_CONFIG":
-                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentConfig.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.DWord);
                     k.Close();
                     break;
@@ -213,77 +285,13 @@ namespace RegistryTools.Libs {
             }
 
         }
-        ///// path     = Ruta de Regedit de Windows
-        ///// nameValue     = Es el nombre que tendrá llave
-        ///// dataValue   = Son los valores que almacenará la llave - String
-        //string tipo = getTypeRegistry(path);
-        //string ruta_sin_tipo = getKeyRutaSingetTypeRegistry(path);
-
-        //RegistryKey k;
-
-        //    switch (tipo) {
-        //        case "HKEY_CLASSES_ROOT":
-        //        k = Registry.CurrentUser.CreateSubKey(ruta_sin_tipo, true);
-        //        k.SetValue("BinaryValue", new byte[] { 10, 43, 44, 45, 14, 255 }, RegistryValueKind.Binary);
-
-        //        k.Close();
-        //        break;
-        //        case "HKEY_CURRENT_USER":
-        //        k = Registry.CurrentUser.OpenSubKey(ruta_sin_tipo, true);
-        //        // This overload supports QWord (long) values. 
-        //        k.SetValue("QuadWordValue", 42, RegistryValueKind.QWord);
-
-        //        // The following SetValue calls have the same effect as using the
-        //        // SetValue overload that does not specify RegistryValueKind.
-        //        //
-        //        k.SetValue("DWordValue", 42, RegistryValueKind.DWord);
-        //        k.SetValue("MultipleStringValue", new string[] { "One", "Two", "Three" }, RegistryValueKind.MultiString);
-        //        k.SetValue("BinaryValue", new byte[] { 10, 43, 44, 45, 14, 255 }, RegistryValueKind.Binary);
-        //        k.SetValue("StringValue", "The path is %PATH%", RegistryValueKind.String);
-
-        //        // This overload supports setting expandable string values. Compare
-        //        // the output from this value with the previous string value.
-        //        k.SetValue("ExpandedStringValue", "The path is %PATH%", RegistryValueKind.ExpandString);
-        //        k.Close();
-        //        break;
-        //        case "HKEY_LOCAL_MACHINE":
-        //        k = Registry.LocalMachine.OpenSubKey(ruta_sin_tipo, true);
-        //        k.DeleteValue(nameValue);
-        //        k.Close();
-        //        break;
-        //        case "HKEY_USERS":
-        //        k = Registry.Users.OpenSubKey(ruta_sin_tipo, true);
-        //        k.DeleteValue(nameValue);
-        //        k.Close();
-        //        break;
-        //        case "HKEY_CURRENT_CONFIG":
-        //        k = Registry.CurrentConfig.OpenSubKey(ruta_sin_tipo, true);
-        //        k.DeleteValue(nameValue);
-        //        k.Close();
-        //        break;
-
-        //        default:
-        //        message = "Hubo un problema con la ruta ingresada";
-        //        break;
-        //    }
-
-
-        //    RegistryKey rk = Registry.CurrentUser.CreateSubKey("RegistryValueKindExample");
-
-
-
-
-
-
-
-        //    return message;
-        public string createKeyValue_QWORD(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, Int64 dataValue /*Datos almacenados del valor*/) {
-            string typeRegistry = getTypeRegistry(path);
+        public string CreateKeyValue_QWORD(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, Int64 dataValue /*Datos almacenados del valor*/) {
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
             
-            path = routePath(path);
+            path = RoutePath(path);
 
             if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
                 //
@@ -292,34 +300,34 @@ namespace RegistryTools.Libs {
             RegistryKey k;
 
             try {
-                switch (getTypeRegistry(path)) {
+                switch (GetTypeRegistry(path)) {
 
                     case "HKEY_CLASSES_ROOT":
-                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.ClassesRoot.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.QWord);
                     k.Close();
                     break;
 
                     case "HKEY_CURRENT_USER":
-                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentUser.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.QWord);
                     k.Close();
                     break;
 
                     case "HKEY_LOCAL_MACHINE":
-                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.LocalMachine.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.QWord);
                     k.Close();
                     break;
 
                     case "HKEY_USERS":
-                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.Users.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.QWord);
                     k.Close();
                     break;
 
                     case "HKEY_CURRENT_CONFIG":
-                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentConfig.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.QWord);
                     k.Close();
                     break;
@@ -333,14 +341,13 @@ namespace RegistryTools.Libs {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
         }
-
-        public string createKeyValue_MultiString(string path, string nameValue,  string[] dataValue) {
+        public string CreateKeyValue_MultiString(string path/*Ruta completa del key*/, string nameValue/*valores de la llave*/, string [] dataValue/*Datos almacenados del valor*/) {
 
             //Los valores de cadena no requieren un <Value type> (ver ejemplo), pero backslashes ("\") necesita ser escrita como una doble barra invertida ("\ \")
             //Por ejemplo, para añadir los valores "Value A", "Value B", "Value C", "Value D", "Value E", "Value F", "Value G", "Value H", "Value I", "Value J", and "Value K" a la clave HKLM\SOFTWARE\Microsoft, 
 
 
-            string typeRegistry = getTypeRegistry(path);
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
@@ -348,7 +355,7 @@ namespace RegistryTools.Libs {
             //              string[] arValores = tuTextBox.Text.Split(",");
             //              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
             //Limpiar path 
-            path = routePath(path);
+            path = RoutePath(path);
 
             if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
                 //
@@ -357,34 +364,34 @@ namespace RegistryTools.Libs {
             RegistryKey k;
 
             try {
-                switch (getTypeRegistry(path)) {
+                switch (GetTypeRegistry(path)) {
 
                     case "HKEY_CLASSES_ROOT":
-                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.ClassesRoot.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
                     k.Close();
                     break;
 
                     case "HKEY_CURRENT_USER":
-                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentUser.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
                     k.Close();
                     break;
 
                     case "HKEY_LOCAL_MACHINE":
-                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.LocalMachine.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
                     k.Close();
                     break;
 
                     case "HKEY_USERS":
-                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.Users.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
                     k.Close();
                     break;
 
                     case "HKEY_CURRENT_CONFIG":
-                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentConfig.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
                     k.Close();
                     break;
@@ -397,25 +404,9 @@ namespace RegistryTools.Libs {
             } catch (Exception) {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
-
-            //////// Verificar que tipo llave es en swith
-
-            //////try {
-            //////    RegistryKey k;
-            //////    // Ruta // Nombre del valor // Datos del valor 
-            //////    k = Registry.CurrentUser.OpenSubKey(path, true);
-
-            //////    k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
-            //////    //  Registry.SetValue(path, nameValue, {"Soy; un; dato"} RegistryValueKind.MultiString);
-            //////    return "Se gurado corerectamente ";
-            //////} catch (Exception) {
-            //////    return "No se puedo guarsdar ";    // No se puedo crear el valor de la llave
-            //////}
-
         }
-
-        public string createKeyValue_ExpandString(string path, string nameValue, string dataValue) {        //Función crear llave de Registro en formato ExpandableString
-            string typeRegistry = getTypeRegistry(path);
+        public string CreateKeyValue_ExpandString(string path/*Ruta completa del key*/, string nameValue/*valores de la llave*/, string dataValue/*Datos almacenados del valor*/) {        //Función crear llave de Registro en formato ExpandableString
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
@@ -423,7 +414,7 @@ namespace RegistryTools.Libs {
             //              string[] arValores = tuTextBox.Text.Split(",");
             //              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
             //Limpiar path 
-            path = routePath(path);
+            path = RoutePath(path);
 
             if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
                 //
@@ -432,34 +423,34 @@ namespace RegistryTools.Libs {
             RegistryKey k;
 
             try {
-                switch (getTypeRegistry(path)) {
+                switch (GetTypeRegistry(path)) {
 
                     case "HKEY_CLASSES_ROOT":
-                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.ClassesRoot.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.ExpandString);
                     k.Close();
                     break;
 
                     case "HKEY_CURRENT_USER":
-                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentUser.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.ExpandString);
                     k.Close();
                     break;
 
                     case "HKEY_LOCAL_MACHINE":
-                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.LocalMachine.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.ExpandString);
                     k.Close();
                     break;
 
                     case "HKEY_USERS":
-                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.Users.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.ExpandString);
                     k.Close();
                     break;
 
                     case "HKEY_CURRENT_CONFIG":
-                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentConfig.OpenSubKey(GetSubFiles(path), true);
                     k.SetValue(nameValue, dataValue, RegistryValueKind.ExpandString);
                     k.Close();
                     break;
@@ -474,10 +465,9 @@ namespace RegistryTools.Libs {
             }
 
         }
-
-        public string createKey(string path /*Ruta completa del key*/,string nameKey /*Nombre del Key*/ ) {
+        public string CreateKey(string path /*Ruta completa del key*/,string nameKey /*Nombre del Key*/ ) {
             //Verifica algún código de error o advertenciaa
-            string typeRegistry = getTypeRegistry(path);
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
@@ -487,7 +477,7 @@ namespace RegistryTools.Libs {
                 if (nameKey == "") {
                     return "E#R005 ";  //
                 } else {
-                    Registry.SetValue(routePath(path) + @"\" + nameKey, "", "");
+                    Registry.SetValue(RoutePath(path) + @"\" + nameKey, "", "");
                     return "E#XITO";  // Se creó correctamente el contenedor
                 }
 
@@ -497,97 +487,44 @@ namespace RegistryTools.Libs {
                 return "E#CR01";    // No pudo crear la llave contenedora
             }
         } 
-        public string EliiminarestafuncionalidadpleaseSoloEsDePrueba(string path /*Ruta completa del key*/,  string nameValue/*valores de la llave*/, byte typeValue /*Tipo de value*/) {
-
-            //switch (typeValue) {
-
-            ////    /*          0   =       °Se crea un conteiner no una llave°
-            //     *          1   =       String Value
-            //     *          2   =       Binarie Value
-            //     *          3   =       DWORD (32bits) Value
-            //     *          4   =       QWORD (64bits) Value
-            //     *          5   =       Multi-String Value
-            //     *          6   =       Expandable String                                                           */
-                
-
-
-
-                
-
-
-
-            //    case 1:
-            //    //String Value
-            //    Registry.SetValue(path, dataValue, RegistryValueKind.String);   // Se crea la llave en el registro
-            //    break;
-
-            //    case 2:
-            //    Registry.SetValue(path, "", RegistryValueKind.Binary);   // Se crea la llave en el registro
-            //    break;
-
-            //    case 3:
-            //    Registry.SetValue(path, dataValue, RegistryValueKind.DWord);   // Se crea la llave en el registro
-            //    break;
-
-            //    case 4:
-            //    Registry.SetValue(path, dataValue, RegistryValueKind.QWord);   // Se crea la llave en el registro
-            //    break;
-
-            //    case 5:
-            //    Registry.SetValue(path, dataValue, RegistryValueKind.MultiString);   // Se crea la llave en el registro
-            //    break;
-
-            //    case 6:
-            //    Registry.SetValue(path,  dataValue, RegistryValueKind.ExpandString);   // Se crea la llave en el registro
-            //    break;
-
-            //    default:
-            //    message = "Especifique el tipo de valor del key";
-            //    break;
-            //}
-
-
-
-            return message;
-        }
-        public string deleteKey(string path /*camino completa del valor*/) {
-            string typeRegistry = getTypeRegistry(path);
+        public string DeleteKey(string path /*camino completa del valor*/) {
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
 
             //Se obtiene key 
-            if (getkeyName(path) == "") {
+            if (GetkeyName(path) == "") {
                 return "E#R004";    //No se encontró el nombre del la llave
             }
 
             try {
                 RegistryKey k;
 
-                switch (getTypeRegistry(path)) {
+                switch (GetTypeRegistry(path)) {
                     case "HKEY_CLASSES_ROOT":
-                    k = Registry.ClassesRoot.OpenSubKey(getsubfilesSinKeyName(path), true);
-                    k.DeleteSubKeyTree(getkeyName(path));
+                    k = Registry.ClassesRoot.OpenSubKey(GetSubFilesSinKeyName(path), true);
+                    k.DeleteSubKeyTree(GetkeyName(path));
                     k.Close();
                     break;
                     case "HKEY_CURRENT_USER":
-                    k = Registry.CurrentUser.OpenSubKey(getsubfilesSinKeyName(path), true);
-                    k.DeleteSubKeyTree(getkeyName(path));
+                    k = Registry.CurrentUser.OpenSubKey(GetSubFilesSinKeyName(path), true);
+                    k.DeleteSubKeyTree(GetkeyName(path));
                     k.Close();
                     break;
                     case "HKEY_LOCAL_MACHINE":
-                    k = Registry.LocalMachine.OpenSubKey(getsubfilesSinKeyName(path), true);
-                    k.DeleteSubKeyTree(getkeyName(path));
+                    k = Registry.LocalMachine.OpenSubKey(GetSubFilesSinKeyName(path), true);
+                    k.DeleteSubKeyTree(GetkeyName(path));
                     k.Close();
                     break;
                     case "HKEY_USERS":
-                    k = Registry.Users.OpenSubKey(getsubfilesSinKeyName(path), true);
-                    k.DeleteSubKeyTree(getkeyName(path));
+                    k = Registry.Users.OpenSubKey(GetSubFilesSinKeyName(path), true);
+                    k.DeleteSubKeyTree(GetkeyName(path));
                     k.Close();
                     break;
                     case "HKEY_CURRENT_CONFIG":
-                    k = Registry.CurrentConfig.OpenSubKey(getsubfilesSinKeyName(path), true);
-                    k.DeleteSubKeyTree(getkeyName(path));
+                    k = Registry.CurrentConfig.OpenSubKey(GetSubFilesSinKeyName(path), true);
+                    k.DeleteSubKeyTree(GetkeyName(path));
                     k.Close();
                     break;
                     default:
@@ -599,9 +536,9 @@ namespace RegistryTools.Libs {
                 return "E#NN01";    // No se encontró la llave , o no se puedo eliminar por permisos 
             }
         }
-        public string deleteValues(string path /*camino completa del valor*/, string nameValue /*Nombre del valor*/) {
+        public string DeleteValues(string path /*camino completa del valor*/, string nameValue /*Nombre del valor*/) {
             
-            string typeRegistry = getTypeRegistry(path);
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
@@ -610,33 +547,33 @@ namespace RegistryTools.Libs {
                 return "E#RR03";    // Mensaje de Error, El nombre ingresado del valor está vacío
             }
             //Limpiando Ruta y obtiene datos
-            path = routePath(path);
+            path = RoutePath(path);
 
             try {
                 RegistryKey k;
-                switch (getTypeRegistry(path)) {
+                switch (GetTypeRegistry(path)) {
                     case "HKEY_CLASSES_ROOT":
-                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.ClassesRoot.OpenSubKey(GetSubFiles(path), true);
                     k.DeleteValue(nameValue);
                     k.Close();
                     break;
                     case "HKEY_CURRENT_USER":
-                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentUser.OpenSubKey(GetSubFiles(path), true);
                     k.DeleteValue(nameValue);
                     k.Close();
                     break;
                     case "HKEY_LOCAL_MACHINE":
-                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.LocalMachine.OpenSubKey(GetSubFiles(path), true);
                     k.DeleteValue(nameValue);
                     k.Close();
                     break;
                     case "HKEY_USERS":
-                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.Users.OpenSubKey(GetSubFiles(path), true);
                     k.DeleteValue(nameValue);
                     k.Close();
                     break;
                     case "HKEY_CURRENT_CONFIG":
-                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k = Registry.CurrentConfig.OpenSubKey(GetSubFiles(path), true);
                     k.DeleteValue(nameValue);
                     k.Close();
                     break;
@@ -657,9 +594,9 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        public string getValues(string path /*camino completa del valor*/, string nameValue /*Nombre del valor*/) {
+        public string GetValues(string path /*camino completa del valor*/, string nameValue /*Nombre del valor*/) {
             
-            string typeRegistry = getTypeRegistry(path);
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry =="E#RR02") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
@@ -670,7 +607,7 @@ namespace RegistryTools.Libs {
             }
 
             //Limpiando Ruta y obtiene datos
-            path = routePath(path);
+            path = RoutePath(path);
 
             try {
 
@@ -679,8 +616,9 @@ namespace RegistryTools.Libs {
                     message = (string)Registry.GetValue(path, nameValue, "E#RR02");
                 } catch (Exception) {
                     try {
-                        int entero = 0;
-                        entero = (int)Registry.GetValue(path, nameValue, "E#RR02");
+                        
+                        Int64 entero = 0;
+                        entero = (Int64)Registry.GetValue(path, nameValue, "E#RR02");
                         message = entero.ToString();
                     } catch (Exception) {
                         long entero = 0;
@@ -696,30 +634,44 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        public string getSubFiles(string path) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        public string GetSubFiles(string path) {
             //Verifica si la ruta ingresada tiene un formato aceptado
-            string typeRegistry = getTypeRegistry(path);
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
             //Limpiando Ruta y obtiene datos
-            path = routePath(path);
+            path = RoutePath(path);
 
 
             // Tipo de R
-            // int inin = .Length;    // Obtiene el número de longuitud de la cadena de caracteres de getTypeRegistry
-            int inin = getTypeRegistry(path).Length;
+            // int inin = .Length;    // Obtiene el número de longuitud de la cadena de caracteres de GetTypeRegistry
+            int inin = GetTypeRegistry(path).Length;
 
             int ifin = path.Length - inin;                    // Obtiene el número de longuituc de caracteres de la ruta completa
 
             //Verifica si encontró typeRegistry
-            int ver = path.LastIndexOf(getTypeRegistry(path)); //    Busca el typo de registro en la ruta ingresada, 
+            int ver = path.LastIndexOf(GetTypeRegistry(path)); //    Busca el typo de registro en la ruta ingresada, 
 
             if (ver == 0) {
                 if (path.Substring(inin, ifin) == @"\") {   //Verifica si la ruta lleva un \ , estó podria causar problemas, por ende se decidió eliminarlo
                     return "";
                 } else {
-                     inin = getTypeRegistry(path).Length+1;
+                     inin = GetTypeRegistry(path).Length+1;
                      ifin = path.Length - inin;
 
                     if (ifin == -1) {
@@ -734,27 +686,27 @@ namespace RegistryTools.Libs {
 
 
         }
-        public string getsubfilesSinKeyName(string path) {
+        public string GetSubFilesSinKeyName(string path) {
             //Verifica posibles mensajes de fallos 
-            string typeRegistry = getTypeRegistry(path);
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
 
 
             // Evita posible Errores 
-            if (getkeyName(path) == "") {
+            if (GetkeyName(path) == "") {
                 return "";
             }
 
 
 
             // Numero completo subruta - el nombre del key
-            int final = getSubFiles(path).Length - getkeyName(path).Length;
+            int final = GetSubFiles(path).Length - GetkeyName(path).Length;
 
             //Convierte la ruta completa a ruta reducida
             // Solo obtiene las subRutas y no la ruta completa 
-            path = getSubFiles(path);
+            path = GetSubFiles(path);
             if (final <= 0 ) {
                 return "";  // Significa que no existe SubFiles, la llave está creada directamente en el directorio 
             }
@@ -763,12 +715,12 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        public string getkeyName(string path) {
-            string typeRegistry = getTypeRegistry(path);
+        public string GetkeyName(string path) {
+            string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
             }
-            path = getSubFiles(path);
+            path = GetSubFiles(path);
 
             /* Ésta función busca retornar el "CONTENEDOR" de la variable °path°
              * 
@@ -803,7 +755,7 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        public string getTypeRegistry(string path) {
+        public string GetTypeRegistry(string path) {
             /* 
              * Ésta función recorrerá toda la variable °path°
              * y retornará solo uno de los siguientes textos:
@@ -828,7 +780,7 @@ namespace RegistryTools.Libs {
 
 
             // Obtiene la Ruta Limpia
-            path = routePath(path);
+            path = RoutePath(path);
             // Verifica si la ruta está vacía
             if (path == "E#R001") {
                 return path;    //Se termina el proceso y Retorna mensaje de Error
@@ -892,7 +844,7 @@ namespace RegistryTools.Libs {
             return "E#R002";   // Manda mensaje de error de ruta no valida
 
             }   // Funcional sin bugs
-        public string routePath(string path) {
+        public string RoutePath(string path) {
             // Ésta función solo devuelve la ruta sin las palabras  Equipo\ && Computer\
             // Y solo detectará si la ruta ingresada está vacía
 

@@ -47,12 +47,12 @@ namespace RegistryTools {
             //DWORD
             if (rb_DWORD.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
-                //txt_info.Text = registro.createKeyValue_DWORD(ruta, nombre, valori);
+                //txt_info.Text = registro.CreateKeyValue_DWORD(ruta, nombre, valori);
             }
             //QWORD
             if (rb_QWORD.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
-                //txt_info.Text = registro.createKeyValue_QWORD(ruta, nombre, valori);
+                //txt_info.Text = registro.CreateKeyValue_QWORD(ruta, nombre, valori);
             }
             //MultiString
             if (rb_multiString.Checked) {
@@ -121,14 +121,13 @@ namespace RegistryTools {
 
             string path = crearConteiner_ruta.Text;
             string nameValue = crearConteiner_Contenedor.Text;
-            Int32  dataValue = Int32.Parse(txtValueData.Text);
-            //path = registro3.routePath(path);
 
+            //path = registro3.RoutePath(path);
 
-            ////string[] arValores = crearConteiner_Contenedor.Text.Split();
+;
             ////byte[] bytesValues = { };
 
-            //path = registro3.getSubFiles(path);
+            //path = registro3.GetSubFiles(path);
 
             ////              Quieres separar por coma? Usa
             ////              string[] arValores = tuTextBox.Text.Split(",");
@@ -141,20 +140,64 @@ namespace RegistryTools {
 
             //byte[] byteValues =  bytes ;
 
-            //try {
-            //    RegistryKey k;
-            //    // Ruta // Nombre del valor // Datos del valor 
-            //    k = Registry.CurrentUser.OpenSubKey(path, true);
+            ////////////////////RegistryKey k;
 
-            //    k.SetValue(nameValue, byteValues, RegistryValueKind.DWord);
+            ////////////////////Byte [] dataValue = {Byte.Parse(txtValueData.Text)};
+
+            ////////////////////try {
+
+            ////////////////////    k = Registry.CurrentUser.OpenSubKey(registro3.GetSubFiles(path), true);
+            ////////////////////    k.SetValue(nameValue, dataValue, RegistryValueKind.Binary);
+            ////////////////////    k.Close();
+            ////////////////////    Console.WriteLine("Exito");
+            ////////////////////} catch (Exception er) {
+            ////////////////////    Console.WriteLine("falló" +er);
+
+            ////////////////////}
 
 
-            //    Console.WriteLine("Se gurado corerectamente ");
-            //} catch (Exception) {
-            //    Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
-            //}
 
-            Console.WriteLine("Create string"+registro3.createKeyValue_DWORD(path,nameValue,dataValue));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ////Byte [] dataValue = { Byte.Parse(txtValueData.Text) };
+            //int value = int.Parse(txtValueData.Text);
+            //byte [] bytes = BitConverter.GetBytes(value);
+            //Console.WriteLine(BitConverter.ToString(bytes));
+
+            //if (BitConverter.IsLittleEndian)
+            //    Array.Reverse(bytes);
+
+            //Console.WriteLine(BitConverter.ToString(bytes));
+            //// Call method to send byte stream across machine boundaries.
+
+            //// Receive byte stream from beyond machine boundaries.
+            //Console.WriteLine(BitConverter.ToString(bytes));
+            //if (BitConverter.IsLittleEndian)
+            //    Array.Reverse(bytes);
+
+            //Console.WriteLine(BitConverter.ToString(bytes));
+            //int result = BitConverter.ToInt32(bytes, 0);
+            //Console.WriteLine("Original value: {0}", value);
+            //Console.WriteLine("Returned value: {0}", result);
+
+
+
+
+
+            Int32 dataValue = Int32.Parse(txtValueData.Text);
+            Console.WriteLine("Create string"+registro3.CreateKeyValue_DWORD(path,nameValue,dataValue));
 
 
 
@@ -169,7 +212,7 @@ namespace RegistryTools {
 
             ////////////byte[] bytesValues = { };
 
-            //////////path = registro3.getSubFiles(path);
+            //////////path = registro3.GetSubFiles(path);
 
 
             ////////////              Quieres separar por coma? Usa
@@ -201,26 +244,26 @@ namespace RegistryTools {
 
 
 
-            ////Console.WriteLine("getType_Registry                  = " + registro.getTypeRegistry(path));
+            ////Console.WriteLine("getType_Registry                  = " + registro.GetTypeRegistry(path));
             ////Console.WriteLine("getKeyRutaSingetTypeRegistry      = " + registro.getKeyRutaSingetTypeRegistry(path));
             ////Console.WriteLine("ggetConteinerRegistry             = " + registro.getConteinerRegistry(path));
             //////Console.WriteLine("getKeyRutaSingetConteinerRegistry = " + registro.getKeyRutaSingetConteinerRegistry(path));
 
 
-            ////Console.WriteLine("gettypeRegistry = " + registro3.getTypeRegistry(path));
-            ////Console.WriteLine("reoutePath      = " + registro3.routePath(path));
-            ////Console.WriteLine("getNameKey      = " + registro3.getkeyName(path));
-            ////Console.WriteLine("Ruta sin key    = " + registro3.getsubfilesSinKeyName(path));
-            ////Console.WriteLine("getSubFiles     = " + registro3.getSubFiles(path) + "\n\n\n\n");
+            ////Console.WriteLine("gettypeRegistry = " + registro3.GetTypeRegistry(path));
+            ////Console.WriteLine("reoutePath      = " + registro3.RoutePath(path));
+            ////Console.WriteLine("getNameKey      = " + registro3.GetkeyName(path));
+            ////Console.WriteLine("Ruta sin key    = " + registro3.GetSubFilesSinKeyName(path));
+            ////Console.WriteLine("GetSubFiles     = " + registro3.GetSubFiles(path) + "\n\n\n\n");
             //Console.WriteLine("Eliminar"+ registro3.createKeyValue_string(path,nameValue,"este es un dato"));
 
 
 
 
             //Console.WriteLine(nameValue);
-            //Console.WriteLine("deleteValues     = " + registro3.deleteValues(path, nameValue) + "\n\n\n\n");
+            //Console.WriteLine("DeleteValues     = " + registro3.DeleteValues(path, nameValue) + "\n\n\n\n");
 
-            //  Console.WriteLine("eliminar Key y sus datos= "+registro3.deleteKey(path));
+            //  Console.WriteLine("eliminar Key y sus datos= "+registro3.DeleteKey(path));
 
 
             /* Ésta función busca eliminar el "TIPO DE REGISTRO" y el "CONTENEDOR" 
@@ -234,9 +277,9 @@ namespace RegistryTools {
 
 
             //// Se obtiene la ruta limpia , sin gettypeKey
-            //int  total = registro3.getSubFiles(path).Length - registro3.getkeyName(path).Length;
-            ////string nameKey = registro3.getSubFiles(path);
-            //path = registro3.getSubFiles(path);
+            //int  total = registro3.GetSubFiles(path).Length - registro3.GetkeyName(path).Length;
+            ////string nameKey = registro3.GetSubFiles(path);
+            //path = registro3.GetSubFiles(path);
 
             //// Desde ésta palabra clave se termina de obtener el texto
             //// string palabraFin = nameKey;                      //Solucionar bug, de cuando en la ruta hay dos carpetas con el mismo nombre
@@ -276,7 +319,7 @@ namespace RegistryTools {
 
 
             ////Ruta limpia
-            //string path = registro3.routePath(path);
+            //string path = registro3.RoutePath(path);
             ////string gettype = ;
 
             ////    // Tipo de R
@@ -286,17 +329,17 @@ namespace RegistryTools {
 
 
             ////Verifica si encontró typeRegistry
-            //int ver = path.LastIndexOf(registro3.getTypeRegistry(path)); //Ingles UK
+            //int ver = path.LastIndexOf(registro3.GetTypeRegistry(path)); //Ingles UK
 
 
-            ////int inin = path.IndexOf(registro3.getTypeRegistry(path));
+            ////int inin = path.IndexOf(registro3.GetTypeRegistry(path));
             //if (ver == 0) {
             //    try {
-            //        int inin = registro3.getTypeRegistry(path).Length +1;
+            //        int inin = registro3.GetTypeRegistry(path).Length +1;
             //        int ifin = path.Length - inin;
             //        path = path.Substring(inin, ifin);
             //    } catch (Exception ess) {
-            //        int inin = registro3.getTypeRegistry(path).Length;
+            //        int inin = registro3.GetTypeRegistry(path).Length;
             //        int ifin = path.Length - inin;
             //        path = path.Substring(inin, ifin);
             //    }
@@ -331,7 +374,7 @@ namespace RegistryTools {
 
             //string path;
 
-            //path = registro3.routePath(path);
+            //path = registro3.RoutePath(path);
 
             //int ifin = 0;
             //int inin;
