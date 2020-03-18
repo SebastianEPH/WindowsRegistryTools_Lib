@@ -9,7 +9,7 @@ namespace RegistryTools.Libs {
     class Regedito {
         string message = "";
 
-        public string createKeyValue_string(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, string dataValue /*Datos almacenados del valor*/) {
+        public string createKeyValue_String(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, string dataValue /*Datos almacenados del valor*/) {
            
             string typeRegistry = getTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
@@ -227,11 +227,11 @@ namespace RegistryTools.Libs {
             //              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
             //Limpiar path 
             path = routePath(path);
-        
-            //if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
-            //    //
-            //    return "E#R003";    //Manda mensaje de error
-            //}
+
+            if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
+                //
+                return "E#R003";    //Manda mensaje de error
+            }
             RegistryKey k;
 
             try {
@@ -292,7 +292,64 @@ namespace RegistryTools.Libs {
 
         }
 
-        public void createKeyValue_ExpandableString() {        //Función crear llave de Registro en formato ExpandableString
+        public string createKeyValue_ExpandString(string path, string nameValue, string dataValue) {        //Función crear llave de Registro en formato ExpandableString
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
+            //              Quieres separar por coma? Usa
+            //              string[] arValores = tuTextBox.Text.Split(",");
+            //              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
+            //Limpiar path 
+            path = routePath(path);
+
+            if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
+                //
+                return "E#R003";    //Manda mensaje de error
+            }
+            RegistryKey k;
+
+            try {
+                switch (getTypeRegistry(path)) {
+
+                    case "HKEY_CLASSES_ROOT":
+                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.ExpandString);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_USER":
+                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.ExpandString);
+                    k.Close();
+                    break;
+
+                    case "HKEY_LOCAL_MACHINE":
+                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.ExpandString);
+                    k.Close();
+                    break;
+
+                    case "HKEY_USERS":
+                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.ExpandString);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_CONFIG":
+                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.ExpandString);
+                    k.Close();
+                    break;
+
+                    default:
+                    message = "La ruta ingresada tiene un problema ";
+                    break;
+                }
+                return "E#XITO";
+            } catch (Exception) {
+                return "E#RR04";    // No se puedo crear el valor de la llave
+            }
 
         }
 

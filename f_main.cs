@@ -121,7 +121,7 @@ namespace RegistryTools {
 
             string path = crearConteiner_ruta.Text;
             string nameValue = crearConteiner_Contenedor.Text;
-            string [] dataValue = {txtValueData.Text};
+            string  dataValue = txtValueData.Text;
             //path = registro3.routePath(path);
 
 
@@ -154,7 +154,7 @@ namespace RegistryTools {
             //    Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
             //}
 
-            Console.WriteLine("Create string"+registro3.createKeyValue_MultiString(path,nameValue,dataValue));
+            Console.WriteLine("Create string"+registro3.createKeyValue_ExpandString(path,nameValue,dataValue));
 
 
 
