@@ -119,57 +119,42 @@ namespace RegistryTools {
             //    Console.WriteLine("NEW NEW int: {0}", i);
 
 
-
             string path = crearConteiner_ruta.Text;
             string nameValue = crearConteiner_Contenedor.Text;
-            path = registro3.routePath(path);
+            string [] dataValue = {txtValueData.Text};
+            //path = registro3.routePath(path);
 
 
-            //string[] arValores = crearConteiner_Contenedor.Text.Split();
+            ////string[] arValores = crearConteiner_Contenedor.Text.Split();
+            ////byte[] bytesValues = { };
 
-            //byte[] bytesValues = { };
+            //path = registro3.getSubFiles(path);
 
-            path = registro3.getSubFiles(path);
+            ////              Quieres separar por coma? Usa
+            ////              string[] arValores = tuTextBox.Text.Split(",");
+            ////              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
 
+            //int value = Int32.Parse(txtValueData.Text);
+            //Byte[] bytes = BitConverter.GetBytes(value);
 
-            //              Quieres separar por coma? Usa
-            //              string[] arValores = tuTextBox.Text.Split(",");
-            //              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
-            String[] Datos = {txtValueData.Text};
+            ////int intValue = BitConverter.ToInt32(bytes,0);
 
-            Console.WriteLine("Crear multiLinea: "+registro3.createKeyValue_MultiString(path,nameValue, Datos));
-            
-            //string[] valueData = { txtValueData.Text};
+            //byte[] byteValues =  bytes ;
 
             //try {
             //    RegistryKey k;
             //    // Ruta // Nombre del valor // Datos del valor 
             //    k = Registry.CurrentUser.OpenSubKey(path, true);
 
-            //    k.SetValue(nameValue, valueData, RegistryValueKind.MultiString);
-            //  //  Registry.SetValue(path, nameValue, {"Soy; un; dato"} RegistryValueKind.MultiString);
+            //    k.SetValue(nameValue, byteValues, RegistryValueKind.DWord);
+
+
             //    Console.WriteLine("Se gurado corerectamente ");
             //} catch (Exception) {
             //    Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
             //}
 
-
-
-
-
-
-
-
-
-
-            //// _binarie Value 
-            //try {
-            //    // Ruta // Nombre del valor // Datos del valor 
-            //    Registry.SetValue(path, nameValue, bytesValues, RegistryValueKind.Binary);
-            //    Console.WriteLine("Se gurado corerectamente ");
-            //} catch (Exception) {
-            //    Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
-            //}
+            Console.WriteLine("Create string"+registro3.createKeyValue_MultiString(path,nameValue,dataValue));
 
 
 
@@ -180,19 +165,42 @@ namespace RegistryTools {
 
 
 
+            ////////////string[] arValores = crearConteiner_Contenedor.Text.Split();
+
+            ////////////byte[] bytesValues = { };
+
+            //////////path = registro3.getSubFiles(path);
+
+
+            ////////////              Quieres separar por coma? Usa
+            ////////////              string[] arValores = tuTextBox.Text.Split(",");
+            ////////////              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
+
+            //////////int value = Int32.Parse(txtValueData.Text);
+            //////////Byte[] bytes = BitConverter.GetBytes(value);
+
+            ////////////int intValue = BitConverter.ToInt32(bytes,0);
+
+            //////////byte[] byteValues = bytes;
+
+
+            //////////try {
+            //////////    RegistryKey k;
+            //////////    // Ruta // Nombre del valor // Datos del valor 
+            //////////    k = Registry.CurrentUser.OpenSubKey(path, true);
+
+            //////////    k.SetValue(nameValue, byteValues, RegistryValueKind.Binary);
+
+            //////////    Console.WriteLine("Se gurado corerectamente ");
+            //////////} catch (Exception) {
+            //////////    Console.WriteLine("No se puedo guarsdar ");    // No se puedo crear el valor de la llave
+            //////////}
 
 
 
 
 
 
-
-
-
-
-
-
-         
             ////Console.WriteLine("getType_Registry                  = " + registro.getTypeRegistry(path));
             ////Console.WriteLine("getKeyRutaSingetTypeRegistry      = " + registro.getKeyRutaSingetTypeRegistry(path));
             ////Console.WriteLine("ggetConteinerRegistry             = " + registro.getConteinerRegistry(path));
@@ -229,7 +237,7 @@ namespace RegistryTools {
             //int  total = registro3.getSubFiles(path).Length - registro3.getkeyName(path).Length;
             ////string nameKey = registro3.getSubFiles(path);
             //path = registro3.getSubFiles(path);
-            
+
             //// Desde ésta palabra clave se termina de obtener el texto
             //// string palabraFin = nameKey;                      //Solucionar bug, de cuando en la ruta hay dos carpetas con el mismo nombre
 
@@ -238,7 +246,7 @@ namespace RegistryTools {
 
 
 
-            
+
             ////int newnumber = 
             ////if (inicio > palabraInicio.Length) {
 

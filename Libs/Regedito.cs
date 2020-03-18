@@ -19,19 +19,46 @@ namespace RegistryTools.Libs {
             if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
                 //
                 return "E#R003";    //Manda mensaje de error
-            
             }
-            
+            RegistryKey k;
 
-            path = routePath(path);
             try {
+                switch (getTypeRegistry(path)) {
 
-                RegistryKey k;
-                // Ruta // Nombre del valor // Datos del valor 
-                k = Registry.CurrentUser.OpenSubKey(path, true);
+                    case "HKEY_CLASSES_ROOT":
+                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.String);
+                    k.Close();
+                    break;
 
-                k.SetValue("MultipleStringValue", new string[] { "One", "Two", "Three" }, RegistryValueKind.MultiString);
-               // Registry.SetValue(path, nameValue, dataValue, RegistryValueKind.String);
+                    case "HKEY_CURRENT_USER":
+                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.String);
+                    k.Close();
+                    break;
+
+                    case "HKEY_LOCAL_MACHINE":
+                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.String);
+                    k.Close();
+                    break;
+
+                    case "HKEY_USERS":
+                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.String);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_CONFIG":
+                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.String);
+                    k.Close();
+                    break;
+
+                    default:
+                    message = "La ruta ingresada no e tiene un problema ";
+                    break;
+                }
                 return "E#XITO";
             } catch (Exception) {
                 return "E#RR04";    // No se puedo crear el valor de la llave
@@ -48,7 +75,6 @@ namespace RegistryTools.Libs {
             if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
                 //
                 return "E#R003";    //Manda mensaje de error
-
             }
 
             path = routePath(path);
@@ -199,19 +225,70 @@ namespace RegistryTools.Libs {
             //              Quieres separar por coma? Usa
             //              string[] arValores = tuTextBox.Text.Split(",");
             //              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
-            path = getSubFiles(path);
+            //Limpiar path 
+            path = routePath(path);
+        
+            //if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
+            //    //
+            //    return "E#R003";    //Manda mensaje de error
+            //}
+            RegistryKey k;
 
             try {
-                RegistryKey k;
-                // Ruta // Nombre del valor // Datos del valor 
-                k = Registry.CurrentUser.OpenSubKey(path, true);
+                switch (getTypeRegistry(path)) {
 
-                k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
-                //  Registry.SetValue(path, nameValue, {"Soy; un; dato"} RegistryValueKind.MultiString);
-                return "Se gurado corerectamente ";
+                    case "HKEY_CLASSES_ROOT":
+                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_USER":
+                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
+                    k.Close();
+                    break;
+
+                    case "HKEY_LOCAL_MACHINE":
+                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
+                    k.Close();
+                    break;
+
+                    case "HKEY_USERS":
+                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_CONFIG":
+                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
+                    k.Close();
+                    break;
+
+                    default:
+                    message = "La ruta ingresada tiene un problema ";
+                    break;
+                }
+                return "E#XITO";
             } catch (Exception) {
-                return "No se puedo guarsdar ";    // No se puedo crear el valor de la llave
+                return "E#RR04";    // No se puedo crear el valor de la llave
             }
+
+            //////// Verificar que tipo llave es en swith
+
+            //////try {
+            //////    RegistryKey k;
+            //////    // Ruta // Nombre del valor // Datos del valor 
+            //////    k = Registry.CurrentUser.OpenSubKey(path, true);
+
+            //////    k.SetValue(nameValue, dataValue, RegistryValueKind.MultiString);
+            //////    //  Registry.SetValue(path, nameValue, {"Soy; un; dato"} RegistryValueKind.MultiString);
+            //////    return "Se gurado corerectamente ";
+            //////} catch (Exception) {
+            //////    return "No se puedo guarsdar ";    // No se puedo crear el valor de la llave
+            //////}
 
         }
 
