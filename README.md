@@ -176,7 +176,26 @@ Console.WriteLine(registro.CreateKeyValue_QWORD(path, keyName, valueData));
 #### Multi-String Value:
 
 ````csharp
-    //Ésta funcionalidad se está trabajando, porfavor espere...
+/* Sintaxis permitida:
+ *                      - Computer\HKEY_CLASSES_ROOT
+ *                      - HKEY_CLASSES_ROOT
+ *                      - Equipo\HKEY_CLASSES_ROOT
+ */ 
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
+
+// Es el nombre del Valor 
+string valueName = "New Value TypeInt64"; 	
+
+// Son los valores que se almacenarán en la llave
+string [] valueData = {"txt1","txt2","txt3","texto"}; // texto con saltos de linea
+                                                      // No tiene limite de saltos de linea 
+
+// Ejecuta pero no muestra ningún mensaje
+registro.CreateKeyValue_MultiString(path, keyName,valueData);
+
+// Ejecutando y muestra en consola (Exito o algún código de error)
+Console.WriteLine(registro.CreateKeyValue_MultiString(path, keyName, valueData));
 ````
 #### Expandable String:
 
