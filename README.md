@@ -1,6 +1,40 @@
 # Librería -Regedit de Windows v3.0
 <!-- Botones -->
-Nueva documentación  v3.0    "Beta"
+**NOTA:** Librería Terminada a un 95%  - `18/03/2020`
+### Funcionalidades
+Éstas son las funcionalidades de ésta librería en su versión 3.0v, si desea ver cómo importarlo a su proyecto y utilizarla da clic [aquí](link en proceso) 
+- **Crear llaves:**
+    - HKEY_CLASSES_ROOT             `(Necesita permisos básicos)`
+    - HKEY_CURRENT_USER             `(Necesito permios básicos)`
+    - HKEY_LOCAL_MACHINE            `(Permiso de administrador)`
+    - HKEY_USERS                    `(Permiso de administrador)`
+    - HKEY_CURRENT_CONFIG           `(Permiso de administrador)`
+- **Crear Valores de llaves:**
+    - String Value                  `(Tipo de Valor: String)`
+    - Binarie Value       **(Ésta funcionalidad está en proceso - No terminado)**
+    - DWORD (32bits) Value          `(Tipo de Valor: Int32 - Decimal)`
+    - QWORD (64bits) Value          `(Tipo de Valor: Int64 - Decimal)`
+    - Multi-String Value            `(Tipo de Valor: String [])`
+    - Expandable String             `(Tipo de Valor: String)`
+- **Obtener ó leer valores de una llave:**
+    - String Value                  `(Retornará un String)`
+    - Binarie Value                 `(Retornará un String)`
+    - DWORD (32bits) Value          `(Retornará un String)`
+    - QWORD (64bits) Value          `(Retornará un String)`
+    - Multi-String Value            `(Retornará un String)`
+    - Expandable String             `(Retornará un String)`
+
+##### _**NOTA:** Para todos los valores obtenidos serán retornadas mediante una variable *Tipo String*, ésto sin importar el tipo de variable que almacene el valor. Ésta medida se tomó para hacer más sencilla el uso de la librería. *_
+
+- **Eliminar Llave**
+
+##### _**NOTA:** Al eliminar la llave, se eliminarán todos los valores que pueda contener._
+
+- **Eliminar Valores**
+
+##### _**NOTA:** Se podrá eliminar el Valor de la llave uno por uno, si desea eliminar todos los valores dentro de la llave, puede usar la funcionalidad ELIMINAR LLAVE_
+
+
 <!-- Descripción -->
 ## Descripción
 Ésta librería sirve para poder crear , leer y eliminar llaves de registro de Windows, de una manera sencilla en C#.
