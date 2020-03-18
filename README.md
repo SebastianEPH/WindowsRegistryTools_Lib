@@ -8,25 +8,25 @@ Esta librería fue desarollada para Crear, Leer y eliminar llaves del registro d
 ### Funcionalidades
 Éstas son las funcionalidades de ésta librería en su versión 3.0v, Usted pueder ver [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3mo-agrego-%C3%A9sta-librer%C3%ADa-a-mi-proyecto), *¿Cómo agregar ésta librería a mi proyecto?*
 - **Crear llaves:**
-    - HKEY_CLASSES_ROOT             `(Necesita permisos básicos)`
-    - HKEY_CURRENT_USER             `(Necesito permios básicos)`
-    - HKEY_LOCAL_MACHINE            `(Permiso de administrador)`
-    - HKEY_USERS                    `(Permiso de administrador)`
-    - HKEY_CURRENT_CONFIG           `(Permiso de administrador)`
+    - HKEY_CLASSES_ROOT...............................`(Necesita permisos básicos)`
+    - HKEY_CURRENT_USER..............................`(Necesita permisos básicos)`
+    - HKEY_LOCAL_MACHINE...........................`(Permiso de administrador)`
+    - HKEY_USERS.................................................`(Permiso de administrador)`
+    - HKEY_CURRENT_CONFIG........................`(Permiso de administrador)`
 - **Crear Valores de llaves:**
-    - String Value                  `(Tipo de Valor: String)`
-    - Binarie Value       **(Ésta funcionalidad está en proceso - No terminado)**
-    - DWORD (32bits) Value          `(Tipo de Valor: Int32 - Decimal)`
-    - QWORD (64bits) Value          `(Tipo de Valor: Int64 - Decimal)`
-    - Multi-String Value            `(Tipo de Valor: String [])`
-    - Expandable String             `(Tipo de Valor: String)`
+    - String Value...................................................`(Tipo de Valor: String)`
+    - Binarie Value..................................................**(Ésta funcionalidad está en   proceso - No terminado)**
+    - DWORD (32bits) Value.............................`(Tipo de Valor: Int32 - Decimal)`
+    - QWORD (64bits) Value.............................`(Tipo de Valor: Int64 - Decimal)`
+    - Multi-String Value......................................`(Tipo de Valor: String [])`
+    - Expandable String......................................`(Tipo de Valor: String)`
 - **Obtener ó leer valores de una llave:**
-    - String Value                  `(Retornará un String)`
-    - Binarie Value                 `(Retornará un String)`
-    - DWORD (32bits) Value          `(Retornará un String)`
-    - QWORD (64bits) Value          `(Retornará un String)`
-    - Multi-String Value            `(Retornará un String)`
-    - Expandable String             `(Retornará un String)`
+    - String Value..................................................`(Retornará un String)`
+    - Binarie Value............................................... `(Retornará un String)`
+    - DWORD (32bits) Value.............................`(Retornará un String)`
+    - QWORD (64bits) Value.............................`(Retornará un String)`
+    - Multi-String Value......................................`(Retornará un String)`
+    - Expandable String......................................`(Retornará un String)`
 
     _**NOTA:** Para todos los valores obtenidos serán retornadas mediante una variable *Tipo String*, ésto sin importar el tipo de variable que almacene el valor. Ésta medidase tomó para hacer más sencilla el uso de la librería._
 
@@ -59,46 +59,75 @@ Esta librería fue desarollada para Crear, Leer y eliminar llaves del registro d
 
 ---
 # Uso de Funciones
-**NOTA:** Es importante detallar que todas éstas funciones devolverán un *Código de errores, advertencias o de exito*, La lista completa puedes verla [aquí](link)
-
-
-
-de `"Exito"` o `"Error"`, según sea el caso. Cuando la función sea llamada, deberá almacenarse en una variable tipo `string ` o `String`.
+**NOTA:** Es importante detallar que todas éstas funciones devolverán un *Código de errores, advertencias o de exito*, La lista completa puedes verla [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3digo-de-errores-advertencias-y-exito)
 
 <!-- Funciones e información de usos -->
-## Función - Crear Contenedor
-No hay misterio, solo tenemos que colocar la ruta y el nombre que deseamos que tenga nuestra carpeta contenedora
+## Función - Crear Llave
 ````csharp
-// path     = Ruta de Regedit de Windows
+/* Sintaxis permitida:
+ *                      - Computer\HKEY_CLASSES_ROOT
+ *                      - HKEY_CLASSES_ROOT
+ *                      - Equipo\HKEY_CLASSES_ROOT
+ */ 
+// Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 
-// key_Conteiner     = Es el nombre que tendrá la carpeta contenedora
-string key_Conteiner = "Soy un contenedor";
+// Es el nombre de la Llave
+string nameKey = "Soy una Llave";
 
-//message       = Se mostrará un mensaje de exito si se ejecutocorrectamente o uno de error si hubo algún inconveniente
-string message = "";
+// Ejecuta pero no muestra ningún mensaje
+registro.CreateKey(path, nameKey);
 
-//Ejecutando
-message = registro.createConteiner(path, key_Conteiner);
-
-// Muestra en consola mensaje de error o exito
-Console.WriteLine(message);
+// Ejecutando y muestra en consola (Exito o algún código de error)
+Console.WriteLine(registro.CreateKey(path, nameKey));
 ````
 ---
-## Función - Crear llave
-Las llaves de registro, aceptan distintos tipos de datos, como lo son:
-- String Value
-- Binarie Value
-- DWORD (32bits) Value
-- QWORD (64bits) Value
-- Multi-String Value
-- Expandable String
-
-Entonces veremos cómo podemos crear llaves con todos estos distintos tipos de datos
+## Función - Crear Valores 
+Los registros de Windows nos permite poder crear Valores con distintos tipos de datos según lo necesitemos. Estos son los tipos de datos que aceptan el registro de Windows (Regedit) 
+- String Value...................................................`(Tipo de Valor: String)`
+- Binarie Value.................................................**(Ésta funcionalidad está en proceso - No terminado)**
+- DWORD (32bits) Value.............................`(Tipo de Valor: Int32 - Decimal)`
+- QWORD (64bits) Value.............................`(Tipo de Valor: Int64 - Decimal)`
+- Multi-String Value......................................`(Tipo de Valor: String [])`
+- Expandable String......................................`(Tipo de Valor: String)`
 
 #### String Value:
-![02 -](https://i.imgur.com/rGUjWwS.png)
+
 ````csharp
+/* Sintaxis permitida:
+ *                      - Computer\HKEY_CLASSES_ROOT
+ *                      - HKEY_CLASSES_ROOT
+ *                      - Equipo\HKEY_CLASSES_ROOT
+ */ 
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\Adobe\";
+
+// Es el nombre del Valor que se almacenará dentro de la llave
+string valueData = "Soy un dato tipoString";
+
+// Son los valores que se almacenarán en la llave
+string valueData = "Soy un dato tipoString";
+
+// Ejecuta pero no muestra ningún mensaje
+registro.CreateKeyValue_String(path, nameKey);
+
+// Ejecutando y muestra en consola (Exito o algún código de error)
+Console.WriteLine(registro.CreateKeyValue_String(path, nameKey));
+
+
+
+
+string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, string valueData /*Datos almacenados del valor*/
+
+
+
+
+
+
+
+
+
+
 // path     = Ruta de Regedit de Windows
 string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 
