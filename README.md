@@ -1,8 +1,12 @@
 # Librería -Regedit de Windows v3.0
 <!-- Botones -->
 **NOTA:** Librería Terminada a un 95%  - `18/03/2020`
+<!-- Descripción -->
+## Descripción
+Esta librería fue desarollada para Crear, Leer y eliminar llaves del registro de Windows (*REGEDIT*) y poder realizarlo de la manera más sencilla posible.
+
 ### Funcionalidades
-Éstas son las funcionalidades de ésta librería en su versión 3.0v, si desea ver cómo importarlo a su proyecto y utilizarla da clic [aquí](link en proceso) 
+Éstas son las funcionalidades de ésta librería en su versión 3.0v, Usted pueder ver [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3mo-agrego-%C3%A9sta-librer%C3%ADa-a-mi-proyecto), *¿Cómo agregar ésta librería a mi proyecto?*
 - **Crear llaves:**
     - HKEY_CLASSES_ROOT             `(Necesita permisos básicos)`
     - HKEY_CURRENT_USER             `(Necesito permios básicos)`
@@ -24,26 +28,19 @@
     - Multi-String Value            `(Retornará un String)`
     - Expandable String             `(Retornará un String)`
 
-##### _**NOTA:** Para todos los valores obtenidos serán retornadas mediante una variable *Tipo String*, ésto sin importar el tipo de variable que almacene el valor. Ésta medida se tomó para hacer más sencilla el uso de la librería. *_
+    _**NOTA:** Para todos los valores obtenidos serán retornadas mediante una variable *Tipo String*, ésto sin importar el tipo de variable que almacene el valor. Ésta medidase tomó para hacer más sencilla el uso de la librería._
 
 - **Eliminar Llave**
 
-##### _**NOTA:** Al eliminar la llave, se eliminarán todos los valores que pueda contener._
+    _**NOTA:** Al eliminar la llave, se eliminarán todos los valores que pueda contener._
 
 - **Eliminar Valores**
 
-##### _**NOTA:** Se podrá eliminar el Valor de la llave uno por uno, si desea eliminar todos los valores dentro de la llave, puede usar la funcionalidad ELIMINAR LLAVE_
-
-
-<!-- Descripción -->
-## Descripción
-Ésta librería sirve para poder crear , leer y eliminar llaves de registro de Windows, de una manera sencilla en C#.
-Ver todas sus funcionalidades [aquí.](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#uso-de-funciones)
-
+    _**NOTA:** Se podrá eliminar el Valor de la llave uno por uno, si desea eliminar todos los valores dentro de la llave, puede usar la funcionalidad ELIMINAR LLAVE_
 ---
 <!-- Información de codificación -->
 # ¿Cómo agrego ésta librería a mi proyecto?
-1. Coloque el archivo *Regedit.cs* dentro de su proyecto. 
+1. Coloque el archivo *Regedit.cs* dentro de su proyecto. `Se recomienda que sea dentro de la carpeta Libs `
 
     ![01 - Explorador de Soluciones - C# ](https://i.imgur.com/8tqiZYc.png)
 
@@ -52,7 +49,8 @@ Ver todas sus funcionalidades [aquí.](https://github.com/SebastianEPH/WindowsRe
     using RegistryTools.Libs;
     ````
 3. Instanciamos la librería dentro de la clase, para así poder usarlo.
-    - *El nombre que se le dará a ésta instancia será* **registro**.  
+    
+    *El nombre que se le dará a ésta instancia será* **registro**.  
 (Usted puede colocarle el nombre que desee)
     ```` csharp
     Regedit registro = new Regedit();
