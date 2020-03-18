@@ -70,10 +70,10 @@ Esta librería fue desarollada para Crear, Leer y eliminar llaves del registro d
  *                      - Equipo\HKEY_CLASSES_ROOT
  */ 
 // Camino de ruta de la llave
-string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+string path = @"HKEY_CURRENT_USER\Software";
 
 // Es el nombre de la Llave
-string keyName = "Soy una Llave";
+string keyName = "NombreDeLlave";
 
 // Ejecuta pero no muestra ningún mensaje
 registro.CreateKey(path, keyName);
@@ -100,7 +100,7 @@ Los registros de Windows nos permite poder crear Valores con distintos tipos de 
  *                      - Equipo\HKEY_CLASSES_ROOT
  */ 
 // Camino de ruta de la llave
-string path = @"HKEY_CURRENT_USER\Software\Adobe";
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
 // Es el nombre del Valor 
 string valueName = "New Value TypeString";
@@ -109,10 +109,10 @@ string valueName = "New Value TypeString";
 string valueData = "Soy un dato tipoString";
 
 // Ejecuta pero no muestra ningún mensaje
-registro.CreateKeyValue_String((path, keyName,valueData);
+registro.CreateKeyValue_String(path, keyName,valueData);
 
 // Ejecutando y muestra en consola (Exito o algún código de error)
-Console.WriteLine(registro.CreateKeyValue_String((path, keyName, valueData));
+Console.WriteLine(registro.CreateKeyValue_String(path, keyName, valueData));
 ````
 - Antes de la ejecución
 
@@ -125,16 +125,35 @@ Console.WriteLine(registro.CreateKeyValue_String((path, keyName, valueData));
 #### Binarie Value:
 
 ````csharp
-    // Es la unica funcionalidad la cual me está causando problemas al poder crearla
+    // Es la unica funcionalidad la cual me está causando problemas al poder crearla,
+    // en unas semanas lo soluionaré
 ````
 #### DWORD (32bits) Value:
 ````csharp
+/* Sintaxis permitida:
+ *                      - Computer\HKEY_CLASSES_ROOT
+ *                      - HKEY_CLASSES_ROOT
+ *                      - Equipo\HKEY_CLASSES_ROOT
+ */ 
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
+// Es el nombre del Valor 
+string valueName = "New Value TypeInt32"; 	
+
+// Son los valores que se almacenarán en la llave
+Int32 valueData = "123456789"; // Valor máximo -2147483648 a 2147483647 
+
+// Ejecuta pero no muestra ningún mensaje
+registro.CreateKeyValue_DWORD(path, keyName,valueData);
+
+// Ejecutando y muestra en consola (Exito o algún código de error)
+Console.WriteLine(registro.CreateKeyValue_DWORD(path, keyName, valueData));
 ````
 #### QWORD (64bits) Value:
 
 ````csharp
-    //Ésta funcionalidad se está trabajando, porfavor espere...
+
 ````
 #### Multi-String Value:
 
