@@ -200,7 +200,25 @@ Console.WriteLine(registro.CreateKeyValue_MultiString(path, keyName, valueData))
 #### Expandable String:
 
 ````csharp
-    //Ésta funcionalidad se está trabajando, porfavor espere...
+/* Sintaxis permitida:
+ *                      - Computer\HKEY_CLASSES_ROOT
+ *                      - HKEY_CLASSES_ROOT
+ *                      - Equipo\HKEY_CLASSES_ROOT
+ */ 
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
+
+// Es el nombre del Valor 
+string valueName = "New Value TypeExpandString";
+
+// Son los valores que se almacenarán en la llave
+string valueData = "Soy un dato tipo ExpandString";
+
+// Ejecuta pero no muestra ningún mensaje
+registro.CreateKeyValue_ExpandString(path, keyName,valueData);
+
+// Ejecutando y muestra en consola (Exito o algún código de error)
+Console.WriteLine(registro.CCreateKeyValue_ExpandString(path, keyName, valueData));
 ````
 ---
 ## Función - Leer llaves
