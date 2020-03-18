@@ -146,7 +146,71 @@ namespace RegistryTools.Libs {
             return message;
         }
 
-        public void createKeyValue_DWORD() {
+        public string createKeyValue_DWORD(string path /*Ruta completa del key*/, string nameValue/*valores de la llave*/, Int32 dataValue /*Datos almacenados del valor*/) {
+            string typeRegistry = getTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
+                return typeRegistry;
+            }
+
+            path = routePath(path);
+
+            if (path == "" || nameValue == "") {    //Verifica si el nombre del valor no esté vacío
+                //
+                return "E#R003";    //Manda mensaje de error
+            }
+            RegistryKey k;
+
+
+            // Verificar si sobrepasó el int32
+
+            // Valor DWORD, número entero no negativo de 32 bits (números entre el 0 y el 4.294.967.295 [232 – 1])
+
+
+
+
+
+
+            try {
+                switch (getTypeRegistry(path)) {
+
+                    case "HKEY_CLASSES_ROOT":
+                    k = Registry.ClassesRoot.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.DWord);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_USER":
+                    k = Registry.CurrentUser.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.DWord);
+                    k.Close();
+                    break;
+
+                    case "HKEY_LOCAL_MACHINE":
+                    k = Registry.LocalMachine.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.DWord);
+                    k.Close();
+                    break;
+
+                    case "HKEY_USERS":
+                    k = Registry.Users.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.DWord);
+                    k.Close();
+                    break;
+
+                    case "HKEY_CURRENT_CONFIG":
+                    k = Registry.CurrentConfig.OpenSubKey(getSubFiles(path), true);
+                    k.SetValue(nameValue, dataValue, RegistryValueKind.DWord);
+                    k.Close();
+                    break;
+
+                    default:
+                    message = "La ruta ingresada tiene un problema ";
+                    break;
+                }
+                return "E#XITO";
+            } catch (Exception) {
+                return "E#RR04";    // No se puedo crear el valor de la llave
+            }
 
         }
         ///// path     = Ruta de Regedit de Windows
@@ -268,10 +332,14 @@ namespace RegistryTools.Libs {
             } catch (Exception) {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
-
         }
 
         public string createKeyValue_MultiString(string path, string nameValue,  string[] dataValue) {
+
+            //Los valores de cadena no requieren un <Value type> (ver ejemplo), pero backslashes ("\") necesita ser escrita como una doble barra invertida ("\ \")
+            //Por ejemplo, para añadir los valores "Value A", "Value B", "Value C", "Value D", "Value E", "Value F", "Value G", "Value H", "Value I", "Value J", and "Value K" a la clave HKLM\SOFTWARE\Microsoft, 
+
+
             string typeRegistry = getTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
