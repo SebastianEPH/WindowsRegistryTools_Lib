@@ -153,7 +153,25 @@ Console.WriteLine(registro.CreateKeyValue_DWORD(path, keyName, valueData));
 #### QWORD (64bits) Value:
 
 ````csharp
+/* Sintaxis permitida:
+ *                      - Computer\HKEY_CLASSES_ROOT
+ *                      - HKEY_CLASSES_ROOT
+ *                      - Equipo\HKEY_CLASSES_ROOT
+ */ 
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
+// Es el nombre del Valor 
+string valueName = "New Value TypeInt64"; 	
+
+// Son los valores que se almacenarán en la llave
+Int64 valueData = "123456789"; // Valor máximo -9223372036854775808 a 9223372036854775807 
+
+// Ejecuta pero no muestra ningún mensaje
+registro.CreateKeyValue_QWORD(path, keyName,valueData);
+
+// Ejecutando y muestra en consola (Exito o algún código de error)
+Console.WriteLine(registro.CreateKeyValue_QWORD(path, keyName, valueData));
 ````
 #### Multi-String Value:
 
