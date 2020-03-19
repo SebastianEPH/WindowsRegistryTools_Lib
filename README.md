@@ -222,6 +222,7 @@ Console.WriteLine(registro.CreateKeyValue_ExpandString(path, keyName, valueData)
 ````
 ---
 ## Función - Obtener o leer Valores
+Los datos obtenidos de DWORD y QWORD serán datos decimales
 ````csharp
 /* Sintaxis permitida:
  *                      - Computer\HKEY_CLASSES_ROOT
@@ -235,10 +236,10 @@ string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 string valueName = "Soy un Value";
 
 // Ejecuta pero no muestra ningún mensaje
-registro.GetValue(path, keyName,valueName);
+registro.GetDataValues(path, keyName,valueName);
 
 // Ejecutando y muestra en consola (Exito o algún código de error)
-Console.WriteLine(registro.GetValue(path, keyName, valueName));
+Console.WriteLine(registro.GetDataValues(path, keyName, valueName));
 ````
 ## Función - Eliminar Llave
 NOTA: Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar.

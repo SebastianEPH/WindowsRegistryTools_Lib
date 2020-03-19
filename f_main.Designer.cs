@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.dfgfdg = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btn_CrearContenedor = new System.Windows.Forms.Button();
+            this.btn_CreateKey = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.crearConteiner_Contenedor = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@
             this.rb_DWORD = new System.Windows.Forms.RadioButton();
             this.rb_QWORD = new System.Windows.Forms.RadioButton();
             this.rb_binarie = new System.Windows.Forms.RadioButton();
-            this.crearLlave = new System.Windows.Forms.Button();
+            this.btnCreateValues = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,31 +52,30 @@
             this.crearLlave_name = new System.Windows.Forms.TextBox();
             this.crearLlave_ruta = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnleerLave = new System.Windows.Forms.Button();
+            this.btnGetValues = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnleerLlave_valor = new System.Windows.Forms.TextBox();
             this.btnleerLlave_name = new System.Windows.Forms.TextBox();
             this.btnleerLlave_ruta = new System.Windows.Forms.TextBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btn_keyDelete = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.deleteAll_ruta = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.deleteLlave = new System.Windows.Forms.Button();
+            this.btnValueDelete = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.deleteLlave_name = new System.Windows.Forms.TextBox();
             this.deleteLlave_ruta = new System.Windows.Forms.TextBox();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.btndeleteAll = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.deleteAll_ruta = new System.Windows.Forms.TextBox();
             this.txt_info = new System.Windows.Forms.Label();
-            this.txtValueData = new System.Windows.Forms.TextBox();
-            this.tabControl1.SuspendLayout();
+            this.dfgfdg.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -89,32 +88,32 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Probar funcionalidades - librería v3.0";
             // 
-            // button6
+            // btnExit
             // 
-            this.button6.Location = new System.Drawing.Point(361, 263);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(73, 23);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Exit";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(361, 263);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(73, 23);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.BtnExit);
             // 
-            // tabControl1
+            // dfgfdg
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(20, 62);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(414, 190);
-            this.tabControl1.TabIndex = 6;
+            this.dfgfdg.Controls.Add(this.tabPage1);
+            this.dfgfdg.Controls.Add(this.tabPage2);
+            this.dfgfdg.Controls.Add(this.tabPage3);
+            this.dfgfdg.Controls.Add(this.tabPage5);
+            this.dfgfdg.Controls.Add(this.tabPage4);
+            this.dfgfdg.Location = new System.Drawing.Point(20, 67);
+            this.dfgfdg.Name = "dfgfdg";
+            this.dfgfdg.SelectedIndex = 0;
+            this.dfgfdg.Size = new System.Drawing.Size(414, 190);
+            this.dfgfdg.TabIndex = 6;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.txtValueData);
-            this.tabPage1.Controls.Add(this.btn_CrearContenedor);
+            this.tabPage1.Controls.Add(this.btn_CreateKey);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.crearConteiner_Contenedor);
@@ -127,24 +126,24 @@
             this.tabPage1.Text = "Crear Llave";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btn_CrearContenedor
+            // btn_CreateKey
             // 
-            this.btn_CrearContenedor.Location = new System.Drawing.Point(15, 116);
-            this.btn_CrearContenedor.Name = "btn_CrearContenedor";
-            this.btn_CrearContenedor.Size = new System.Drawing.Size(324, 23);
-            this.btn_CrearContenedor.TabIndex = 3;
-            this.btn_CrearContenedor.Text = "Ejecutar";
-            this.btn_CrearContenedor.UseVisualStyleBackColor = true;
-            this.btn_CrearContenedor.Click += new System.EventHandler(this.btnCrearContenedor);
+            this.btn_CreateKey.Location = new System.Drawing.Point(15, 116);
+            this.btn_CreateKey.Name = "btn_CreateKey";
+            this.btn_CreateKey.Size = new System.Drawing.Size(370, 23);
+            this.btn_CreateKey.TabIndex = 3;
+            this.btn_CreateKey.Text = "Crear Llave";
+            this.btn_CreateKey.UseVisualStyleBackColor = true;
+            this.btn_CreateKey.Click += new System.EventHandler(this.btnCrearContenedor);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(15, 71);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 13);
+            this.label3.Size = new System.Drawing.Size(142, 13);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Ingrese el nombre del contenedor";
+            this.label3.Text = "Ingrese el nombre de la llave";
             // 
             // label2
             // 
@@ -177,7 +176,7 @@
             this.tabPage2.Controls.Add(this.rb_DWORD);
             this.tabPage2.Controls.Add(this.rb_QWORD);
             this.tabPage2.Controls.Add(this.rb_binarie);
-            this.tabPage2.Controls.Add(this.crearLlave);
+            this.tabPage2.Controls.Add(this.btnCreateValues);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label5);
@@ -196,7 +195,7 @@
             // 
             this.rb_String.AutoSize = true;
             this.rb_String.Checked = true;
-            this.rb_String.Location = new System.Drawing.Point(200, 21);
+            this.rb_String.Location = new System.Drawing.Point(189, 21);
             this.rb_String.Name = "rb_String";
             this.rb_String.Size = new System.Drawing.Size(81, 17);
             this.rb_String.TabIndex = 14;
@@ -207,7 +206,7 @@
             // rb_expString
             // 
             this.rb_expString.AutoSize = true;
-            this.rb_expString.Location = new System.Drawing.Point(283, 21);
+            this.rb_expString.Location = new System.Drawing.Point(292, 21);
             this.rb_expString.Name = "rb_expString";
             this.rb_expString.Size = new System.Drawing.Size(108, 17);
             this.rb_expString.TabIndex = 13;
@@ -217,7 +216,7 @@
             // rb_multiString
             // 
             this.rb_multiString.AutoSize = true;
-            this.rb_multiString.Location = new System.Drawing.Point(200, 113);
+            this.rb_multiString.Location = new System.Drawing.Point(292, 44);
             this.rb_multiString.Name = "rb_multiString";
             this.rb_multiString.Size = new System.Drawing.Size(103, 17);
             this.rb_multiString.TabIndex = 12;
@@ -227,7 +226,7 @@
             // rb_DWORD
             // 
             this.rb_DWORD.AutoSize = true;
-            this.rb_DWORD.Location = new System.Drawing.Point(200, 67);
+            this.rb_DWORD.Location = new System.Drawing.Point(189, 67);
             this.rb_DWORD.Name = "rb_DWORD";
             this.rb_DWORD.Size = new System.Drawing.Size(97, 17);
             this.rb_DWORD.TabIndex = 11;
@@ -237,7 +236,7 @@
             // rb_QWORD
             // 
             this.rb_QWORD.AutoSize = true;
-            this.rb_QWORD.Location = new System.Drawing.Point(200, 90);
+            this.rb_QWORD.Location = new System.Drawing.Point(292, 67);
             this.rb_QWORD.Name = "rb_QWORD";
             this.rb_QWORD.Size = new System.Drawing.Size(97, 17);
             this.rb_QWORD.TabIndex = 10;
@@ -247,40 +246,40 @@
             // rb_binarie
             // 
             this.rb_binarie.AutoSize = true;
-            this.rb_binarie.Location = new System.Drawing.Point(200, 44);
+            this.rb_binarie.Location = new System.Drawing.Point(189, 44);
             this.rb_binarie.Name = "rb_binarie";
             this.rb_binarie.Size = new System.Drawing.Size(86, 17);
             this.rb_binarie.TabIndex = 9;
             this.rb_binarie.Text = "Binarie value";
             this.rb_binarie.UseVisualStyleBackColor = true;
             // 
-            // crearLlave
+            // btnCreateValues
             // 
-            this.crearLlave.Location = new System.Drawing.Point(200, 135);
-            this.crearLlave.Name = "crearLlave";
-            this.crearLlave.Size = new System.Drawing.Size(191, 23);
-            this.crearLlave.TabIndex = 8;
-            this.crearLlave.Text = "Ejecutar";
-            this.crearLlave.UseVisualStyleBackColor = true;
-            this.crearLlave.Click += new System.EventHandler(this.btncrearLlave);
+            this.btnCreateValues.Location = new System.Drawing.Point(189, 99);
+            this.btnCreateValues.Name = "btnCreateValues";
+            this.btnCreateValues.Size = new System.Drawing.Size(196, 23);
+            this.btnCreateValues.TabIndex = 8;
+            this.btnCreateValues.Text = "Crear Valores";
+            this.btnCreateValues.UseVisualStyleBackColor = true;
+            this.btnCreateValues.Click += new System.EventHandler(this.btnCrearLlave);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(18, 109);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.Size = new System.Drawing.Size(81, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Valor de la llave";
+            this.label7.Text = "Datos del valor:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(18, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 13);
+            this.label4.Size = new System.Drawing.Size(88, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Ingrese el nombre de la llave";
+            this.label4.Text = "Nombre del Valor";
             // 
             // label5
             // 
@@ -295,7 +294,7 @@
             // 
             this.createLlave_value.Location = new System.Drawing.Point(18, 128);
             this.createLlave_value.Name = "createLlave_value";
-            this.createLlave_value.Size = new System.Drawing.Size(165, 20);
+            this.createLlave_value.Size = new System.Drawing.Size(367, 20);
             this.createLlave_value.TabIndex = 4;
             // 
             // crearLlave_name
@@ -314,7 +313,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.btnleerLave);
+            this.tabPage3.Controls.Add(this.btnGetValues);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.label9);
@@ -328,15 +327,15 @@
             this.tabPage3.Text = "Leer Valores";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // btnleerLave
+            // btnGetValues
             // 
-            this.btnleerLave.Location = new System.Drawing.Point(15, 117);
-            this.btnleerLave.Name = "btnleerLave";
-            this.btnleerLave.Size = new System.Drawing.Size(165, 23);
-            this.btnleerLave.TabIndex = 21;
-            this.btnleerLave.Text = "Ejecutar";
-            this.btnleerLave.UseVisualStyleBackColor = true;
-            this.btnleerLave.Click += new System.EventHandler(this.btnleerLlave);
+            this.btnGetValues.Location = new System.Drawing.Point(15, 117);
+            this.btnGetValues.Name = "btnGetValues";
+            this.btnGetValues.Size = new System.Drawing.Size(165, 23);
+            this.btnGetValues.TabIndex = 21;
+            this.btnGetValues.Text = "Obtener Valores";
+            this.btnGetValues.UseVisualStyleBackColor = true;
+            this.btnGetValues.Click += new System.EventHandler(this.btnGetDataValue);
             // 
             // label6
             // 
@@ -387,65 +386,9 @@
             this.btnleerLlave_ruta.Size = new System.Drawing.Size(379, 20);
             this.btnleerLlave_ruta.TabIndex = 17;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.deleteLlave);
-            this.tabPage4.Controls.Add(this.label10);
-            this.tabPage4.Controls.Add(this.label11);
-            this.tabPage4.Controls.Add(this.deleteLlave_name);
-            this.tabPage4.Controls.Add(this.deleteLlave_ruta);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(406, 164);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Eliminar Valor";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // deleteLlave
-            // 
-            this.deleteLlave.Location = new System.Drawing.Point(41, 117);
-            this.deleteLlave.Name = "deleteLlave";
-            this.deleteLlave.Size = new System.Drawing.Size(324, 23);
-            this.deleteLlave.TabIndex = 8;
-            this.deleteLlave.Text = "Ejecutar";
-            this.deleteLlave.UseVisualStyleBackColor = true;
-            this.deleteLlave.Click += new System.EventHandler(this.btndeleteLlave);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(41, 72);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(165, 13);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Ingrese el nombre del contenedor";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(41, 24);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 13);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Ingrese la ruta:";
-            // 
-            // deleteLlave_name
-            // 
-            this.deleteLlave_name.Location = new System.Drawing.Point(41, 91);
-            this.deleteLlave_name.Name = "deleteLlave_name";
-            this.deleteLlave_name.Size = new System.Drawing.Size(165, 20);
-            this.deleteLlave_name.TabIndex = 4;
-            // 
-            // deleteLlave_ruta
-            // 
-            this.deleteLlave_ruta.Location = new System.Drawing.Point(41, 43);
-            this.deleteLlave_ruta.Name = "deleteLlave_ruta";
-            this.deleteLlave_ruta.Size = new System.Drawing.Size(324, 20);
-            this.deleteLlave_ruta.TabIndex = 5;
-            // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.btndeleteAll);
+            this.tabPage5.Controls.Add(this.btn_keyDelete);
             this.tabPage5.Controls.Add(this.label13);
             this.tabPage5.Controls.Add(this.deleteAll_ruta);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
@@ -455,15 +398,15 @@
             this.tabPage5.Text = "Eliminar Llave";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // btndeleteAll
+            // btn_keyDelete
             // 
-            this.btndeleteAll.Location = new System.Drawing.Point(40, 107);
-            this.btndeleteAll.Name = "btndeleteAll";
-            this.btndeleteAll.Size = new System.Drawing.Size(324, 23);
-            this.btndeleteAll.TabIndex = 13;
-            this.btndeleteAll.Text = "Ejecutar";
-            this.btndeleteAll.UseVisualStyleBackColor = true;
-            this.btndeleteAll.Click += new System.EventHandler(this.btndeleteAll_Click);
+            this.btn_keyDelete.Location = new System.Drawing.Point(40, 104);
+            this.btn_keyDelete.Name = "btn_keyDelete";
+            this.btn_keyDelete.Size = new System.Drawing.Size(324, 23);
+            this.btn_keyDelete.TabIndex = 13;
+            this.btn_keyDelete.Text = "Eliminar Llave";
+            this.btn_keyDelete.UseVisualStyleBackColor = true;
+            this.btn_keyDelete.Click += new System.EventHandler(this.btnDeleteKey);
             // 
             // label13
             // 
@@ -481,6 +424,62 @@
             this.deleteAll_ruta.Size = new System.Drawing.Size(324, 20);
             this.deleteAll_ruta.TabIndex = 10;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btnValueDelete);
+            this.tabPage4.Controls.Add(this.label10);
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Controls.Add(this.deleteLlave_name);
+            this.tabPage4.Controls.Add(this.deleteLlave_ruta);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(406, 164);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Eliminar Valor";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnValueDelete
+            // 
+            this.btnValueDelete.Location = new System.Drawing.Point(41, 117);
+            this.btnValueDelete.Name = "btnValueDelete";
+            this.btnValueDelete.Size = new System.Drawing.Size(324, 23);
+            this.btnValueDelete.TabIndex = 8;
+            this.btnValueDelete.Text = "Eliminar Valor";
+            this.btnValueDelete.UseVisualStyleBackColor = true;
+            this.btnValueDelete.Click += new System.EventHandler(this.btnDeleteValues);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(41, 72);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(135, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Ingrese el nombre del Valor";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(41, 24);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 13);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Ingrese la ruta:";
+            // 
+            // deleteLlave_name
+            // 
+            this.deleteLlave_name.Location = new System.Drawing.Point(41, 91);
+            this.deleteLlave_name.Name = "deleteLlave_name";
+            this.deleteLlave_name.Size = new System.Drawing.Size(324, 20);
+            this.deleteLlave_name.TabIndex = 4;
+            // 
+            // deleteLlave_ruta
+            // 
+            this.deleteLlave_ruta.Location = new System.Drawing.Point(41, 43);
+            this.deleteLlave_ruta.Name = "deleteLlave_ruta";
+            this.deleteLlave_ruta.Size = new System.Drawing.Size(324, 20);
+            this.deleteLlave_ruta.TabIndex = 5;
+            // 
             // txt_info
             // 
             this.txt_info.AutoSize = true;
@@ -490,36 +489,28 @@
             this.txt_info.TabIndex = 2;
             this.txt_info.Text = "---";
             // 
-            // txtValueData
-            // 
-            this.txtValueData.Location = new System.Drawing.Point(221, 71);
-            this.txtValueData.Multiline = true;
-            this.txtValueData.Name = "txtValueData";
-            this.txtValueData.Size = new System.Drawing.Size(100, 39);
-            this.txtValueData.TabIndex = 4;
-            // 
             // f_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 298);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.dfgfdg);
             this.Controls.Add(this.txt_info);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btnExit);
             this.Name = "f_main";
             this.Text = "Prueba de Funcionalidades v2.0";
-            this.tabControl1.ResumeLayout(false);
+            this.dfgfdg.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,8 +518,8 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TabControl dfgfdg;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage4;
@@ -538,8 +529,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox crearConteiner_Contenedor;
         private System.Windows.Forms.TextBox crearConteiner_ruta;
-        private System.Windows.Forms.Button btn_CrearContenedor;
-        private System.Windows.Forms.Button crearLlave;
+        private System.Windows.Forms.Button btn_CreateKey;
+        private System.Windows.Forms.Button btnCreateValues;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox crearLlave_name;
@@ -553,22 +544,21 @@
         private System.Windows.Forms.RadioButton rb_QWORD;
         private System.Windows.Forms.RadioButton rb_binarie;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button btnleerLave;
+        private System.Windows.Forms.Button btnGetValues;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox btnleerLlave_valor;
         private System.Windows.Forms.TextBox btnleerLlave_name;
         private System.Windows.Forms.TextBox btnleerLlave_ruta;
-        private System.Windows.Forms.Button deleteLlave;
+        private System.Windows.Forms.Button btnValueDelete;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox deleteLlave_name;
         private System.Windows.Forms.TextBox deleteLlave_ruta;
-        private System.Windows.Forms.Button btndeleteAll;
+        private System.Windows.Forms.Button btn_keyDelete;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox deleteAll_ruta;
-        private System.Windows.Forms.TextBox txtValueData;
     }
 }
 

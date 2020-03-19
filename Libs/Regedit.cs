@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RegistryTools.Libs {
-    class Regedito {
+    class Regedit {
         string message = "";
 
         public string CreateKeyValue_String(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, string valueData /*Datos almacenados del valor*/) {
@@ -211,15 +211,6 @@ namespace RegistryTools.Libs {
             //}
 
 
-            RegistryKey rk = Registry.CurrentUser.CreateSubKey("RegistryValueKindExample");
-
-
-
-
-
-
-
-            return message;
         }
         public string CreateKeyValue_DWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, Int32 valueData /*Datos almacenados del valor*/) {
             string typeRegistry = GetTypeRegistry(path);
@@ -594,7 +585,7 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        public string GetValue(string path /*camino completa del valor*/, string valueName /*Nombre del valor*/) {
+        public string GetDataValues(string path /*camino completa del valor*/, string valueName /*Nombre del valor*/) {
 
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
@@ -609,23 +600,33 @@ namespace RegistryTools.Libs {
             //Limpiando Ruta y obtiene datos
             path = RoutePath(path);
 
+            //Obtiene string        - ok 
+            //Obtiene MultiString   - Error 
+            
+
             try {
 
 
-                try {
-                    message = (string) Registry.GetValue(path, valueName, "E#RR02");
-                } catch (Exception) {
-                    try {
 
-                        Int64 entero = 0;
-                        entero = (Int64) Registry.GetValue(path, valueName, "E#RR02");
-                        message = entero.ToString();
-                    } catch (Exception) {
-                        long entero = 0;
-                        entero = (long) Registry.GetValue(path, valueName, "E#RR02");
-                        message = entero.ToString();
-                    }
+                try {       // Intenta Int32
+                    Int32 Int32Values = (Int32) Registry.GetValue(path, valueName, "E#RR02");
+                    return Int32Values.ToString();
+                } catch { 
+                    //No es un int32
                 }
+
+                try {       // Intenta Int64
+                    Int64 Int64Values = (Int64) Registry.GetValue(path, valueName, "E#RR02");
+                    return Int64Values.ToString();
+                } catch {
+                    // No se pudo
+                }
+
+
+
+                message = (string) Registry.GetValue(path, valueName, "E#RR02");
+                return message;
+
 
             } catch (Exception) {
                 //Mensaje de error +  su Codigo de error
@@ -637,13 +638,7 @@ namespace RegistryTools.Libs {
 
 
 
-       
-
-
-
-
-
-
+  
  
         
         private string GetSubFiles(string path) {
