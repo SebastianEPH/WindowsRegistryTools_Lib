@@ -53,7 +53,6 @@
       <DependentUpon>f_main.cs</DependentUpon>
     </Compile>
     <Compile Include="Libs\Regedit.cs" />
-    <Compile Include="Libs\Regedito.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="f_main.resx">
@@ -81,12 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\975px-Windows_Defender_logo.svg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\906350.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
