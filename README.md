@@ -260,8 +260,6 @@ Console.WriteLine(registro.DeleteKey(path));
 
 ## Función - Eliminar un valor
 ````csharp
-
-
 /* Sintaxis permitida:
  *                      - Computer\HKEY_CLASSES_ROOT
  *                      - HKEY_CLASSES_ROOT
@@ -282,18 +280,18 @@ Console.WriteLine(registro.DeleteValue(path, valueName));
 ---
 # Software Funcional de la librería
 Éste pequeño formulario fue creado, solo con el fin de mostrar cada una de las funcionalidades de ésta librería.
-### Crear Contenedor:
+### Crear LLave:
 ![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
 
-Podemos observar que se creó *Conteiner* dentro de la *Software*
+Podemos observar que se creó la kkave dentro de la *Software*
 ![función - crear conteiner - regedit ](https://i.imgur.com/IO0ZMYt.png)
-### Crear Llave:
+### Crear Valores:
 ![función - Llave](https://i.imgur.com/qp6BicO.png)
-### Leer llave:
+### Leer Valores:
 ![función - Leer Llave](https://i.imgur.com/9TfWNW2.png)
-### Eliminar llave:
+### Eliminar Llave:
 ![función - Eliminar Llave](https://i.imgur.com/aASUe3w.png)
-### Eliminar contenedor:
+### Eliminar Valores:
 ![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png)
 
 ---
@@ -335,8 +333,7 @@ You also need to install the following individual components:
 ---
 <!-- Licencia -->
 ## Licencia
-jh
-
+Apache
 --- 
 <!-- Creador  -->
 ---
