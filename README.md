@@ -243,7 +243,19 @@ Console.WriteLine(registro.GetValues(path, keyName, valueName));
 ## Función - Eliminar Llave
 NOTA: Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar.
 ````csharp
+/* Sintaxis permitida:
+ *                      - Computer\HKEY_CLASSES_ROOT
+ *                      - HKEY_CLASSES_ROOT
+ *                      - Equipo\HKEY_CLASSES_ROOT
+ */ 
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
+// Ejecuta pero no muestra ningún mensaje
+registro.DeleteKey(path);
+
+// Ejecutando y muestra en consola (Exito o algún código de error)
+Console.WriteLine(registro.DeleteKey(path));
 ````
 
 ## Función - Eliminar una llave
