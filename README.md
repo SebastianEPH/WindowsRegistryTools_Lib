@@ -232,13 +232,13 @@ Console.WriteLine(registro.CreateKeyValue_ExpandString(path, keyName, valueData)
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
 // Es el nombre del Valor 
-string valueName = "New Value TypeExpandString";
+string valueName = "Soy un Value";
 
 // Ejecuta pero no muestra ningún mensaje
-registro.GetValues(path, keyName,valueName);
+registro.GetValue(path, keyName,valueName);
 
 // Ejecutando y muestra en consola (Exito o algún código de error)
-Console.WriteLine(registro.GetValues(path, keyName, valueName));
+Console.WriteLine(registro.GetValue(path, keyName, valueName));
 ````
 ## Función - Eliminar Llave
 NOTA: Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar.
@@ -251,29 +251,33 @@ NOTA: Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
+// Es el nombre del Valor 
+string valueName = "Soy un Value";
+
 // Ejecuta pero no muestra ningún mensaje
-registro.DeleteKey(path);
+registro.DeleteKey(path,valueName);
 
 // Ejecutando y muestra en consola (Exito o algún código de error)
-Console.WriteLine(registro.DeleteKey(path));
+Console.WriteLine(registro.DeleteKey(path. valueName));
 ````
 
-## Función - Eliminar una llave
+## Función - Eliminar un valor
 ````csharp
-// path     = Ruta de Regedit de Windows
-string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
 
-// nameValue     = El nombre de la llave la cual queremos eliminar
-string nameValue = "config";
 
-//message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
-string message = "";
+/* Sintaxis permitida:
+ *                      - Computer\HKEY_CLASSES_ROOT
+ *                      - HKEY_CLASSES_ROOT
+ *                      - Equipo\HKEY_CLASSES_ROOT
+ */ 
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
-//Ejecutando
-message = registro.deleteKeyValue(path, nameValue);
+// Ejecuta pero no muestra ningún mensaje
+registro.DeleteValue(path);
 
-// Muestra en consola mensaje de error o exito
-Console.WriteLine(message);
+// Ejecutando y muestra en consola (Exito o algún código de error)
+Console.WriteLine(registro.DeleteValue(path));
 ````
 ---
 # Software Funcional de la librería

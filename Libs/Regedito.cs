@@ -536,7 +536,7 @@ namespace RegistryTools.Libs {
                 return "E#NN01";    // No se encontró la llave , o no se puedo eliminar por permisos 
             }
         }
-        public string DeleteValues(string path /*camino completa del valor*/, string valueName /*Nombre del valor*/) {
+        public string DeleteValue(string path /*camino completa del valor*/, string valueName /*Nombre del valor*/) {
 
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
@@ -594,7 +594,7 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        public string GetValues(string path /*camino completa del valor*/, string valueName /*Nombre del valor*/) {
+        public string GetValue(string path /*camino completa del valor*/, string valueName /*Nombre del valor*/) {
 
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
