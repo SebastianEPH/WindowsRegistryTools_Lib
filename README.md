@@ -218,40 +218,32 @@ string valueData = "Soy un dato tipo ExpandString";
 registro.CreateKeyValue_ExpandString(path, keyName,valueData);
 
 // Ejecutando y muestra en consola (Exito o algún código de error)
-Console.WriteLine(registro.CCreateKeyValue_ExpandString(path, keyName, valueData));
+Console.WriteLine(registro.CreateKeyValue_ExpandString(path, keyName, valueData));
 ````
 ---
-## Función - Leer llaves
-**NOTA:** 13/03/20 Hay un problema al leer valores tipos (MultiString), se pretende resolver éste problema en las proximas actualizaciones
+## Función - Obtener o leer Valores
 ````csharp
-// path     = Ruta de Regedit de Windows
-string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
+/* Sintaxis permitida:
+ *                      - Computer\HKEY_CLASSES_ROOT
+ *                      - HKEY_CLASSES_ROOT
+ *                      - Equipo\HKEY_CLASSES_ROOT
+ */ 
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
-// nameValue     = Es el nombre que tendrá llave
-string nameValue = "licencia";
+// Es el nombre del Valor 
+string valueName = "New Value TypeExpandString";
 
-//message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
-string message = "";
+// Ejecuta pero no muestra ningún mensaje
+registro.GetValues(path, keyName,valueName);
 
-//Ejecutando
-message = registro.readKeyValue(path,nameValue);
-
-// Devolverá el valor de la llave nameValue, en un String
-Console.WriteLine(message);
+// Ejecutando y muestra en consola (Exito o algún código de error)
+Console.WriteLine(registro.GetValues(path, keyName, valueName));
 ````
-## Función - Eliminar contenedor
-NOTA: Al Eliminar un contendor, ésta borarrá todas las llaves que pueda almacenar.
+## Función - Eliminar Llave
+NOTA: Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar.
 ````csharp
-// path     = Ruta de Regedit de Windows
-string path = @"HKEY_CURRENT_USER\Software\Adobe\Photoshop";
-//message       = Se mostrará un mensaje de exito si se ejecuto correctamente o uno de error si hubo algún inconveniente
-string message = "";
 
-//Ejecutando
-message = registro.deleteConteinerAll(path);
-
-// Muestra en consola mensaje de error o exito
-Console.WriteLine(message);
 ````
 
 ## Función - Eliminar una llave
