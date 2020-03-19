@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using RegistryTools.Libs;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -14,20 +15,16 @@ namespace RegistryTools {
             InitializeComponent();
         }
         private void btnCrearContenedor(object sender, EventArgs e) {
-            //// Ruta completa del registro
-            ////Ejemplo: @"HKEY_CURRENT_USER\Contenedor1"
-            //string ruta = crearConteiner_ruta.Text.ToString();
-            //// nombre del nuevo contenedor
-            //string nombre = crearConteiner_Contenedor.Text.ToString();
-            //// El mensaje de confirmación o de Falló se mostrará en la pantalla
-            //txt_info.Text = registro.CreateKey(ruta, nombre);
+          //  Ruta completa del registro
+          //Ejemplo: @"HKEY_CURRENT_USER\Contenedor1"
+            string ruta = crearKey_Path.Text.ToString();
+           // nombre del nuevo contenedor
+            string nombre = crearKey_key.Text.ToString();
+           // El mensaje de confirmación o de Falló se mostrará en la pantalla
+            txt_info.Text = registro.CreateKey(ruta, nombre);
 
 
 
-            // Int32
-
-           
-            
 
 
         }
@@ -81,12 +78,41 @@ namespace RegistryTools {
         }
         private void btnGetDataValue(object sender, EventArgs e) {
 
-            string ruta = btnleerLlave_ruta.Text.ToString();
+            string ruta = getValues_path.Text.ToString();
 
             // nombre del la llave
-            string nombre = btnleerLlave_name.Text.ToString();
+            string nombre = getValues_NameValue.Text.ToString();
             //Valor tipos texto
             string valor = createLlave_value.Text.ToString();
+
+
+
+
+
+            try {   // Obtiene Multilinea
+                string [] tArray = (string []) Registry.GetValue(ruta,
+            nombre, new string [] { "No se encontró el valor multistring" });;
+                // Leer Array 
+                ArrayList vector1;
+
+                vector1 = new ArrayList();
+
+                for (int i = 0; i < tArray.Length; i++) {
+                    Console.WriteLine("TestArray({0}): {1}", i, tArray [i]);
+                    vector1.Add(tArray [i]);
+
+                    getValues_Values.Items.Add(vector1 [i]);
+
+                }
+            } catch  {
+
+            }
+
+
+
+
+
+
 
             // no lee binario 
             // NodeLabelEditEventArgs crea binarios
@@ -94,10 +120,12 @@ namespace RegistryTools {
             // Si lee Qword obtiene decimales                                                                                                                                                                                             
 
 
+           
 
 
 
-            txt_info.Text = btnleerLlave_valor.Text = registro.GetDataValues(ruta, nombre);
+
+            //txt_info.Text = btnleerLlave_valor.Text = registro.GetDataValues(ruta, nombre);
         }
         private void btnDeleteValues(object sender, EventArgs e) {
 

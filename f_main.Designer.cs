@@ -35,8 +35,8 @@
             this.btn_CreateKey = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.crearConteiner_Contenedor = new System.Windows.Forms.TextBox();
-            this.crearConteiner_ruta = new System.Windows.Forms.TextBox();
+            this.crearKey_key = new System.Windows.Forms.TextBox();
+            this.crearKey_Path = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.rb_String = new System.Windows.Forms.RadioButton();
             this.rb_expString = new System.Windows.Forms.RadioButton();
@@ -56,9 +56,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnleerLlave_valor = new System.Windows.Forms.TextBox();
-            this.btnleerLlave_name = new System.Windows.Forms.TextBox();
-            this.btnleerLlave_ruta = new System.Windows.Forms.TextBox();
+            this.getValues_NameValue = new System.Windows.Forms.TextBox();
+            this.getValues_path = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btn_keyDelete = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -70,6 +69,7 @@
             this.deleteLlave_name = new System.Windows.Forms.TextBox();
             this.deleteLlave_ruta = new System.Windows.Forms.TextBox();
             this.txt_info = new System.Windows.Forms.Label();
+            this.getValues_Values = new System.Windows.Forms.ListBox();
             this.dfgfdg.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -116,8 +116,8 @@
             this.tabPage1.Controls.Add(this.btn_CreateKey);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.crearConteiner_Contenedor);
-            this.tabPage1.Controls.Add(this.crearConteiner_ruta);
+            this.tabPage1.Controls.Add(this.crearKey_key);
+            this.tabPage1.Controls.Add(this.crearKey_Path);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -154,19 +154,19 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Ingrese la ruta:";
             // 
-            // crearConteiner_Contenedor
+            // crearKey_key
             // 
-            this.crearConteiner_Contenedor.Location = new System.Drawing.Point(15, 90);
-            this.crearConteiner_Contenedor.Name = "crearConteiner_Contenedor";
-            this.crearConteiner_Contenedor.Size = new System.Drawing.Size(165, 20);
-            this.crearConteiner_Contenedor.TabIndex = 0;
+            this.crearKey_key.Location = new System.Drawing.Point(15, 90);
+            this.crearKey_key.Name = "crearKey_key";
+            this.crearKey_key.Size = new System.Drawing.Size(165, 20);
+            this.crearKey_key.TabIndex = 0;
             // 
-            // crearConteiner_ruta
+            // crearKey_Path
             // 
-            this.crearConteiner_ruta.Location = new System.Drawing.Point(15, 42);
-            this.crearConteiner_ruta.Name = "crearConteiner_ruta";
-            this.crearConteiner_ruta.Size = new System.Drawing.Size(324, 20);
-            this.crearConteiner_ruta.TabIndex = 0;
+            this.crearKey_Path.Location = new System.Drawing.Point(15, 42);
+            this.crearKey_Path.Name = "crearKey_Path";
+            this.crearKey_Path.Size = new System.Drawing.Size(324, 20);
+            this.crearKey_Path.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -313,13 +313,13 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.getValues_Values);
             this.tabPage3.Controls.Add(this.btnGetValues);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.btnleerLlave_valor);
-            this.tabPage3.Controls.Add(this.btnleerLlave_name);
-            this.tabPage3.Controls.Add(this.btnleerLlave_ruta);
+            this.tabPage3.Controls.Add(this.getValues_NameValue);
+            this.tabPage3.Controls.Add(this.getValues_path);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(406, 164);
@@ -340,7 +340,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(204, 66);
+            this.label6.Location = new System.Drawing.Point(185, 53);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 13);
             this.label6.TabIndex = 18;
@@ -351,9 +351,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 66);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(142, 13);
+            this.label8.Size = new System.Drawing.Size(134, 13);
             this.label8.TabIndex = 19;
-            this.label8.Text = "Ingrese el nombre de la llave";
+            this.label8.Text = "Ingrese el nombre del valor";
             // 
             // label9
             // 
@@ -364,27 +364,19 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Ingrese la ruta:";
             // 
-            // btnleerLlave_valor
+            // getValues_NameValue
             // 
-            this.btnleerLlave_valor.Location = new System.Drawing.Point(207, 85);
-            this.btnleerLlave_valor.Multiline = true;
-            this.btnleerLlave_valor.Name = "btnleerLlave_valor";
-            this.btnleerLlave_valor.Size = new System.Drawing.Size(165, 55);
-            this.btnleerLlave_valor.TabIndex = 15;
+            this.getValues_NameValue.Location = new System.Drawing.Point(15, 91);
+            this.getValues_NameValue.Name = "getValues_NameValue";
+            this.getValues_NameValue.Size = new System.Drawing.Size(165, 20);
+            this.getValues_NameValue.TabIndex = 16;
             // 
-            // btnleerLlave_name
+            // getValues_path
             // 
-            this.btnleerLlave_name.Location = new System.Drawing.Point(15, 91);
-            this.btnleerLlave_name.Name = "btnleerLlave_name";
-            this.btnleerLlave_name.Size = new System.Drawing.Size(165, 20);
-            this.btnleerLlave_name.TabIndex = 16;
-            // 
-            // btnleerLlave_ruta
-            // 
-            this.btnleerLlave_ruta.Location = new System.Drawing.Point(12, 30);
-            this.btnleerLlave_ruta.Name = "btnleerLlave_ruta";
-            this.btnleerLlave_ruta.Size = new System.Drawing.Size(379, 20);
-            this.btnleerLlave_ruta.TabIndex = 17;
+            this.getValues_path.Location = new System.Drawing.Point(12, 30);
+            this.getValues_path.Name = "getValues_path";
+            this.getValues_path.Size = new System.Drawing.Size(379, 20);
+            this.getValues_path.TabIndex = 17;
             // 
             // tabPage5
             // 
@@ -489,6 +481,14 @@
             this.txt_info.TabIndex = 2;
             this.txt_info.Text = "---";
             // 
+            // getValues_Values
+            // 
+            this.getValues_Values.FormattingEnabled = true;
+            this.getValues_Values.Location = new System.Drawing.Point(186, 69);
+            this.getValues_Values.Name = "getValues_Values";
+            this.getValues_Values.Size = new System.Drawing.Size(205, 82);
+            this.getValues_Values.TabIndex = 22;
+            // 
             // f_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,7 +499,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Name = "f_main";
-            this.Text = "Prueba de Funcionalidades v2.0";
+            this.Text = "Prueba de Funcionalidades v3.0";
             this.dfgfdg.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -527,8 +527,8 @@
         private System.Windows.Forms.Label txt_info;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox crearConteiner_Contenedor;
-        private System.Windows.Forms.TextBox crearConteiner_ruta;
+        private System.Windows.Forms.TextBox crearKey_key;
+        private System.Windows.Forms.TextBox crearKey_Path;
         private System.Windows.Forms.Button btn_CreateKey;
         private System.Windows.Forms.Button btnCreateValues;
         private System.Windows.Forms.Label label4;
@@ -548,9 +548,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox btnleerLlave_valor;
-        private System.Windows.Forms.TextBox btnleerLlave_name;
-        private System.Windows.Forms.TextBox btnleerLlave_ruta;
+        private System.Windows.Forms.TextBox getValues_NameValue;
+        private System.Windows.Forms.TextBox getValues_path;
         private System.Windows.Forms.Button btnValueDelete;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -559,6 +558,7 @@
         private System.Windows.Forms.Button btn_keyDelete;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox deleteAll_ruta;
+        private System.Windows.Forms.ListBox getValues_Values;
     }
 }
 

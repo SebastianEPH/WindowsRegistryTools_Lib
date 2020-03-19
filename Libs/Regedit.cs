@@ -606,8 +606,6 @@ namespace RegistryTools.Libs {
 
             try {
 
-
-
                 try {       // Intenta Int32
                     Int32 Int32Values = (Int32) Registry.GetValue(path, valueName, "E#RR02");
                     return Int32Values.ToString();
@@ -622,13 +620,21 @@ namespace RegistryTools.Libs {
                     // No se pudo
                 }
 
+                try {
+
+                } catch {
+                                       
+                }
 
 
+
+
+                // Insertar los datos en un String 
                 message = (string) Registry.GetValue(path, valueName, "E#RR02");
                 return message;
 
 
-            } catch (Exception) {
+            } catch {
                 //Mensaje de error +  su Codigo de error
                 message = "E#RR01"; // Hubo un error al leer la llave
             }
@@ -741,7 +747,7 @@ namespace RegistryTools.Libs {
                 }
 
                 
-            } catch (Exception) {
+            } catch  {
                 
                 message = ""; //Retornará vacío ya que no se encuentra 
             }
