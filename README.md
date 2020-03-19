@@ -251,14 +251,11 @@ NOTA: Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
-// Es el nombre del Valor 
-string valueName = "Soy un Value";
-
 // Ejecuta pero no muestra ningún mensaje
-registro.DeleteKey(path,valueName);
+registro.DeleteKey(path);
 
 // Ejecutando y muestra en consola (Exito o algún código de error)
-Console.WriteLine(registro.DeleteKey(path. valueName));
+Console.WriteLine(registro.DeleteKey(path));
 ````
 
 ## Función - Eliminar un valor
@@ -273,11 +270,14 @@ Console.WriteLine(registro.DeleteKey(path. valueName));
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
+// Es el nombre del Valor 
+string valueName = "Soy un Value";
+
 // Ejecuta pero no muestra ningún mensaje
-registro.DeleteValue(path);
+registro.DeleteValue(path, valueName);
 
 // Ejecutando y muestra en consola (Exito o algún código de error)
-Console.WriteLine(registro.DeleteValue(path));
+Console.WriteLine(registro.DeleteValue(path, valueName));
 ````
 ---
 # Software Funcional de la librería
