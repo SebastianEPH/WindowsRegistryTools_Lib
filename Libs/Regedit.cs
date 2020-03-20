@@ -66,7 +66,7 @@ namespace RegistryTools.Libs {
             }
         }
         public string CreateKeyValue_Binarie(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, byte [] valueData /*Datos almacenados del valor*/) {
-
+            //los datos deben ser guardadas en binario
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
@@ -77,26 +77,12 @@ namespace RegistryTools.Libs {
                 return "E#R003";    //Manda mensaje de error
             }
 
-
-
-
-
-
-
-            //string typeRegistry = GetTypeRegistry(path);
-            //if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
-            //    return typeRegistry;
             //}
             ////              Quieres separar por coma? Usa
             ////              string[] arValores = tuTextBox.Text.Split(",");
             ////              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
             ////Limpiar path 
 
-
-            //if (path == "" || valueName == "") {    //Verifica si el nombre del valor no esté vacío
-            //    //
-            //    return "E#R003";    //Manda mensaje de error
-            //}
 
             RegistryKey k;
 
@@ -138,26 +124,9 @@ namespace RegistryTools.Libs {
                     break;
                 }
                 return "E#XITO";
-            } catch (Exception) {
+            } catch  {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -604,52 +573,48 @@ namespace RegistryTools.Libs {
             //Obtiene string        - ok 
             //Obtiene MultiString   - Error 
 
-
             try {
 
-                try {       // Intenta Int32
+                // Intenta Int32
+                try {       
                     Int32 Int32Values = (Int32) Registry.GetValue(path, valueName, "E#RR02");
                     return Int32Values.ToString();
                 } catch { 
                     //No es un int32
                 }
 
-                try {       // Intenta Int64
+                // Intenta Int64
+                try {       
                     Int64 Int64Values = (Int64) Registry.GetValue(path, valueName, "E#RR02");
                     return Int64Values.ToString();
                 } catch {
                     // No se pudo
                 }
 
-            // Intenta multistring 
-            try {
-                string [] tArray = (string []) Registry.GetValue(path, valueName, new string [] { "E#RR02"});
-                    // Leer Array 
+                // Intenta multistring 
+                try {
+                    string [] tArray = (string []) Registry.GetValue(path, valueName, new string [] {"E#RR02"});
+                        // Leer Array 
 
-                    ArrayList vector1;
-                    vector1 = new ArrayList();
+                        ArrayList vector1;
+                        vector1 = new ArrayList();
 
-                    String salida = "";
-                    String salida2 = "";
+                        String salida = "";
+                        String salida2 = "";
 
-                    for (int i = 0; i < tArray.Length; i++) {
-                        Console.WriteLine("TestArray({0}): {1}", i, tArray [i]);
-                        vector1.Add(tArray [i]);
+                        for (int i = 0; i < tArray.Length; i++) {
+                            vector1.Add(tArray [i]);
 
+                            salida = String.Join(" ", vector1 [i]);
 
-                        salida = String.Join(" ", vector1 [i]);
+                            salida2 = salida2 + "\r\n" + salida;
 
-                        //salida = salida + "|salto de linea|";
-                        salida2 = salida2 + "\r\n" + salida;
+                        }
 
-                    }
-
-                    return salida2;
-            } catch {
-                // No es 
-            }
-
-
+                        return salida2;
+                } catch {
+                    // No es 
+                }
 
             //// Insertar los datos en un String 
             message = (string) Registry.GetValue(path, valueName, "E#RR02");

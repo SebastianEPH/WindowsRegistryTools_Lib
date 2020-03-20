@@ -14,7 +14,7 @@ namespace RegistryTools {
         public f_main() {
             InitializeComponent();
         }
-        private void btnCrearContenedor(object sender, EventArgs e) {
+        private void btnCrearKey(object sender, EventArgs e) {
           //  Ruta completa del registro
           //Ejemplo: @"HKEY_CURRENT_USER\Contenedor1"
             string ruta = crearKey_Path.Text.ToString();
@@ -28,7 +28,7 @@ namespace RegistryTools {
 
 
         }
-        private void btnCrearLlave(object sender, EventArgs e) {
+        private void btnCrearValues(object sender, EventArgs e) {
             // Ruta completa del registro
             //Ejemplo: @"HKEY_CURRENT_USER\Contenedor1"
             string ruta = crearLlave_ruta.Text.ToString();
@@ -49,7 +49,9 @@ namespace RegistryTools {
             if (rb_binarie.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
                 //txt_info.Text = registro.CreateKeyValue_Binarie(ruta, nombre, valor);
-                Console.WriteLine("Esta función no está terminada en modo gráfico");
+                byte [] valoresBinarios = { byte.Parse(createLlave_value.Text)};
+                txt_info.Text = registro.CreateKeyValue_Binarie(ruta, nombre, valoresBinarios);
+
             }
             //DWORD
             if (rb_DWORD.Checked) {
@@ -116,19 +118,8 @@ namespace RegistryTools {
             Console.WriteLine(registro.GetDataValues(ruta, nombre));
 
 
-
-
-        //} catch {
-
-
-        //    }
-
-
-
             // no lee binario 
-            // NodeLabelEditEventArgs crea binarios
-            // No lee DWord
-            // Si lee Qword obtiene decimales                                                                                                                                                                                             
+                                                                                                                                                                                       
         }
         private void btnDeleteValues(object sender, EventArgs e) {
 

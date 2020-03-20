@@ -134,7 +134,7 @@
             this.btn_CreateKey.TabIndex = 3;
             this.btn_CreateKey.Text = "Crear Llave";
             this.btn_CreateKey.UseVisualStyleBackColor = true;
-            this.btn_CreateKey.Click += new System.EventHandler(this.btnCrearContenedor);
+            this.btn_CreateKey.Click += new System.EventHandler(this.btnCrearKey);
             // 
             // label3
             // 
@@ -261,7 +261,7 @@
             this.btnCreateValues.TabIndex = 8;
             this.btnCreateValues.Text = "Crear Valores";
             this.btnCreateValues.UseVisualStyleBackColor = true;
-            this.btnCreateValues.Click += new System.EventHandler(this.btnCrearLlave);
+            this.btnCreateValues.Click += new System.EventHandler(this.btnCrearValues);
             // 
             // label7
             // 
