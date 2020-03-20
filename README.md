@@ -78,7 +78,7 @@ string keyName = "NombreDeLlave";
 // Ejecuta pero no muestra ningún mensaje
 registro.CreateKey(path, keyName);
 
-// Ejecutando y muestra en consola (Exito o algún código de error)
+// Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKey(path, keyName));
 ````
 ---
@@ -111,7 +111,7 @@ string valueData = "Soy un dato tipoString";
 // Ejecuta pero no muestra ningún mensaje
 registro.CreateKeyValue_String(path, keyName,valueData);
 
-// Ejecutando y muestra en consola (Exito o algún código de error)
+// Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_String(path, keyName, valueData));
 ````
 - Antes de la ejecución
@@ -123,10 +123,27 @@ Console.WriteLine(registro.CreateKeyValue_String(path, keyName, valueData));
 ![04](https://i.imgur.com/4mS08zL.png)
 
 #### Binarie Value:
-
+Los valores que usted ingresará deben ser decimales tipo *bytes*, separando individualmente los datos mediante una ','
 ````csharp
-    // Es la unica funcionalidad la cual me está causando problemas al poder crearla,
-    // en unas semanas lo soluionaré
+/* Sintaxis permitida:
+ *                      - Computer\HKEY_CLASSES_ROOT
+ *                      - HKEY_CLASSES_ROOT
+ *                      - Equipo\HKEY_CLASSES_ROOT
+ */ 
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
+
+// Es el nombre del Valor 
+string valueName = "New Value TypypeBinarie"; 	
+
+// Son los valores que se almacenarán en la llave
+byte [] valueData = {1,5,7,8,9,5,40,56,12,89,1,5,14,5,5,1,154,24};  
+
+// Ejecuta pero no muestra ningún mensaje
+registro.CreateKeyValue_Binarie(path, keyName,valueData);
+
+// Ejecuta y muestra en consola (Exito o algún código de error)
+Console.WriteLine(registro.CreateKeyValue_Binarie(path, keyName, valueData));   
 ````
 #### DWORD (32bits) Value:
 ````csharp
@@ -147,7 +164,7 @@ Int32 valueData = "123456789"; // Valor máximo -2147483648 a 2147483647
 // Ejecuta pero no muestra ningún mensaje
 registro.CreateKeyValue_DWORD(path, keyName,valueData);
 
-// Ejecutando y muestra en consola (Exito o algún código de error)
+// Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_DWORD(path, keyName, valueData));
 ````
 #### QWORD (64bits) Value:
@@ -170,7 +187,7 @@ Int64 valueData = "123456789"; // Valor máximo -9223372036854775808 a 922337203
 // Ejecuta pero no muestra ningún mensaje
 registro.CreateKeyValue_QWORD(path, keyName,valueData);
 
-// Ejecutando y muestra en consola (Exito o algún código de error)
+// Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_QWORD(path, keyName, valueData));
 ````
 #### Multi-String Value:
@@ -194,7 +211,7 @@ string [] valueData = {"txt1","txt2","txt3","texto"}; // texto con saltos de lin
 // Ejecuta pero no muestra ningún mensaje
 registro.CreateKeyValue_MultiString(path, keyName,valueData);
 
-// Ejecutando y muestra en consola (Exito o algún código de error)
+// Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_MultiString(path, keyName, valueData));
 ````
 #### Expandable String:
@@ -217,7 +234,7 @@ string valueData = "Soy un dato tipo ExpandString";
 // Ejecuta pero no muestra ningún mensaje
 registro.CreateKeyValue_ExpandString(path, keyName,valueData);
 
-// Ejecutando y muestra en consola (Exito o algún código de error)
+// Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_ExpandString(path, keyName, valueData));
 ````
 ---
@@ -238,7 +255,7 @@ string valueName = "Soy un Value";
 // Ejecuta pero no muestra ningún mensaje
 registro.GetDataValues(path, keyName,valueName);
 
-// Ejecutando y muestra en consola (Exito o algún código de error)
+// Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.GetDataValues(path, keyName, valueName));
 ````
 ## Función - Eliminar Llave
@@ -255,7 +272,7 @@ string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 // Ejecuta pero no muestra ningún mensaje
 registro.DeleteKey(path);
 
-// Ejecutando y muestra en consola (Exito o algún código de error)
+// Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.DeleteKey(path));
 ````
 
@@ -275,7 +292,7 @@ string valueName = "Soy un Value";
 // Ejecuta pero no muestra ningún mensaje
 registro.DeleteValue(path, valueName);
 
-// Ejecutando y muestra en consola (Exito o algún código de error)
+// Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.DeleteValue(path, valueName));
 ````
 ---
