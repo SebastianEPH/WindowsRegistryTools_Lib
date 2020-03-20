@@ -69,7 +69,7 @@
             this.deleteLlave_name = new System.Windows.Forms.TextBox();
             this.deleteLlave_ruta = new System.Windows.Forms.TextBox();
             this.txt_info = new System.Windows.Forms.Label();
-            this.getValues_Values = new System.Windows.Forms.ListBox();
+            this.final = new System.Windows.Forms.TextBox();
             this.dfgfdg.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -313,7 +313,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.getValues_Values);
+            this.tabPage3.Controls.Add(this.final);
             this.tabPage3.Controls.Add(this.btnGetValues);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label8);
@@ -481,19 +481,19 @@
             this.txt_info.TabIndex = 2;
             this.txt_info.Text = "---";
             // 
-            // getValues_Values
+            // final
             // 
-            this.getValues_Values.FormattingEnabled = true;
-            this.getValues_Values.Location = new System.Drawing.Point(186, 69);
-            this.getValues_Values.Name = "getValues_Values";
-            this.getValues_Values.Size = new System.Drawing.Size(205, 82);
-            this.getValues_Values.TabIndex = 22;
+            this.final.Location = new System.Drawing.Point(188, 69);
+            this.final.Multiline = true;
+            this.final.Name = "final";
+            this.final.Size = new System.Drawing.Size(203, 81);
+            this.final.TabIndex = 7;
             // 
             // f_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 298);
+            this.ClientSize = new System.Drawing.Size(450, 298);
             this.Controls.Add(this.dfgfdg);
             this.Controls.Add(this.txt_info);
             this.Controls.Add(this.label1);
@@ -558,7 +558,7 @@
         private System.Windows.Forms.Button btn_keyDelete;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox deleteAll_ruta;
-        private System.Windows.Forms.ListBox getValues_Values;
+        private System.Windows.Forms.TextBox final;
     }
 }
 

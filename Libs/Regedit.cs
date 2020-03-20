@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace RegistryTools.Libs {
     class Regedit {
@@ -602,7 +603,7 @@ namespace RegistryTools.Libs {
 
             //Obtiene string        - ok 
             //Obtiene MultiString   - Error 
-            
+
 
             try {
 
@@ -620,21 +621,42 @@ namespace RegistryTools.Libs {
                     // No se pudo
                 }
 
-                try {
+            // Intenta multistring 
+            try {
+                string [] tArray = (string []) Registry.GetValue(path, valueName, new string [] { "E#RR02"});
+                    // Leer Array 
 
-                } catch {
-                                       
-                }
+                    ArrayList vector1;
+                    vector1 = new ArrayList();
+
+                    String salida = "";
+                    String salida2 = "";
+
+                    for (int i = 0; i < tArray.Length; i++) {
+                        Console.WriteLine("TestArray({0}): {1}", i, tArray [i]);
+                        vector1.Add(tArray [i]);
 
 
+                        salida = String.Join(" ", vector1 [i]);
 
+                        //salida = salida + "|salto de linea|";
+                        salida2 = salida2 + "\r\n" + salida;
 
-                // Insertar los datos en un String 
-                message = (string) Registry.GetValue(path, valueName, "E#RR02");
-                return message;
+                    }
 
-
+                    return salida2;
             } catch {
+                // No es 
+            }
+
+
+
+            //// Insertar los datos en un String 
+            message = (string) Registry.GetValue(path, valueName, "E#RR02");
+            return message;
+
+
+        } catch {
                 //Mensaje de error +  su Codigo de error
                 message = "E#RR01"; // Hubo un error al leer la llave
             }

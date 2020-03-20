@@ -83,34 +83,45 @@ namespace RegistryTools {
             // nombre del la llave
             string nombre = getValues_NameValue.Text.ToString();
             //Valor tipos texto
-            string valor = createLlave_value.Text.ToString();
 
 
 
 
 
-            try {   // Obtiene Multilinea
-                string [] tArray = (string []) Registry.GetValue(ruta,
-            nombre, new string [] { "No se encontró el valor multistring" });;
-                // Leer Array 
-                ArrayList vector1;
+            //try {   // Obtiene Multilinea
+            //    string [] tArray = (string []) Registry.GetValue(ruta,
+            //                      nombre, new string [] { "No se encontró el valor multistring" });
+            //    // Leer Array 
+            //    ArrayList vector1;
 
-                vector1 = new ArrayList();
+            //    vector1 = new ArrayList();
+            //    string salida = "";
+            //    string salida2 = "";
 
-                for (int i = 0; i < tArray.Length; i++) {
-                    Console.WriteLine("TestArray({0}): {1}", i, tArray [i]);
-                    vector1.Add(tArray [i]);
+            //    for (int i = 0; i < tArray.Length; i++) {
+            //        Console.WriteLine("TestArray({0}): {1}", i, tArray [i]);
+            //        vector1.Add(tArray [i]);
 
-                    getValues_Values.Items.Add(vector1 [i]);
+            //        btnGetValues_Values.Items.Add(vector1 [i]);
 
-                }
-            } catch  {
+            //        salida = string.Join(" ", vector1 [i]);
+            //        //salida = salida + "|salto de linea|";
+            //        salida2 = salida2 + "" + salida;
 
-            }
+            //    }
+
+            //    Console.WriteLine("dentro del for " + salida2);
+
+            final.Text = (registro.GetDataValues(ruta, nombre));
+            Console.WriteLine(registro.GetDataValues(ruta, nombre));
 
 
 
 
+        //} catch {
+
+
+        //    }
 
 
 
@@ -118,14 +129,6 @@ namespace RegistryTools {
             // NodeLabelEditEventArgs crea binarios
             // No lee DWord
             // Si lee Qword obtiene decimales                                                                                                                                                                                             
-
-
-           
-
-
-
-
-            //txt_info.Text = btnleerLlave_valor.Text = registro.GetDataValues(ruta, nombre);
         }
         private void btnDeleteValues(object sender, EventArgs e) {
 
