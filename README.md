@@ -1,9 +1,11 @@
 # Librería -Regedit de Windows v3.0
 <!-- Botones -->
-**NOTA:** Librería Terminada a un 95%  - `18/03/2020`
+**NOTA:** Librería Terminada a un 97%
+
+Documentación actualizada el día: `20/03/2020`
 <!-- Descripción -->
 ## Descripción
-Esta librería fue desarollada para Crear, Leer y eliminar llaves del registro de Windows (*REGEDIT*) y poder realizarlo de la manera más sencilla posible.
+Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro de Windows (*REGEDIT*) y poder realizarlo de la manera más sencilla posible.
 
 ### Funcionalidades
 Éstas son las funcionalidades de ésta librería en su versión 3.0v, Usted pueder ver [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3mo-agrego-%C3%A9sta-librer%C3%ADa-a-mi-proyecto), *¿Cómo agregar ésta librería a mi proyecto?*
@@ -15,28 +17,28 @@ Esta librería fue desarollada para Crear, Leer y eliminar llaves del registro d
     - HKEY_CURRENT_CONFIG........................`(Permiso de administrador)`
 - **Crear Valores de llaves:**
     - String Value...................................................`(Tipo de Valor: String)`
-    - Binarie Value..................................................**(Ésta funcionalidad está en   proceso - No terminado)**
+    - Binarie Value.................................................`(Tipo de Valor: Byte - Decimal)`
     - DWORD (32bits) Value.............................`(Tipo de Valor: Int32 - Decimal)`
     - QWORD (64bits) Value.............................`(Tipo de Valor: Int64 - Decimal)`
     - Multi-String Value......................................`(Tipo de Valor: String [])`
     - Expandable String......................................`(Tipo de Valor: String)`
 - **Obtener ó leer valores de una llave:**
     - String Value..................................................`(Retornará un String)`
-    - Binarie Value............................................... `(Retornará un String)`
+    - Binarie Value................................................ **Ésta funcionalidad no está terminada**
     - DWORD (32bits) Value.............................`(Retornará un String)`
     - QWORD (64bits) Value.............................`(Retornará un String)`
-    - Multi-String Value......................................`(Retornará un String)`
+    - Multi-String Value......................................`(Retornará un String con saltos de linea)`
     - Expandable String......................................`(Retornará un String)`
 
-    _**NOTA:** Todos los valores obtenidos serán retornadas mediante una variable *Tipo String*, ésto sin importar el tipo de variable que almacene el valor. Ésta medidase tomó para hacer más sencilla el uso de la librería._
+    _**NOTA:** Todos los datos serán retornados mediante una variable *Tipo String*, ésto sin importar el tipo de variable que almacene el valor. Ésta medida se tomó para hacer más sencilla el uso de la librería._
 
 - **Eliminar Llave**
 
-    _**NOTA:** Al eliminar la llave, se eliminarán todos los valores que pueda contener._
+    _**NOTA:** Esta función eliminar una llave y todos los valores que ésta pueda almacenar_
 
 - **Eliminar Valores**
 
-    _**NOTA:** Se podrá eliminar el Valor de la llave uno por uno, si desea eliminar todos los valores dentro de la llave, puede usar la funcionalidad ELIMINAR LLAVE_
+    _**NOTA:** Ésta funcionalidad solo eliminará un valor, si desea eliminar todos los valores dentro de una llave, usted puede usar la función anterior "**Eliminar Llave**"._
 ---
 <!-- Información de codificación -->
 # ¿Cómo agrego ésta librería a mi proyecto?
@@ -50,25 +52,28 @@ Esta librería fue desarollada para Crear, Leer y eliminar llaves del registro d
     ````
 3. Instanciamos la librería dentro de la clase, para así poder usarlo.
     
-    *El nombre que se le dará a ésta instancia será* **registro**.  
-(Usted puede colocarle el nombre que desee)
+    _*El nombre que se le dará a ésta instancia será* **registro**._
+    _(Usted puede colocarle el nombre que desee)_
     ```` csharp
     Regedit registro = new Regedit();
     ````
-    **NOTA:** Cada vez que desee usar las funciones de la librería, deberá llamarlo con el nombre *registro* o el nombre que ustedes escogieron.
+    _**NOTA:** Cada vez que desee usar las funciones de la librería, deberá llamarlo con el nombre *registro* o el nombre que ustedes escogieron_
 
 ---
 # Uso de Funciones
-**NOTA:** Es importante detallar que todas éstas funciones devolverán un *Código de errores, advertencias o de exito*, La lista completa puedes verla [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3digo-de-errores-advertencias-y-exito)
+Lea detalladamente éste apartado, donde se podrán despejar algunas dudas.
+- __Camino del registro (path):__ En ésta variable `path`, es donde se realizarán las operaciones, ésta librería reconoce los `path` si empiezan con este tipo de sintaxis:
+
+    * ``"Computer\"``.................Ejemplo: `Computer\HKEY_CURRENT_USER\Control Panel\Appearance`
+    * `"Equipo\"`.....................Ejemplo: `Equipo\HKEY_CURRENT_USER\Control Panel\Appearance`
+    * `""`....................................Ejemplo: `HKEY_CURRENT_USER\Control Panel\Appearance`
+
+
+_**NOTA:** Es importante detallar que todas éstas funciones devolverán un *Código de errores, advertencias y de exito*, La lista completa puedes verla [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3digo-de-errores-advertencias-y-exito)_
 
 <!-- Funciones e información de usos -->
 ## Función - Crear Llave
 ````csharp
-/* Sintaxis permitida:
- *                      - Computer\HKEY_CLASSES_ROOT
- *                      - HKEY_CLASSES_ROOT
- *                      - Equipo\HKEY_CLASSES_ROOT
- */ 
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software";
 
@@ -94,11 +99,6 @@ Los registros de Windows nos permite poder crear Valores con distintos tipos de 
 #### String Value:
 
 ````csharp
-/* Sintaxis permitida:
- *                      - Computer\HKEY_CLASSES_ROOT
- *                      - HKEY_CLASSES_ROOT
- *                      - Equipo\HKEY_CLASSES_ROOT
- */ 
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
@@ -125,11 +125,6 @@ Console.WriteLine(registro.CreateKeyValue_String(path, keyName, valueData));
 #### Binarie Value:
 Los valores que usted ingresará deben ser decimales tipo *bytes*, separando individualmente los datos mediante una ','
 ````csharp
-/* Sintaxis permitida:
- *                      - Computer\HKEY_CLASSES_ROOT
- *                      - HKEY_CLASSES_ROOT
- *                      - Equipo\HKEY_CLASSES_ROOT
- */ 
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
@@ -147,11 +142,6 @@ Console.WriteLine(registro.CreateKeyValue_Binarie(path, keyName, valueData));
 ````
 #### DWORD (32bits) Value:
 ````csharp
-/* Sintaxis permitida:
- *                      - Computer\HKEY_CLASSES_ROOT
- *                      - HKEY_CLASSES_ROOT
- *                      - Equipo\HKEY_CLASSES_ROOT
- */ 
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
@@ -170,11 +160,6 @@ Console.WriteLine(registro.CreateKeyValue_DWORD(path, keyName, valueData));
 #### QWORD (64bits) Value:
 
 ````csharp
-/* Sintaxis permitida:
- *                      - Computer\HKEY_CLASSES_ROOT
- *                      - HKEY_CLASSES_ROOT
- *                      - Equipo\HKEY_CLASSES_ROOT
- */ 
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
@@ -193,11 +178,6 @@ Console.WriteLine(registro.CreateKeyValue_QWORD(path, keyName, valueData));
 #### Multi-String Value:
 
 ````csharp
-/* Sintaxis permitida:
- *                      - Computer\HKEY_CLASSES_ROOT
- *                      - HKEY_CLASSES_ROOT
- *                      - Equipo\HKEY_CLASSES_ROOT
- */ 
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
@@ -217,11 +197,6 @@ Console.WriteLine(registro.CreateKeyValue_MultiString(path, keyName, valueData))
 #### Expandable String:
 
 ````csharp
-/* Sintaxis permitida:
- *                      - Computer\HKEY_CLASSES_ROOT
- *                      - HKEY_CLASSES_ROOT
- *                      - Equipo\HKEY_CLASSES_ROOT
- */ 
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
@@ -241,11 +216,6 @@ Console.WriteLine(registro.CreateKeyValue_ExpandString(path, keyName, valueData)
 ## Función - Obtener o leer Valores
 Los datos obtenidos de DWORD y QWORD serán datos decimales
 ````csharp
-/* Sintaxis permitida:
- *                      - Computer\HKEY_CLASSES_ROOT
- *                      - HKEY_CLASSES_ROOT
- *                      - Equipo\HKEY_CLASSES_ROOT
- */ 
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
@@ -261,11 +231,6 @@ Console.WriteLine(registro.GetDataValues(path, keyName, valueName));
 ## Función - Eliminar Llave
 NOTA: Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar.
 ````csharp
-/* Sintaxis permitida:
- *                      - Computer\HKEY_CLASSES_ROOT
- *                      - HKEY_CLASSES_ROOT
- *                      - Equipo\HKEY_CLASSES_ROOT
- */ 
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
@@ -278,11 +243,6 @@ Console.WriteLine(registro.DeleteKey(path));
 
 ## Función - Eliminar un valor
 ````csharp
-/* Sintaxis permitida:
- *                      - Computer\HKEY_CLASSES_ROOT
- *                      - HKEY_CLASSES_ROOT
- *                      - Equipo\HKEY_CLASSES_ROOT
- */ 
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
