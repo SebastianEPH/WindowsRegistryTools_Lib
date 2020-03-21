@@ -289,6 +289,12 @@ Podemos observar que se creó la kkave dentro de la *Software*
 - E#CR01 = No se puedo crear la llave (contenedora)
 - E#XITO = La Función se ejecuto correctamente; 
 
+
+- -000001 = La Ruta ingresada está vacía.
+- -000002 = No se encontró ningún valór con ese nombre
+- -000003 = El nombre del valor está vació
+
+
 ---
 # Usos en Softwares
 Ésta librería es utilizada en el Software [FullWindowsOptimitation](https://github.com/SebastianEPH/FullWindowsOptimitation_FWO_C-Charp)
