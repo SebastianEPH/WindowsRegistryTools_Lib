@@ -670,22 +670,22 @@ namespace RegistryTools.Libs {
         }
         public Int32 getDataValue_DWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
             string typeRegistry = GetTypeRegistry(path);
-            //if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
-            //    return -000001;
-            //}
-            //// Verifica si el NombreValue
-            //if (valueName == "") {
-            //    //Verifica si el nombre del Key no esté vacío
-            //    return -000003;    // El nombre del valor está vacio
-            //}
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
+                return -000001;
+            }
+            // Verifica si el NombreValue
+            if (valueName == "") {
+                //Verifica si el nombre del Key no esté vacío
+                return -000003;    // El nombre del valor está vacio
+            }
 
-            ////Limpiando Ruta y obtiene datos
-            //path = RoutePath(path);
+            //Limpiando Ruta y obtiene datos
+            path = RoutePath(path);
 
 
-            //Int32 Int32Values = (Int32) Registry.GetValue(path, valueName, -000002);
+            Int32 Int32Values = (Int32) Registry.GetValue(path, valueName, -000002);
 
-            //return Int32Values;
+            return Int32Values;
 
         }
         public Int64 getDataValue_QWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
