@@ -10,6 +10,9 @@ namespace RegistryTools.Libs {
     class Regedit {
         string message = "";
 
+        //Solo Developer: a futuro, colocar entrada a mensajes personalizadas, mensajes de exito, null o de error, 
+
+
         public string CreateKeyValue_String(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, string valueData /*Datos almacenados del valor*/) {
 
             string typeRegistry = GetTypeRegistry(path);
@@ -628,12 +631,27 @@ namespace RegistryTools.Libs {
 
             return message;
         }
+        //public string GetDataValue_String() {
+        //    return "";
+        //}
+        //public byte[] GetDataValue_Binarie() {
+        //    return "";
+        //}
+        //public Int32 GetDataValue_DWORD() {
+        //    return "";
+        //}
+        //public string GetDataValue_QWORD() {
+        //    return "";
+        //}
+        //public string GetDataValue_MultiString() {
+        //    return "";
+        //}
+        //public string GetDataValue_ExpandString() {
+        //    return "";
+        //}
 
 
 
-  
- 
-        
         private string GetSubFiles(string path) {
             //Verifica si la ruta ingresada tiene un formato aceptado
             string typeRegistry = GetTypeRegistry(path);

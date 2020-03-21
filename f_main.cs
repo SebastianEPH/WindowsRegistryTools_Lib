@@ -49,8 +49,14 @@ namespace RegistryTools {
             if (rb_binarie.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
                 //txt_info.Text = registro.CreateKeyValue_Binarie(ruta, nombre, valor);
-                byte [] valoresBinarios = { byte.Parse(createLlave_value.Text)};
-                txt_info.Text = registro.CreateKeyValue_Binarie(ruta, nombre, valoresBinarios);
+                try {
+                    byte [] valoresBinarios = { byte.Parse(createLlave_value.Text) };
+                    //byte [] valores = { 45, 12, 4, 5, 8, 5, 4, 5, 1, 8, 4, 8, 4, 8, 41, 8, 14, 4 };
+                    txt_info.Text = registro.CreateKeyValue_Binarie(ruta, nombre, valoresBinarios);
+                } catch {
+                    txt_info.Text = "Si los valores los ingresa manualmente en la variable valores,ésta function trabaja normal" +
+                        "\n Todavía no eh logrado que se pueda obtener los valores decimales desde un textBox";
+                }
 
             }
             //DWORD

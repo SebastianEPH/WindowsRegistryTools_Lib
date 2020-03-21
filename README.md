@@ -65,8 +65,8 @@ Lea detalladamente éste apartado, donde se podrán despejar algunas dudas.
 - __Camino del registro (path):__ En ésta variable `path`, es donde se realizarán las operaciones, ésta librería reconoce los `path` si empiezan con este tipo de sintaxis:
 
     * ``"Computer\"``.................Ejemplo: `Computer\HKEY_CURRENT_USER\Control Panel\Appearance`
-    * `"Equipo\"`.....................Ejemplo: `Equipo\HKEY_CURRENT_USER\Control Panel\Appearance`
-    * `""`....................................Ejemplo: `HKEY_CURRENT_USER\Control Panel\Appearance`
+    * `"Equipo\"`......................Ejemplo: `Equipo\HKEY_CURRENT_USER\Control Panel\Appearance`
+    * `""`......................................Ejemplo: `HKEY_CURRENT_USER\Control Panel\Appearance`
 
 
 _**NOTA:** Es importante detallar que todas éstas funciones devolverán un *Código de errores, advertencias y de exito*, La lista completa puedes verla [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3digo-de-errores-advertencias-y-exito)_
@@ -261,7 +261,7 @@ Console.WriteLine(registro.DeleteValue(path, valueName));
 ### Crear LLave:
 ![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
 
-Podemos observar que se creó la kkave dentro de la *Software*
+Podemos observar que se creó la Llave dentro de la *Software*
 ![función - crear conteiner - regedit ](https://i.imgur.com/IO0ZMYt.png)
 ### Crear Valores:
 ![función - Llave](https://i.imgur.com/qp6BicO.png)
