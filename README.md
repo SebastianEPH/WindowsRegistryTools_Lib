@@ -2,7 +2,7 @@
 <!-- Botones -->
 **NOTA:** Librería Terminada a un 97%
 
-Documentación actualizada el día: `20/03/2020`
+Documentación actualizada el día: `21/03/2020`
 <!-- Descripción -->
 ## Descripción
 Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro de Windows (*REGEDIT*) y poder realizarlo de la manera más sencilla posible.
@@ -10,27 +10,27 @@ Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro 
 ### Funcionalidades
 Éstas son las funcionalidades de ésta librería en su versión 3.0v, Usted pueder ver [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3mo-agrego-%C3%A9sta-librer%C3%ADa-a-mi-proyecto), *¿Cómo agregar ésta librería a mi proyecto?*
 - **Crear llaves:**
-    - HKEY_CLASSES_ROOT...............................`(Necesita permisos básicos)`
-    - HKEY_CURRENT_USER..............................`(Necesita permisos básicos)`
-    - HKEY_LOCAL_MACHINE...........................`(Permiso de administrador)`
-    - HKEY_USERS.................................................`(Permiso de administrador)`
-    - HKEY_CURRENT_CONFIG........................`(Permiso de administrador)`
+    - HKEY_CLASSES_ROOT...............................`(No Requiere permisos de administrador)`
+    - HKEY_CURRENT_USER..............................`(No Requiere permisos de administrador)`
+    - HKEY_LOCAL_MACHINE...........................`(Requiere permisos de administrador)`
+    - HKEY_USERS.................................................`(Requiere permisos de administrador)`
+    - HKEY_CURRENT_CONFIG........................`(Requiere permisos de administrador)`
 - **Crear Valores de llaves:**
     - String Value...................................................`(Tipo de Valor: String)`
-    - Binarie Value.................................................`(Tipo de Valor: Byte - Decimal)`
+    - Binarie Value.................................................`(Tipo de Valor: Byte[] - Decimal)`
     - DWORD (32bits) Value.............................`(Tipo de Valor: Int32 - Decimal)`
     - QWORD (64bits) Value.............................`(Tipo de Valor: Int64 - Decimal)`
     - Multi-String Value......................................`(Tipo de Valor: String [])`
     - Expandable String......................................`(Tipo de Valor: String)`
 - **Obtener ó leer valores de una llave:**
     - String Value..................................................`(Retornará un String)`
-    - Binarie Value................................................ **Ésta funcionalidad no está terminada**
-    - DWORD (32bits) Value.............................`(Retornará un String)`
-    - QWORD (64bits) Value.............................`(Retornará un String)`
-    - Multi-String Value......................................`(Retornará un String con saltos de linea)`
+    - Binarie Value................................................`(Retornará un Byte [])`
+    - DWORD (32bits) Value.............................`(Retornará un Int32)`
+    - QWORD (64bits) Value.............................`(Retornará un Int64)`
+    - Multi-String Value......................................`(Retornará un String [])`
     - Expandable String......................................`(Retornará un String)`
 
-    _**NOTA:** Todos los datos serán retornados mediante una variable *Tipo String*, ésto sin importar el tipo de variable que almacene el valor. Ésta medida se tomó para hacer más sencilla el uso de la librería._
+
 
 - **Eliminar Llave**
 
@@ -291,7 +291,7 @@ Podemos observar que se creó la kkave dentro de la *Software*
 
 
 - -000001 = La Ruta ingresada está vacía.
-- -000002 = No se encontró ningún valór con ese nombre
+- -000002 = 
 - -000003 = El nombre del valor está vació
 
 
