@@ -10,7 +10,7 @@ namespace RegistryTools.Libs {
     class Regedit {
         string message = "";
 
-        public string CreateKeyValue_String(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, string valueData /*Datos almacenados del valor*/) {
+        public String CreateKeyValue_String(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, string valueData /*Datos almacenados del valor*/) {
 
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
@@ -65,7 +65,7 @@ namespace RegistryTools.Libs {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
         }
-        public string CreateKeyValue_Binarie(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, byte [] valueData /*Datos almacenados del valor*/) {
+        public String CreateKeyValue_Binarie(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, byte [] valueData /*Datos almacenados del valor*/) {
             //los datos deben ser guardadas en binario
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
@@ -182,7 +182,7 @@ namespace RegistryTools.Libs {
 
 
         }
-        public string CreateKeyValue_DWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, Int32 valueData /*Datos almacenados del valor*/) {
+        public String CreateKeyValue_DWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, Int32 valueData /*Datos almacenados del valor*/) {
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
@@ -246,7 +246,7 @@ namespace RegistryTools.Libs {
             }
 
         }
-        public string CreateKeyValue_QWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, Int64 valueData /*Datos almacenados del valor*/) {
+        public String CreateKeyValue_QWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, Int64 valueData /*Datos almacenados del valor*/) {
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
@@ -302,7 +302,7 @@ namespace RegistryTools.Libs {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
         }
-        public string CreateKeyValue_MultiString(string path/*Ruta completa del key*/, string valueName/*valores de la llave*/, string [] valueData/*Datos almacenados del valor*/) {
+        public String CreateKeyValue_MultiString(string path/*Ruta completa del key*/, string valueName/*valores de la llave*/, string [] valueData/*Datos almacenados del valor*/) {
 
             //Los valores de cadena no requieren un <Value type> (ver ejemplo), pero backslashes ("\") necesita ser escrita como una doble barra invertida ("\ \")
             //Por ejemplo, para añadir los valores "Value A", "Value B", "Value C", "Value D", "Value E", "Value F", "Value G", "Value H", "Value I", "Value J", and "Value K" a la clave HKLM\SOFTWARE\Microsoft, 
@@ -366,7 +366,7 @@ namespace RegistryTools.Libs {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
         }
-        public string CreateKeyValue_ExpandString(string path/*Ruta completa del key*/, string valueName/*valores de la llave*/, string valueData/*Datos almacenados del valor*/) {        //Función crear llave de Registro en formato ExpandableString
+        public String CreateKeyValue_ExpandString(string path/*Ruta completa del key*/, string valueName/*valores de la llave*/, string valueData/*Datos almacenados del valor*/) {        //Función crear llave de Registro en formato ExpandableString
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
@@ -426,7 +426,7 @@ namespace RegistryTools.Libs {
             }
 
         }
-        public string CreateKey(string path /*Ruta completa del key*/, string keyName /*Nombre del Key*/ ) {
+        public String CreateKey(string path /*Ruta completa del key*/, string keyName /*Nombre del Key*/ ) {
             //Verifica algún código de error o advertenciaa
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
@@ -448,7 +448,7 @@ namespace RegistryTools.Libs {
                 return "E#CR01";    // No pudo crear la llave contenedora
             }
         }
-        public string DeleteKey(string path /*camino completa del valor*/) {
+        public String DeleteKey(string path /*camino completa del valor*/) {
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
@@ -497,7 +497,7 @@ namespace RegistryTools.Libs {
                 return "E#NN01";    // No se encontró la llave , o no se puedo eliminar por permisos 
             }
         }
-        public string DeleteValue(string path /*camino completa del valor*/, string valueName /*Nombre del valor*/) {
+        public String DeleteValue(string path /*camino completa del valor*/, string valueName /*Nombre del valor*/) {
 
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
@@ -555,7 +555,7 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        public string GetDataValues(string path /*camino completa del valor*/, string valueName /*Nombre del valor*/) {
+        public String GetDataValues(string path /*camino completa del valor*/, string valueName /*Nombre del valor*/) {
 
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
@@ -628,13 +628,31 @@ namespace RegistryTools.Libs {
 
             return message;
         }
+        public String getDataValue_String(){
+            return "";
+        }
+        public byte [] getDataValue_Binarie(){
+            return "";
+        }
+        public Int32 getDataValue_DWORD(){
+            return 0;
+        }
+        public Int64 getDataValue_QWORD(){
+            return 0;
+        }
+        public String [] getDataValue_MultiString(){
+            return "";
+        }
+        public String getDataValue_ExpandString(){
+            return "";
+        }
 
 
 
-  
- 
-        
-        private string GetSubFiles(string path) {
+
+
+
+        private String GetSubFiles(string path) {
             //Verifica si la ruta ingresada tiene un formato aceptado
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
@@ -672,7 +690,7 @@ namespace RegistryTools.Libs {
 
 
         }
-        private string GetSubFilesSinKeyName(string path) {
+        private String GetSubFilesSinKeyName(string path) {
             //Verifica posibles mensajes de fallos 
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
@@ -701,7 +719,7 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        private string GetkeyName(string path) {
+        private String GetkeyName(string path) {
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02" || typeRegistry == "E#RR03") { //Verifica si alguna función retorno algún código de Error
                 return typeRegistry;
@@ -741,7 +759,7 @@ namespace RegistryTools.Libs {
 
             return message;
         }
-        private string GetTypeRegistry(string path) {
+        private String GetTypeRegistry(string path) {
             /* 
              * Ésta función recorrerá toda la variable °path°
              * y retornará solo uno de los siguientes textos:
@@ -830,7 +848,7 @@ namespace RegistryTools.Libs {
             return "E#R002";   // Manda mensaje de error de ruta no valida
 
             }   // Funcional sin bugs
-        private string RoutePath(string path) {
+        private String RoutePath(string path) {
             // Ésta función solo devuelve la ruta sin las palabras  Equipo\ && Computer\
             // Y solo detectará si la ruta ingresada está vacía
 
