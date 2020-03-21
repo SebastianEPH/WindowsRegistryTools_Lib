@@ -722,25 +722,12 @@ namespace RegistryTools.Libs {
             return "";
         }
         public String getDataValue_ExpandString(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
-            string typeRegistry = GetTypeRegistry(path);
-            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
-                return typeRegistry;
-            }
-            // Verifica si el NombreValue
-            if (valueName == "") {
-                //Verifica si el nombre del Key no esté vacío
-                return "E#R003";    // El nombre del valor está vacio
-            }
 
-            //Limpiando Ruta y obtiene datos
-            path = RoutePath(path);
-
-            return "";
+            //llama a la función getValueString y obtiene los valores
+            message = getDataValue_String(path, valueName);
+     
+            return message;
         }
-
-
-
-
 
 
         private String GetSubFiles(string path) {
