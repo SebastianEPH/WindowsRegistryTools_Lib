@@ -1,6 +1,6 @@
-# Librería -Regedit de Windows v3.0
+# Librería -Regedit de Windows v3.1
 <!-- Botones -->
-**NOTA:** Librería Terminada a un 97%
+**NOTA:** Librería v3.1 Terminada a un 60%
 
 Documentación actualizada el día: `21/03/2020`
 <!-- Descripción -->
