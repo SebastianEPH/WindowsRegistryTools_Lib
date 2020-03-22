@@ -52,6 +52,7 @@
             this.crearLlave_name = new System.Windows.Forms.TextBox();
             this.crearLlave_ruta = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.final = new System.Windows.Forms.TextBox();
             this.btnGetValues = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -69,7 +70,6 @@
             this.deleteLlave_name = new System.Windows.Forms.TextBox();
             this.deleteLlave_ruta = new System.Windows.Forms.TextBox();
             this.txt_info = new System.Windows.Forms.Label();
-            this.final = new System.Windows.Forms.TextBox();
             this.dfgfdg.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -86,7 +86,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(378, 25);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Probar funcionalidades - librería v3.0";
+            this.label1.Text = "Probar funcionalidades - librería v3.1";
             // 
             // btnExit
             // 
@@ -327,6 +327,14 @@
             this.tabPage3.Text = "Leer Valores";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // final
+            // 
+            this.final.Location = new System.Drawing.Point(188, 69);
+            this.final.Multiline = true;
+            this.final.Name = "final";
+            this.final.Size = new System.Drawing.Size(203, 81);
+            this.final.TabIndex = 7;
+            // 
             // btnGetValues
             // 
             this.btnGetValues.Location = new System.Drawing.Point(15, 117);
@@ -481,14 +489,6 @@
             this.txt_info.TabIndex = 2;
             this.txt_info.Text = "---";
             // 
-            // final
-            // 
-            this.final.Location = new System.Drawing.Point(188, 69);
-            this.final.Multiline = true;
-            this.final.Name = "final";
-            this.final.Size = new System.Drawing.Size(203, 81);
-            this.final.TabIndex = 7;
-            // 
             // f_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,7 +499,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Name = "f_main";
-            this.Text = "Prueba de Funcionalidades v3.0";
+            this.Text = "Probar funcionalidades - librería v3.1";
             this.dfgfdg.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

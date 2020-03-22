@@ -706,20 +706,44 @@ namespace RegistryTools.Libs {
 
         }
         public String [] getDataValue_MultiString(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
+           
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
-                return typeRegistry;
+                //weekDays [1]=  { "Sun"};
+                return new string [1] { typeRegistry };
             }
             // Verifica si el NombreValue
             if (valueName == "") {
                 //Verifica si el nombre del Key no esté vacío
-                return "E#R003";    // El nombre del valor está vacio
+                return new string [1] { "E#R003" };    // El nombre del valor está vacio
             }
 
             //Limpiando Ruta y obtiene datos
             path = RoutePath(path);
 
-            return "";
+            ArrayList vector1;
+            vector1 = new ArrayList();
+
+            string [] tArray = (string []) Registry.GetValue(path, valueName, new string [] { "E#RR02" });
+            // Leer Array 
+
+            
+            //Codigo comentado , mandará 
+            //String salida = "";
+            //String salida2 = "";
+
+            for (int i = 0; i < tArray.Length; i++) {
+                vector1.Add(tArray [i]);
+
+                //salida = String.Join(" ", vector1 [i]);
+
+                //salida2 = salida2 + "\r\n" + salida;
+
+            }
+
+            return tArray;
+
+           
         }
         public String getDataValue_ExpandString(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
 
