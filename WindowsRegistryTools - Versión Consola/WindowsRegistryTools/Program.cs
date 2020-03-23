@@ -4,17 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using RegistryTools;
+
 
 namespace WindowsRegistryTools {
     class Program {
+
+        // Instanciamos la librería
+        RegistryTools registro = new RegistryTools();
+
+
         static void Main(string [] args) {
+            
             // Proceso del menú y opciones
             Program l = new Program();
             l.Menu();
         }
-        // Instanciamos la librería
-        public Regedit registro = new Regedit();
+        
+       // public RegistryTools dfgd = new Regedit();
         public void Menu() {
             //Limpiar pantalla 
             Console.Clear();
@@ -101,10 +107,16 @@ namespace WindowsRegistryTools {
         public void CreateKeyValue_String() {
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear Nueva llave");
+            Console.WriteLine("Crear datos del Valor - Tipo String");
             Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
+            Console.WriteLine("Ingrese el Dato del Valor: ");
+            String valueData = Console.ReadLine();
 
-
+            Console.Clear();
+            Console.WriteLine(registro.CreateKeyValue_String(path,valueName,valueData));
+            Console.ReadKey();
         }
         public void CreateKeyValue_Binary() {
             Console.SetCursorPosition(45, 2);
@@ -243,6 +255,19 @@ namespace WindowsRegistryTools {
                 return "";
             } else {
                 return keyName;
+            }
+        }
+        private String SetValueName() {
+            Console.Clear();
+            string valueName;
+            //Función para obtener la ruta del key
+            Console.Write("Ingrese el nombre del Valor: ");
+            valueName = Console.ReadLine();
+            if (valueName.Length <= 1) {
+                SetValueName();
+                return "";
+            } else {
+                return valueName;
             }
         }
     }

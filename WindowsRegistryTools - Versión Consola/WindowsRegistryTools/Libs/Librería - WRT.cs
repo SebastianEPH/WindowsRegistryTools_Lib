@@ -6,9 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace RegistryTools{
-    class Regedit {
-        string message = "";
+    class RegistryTools {
+    string message = "";
 
         public String CreateKeyValue_String(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, string valueData /*Datos almacenados del valor*/) {
 
@@ -991,4 +990,3 @@ namespace RegistryTools{
 
         }         // Funcional sin bugs 
     }
-}
