@@ -49,7 +49,7 @@ namespace WindowsRegistryTools {
             Console.WriteLine("     | 13 |    =   Obtener datos del valor - ExpandString");
             Console.WriteLine("");
             Console.WriteLine("     | 14 |    =   Eliminar llave");
-            Console.WriteLine("     | 16 |    =   Eliminar valor");
+            Console.WriteLine("     | 15 |    =   Eliminar valor");
             Console.WriteLine("");
             Console.WriteLine("     | 99 |    =   Salir ");
             Console.WriteLine("");
@@ -78,11 +78,11 @@ namespace WindowsRegistryTools {
                     case 8: GetKeyValue_String(); break;
                     case 9: GetKeyValue_Binary(); break;
                     case 10: GetKeyValue_DWORD(); break;
-                    case 12: GetKeyValue_QWORD(); break;
-                    case 13: GetKeyValue_MultiString(); break;
-                    case 14: GetKeyValue_ExpandString(); break;
-                    case 15: DeleteKey(); break;
-                    case 16: DeleteValue(); break;
+                    case 11: GetKeyValue_QWORD(); break;
+                    case 12: GetKeyValue_MultiString(); break;
+                    case 13: GetKeyValue_ExpandString(); break;
+                    case 14: DeleteKey(); break;
+                    case 15: DeleteValue(); break;
                     case 99: Exit(); break;  // Sale 
                     default: Menu(); break;  // Vuelve al menú
                 }
@@ -227,12 +227,22 @@ namespace WindowsRegistryTools {
             Console.ReadKey();
         }
         public void GetKeyValue_QWORD() {
+            Console.Clear();
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear Nueva llave");
+            Console.WriteLine("Obtener datos de un valor - Tipo QWORD");
             Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
 
 
+            Console.Clear();
+
+            Console.SetCursorPosition(45, 2);
+            Console.WriteLine("Obtención de datos - QWORD");
+            Console.WriteLine("");
+            Console.WriteLine(registro.getDataValue_QWORD(path, valueName));
+            Console.ReadKey();
         }
         public void GetKeyValue_MultiString() {
             Console.SetCursorPosition(45, 2);
