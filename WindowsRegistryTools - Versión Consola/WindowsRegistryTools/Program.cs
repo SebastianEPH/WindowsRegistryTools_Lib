@@ -209,12 +209,22 @@ namespace WindowsRegistryTools {
 
         }// Falta
         public void GetKeyValue_DWORD() {
+            Console.Clear();
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear Nueva llave");
+            Console.WriteLine("Obtener datos de un valor - Tipo DWORD");
             Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
 
 
+            Console.Clear();
+
+            Console.SetCursorPosition(45, 2);
+            Console.WriteLine("Obtención de datos - DWORD");
+            Console.WriteLine("");
+            Console.WriteLine(registro.getDataValue_DWORD(path, valueName));
+            Console.ReadKey();
         }
         public void GetKeyValue_QWORD() {
             Console.SetCursorPosition(45, 2);
@@ -299,7 +309,7 @@ namespace WindowsRegistryTools {
             //Función para obtener la ruta del key
             Console.Write("Ingrese el nombre del Valor: ");
             valueName = Console.ReadLine();
-            if (valueName.Length <= 1) {
+            if (valueName.Length <= 0) {
                 SetValueName();
                 return "";
             } else {
