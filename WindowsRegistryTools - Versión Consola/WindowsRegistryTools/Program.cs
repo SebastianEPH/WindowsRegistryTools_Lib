@@ -150,12 +150,17 @@ namespace WindowsRegistryTools {
             Console.ReadKey();
         }
         public void CreateKeyValue_MultiString() {
+            Console.Clear();
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear Nueva llave");
+            Console.WriteLine("Crear valores de llave - Tipo multiString");
             Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
+            String [] valueData = ParseMultiString();
 
-
+            Console.WriteLine(registro.CreateKeyValue_MultiString(path, valueName, valueData));
+            Console.ReadKey();
         }
         public void CreateKeyValue_ExpandString() {
             Console.SetCursorPosition(45, 2);
@@ -310,6 +315,28 @@ namespace WindowsRegistryTools {
                 ParseInt64();
                 return -0;
             }
+        }
+        private String[] ParseMultiString() {
+            Console.Clear();
+
+            //Hacer un menú para esocjer cual es el tipo de separador deseado
+            //Console.WriteLine("Escoja un signo o palabra para separar los los saltos de linea ");
+            //string separar = Console.ReadLine();
+            Console.Write("Ingrese los datos separandolos con una , : ");
+
+            String valueData = Console.ReadLine();  // Obtiene datos del consola
+            try {
+                
+                string [] salida;
+                return salida = valueData.Split(',');   // Separa las palabras por , obtenidas del la consola
+
+            } catch {
+                //Si hay un error vuelve a la función 
+                ParseMultiString();
+                return new String [] {""};
+
+            }
+
         }
     }
 }
