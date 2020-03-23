@@ -120,8 +120,20 @@ namespace WindowsRegistryTools {
             Console.WriteLine(registro.CreateKeyValue_String(path, valueName, valueData));
             Console.ReadKey();
         }
-        public void CreateKeyValue_Binary() {       // En proceso.. 
-        }   //En proceso
+        public void CreateKeyValue_Binary() {
+
+            //Console.Clear();
+            //Console.SetCursorPosition(45, 2);
+            //// Inicio
+            //Console.WriteLine("Crear valores de llave - Tipo Binary");
+            //Console.WriteLine("");
+            //String path = SetPath();
+            //String valueName = SetValueName();
+            //byte[] valueData = ParseMultiString();
+
+            //Console.WriteLine(registro.CreateKeyValue_binary(path, valueName, valueData));
+            //Console.ReadKey();
+        }   // Falta
         public void CreateKeyValue_DWORD() {
             Console.Clear();
             Console.SetCursorPosition(45, 2);
@@ -171,12 +183,22 @@ namespace WindowsRegistryTools {
 
         }
         public void GetKeyValue_String() {
+            Console.Clear();
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear Nueva llave");
+            Console.WriteLine("Obtener datos de un valor - Tipo String");
             Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
+            
 
+            Console.Clear();
 
+            Console.SetCursorPosition(45, 2);
+            Console.WriteLine("Obtención de datos - String");
+            Console.WriteLine("");
+            Console.WriteLine(registro.getDataValue_String(path,valueName));
+            Console.ReadKey();
         }
         public void GetKeyValue_Binary() {
             Console.SetCursorPosition(45, 2);
@@ -185,7 +207,7 @@ namespace WindowsRegistryTools {
             Console.WriteLine("");
 
 
-        }
+        }// Falta
         public void GetKeyValue_DWORD() {
             Console.SetCursorPosition(45, 2);
             // Inicio
@@ -316,7 +338,7 @@ namespace WindowsRegistryTools {
                 return -0;
             }
         }
-        private String[] ParseMultiString() {
+        private String [] ParseMultiString() {
             Console.Clear();
 
             //Hacer un menú para esocjer cual es el tipo de separador deseado
@@ -326,17 +348,50 @@ namespace WindowsRegistryTools {
 
             String valueData = Console.ReadLine();  // Obtiene datos del consola
             try {
-                
+
                 string [] salida;
                 return salida = valueData.Split(',');   // Separa las palabras por , obtenidas del la consola
 
             } catch {
                 //Si hay un error vuelve a la función 
                 ParseMultiString();
-                return new String [] {""};
-
+                return new String [] { "" };
             }
-
         }
+        private byte [] Parsebinary() {
+            Console.Clear();
+            Console.Write("Ingrese los datos separandolos con un , : ");
+
+            String valueData = Console.ReadLine();  // Obtiene datos del consola
+
+            try {
+
+                string [] salida = valueData.Split(',');   // Separa las palabras por ,que se obtuvieron por consola.
+
+                foreach (var hola in salida) {
+                    CallTryParse(hola);
+                }
+
+
+
+            } catch {
+                //Si hay un error vuelve a la función 
+                ParseMultiString();
+                
+            }
+            return new byte [] { 0 };
+        }
+        private static void CallTryParse(string stringToConvert) {
+            byte byteValue;
+            bool success = Byte.TryParse(stringToConvert, out byteValue);
+            if (success) {
+                Console.WriteLine("Converted '{0}' to {1}",
+                               stringToConvert, byteValue);
+            } else {
+                Console.WriteLine("Attempted conversion of '{0}' failed.",
+                                  stringToConvert);
+            }
+        }
+
     }
 }
