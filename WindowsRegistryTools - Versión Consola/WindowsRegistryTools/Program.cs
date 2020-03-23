@@ -14,13 +14,13 @@ namespace WindowsRegistryTools {
 
 
         static void Main(string [] args) {
-            
+
             // Proceso del menú y opciones
             Program l = new Program();
             l.Menu();
         }
-        
-       // public RegistryTools dfgd = new Regedit();
+
+        // public RegistryTools dfgd = new Regedit();
         public void Menu() {
             //Limpiar pantalla 
             Console.Clear();
@@ -54,7 +54,7 @@ namespace WindowsRegistryTools {
             Console.WriteLine("     | 99 |    =   Salir ");
             Console.WriteLine("");
             Console.Write(" Escoje una opción: ");
-          //  Console.WriteLine(" °°°°°°°°°°°°°°°°°°°");
+            //  Console.WriteLine(" °°°°°°°°°°°°°°°°°°°");
 
             // Obtiene Opción
             String obtiene;
@@ -65,31 +65,31 @@ namespace WindowsRegistryTools {
 
             //Verifica si el texto es un número entero
             verifica = Int16.TryParse(obtiene, out Int16 ingresado);
-            
+
             if (verifica) {
                 switch (ingresado) {
-                    case 1:     CreateKey();                    break;
-                    case 2:     CreateKeyValue_String();        break;
-                    case 3:     CreateKeyValue_Binary();        break;
-                    case 4:     CreateKeyValue_DWORD();         break;
-                    case 5:     CreateKeyValue_QWORD();         break;
-                    case 6:     CreateKeyValue_MultiString();   break;
-                    case 7:     CreateKeyValue_ExpandString();  break;
-                    case 8:     GetKeyValue_String();           break;
-                    case 9:     GetKeyValue_Binary();           break;
-                    case 10:    GetKeyValue_DWORD();            break;
-                    case 12:    GetKeyValue_QWORD();            break;
-                    case 13:    GetKeyValue_MultiString();      break;
-                    case 14:    GetKeyValue_ExpandString();     break;
-                    case 15:    DeleteKey();                    break;
-                    case 16:    DeleteValue();                  break;
-                    case 99:    Exit();                         break;  // Sale 
-                    default:    Menu();                         break;  // Vuelve al menú
+                    case 1: CreateKey(); break;
+                    case 2: CreateKeyValue_String(); break;
+                    case 3: CreateKeyValue_Binary(); break;
+                    case 4: CreateKeyValue_DWORD(); break;
+                    case 5: CreateKeyValue_QWORD(); break;
+                    case 6: CreateKeyValue_MultiString(); break;
+                    case 7: CreateKeyValue_ExpandString(); break;
+                    case 8: GetKeyValue_String(); break;
+                    case 9: GetKeyValue_Binary(); break;
+                    case 10: GetKeyValue_DWORD(); break;
+                    case 12: GetKeyValue_QWORD(); break;
+                    case 13: GetKeyValue_MultiString(); break;
+                    case 14: GetKeyValue_ExpandString(); break;
+                    case 15: DeleteKey(); break;
+                    case 16: DeleteValue(); break;
+                    case 99: Exit(); break;  // Sale 
+                    default: Menu(); break;  // Vuelve al menú
                 }
             } else {
                 Menu();
             }
-           
+
         }
         public void CreateKey() {
             Console.Clear();
@@ -117,7 +117,7 @@ namespace WindowsRegistryTools {
             String valueData = Console.ReadLine();
 
             Console.Clear();
-            Console.WriteLine(registro.CreateKeyValue_String(path,valueName,valueData));
+            Console.WriteLine(registro.CreateKeyValue_String(path, valueName, valueData));
             Console.ReadKey();
         }
         public void CreateKeyValue_Binary() {       // En proceso.. 
@@ -132,15 +132,22 @@ namespace WindowsRegistryTools {
             String valueName = SetValueName();
             Int32 valueData = ParseInt32();
 
-            Console.WriteLine(registro.CreateKeyValue_DWORD(path,valueName,valueData));
+            Console.WriteLine(registro.CreateKeyValue_DWORD(path, valueName, valueData));
             Console.ReadKey();
 
         }
         public void CreateKeyValue_QWORD() {
+            Console.Clear();
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear Nueva llave");
+            Console.WriteLine("Crear valores de llave - Tipo QWORD");
             Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
+            Int64 valueData = ParseInt64();
+
+            Console.WriteLine(registro.CreateKeyValue_QWORD(path, valueName, valueData));
+            Console.ReadKey();
         }
         public void CreateKeyValue_MultiString() {
             Console.SetCursorPosition(45, 2);
@@ -222,8 +229,8 @@ namespace WindowsRegistryTools {
 
 
         }
-        public void Exit() { 
-        
+        public void Exit() {
+
         }
 
 
@@ -285,6 +292,22 @@ namespace WindowsRegistryTools {
             } else {
                 //Si cadena de texto no es Int32, entonces volver a llamar a ésta función
                 ParseInt32();
+                return -0;
+            }
+        }
+        private Int64 ParseInt64() {
+            Console.Clear();
+            Console.Write("Ingrese el Dato del Valor: ");
+            String valueData = Console.ReadLine();
+
+            // Verifica si es un valor Int32
+            bool verifica = Int64.TryParse(valueData, out Int64 salida);
+            if (verifica) {
+                Console.Clear();
+                return salida;
+            } else {
+                //Si cadena de texto no es Int32, entonces volver a llamar a ésta función
+                ParseInt64();
                 return -0;
             }
         }
