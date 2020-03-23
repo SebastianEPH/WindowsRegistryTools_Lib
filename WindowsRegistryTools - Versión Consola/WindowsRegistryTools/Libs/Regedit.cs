@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace RegistryTools.Libs {
+namespace RegistryTools{
     class Regedit {
         string message = "";
 
@@ -65,7 +65,7 @@ namespace RegistryTools.Libs {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
         }
-        public String CreateKeyValue_Binarie(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, byte [] valueData /*Datos almacenados del valor*/) {
+        public String CreateKeyValue_Binary(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, byte [] valueData /*Datos almacenados del valor*/) {
             //los datos deben ser guardadas en binario
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002") { //Verifica si alguna función retorno algún código de Error
@@ -650,24 +650,24 @@ namespace RegistryTools.Libs {
             return message;
 
         }
-        public byte [] getDataValue_Binarie(){
-            string typeRegistry = GetTypeRegistry(path);
-            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
-                return typeRegistry;
-            }
-            // Verifica si el NombreValue
-            if (valueName == "") {
-                //Verifica si el nombre del Key no esté vacío
-                return "E#R003";    // El nombre del valor está vacio
-            }
+        //public byte [] getDataValue_Binary(){
+        //    //string typeRegistry = GetTypeRegistry(path);
+        //    //if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
+        //    //    return typeRegistry;
+        //    //}
+        //    //// Verifica si el NombreValue
+        //    //if (valueName == "") {
+        //    //    //Verifica si el nombre del Key no esté vacío
+        //    //    return "E#R003";    // El nombre del valor está vacio
+        //    //}
 
-            //Limpiando Ruta y obtiene datos
-            path = RoutePath(path);
+        //    ////Limpiando Ruta y obtiene datos
+        //    //path = RoutePath(path);
 
 
 
-            return "";
-        }
+        //    //return "";
+        //}
         public Int32 getDataValue_DWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
