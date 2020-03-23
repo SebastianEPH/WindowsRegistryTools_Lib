@@ -1,0 +1,6 @@
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Consola\WindowsRegistryTools\bin\Debug\WindowsRegistryTools.exe.config
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Consola\WindowsRegistryTools\bin\Debug\WindowsRegistryTools.exe
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Consola\WindowsRegistryTools\bin\Debug\WindowsRegistryTools.pdb
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Consola\WindowsRegistryTools\obj\Debug\WindowsRegistryTools.csprojAssemblyReference.cache
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Consola\WindowsRegistryTools\obj\Debug\WindowsRegistryTools.exe
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Consola\WindowsRegistryTools\obj\Debug\WindowsRegistryTools.pdb
