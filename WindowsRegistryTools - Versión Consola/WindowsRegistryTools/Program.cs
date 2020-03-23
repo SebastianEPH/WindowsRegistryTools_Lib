@@ -9,15 +9,12 @@ using RegistryTools;
 namespace WindowsRegistryTools {
     class Program {
         static void Main(string [] args) {
-
-            // Instanciamos la librería
-            Regedit r = new Regedit();
-
             // Proceso del menú y opciones
             Program l = new Program();
             l.Menu();
-           
         }
+        // Instanciamos la librería
+        public Regedit registro = new Regedit();
         public void Menu() {
             //Limpiar pantalla 
             Console.Clear();
@@ -54,7 +51,7 @@ namespace WindowsRegistryTools {
           //  Console.WriteLine(" °°°°°°°°°°°°°°°°°°°");
 
             // Obtiene Opción
-            string obtiene;
+            String obtiene;
             bool verifica;
 
             //Obtiene texto
@@ -93,24 +90,37 @@ namespace WindowsRegistryTools {
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+            String path = SetPath();
+            String keyName = SetKeyName();
+
+            Console.Clear();
+            Console.WriteLine(registro.CreateKey(path, keyName));
+            Console.ReadKey();
+
         }
         public void CreateKeyValue_String() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void CreateKeyValue_Binary() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void CreateKeyValue_DWORD() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void CreateKeyValue_QWORD() {
             Console.SetCursorPosition(45, 2);
@@ -123,64 +133,117 @@ namespace WindowsRegistryTools {
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void CreateKeyValue_ExpandString() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void GetKeyValue_String() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void GetKeyValue_Binary() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void GetKeyValue_DWORD() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void GetKeyValue_QWORD() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void GetKeyValue_MultiString() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void GetKeyValue_ExpandString() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void DeleteKey() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void DeleteValue() {
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
             Console.WriteLine("");
+
+
         }
         public void Exit() { 
         
         }
 
+
+
+
+
+        //Funciones de funciones
+
+        private String SetPath() {
+            Console.Clear();
+            string path;
+            //Función para obtener la ruta del key
+            Console.Write("Inserte la ruta: ");
+            path = Console.ReadLine();
+
+            if (path.Length <= 10) {
+                SetPath();
+                return "";
+            } else {
+                return path;
+            }
+        }
+        private String SetKeyName() {
+            Console.Clear();
+            string keyName;
+            //Función para obtener la ruta del key
+            Console.Write("Ingrese el nombre de la llave: ");
+            keyName = Console.ReadLine();
+            if (keyName.Length <= 1) {
+                SetKeyName();
+                return "";
+            } else {
+                return keyName;
+            }
+        }
     }
 }
