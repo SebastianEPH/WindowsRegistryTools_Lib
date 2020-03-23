@@ -92,6 +92,7 @@ namespace WindowsRegistryTools {
            
         }
         public void CreateKey() {
+            Console.Clear();
             Console.SetCursorPosition(45, 2);
             // Inicio
             Console.WriteLine("Crear Nueva llave");
@@ -105,9 +106,10 @@ namespace WindowsRegistryTools {
 
         }
         public void CreateKeyValue_String() {
+            Console.Clear();
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear datos del Valor - Tipo String");
+            Console.WriteLine("Crear valores de llave- Tipo String");
             Console.WriteLine("");
             String path = SetPath();
             String valueName = SetValueName();
@@ -118,20 +120,20 @@ namespace WindowsRegistryTools {
             Console.WriteLine(registro.CreateKeyValue_String(path,valueName,valueData));
             Console.ReadKey();
         }
-        public void CreateKeyValue_Binary() {
-            Console.SetCursorPosition(45, 2);
-            // Inicio
-            Console.WriteLine("Crear Nueva llave");
-            Console.WriteLine("");
-
-
-        }
+        public void CreateKeyValue_Binary() {       // En proceso.. 
+        }   //En proceso
         public void CreateKeyValue_DWORD() {
+            Console.Clear();
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear Nueva llave");
+            Console.WriteLine("Crear valores de llave - Tipo DWORD");
             Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
+            Int32 valueData = ParseInt32();
 
+            Console.WriteLine(registro.CreateKeyValue_DWORD(path,valueName,valueData));
+            Console.ReadKey();
 
         }
         public void CreateKeyValue_QWORD() {
@@ -268,6 +270,22 @@ namespace WindowsRegistryTools {
                 return "";
             } else {
                 return valueName;
+            }
+        }
+        private Int32 ParseInt32() {
+            Console.Clear();
+            Console.Write("Ingrese el Dato del Valor: ");
+            String valueData = Console.ReadLine();
+
+            // Verifica si es un valor Int32
+            bool verifica = Int32.TryParse(valueData, out Int32 salida);
+            if (verifica) {
+                Console.Clear();
+                return salida;
+            } else {
+                //Si cadena de texto no es Int32, entonces volver a llamar a ésta función
+                ParseInt32();
+                return -0;
             }
         }
     }
