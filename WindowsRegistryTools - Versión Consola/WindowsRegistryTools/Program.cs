@@ -309,11 +309,19 @@ namespace WindowsRegistryTools {
             Console.ReadKey();
         }
         public void GetKeyValue_ExpandString() {
+            Console.Clear();
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear Nueva llave");
+            Console.WriteLine("Crear valores de llave- Tipo ExpandString");
             Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
+            Console.WriteLine("Ingrese la cadena de texto : ");
+            String valueData = Console.ReadLine();
 
+            Console.Clear();
+            Console.WriteLine(registro.CreateKeyValue_ExpandString(path, valueName, valueData));
+            Console.ReadKey();
 
         }
         public void DeleteKey() {
@@ -333,7 +341,7 @@ namespace WindowsRegistryTools {
 
         }
         public void Exit() {
-
+            
         }
 
 
