@@ -245,12 +245,26 @@ namespace WindowsRegistryTools {
             Console.ReadKey();
         }
         public void GetKeyValue_MultiString() {
+            Console.Clear();
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear Nueva llave");
+            Console.WriteLine("Obtener datos de un valor - Tipo MultiString");
+            Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
+
+            Console.Clear();
+            Console.SetCursorPosition(45, 2);
+            Console.WriteLine("Obtención de datos - MultiString");
             Console.WriteLine("");
 
-
+            String [] writeA = registro.getDataValue_MultiString(path, valueName);
+                Console.WriteLine("");
+            for (int i = 0; i < writeA.Length; i++) {
+                Console.WriteLine(writeA[i]);
+            }
+            
+            Console.ReadKey();
         }
         public void GetKeyValue_ExpandString() {
             Console.SetCursorPosition(45, 2);
