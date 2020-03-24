@@ -197,7 +197,7 @@ namespace WindowsRegistryTools {
             Console.WriteLine("");
             Console.WriteLine(registro.getDataValue_String(path,valueName));
             Console.ReadKey();
-        }           //Finish
+        }         //Finish
         public void GetKeyValue_Binary() {
            
         }
@@ -218,7 +218,7 @@ namespace WindowsRegistryTools {
             Console.WriteLine("");
             Console.WriteLine(registro.getDataValue_DWORD(path, valueName));
             Console.ReadKey();
-        }           //Finsh
+        }          //Finsh
         public void GetKeyValue_QWORD() {
             Console.Clear();
             Console.SetCursorPosition(45, 2);
@@ -236,7 +236,7 @@ namespace WindowsRegistryTools {
             Console.WriteLine("");
             Console.WriteLine(registro.getDataValue_QWORD(path, valueName));
             Console.ReadKey();
-        }           //Finish
+        }          //Finish
         public void GetKeyValue_MultiString() {
             Console.Clear();
             Console.SetCursorPosition(45, 2);
@@ -257,10 +257,24 @@ namespace WindowsRegistryTools {
                 Console.WriteLine(writeA[i]);
             }
             Console.ReadKey();
-        }     //Finish
+        }    //Finish
         public void GetKeyValue_ExpandString() {
-           
+            Console.Clear();
+            Console.SetCursorPosition(45, 2);
+            // Inicio
+            Console.WriteLine("Obtener datos de un valor - ExpandString");
+            Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
 
+
+            Console.Clear();
+
+            Console.SetCursorPosition(45, 2);
+            Console.WriteLine("Obtención de datos - Expand");
+            Console.WriteLine("");
+            Console.WriteLine(registro.getDataValue_ExpandString(path, valueName));
+            Console.ReadKey();
         }     
         public void DeleteKey() {
             Console.SetCursorPosition(45, 2);
@@ -270,7 +284,7 @@ namespace WindowsRegistryTools {
             string path = SetPath();
             Console.WriteLine(registro.DeleteKey(path));
 
-        }
+        }                  //Finish
         public void DeleteValue() {
             Console.SetCursorPosition(45, 2);
             // Inicio
@@ -280,8 +294,8 @@ namespace WindowsRegistryTools {
             string valueName = SetValueName();
             Console.WriteLine(registro.DeleteValue(path,valueName));
 
-        }
-        public void Exit() {
+        }                //Finish
+        public void Exit() {                         //Finish
             
         }
 
