@@ -587,24 +587,27 @@ using System.Collections;
             return message;
 
         }
-        //public byte [] getDataValue_Binary(){
-        //    //string typeRegistry = GetTypeRegistry(path);
-        //    //if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
-        //    //    return typeRegistry;
-        //    //}
-        //    //// Verifica si el NombreValue
-        //    //if (valueName == "") {
-        //    //    //Verifica si el nombre del Key no esté vacío
-        //    //    return "E#R003";    // El nombre del valor está vacio
-        //    //}
+        public byte [] getDataValue_Binary(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
+            string typeRegistry = GetTypeRegistry(path);
+            if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
+                                                                                                                                                            //weekDays [1]=  { "Sun"};
+                return new byte [] {  };
+            }
+            // Verifica si el NombreValue
+            if (valueName == "") {
+                //Verifica si el nombre del Key no esté vacío
+                return new byte [] {  };    // El nombre del valor está vacio
+            }
 
-        //    ////Limpiando Ruta y obtiene datos
-        //    //path = RoutePath(path);
+            //Limpiando Ruta y obtiene datos
+            path = RoutePath(path);
+
+            byte [] valueData = (byte []) Registry.GetValue(path, valueName, new byte []{ });
 
 
 
-        //    //return "";
-        //}
+            return valueData;
+        }
         public Int32 getDataValue_DWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
             string typeRegistry = GetTypeRegistry(path);
             if (typeRegistry == "E#R001" || typeRegistry == "E#R002" || typeRegistry == "E#R003" || typeRegistry == "E#RR01" || typeRegistry == "E#RR02") { //Verifica si alguna función retorno algún código de Error
@@ -669,14 +672,14 @@ using System.Collections;
             //String salida = "";
             //String salida2 = "";
 
-            for (int i = 0; i < tArray.Length; i++) {
-                vector1.Add(tArray [i]);
+            //for (int i = 0; i < tArray.Length; i++) {
+            //    vector1.Add(tArray [i]);
 
-                //salida = String.Join(" ", vector1 [i]);
+            //    //salida = String.Join(" ", vector1 [i]);
 
-                //salida2 = salida2 + "\r\n" + salida;
+            //    //salida2 = salida2 + "\r\n" + salida;
 
-            }
+            //}
 
             return tArray;
 

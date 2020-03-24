@@ -198,8 +198,68 @@ namespace WindowsRegistryTools {
             Console.WriteLine(registro.getDataValue_String(path,valueName));
             Console.ReadKey();
         }         //Finish
-        public void GetKeyValue_Binary() {
-           
+        public void GetKeyValue_Binary() {          // finish
+            Console.Clear();
+            Console.SetCursorPosition(45, 2);
+            // Inicio
+            Console.WriteLine("Obtener datos de un valor - Tipo Binary");
+            Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
+
+            Console.Clear();
+            Console.SetCursorPosition(45, 2);
+            Console.WriteLine("Obtención de datos - Binary");
+            Console.WriteLine("");
+
+            //byte[] writeA = registro.getDataValue_bin(path, valueName);
+            //Console.WriteLine("");
+            //for (int i = 0; i < writeA.Length; i++) {
+            //    Console.WriteLine(writeA [i]);
+            //}
+            //Console.ReadKey();
+
+            byte [] writeA = registro.getDataValue_Binary(path, valueName);
+
+            repetir();
+
+            void repetir() {
+
+                Console.Clear();
+                Console.WriteLine("¿Mostrar los datos en formato ? ");
+                Console.WriteLine("");
+                Console.WriteLine("  1 = Mostrar tipo Entero ");
+                Console.WriteLine("");
+                Console.WriteLine("  2 = Mostrar tipo Hex");
+                Console.WriteLine("");
+                Console.Write("Ingrese una opción: ");
+                string des = Console.ReadLine();
+                switch (des) {
+                    case "1":  caso1();     break;
+                    case "2":  caso2();     break;
+                    default:   repetir();   break;
+                }
+            }
+            void caso1() {
+                
+                Console.WriteLine("");
+                for (int i = 0; i < writeA.Length; i++) {
+                    Console.WriteLine(writeA [i]);
+                }
+                Console.ReadKey();
+            }
+            void caso2() {
+                string hex = BitConverter.ToString(writeA).Replace("-", " ");//  string.Empty);
+                Console.WriteLine("");
+                //for (int i = 0; i < writeA.Length; i++) {
+                    Console.WriteLine(hex);
+                //}
+                Console.ReadKey();
+            }
+
+
+
+            
         }
         public void GetKeyValue_DWORD() {
             Console.Clear();
