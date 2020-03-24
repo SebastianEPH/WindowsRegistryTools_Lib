@@ -75,14 +75,6 @@ using System.Collections;
                 //
                 return "E#R003";    //Manda mensaje de error
             }
-
-            //}
-            ////              Quieres separar por coma? Usa
-            ////              string[] arValores = tuTextBox.Text.Split(",");
-            ////              Con eso tienes los números en un arreglo de strings. Luego usa un for each y parsea cada ítem con TryParse
-            ////Limpiar path 
-
-
             RegistryKey k;
 
             try {
@@ -126,60 +118,6 @@ using System.Collections;
             } catch  {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
-
-
-
-
-
-
-
-            //switch (tipo) {
-            //    case "HKEY_CLASSES_ROOT":
-            //    k = Registry.CurrentUser.CreateSubKey(ruta_sin_tipo, true);
-            //    k.SetValue("BinaryValue", new byte[] { 10, 43, 44, 45, 14, 255 }, RegistryValueKind.Binary);
-
-            //    k.Close();
-            //    break;
-            //    case "HKEY_CURRENT_USER":
-            //    k = Registry.CurrentUser.OpenSubKey(ruta_sin_tipo, true);
-            //    // This overload supports QWord (long) values. 
-            //    k.SetValue("QuadWordValue", 42, RegistryValueKind.QWord);
-
-            //    // The following SetValue calls have the same effect as using the
-            //    // SetValue overload that does not specify RegistryValueKind.
-            //    //
-            //    k.SetValue("DWordValue", 42, RegistryValueKind.DWord);
-            //    k.SetValue("MultipleStringValue", new string[] { "One", "Two", "Three" }, RegistryValueKind.MultiString);
-            //    k.SetValue("BinaryValue", new byte[] { 10, 43, 44, 45, 14, 255 }, RegistryValueKind.Binary);
-            //    k.SetValue("StringValue", "The path is %PATH%", RegistryValueKind.String);
-
-            //    // This overload supports setting expandable string values. Compare
-            //    // the output from this value with the previous string value.
-            //    k.SetValue("ExpandedStringValue", "The path is %PATH%", RegistryValueKind.ExpandString);
-            //    k.Close();
-            //    break;
-            //    case "HKEY_LOCAL_MACHINE":
-            //    k = Registry.LocalMachine.OpenSubKey(ruta_sin_tipo, true);
-            //    k.DeleteValue(valueName);
-            //    k.Close();
-            //    break;
-            //    case "HKEY_USERS":
-            //    k = Registry.Users.OpenSubKey(ruta_sin_tipo, true);
-            //    k.DeleteValue(valueName);
-            //    k.Close();
-            //    break;
-            //    case "HKEY_CURRENT_CONFIG":
-            //    k = Registry.CurrentConfig.OpenSubKey(ruta_sin_tipo, true);
-            //    k.DeleteValue(valueName);
-            //    k.Close();
-            //    break;
-
-            //    default:
-            //    message = "Hubo un problema con la ruta ingresada";
-            //    break;
-            //}
-
-
         }
         public String CreateKeyValue_DWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, Int32 valueData /*Datos almacenados del valor*/) {
             string typeRegistry = GetTypeRegistry(path);
