@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -201,13 +202,75 @@ namespace WindowsRegistryTools {
             Console.ReadKey();
         }
         public void GetKeyValue_Binary() {
-            Console.SetCursorPosition(45, 2);
-            // Inicio
-            Console.WriteLine("Crear Nueva llave");
-            Console.WriteLine("");
+            Console.Clear();
+            
+            //Hacer un menú para esocjer cual es el tipo de separador deseado
+            //Console.WriteLine("Escoja un signo o palabra para separar los los saltos de linea ");
+            //string separar = Console.ReadLine();
+            Console.Write("Ingrese los datos separandolos con una , : ");
+            // Obtiene datos de consola - String
+            String data = Console.ReadLine();  // Obtiene datos del consola
+
+            //Palabras especiales
+            char [] delimiterChars = { ' ', ',', '.', ':' };
 
 
-        }// Falta
+            // Separa los datos mediante , "Comas"
+            string[] valueDataString = data.Split(delimiterChars);
+
+            // Se crea un array
+            // tiene el tope maximo, según cuantos saltos de linea tenga
+            byte [] valueData = new byte [valueDataString.Length];
+
+            // Convierte String a byte 
+            // Pasa por un parse
+            try {
+                Console.WriteLine("Se obtuvieron éstos datos: ");
+                Console.WriteLine("");
+                for (int i = 0; i < valueDataString.Length; i++) {
+                    valueData [i] = byte.Parse(valueDataString [i]);
+                    Console.WriteLine("Valor: " + i + ": " + valueData [i]);
+                }
+                Console.WriteLine("Comenzar a colocar las llaves");
+                Console.ReadKey();
+
+
+            } catch (Exception) {
+                Console.WriteLine("Hubo un Error al Colocar los Datos , recuerde separarlos por , : . o espacios" );
+                Console.ReadKey();
+                //Vuelve a llamar a la función
+
+                GetKeyValue_Binary();
+            }
+
+
+
+            //// byte [] valueData  = new byte [] { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,
+            ////                                   51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,
+            ////                                   101,102,103,104,105,106,107,108,109,110};
+            ////// string [] valueData = data.Split(' ');
+
+
+            RegistryKey k;
+            string valueName = "Holawee";
+
+            try {
+                // Crea  key value
+                k = Registry.CurrentUser.OpenSubKey("", true);
+                k.SetValue(valueName, valueData, RegistryValueKind.Binary);
+                k.Close();
+
+                
+                Console.WriteLine("Exito");
+                Console.ReadKey();
+            } catch {
+                
+                Console.WriteLine("No se reazlizo con exito");
+                Console.ReadKey();
+            }
+
+
+        }
         public void GetKeyValue_DWORD() {
             Console.Clear();
             Console.SetCursorPosition(45, 2);
@@ -263,7 +326,6 @@ namespace WindowsRegistryTools {
             for (int i = 0; i < writeA.Length; i++) {
                 Console.WriteLine(writeA[i]);
             }
-            
             Console.ReadKey();
         }
         public void GetKeyValue_ExpandString() {
