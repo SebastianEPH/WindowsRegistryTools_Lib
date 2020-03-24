@@ -274,9 +274,11 @@ namespace WindowsRegistryTools {
         public void DeleteValue() {
             Console.SetCursorPosition(45, 2);
             // Inicio
-            Console.WriteLine("Crear Nueva llave");
+            Console.WriteLine("Eliminar una Llave y los valores que almacena");
             Console.WriteLine("");
-
+            string path = SetPath();
+            string valueName = SetValueName();
+            Console.WriteLine(registro.DeleteValue(path,valueName));
 
         }
         public void Exit() {
