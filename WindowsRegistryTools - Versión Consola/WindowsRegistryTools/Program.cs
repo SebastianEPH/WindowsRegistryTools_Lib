@@ -5,8 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
-
 namespace WindowsRegistryTools {
     class Program {
 
@@ -122,19 +120,18 @@ namespace WindowsRegistryTools {
             Console.ReadKey();
         }
         public void CreateKeyValue_Binary() {
+            Console.Clear();
+            Console.SetCursorPosition(45, 2);
+            // Inicio
+            Console.WriteLine("Crear valores de llave - Tipo Binary");
+            Console.WriteLine("");
+            String path = SetPath();
+            String valueName = SetValueName();
+            byte [] valueData = Parsebinary();
 
-            //Console.Clear();
-            //Console.SetCursorPosition(45, 2);
-            //// Inicio
-            //Console.WriteLine("Crear valores de llave - Tipo Binary");
-            //Console.WriteLine("");
-            //String path = SetPath();
-            //String valueName = SetValueName();
-            //byte[] valueData = ParseMultiString();
-
-            //Console.WriteLine(registro.CreateKeyValue_binary(path, valueName, valueData));
-            //Console.ReadKey();
-        }   // Falta
+            Console.WriteLine(registro.CreateKeyValue_Binary(path, valueName, valueData));
+            Console.ReadKey();
+        }   
         public void CreateKeyValue_DWORD() {
             Console.Clear();
             Console.SetCursorPosition(45, 2);
@@ -343,7 +340,7 @@ namespace WindowsRegistryTools {
 
 
 
-        //Funciones de funciones
+        //Funciones de funciones :'v 
 
         private String SetPath() {
             Console.Clear();
@@ -468,8 +465,7 @@ namespace WindowsRegistryTools {
                 }
                 return valueData;
 
-
-            } catch (Exception) {
+            } catch  {
                 Console.WriteLine("Hubo un Error al Colocar los Datos , recuerde separarlos por , : . o espacios");
                 Console.ReadKey();
                 //Vuelve a llamar a la función
