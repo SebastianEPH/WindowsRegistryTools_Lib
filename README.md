@@ -405,8 +405,8 @@ You also need to install the following individual components:
 ---
 <!-- Licencia -->
 ## Licencia
-Apache
---- 
+ GNU GENERAL PUBLIC LICENSE
+
 <!-- Creador  -->
 ---
 ## By SebastianEPH

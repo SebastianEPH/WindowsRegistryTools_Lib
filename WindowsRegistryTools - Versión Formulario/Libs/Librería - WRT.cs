@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-    class RegistryTools {
+    class RegistryTools_ {
     string message = "";
 
         public String CreateKeyValue_String(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, string valueData /*Datos almacenados del valor*/) {

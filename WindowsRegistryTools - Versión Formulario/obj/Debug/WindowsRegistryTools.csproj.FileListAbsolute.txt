@@ -1,0 +1,9 @@
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\obj\Debug\WindowsRegistryTools.csprojAssemblyReference.cache
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\obj\Debug\WindowsRegistryTools.f_main.resources
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\obj\Debug\seph_FullWindowsOptimitation_FWO_f.Properties.Resources.resources
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\obj\Debug\WindowsRegistryTools.csproj.GenerateResource.cache
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\obj\Debug\seph-FullWindowsOptimitation_FWO_f.exe
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\obj\Debug\seph-FullWindowsOptimitation_FWO_f.pdb
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\bin\Debug\seph-FullWindowsOptimitation_FWO_f.exe.config
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\bin\Debug\seph-FullWindowsOptimitation_FWO_f.exe
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\bin\Debug\seph-FullWindowsOptimitation_FWO_f.pdb
