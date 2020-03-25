@@ -49,7 +49,7 @@ Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro 
 
     ![01 - Explorador de Soluciones - C# ](https://i.imgur.com/Rx3MY3k.png)
 
-2. => **Clic derecho** en la Carpeta => **Agregar** => **Elemento Existente** 
+2. => En la Carpeta **Libs** =>**Clic derecho** => **Agregar** => **Elemento Existente** 
 
     ![02 - Importamos la librería](https://i.imgur.com/dSSe7zP.png)
 
@@ -69,7 +69,7 @@ Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro 
     ```` csharp
     RegistryTools registro = new RegistryTools();
     ````
-    **NOTA:** Usted tendrá que escribir el nombre "registro", vada vez va a usar las funcionalidades de la librería. Tambien puede cambiar ese nombre por alguno que desee.
+    **NOTA:** Usted tendrá que escribir el nombre _"registro"_, vada vez va a usar las funcionalidades de la librería.
 
 ---
 # Uso de Funciones
@@ -79,17 +79,17 @@ Lea detalladamente éste apartado, donde se podrán despejar algunas dudas.
     * ``"Computer\"``.................Ejemplo: `Computer\HKEY_CURRENT_USER\Control Panel\Appearance`
     * `"Equipo\"`.....................Ejemplo: `Equipo\HKEY_CURRENT_USER\Control Panel\Appearance`
     * `""`.....................................Ejemplo: `HKEY_CURRENT_USER\Control Panel\Appearance`
-- __Nombre de la llave (KeyName):__ Variable `keyName`, se almacenará el nombre de la llave de registro.
+- __Nombre de la llave (keyName):__ Variable `keyName`, se almacenará el nombre de la llave de registro.
     * Ejemplo: `AppEvents`, `Console`, `Control Panel`, `Environment`, `EUDC`, `Keyboard Layout`, `Network`, `Printers`, `Software`, `System`, `Voltatile Environment` 
 
         ![KeyName - Llaves de registro](https://i.imgur.com/QtIaMI0.png)
 
-- __Nombre del Valor (valueName):__ Variable `valueName`, se almacenará el nombre que tenga el Valor de la llave.
+- __Nombre del Valor (valueName):__ Variable `valueName`, se almacenará el nombre que tendrá el Valor dentro de una llave.
     * Ejemplo: `Soy un valor tipo`
 
         ![ValueName - Regedit](https://i.imgur.com/jozcZyo.png)
 
-- __Datos del Valor (ValueData):__ Variable `valueName`, se almacenará los datos dentro de un valor, éstos datos pueden variar según sea el _Tipo de Dato_.
+- __Datos del Valor (valueData):__ Variable `valueName`, se almacenará los datos dentro de un valor, éstos datos pueden variar según sea el _Tipo de Dato_.
 
     * Ejemplo: `Cadena de Texto corta`, `01 D4 F1 08`, `5415615545`, `9498489498898`, `linea1\nlinea2\nlinea3`, `cadena de Texto larga`
 
@@ -114,7 +114,7 @@ Console.WriteLine(registro.CreateKey(path, keyName));
 ## Función - Crear Valores 
 Los registros de Windows nos permite poder crear Valores con distintos tipos de datos según lo necesitemos. Estos son los tipos de datos que aceptan el registro de Windows (Regedit) 
 - String Value...................................................`(Tipo de Valor: String)`
-- Binarie Value.................................................**(Ésta funcionalidad está en proceso - No terminado)**
+- Binarie Value.................................................`(Tipo de Valor: byte[] - Decimal)`
 - DWORD (32bits) Value.............................`(Tipo de Valor: Int32 - Decimal)`
 - QWORD (64bits) Value.............................`(Tipo de Valor: Int64 - Decimal)`
 - Multi-String Value......................................`(Tipo de Valor: String [])`
@@ -138,28 +138,22 @@ registro.CreateKeyValue_String(path, keyName,valueData);
 // Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_String(path, keyName, valueData));
 ````
-- Antes de la ejecución
 
-![03](https://i.imgur.com/OOknWxs.png)
 
-- Luego de la ejecución
-
-![04](https://i.imgur.com/4mS08zL.png)
-
-#### Binarie Value:
+#### Binary Value:
 Los valores que usted ingresará deben ser decimales tipo *bytes*, separando individualmente los datos mediante una ','
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
 // Es el nombre del Valor 
-string valueName = "New Value TypypeBinarie"; 	
+string valueName = "New Value TypypeBinary"; 	
 
 // Son los valores que se almacenarán en la llave
 byte [] valueData = {1,5,7,8,9,5,40,56,12,89,1,5,14,5,5,1,154,24};  
 
 // Ejecuta pero no muestra ningún mensaje
-registro.CreateKeyValue_Binarie(path, keyName,valueData);
+registro.CreateKeyValue_Binary(path, keyName,valueData);
 
 // Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_Binarie(path, keyName, valueData));   
@@ -238,22 +232,47 @@ Console.WriteLine(registro.CreateKeyValue_ExpandString(path, keyName, valueData)
 ````
 ---
 ## Función - Obtener o leer Valores
-Los datos obtenidos de DWORD y QWORD serán datos decimales
+#### Obtiene datos tipo String
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
 // Es el nombre del Valor 
-string valueName = "Soy un Value";
+string valueName = "New Value TypeExpandString";
 
-// Ejecuta pero no muestra ningún mensaje
-registro.GetDataValues(path, keyName,valueName);
-
-// Ejecuta y muestra en consola (Exito o algún código de error)
-Console.WriteLine(registro.GetDataValues(path, keyName, valueName));
+// Ejecuta y guarda los datos dentro de la variable
+String valueData = registro.CreateKeyValue_ExpandString(path, keyName, valueData));
+// En caso de algún error de leer la llave, mandará un código de error 
+// Verifica el código de error en la documentación
 ````
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Función - Eliminar Llave
-NOTA: Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar.
+__NOTA:__ Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar.
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
