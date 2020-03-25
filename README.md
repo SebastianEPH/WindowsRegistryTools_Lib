@@ -241,7 +241,7 @@ string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 string valueName = "value String";
 
 // Ejecuta y guarda los datos dentro de la variable
-String valueData = registro.CreateKeyValue_ExpandString(path, keyName, valueData));
+String valueData = registro.CreateKeyValue_String(path, keyName, valueData));
 // En caso de algún error de leer la llave, mandará un código de error 
 // Verifica el código de error en la documentación
 ````
@@ -295,31 +295,19 @@ String [] valueData = registro.CreateKeyValue_MultiString(path, keyName, valueDa
 // En caso de algún error de leer la llave, mandará un código de error 
 // Verifica el código de error en la documentación
 ````
+#### Obtiene datos tipo ExpandString
+````csharp
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
 
+// Es el nombre del Valor 
+string valueName = "value ExpandString";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Ejecuta y guarda los datos dentro de la variable
+String valueData = registro.CreateKeyValue_ExpandString(path, keyName, valueData));
+// En caso de algún error de leer la llave, mandará un código de error 
+// Verifica el código de error en la documentación
+````
 ## Función - Eliminar Llave
 __NOTA:__ Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar.
 ````csharp
