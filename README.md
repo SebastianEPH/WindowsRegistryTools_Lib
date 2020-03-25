@@ -120,7 +120,7 @@ Los registros de Windows nos permite poder crear Valores con distintos tipos de 
 - Multi-String Value......................................`(Tipo de Valor: String [])`
 - Expandable String......................................`(Tipo de Valor: String)`
 
-#### String Value:
+#### Crear - String Value:
 
 ````csharp
 // Camino de ruta de la llave
@@ -132,15 +132,12 @@ string valueName = "New Value TypeString";
 // Son los valores que se almacenarán en la llave
 string valueData = "Soy un dato tipoString";
 
-// Ejecuta pero no muestra ningún mensaje
-registro.CreateKeyValue_String(path, keyName,valueData);
-
 // Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_String(path, keyName, valueData));
 ````
 
 
-#### Binary Value:
+#### Crear - Binary Value:
 Los valores que usted ingresará deben ser decimales tipo *bytes*, separando individualmente los datos mediante una ','
 ````csharp
 // Camino de ruta de la llave
@@ -152,13 +149,10 @@ string valueName = "New Value TypypeBinary";
 // Son los valores que se almacenarán en la llave
 byte [] valueData = {1,5,7,8,9,5,40,56,12,89,1,5,14,5,5,1,154,24};  
 
-// Ejecuta pero no muestra ningún mensaje
-registro.CreateKeyValue_Binary(path, keyName,valueData);
-
 // Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_Binarie(path, keyName, valueData));   
 ````
-#### DWORD (32bits) Value:
+#### Crear - DWORD (32bits) Value:
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
@@ -169,13 +163,10 @@ string valueName = "New Value TypeInt32";
 // Son los valores que se almacenarán en la llave
 Int32 valueData = "123456789"; // Valor máximo -2147483648 a 2147483647 
 
-// Ejecuta pero no muestra ningún mensaje
-registro.CreateKeyValue_DWORD(path, keyName,valueData);
-
 // Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_DWORD(path, keyName, valueData));
 ````
-#### QWORD (64bits) Value:
+#### Crear - QWORD (64bits) Value:
 
 ````csharp
 // Camino de ruta de la llave
@@ -187,13 +178,10 @@ string valueName = "New Value TypeInt64";
 // Son los valores que se almacenarán en la llave
 Int64 valueData = "123456789"; // Valor máximo -9223372036854775808 a 9223372036854775807 
 
-// Ejecuta pero no muestra ningún mensaje
-registro.CreateKeyValue_QWORD(path, keyName,valueData);
-
 // Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_QWORD(path, keyName, valueData));
 ````
-#### Multi-String Value:
+#### Crear - Multi-String Value:
 
 ````csharp
 // Camino de ruta de la llave
@@ -206,13 +194,10 @@ string valueName = "New Value TypeInt64";
 string [] valueData = {"txt1","txt2","txt3","texto"}; // texto con saltos de linea
                                                       // No tiene limite de saltos de linea 
 
-// Ejecuta pero no muestra ningún mensaje
-registro.CreateKeyValue_MultiString(path, keyName,valueData);
-
 // Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_MultiString(path, keyName, valueData));
 ````
-#### Expandable String:
+#### Crear - Expandable String:
 
 ````csharp
 // Camino de ruta de la llave
@@ -224,15 +209,12 @@ string valueName = "New Value TypeExpandString";
 // Son los valores que se almacenarán en la llave
 string valueData = "Soy un dato tipo ExpandString";
 
-// Ejecuta pero no muestra ningún mensaje
-registro.CreateKeyValue_ExpandString(path, keyName,valueData);
-
 // Ejecuta y muestra en consola (Exito o algún código de error)
 Console.WriteLine(registro.CreateKeyValue_ExpandString(path, keyName, valueData));
 ````
 ---
 ## Función - Obtener o leer Valores
-#### Obtiene datos tipo String
+#### Obtiene datos - String
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
@@ -245,7 +227,7 @@ String valueData = registro.CreateKeyValue_String(path, keyName, valueData));
 // En caso de algún error de leer la llave, mandará un código de error 
 // Verifica el código de error en la documentación
 ````
-#### Obtiene datos tipo Binary
+#### Obtiene datos - Binary
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
@@ -256,7 +238,7 @@ string valueName = "value Binary";
 // Ejecuta y guarda los datos dentro de la variable
 byte [] valueData = registro.CreateKeyValue_Binary(path, keyName, valueData));
 ````
-#### Obtiene datos tipo DWORD
+#### Obtiene datos - DWORD
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
@@ -269,7 +251,7 @@ Int32 valueData = registro.CreateKeyValue_DWORD(path, keyName, valueData));
 // En caso de algún error de leer la llave, mandará un código de error 
 // Verifica el código de error en la documentación
 ````
-#### Obtiene datos tipo QWORD
+#### Obtiene datos - QWORD
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
@@ -282,7 +264,7 @@ Int64 valueData = registro.CreateKeyValue_QWORD(path, keyName, valueData));
 // En caso de algún error de leer la llave, mandará un código de error 
 // Verifica el código de error en la documentación
 ````
-#### Obtiene datos tipo MultiString
+#### Obtiene datos - MultiString
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
@@ -295,7 +277,7 @@ String [] valueData = registro.CreateKeyValue_MultiString(path, keyName, valueDa
 // En caso de algún error de leer la llave, mandará un código de error 
 // Verifica el código de error en la documentación
 ````
-#### Obtiene datos tipo ExpandString
+#### Obtiene datos - ExpandString
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
@@ -309,7 +291,7 @@ String valueData = registro.CreateKeyValue_ExpandString(path, keyName, valueData
 // Verifica el código de error en la documentación
 ````
 ## Función - Eliminar Llave
-__NOTA:__ Al Eliminar la llave, ésta borarrá todos los valores que pueda almacenar.
+__NOTA:__ Al Eliminar la llave, ésta borrará todos los valores que pueda almacenar.
 ````csharp
 // Camino de ruta de la llave
 string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
@@ -336,8 +318,34 @@ registro.DeleteValue(path, valueName);
 Console.WriteLine(registro.DeleteValue(path, valueName));
 ````
 ---
-# Software Funcional de la librería
+# Software Funcional de la librería - Consola
+## Menú principal
+Podemos observa el menú con todas las funcionalidades de la librería, solo tenemos que escoger una opción valida, para poder entrar al subMenú.
+![Console - Menú principal](https://i.imgur.com/FKQH4Kx.png)
+
+
+Según sea el caso nos pedirá ingresar el camino de ruta
+![Console -Insertar ruta path](https://i.imgur.com/PqKuMCa.png)
+
+Según sea el caso nos pedirá ingresar el Nombre del Valor
+![Console -Insertar nombre del Valor](https://i.imgur.com/cFS6CcW.png)
+
+Según sea el caso nos pedirá ingresar los datos del valor, la cual cambiará según la opción escogida en el menú principal
+![Console -Insertar nombre del Valor](https://i.imgur.com/E92gF0n.png)
+
+Al culminar el proceso, la Consola mostrará un mensaje de error o de Exito, la lista lo puedes ver [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3digo-de-errores-advertencias-y-exito)
+![Console -Mensaje de exito o error](https://i.imgur.com/1GhT9Xt.png)
+
+
+# Software Funcional de la librería - Formulario
+<!--
 Éste pequeño formulario fue creado, solo con el fin de mostrar cada una de las funcionalidades de ésta librería.
+
+
+
+
+
+
 ### Crear LLave:
 ![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
 
@@ -350,7 +358,7 @@ Podemos observar que se creó la Llave dentro de la *Software*
 ### Eliminar Llave:
 ![función - Eliminar Llave](https://i.imgur.com/aASUe3w.png)
 ### Eliminar Valores:
-![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png)
+![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png) -->
 
 ---
 # Código de errores, advertencias y exito: 

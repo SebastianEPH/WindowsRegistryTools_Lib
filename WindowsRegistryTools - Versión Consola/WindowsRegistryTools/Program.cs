@@ -112,6 +112,7 @@ namespace WindowsRegistryTools {
             Console.WriteLine("");
             String path = SetPath();
             String valueName = SetValueName();
+            Console.Clear();
             Console.WriteLine("Ingrese el Dato del Valor: ");
             String valueData = Console.ReadLine();
 
@@ -128,7 +129,6 @@ namespace WindowsRegistryTools {
             String path = SetPath();
             String valueName = SetValueName();
             byte [] valueData = Parsebinary();
-
             Console.WriteLine(registro.CreateKeyValue_Binary(path, valueName, valueData));
             Console.ReadKey();
         }      //Finish
@@ -331,6 +331,7 @@ namespace WindowsRegistryTools {
             Console.SetCursorPosition(45, 2);
             Console.WriteLine("Obtención de datos - Expand");
             Console.WriteLine("");
+            Console.Clear();
             Console.WriteLine(registro.getDataValue_ExpandString(path, valueName));
             Console.ReadKey();
         }     
