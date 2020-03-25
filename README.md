@@ -379,7 +379,7 @@ Podemos observar que se creó la Llave dentro de la *Software*
 
 
 - -000001 = La Ruta ingresada está vacía.
-- -000002 = 
+- -000002 = La Ruta ingresada no es valida.
 - -000003 = El nombre del valor está vació
 
 
