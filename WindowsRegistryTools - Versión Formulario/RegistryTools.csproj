@@ -52,7 +52,7 @@
     <Compile Include="f_main.Designer.cs">
       <DependentUpon>f_main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Libs\Regedit.cs" />
+    <Compile Include="Libs\Librería - WRT.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="f_main.resx">
