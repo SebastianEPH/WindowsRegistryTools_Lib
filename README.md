@@ -269,6 +269,19 @@ Int32 valueData = registro.CreateKeyValue_DWORD(path, keyName, valueData));
 // En caso de algún error de leer la llave, mandará un código de error 
 // Verifica el código de error en la documentación
 ````
+#### Obtiene datos tipo QWORD
+````csharp
+// Camino de ruta de la llave
+string path = @"HKEY_CURRENT_USER\Software\NombreDeLlave";
+
+// Es el nombre del Valor 
+string valueName = "value QWORD";
+
+// Ejecuta y guarda los datos dentro de la variable
+Int64 valueData = registro.CreateKeyValue_QWORD(path, keyName, valueData));
+// En caso de algún error de leer la llave, mandará un código de error 
+// Verifica el código de error en la documentación
+````
 
 
 
