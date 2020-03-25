@@ -235,13 +235,13 @@ namespace WindowsRegistryTools {
                 Console.Write("Ingrese una opción: ");
                 string des = Console.ReadLine();
                 switch (des) {
-                    case "1":  caso1();     break;
-                    case "2":  caso2();     break;
-                    default:   repetir();   break;
+                    case "1": caso1(); break;
+                    case "2": caso2(); break;
+                    default: repetir(); break;
                 }
             }
             void caso1() {
-                
+
                 Console.WriteLine("");
                 for (int i = 0; i < writeA.Length; i++) {
                     Console.WriteLine(writeA [i]);
@@ -252,14 +252,12 @@ namespace WindowsRegistryTools {
                 string hex = BitConverter.ToString(writeA).Replace("-", " ");//  string.Empty);
                 Console.WriteLine("");
                 //for (int i = 0; i < writeA.Length; i++) {
-                    Console.WriteLine(hex);
+                Console.WriteLine(hex);
                 //}
                 Console.ReadKey();
             }
 
 
-
-            
         }
         public void GetKeyValue_DWORD() {
             Console.Clear();

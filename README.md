@@ -1,14 +1,17 @@
 # Librería -Regedit de Windows v3.1
 <!-- Botones -->
-**NOTA:** Librería v3.1 Terminada a un 60%
+- **NOTA:** Librería v3.1 Terminada a un `100%`
+- Documentación actualizada el día: `24/03/2020`
 
-Documentación actualizada el día: `21/03/2020`
+**Usted encontrará dos carpetas llamadas:** Estos 2 proyectos , son solo para probar el uso de las funciones de la librería.
+* `WindowsRegistryTools - Versión Consola` *terminado 100%*: Prueba de todas la funcionalidades mediante Consola
+* `WindowsRegistryTools - Versión formulario` *Terminado 90%*: Prueba de todas las funcionalidades utilizando un Formulario **Está en un 90% - está en proceso de desarrollo**
 <!-- Descripción -->
 ## Descripción
 Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro de Windows (*REGEDIT*) y poder realizarlo de la manera más sencilla posible.
 
 ### Funcionalidades
-Éstas son las funcionalidades de ésta librería en su versión 3.0v, Usted pueder ver [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3mo-agrego-%C3%A9sta-librer%C3%ADa-a-mi-proyecto), *¿Cómo agregar ésta librería a mi proyecto?*
+Éstas son las funcionalidades de ésta librería en su versión 3.1v, Usted pueder ver [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3mo-agrego-%C3%A9sta-librer%C3%ADa-a-mi-proyecto), *¿Cómo agregar ésta librería a mi proyecto?*
 - **Crear llaves:**
     - HKEY_CLASSES_ROOT...............................`(No Requiere permisos de administrador)`
     - HKEY_CURRENT_USER..............................`(No Requiere permisos de administrador)`
@@ -42,22 +45,31 @@ Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro 
 ---
 <!-- Información de codificación -->
 # ¿Cómo agrego ésta librería a mi proyecto?
-1. Coloque el archivo *Regedit.cs* dentro de su proyecto. `Se recomienda que sea dentro de la carpeta Libs `
+1. Dentro de tu __proyecto__, cree una carpeta llamada `Libs` *"Opcional"*
 
-    ![01 - Explorador de Soluciones - C# ](https://i.imgur.com/8tqiZYc.png)
+    ![01 - Explorador de Soluciones - C# ](https://i.imgur.com/Rx3MY3k.png)
 
-2. Importamos la carpeta donde se encuentra el archivo *Regedit.cs*
-    ````csharphttps://www.youtube.com/watch?v=axYhF2LgKEs
-    using RegistryTools.Libs;
-    ````
-3. Instanciamos la librería dentro de la clase, para así poder usarlo.
+2. => **Clic derecho** en la Carpeta => **Agregar** => **Elemento Existente** 
+
+    ![02 - Importamos la librería](https://i.imgur.com/dSSe7zP.png)
+
+3. Buscamos la __Librería__ y agregamos. 
+
+    ![03 - Seleccionamos la librería](https://i.imgur.com/CTd0mBG.png)
+
+4. Listo, ya está importada la __librería__
+
+    ![04 - Final](https://i.imgur.com/vYlvPo0.png)
+
+
+5. Instanciamos la __Librería__ dentro de __Clase__, para así poder usarlo.
     
     _*El nombre que se le dará a ésta instancia será* **registro**._
     _(Usted puede colocarle el nombre que desee)_
     ```` csharp
-    Regedit registro = new Regedit();
+    RegistryTools registro = new RegistryTools();
     ````
-    _**NOTA:** Cada vez que desee usar las funciones de la librería, deberá llamarlo con el nombre *registro* o el nombre que ustedes escogieron_
+    **NOTA:** Usted tendrá que escribir el nombre "registro", vada vez va a usar las funcionalidades de la librería. Tambien puede cambiar ese nombre por alguno que desee.
 
 ---
 # Uso de Funciones
