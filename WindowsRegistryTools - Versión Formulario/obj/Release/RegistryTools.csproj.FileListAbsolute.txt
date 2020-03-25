@@ -1,0 +1,9 @@
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\bin\Release\seph-FullWindowsOptimitation_FWO_f.exe.config
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\bin\Release\seph-FullWindowsOptimitation_FWO_f.exe
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\bin\Release\seph-FullWindowsOptimitation_FWO_f.pdb
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\obj\Release\RegistryTools.csprojAssemblyReference.cache
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\obj\Release\RegistryTools.f_main.resources
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\obj\Release\seph_FullWindowsOptimitation_FWO_f.Properties.Resources.resources
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\obj\Release\RegistryTools.csproj.GenerateResource.cache
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\obj\Release\seph-FullWindowsOptimitation_FWO_f.exe
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\obj\Release\seph-FullWindowsOptimitation_FWO_f.pdb
