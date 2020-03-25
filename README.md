@@ -74,14 +74,26 @@ Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro 
 ---
 # Uso de Funciones
 Lea detalladamente éste apartado, donde se podrán despejar algunas dudas.
-- __Camino del registro (path):__ En ésta variable `path`, es donde se realizarán las operaciones, ésta librería reconoce los `path` si empiezan con este tipo de sintaxis:
+- __Camino del registro (path):__ Variable`path`, Se almacena el camino de la ruta, la librería acepta distintos tipos de sintaxis, las cuales son las siguientes:
 
     * ``"Computer\"``.................Ejemplo: `Computer\HKEY_CURRENT_USER\Control Panel\Appearance`
-    * `"Equipo\"`......................Ejemplo: `Equipo\HKEY_CURRENT_USER\Control Panel\Appearance`
-    * `""`......................................Ejemplo: `HKEY_CURRENT_USER\Control Panel\Appearance`
+    * `"Equipo\"`.....................Ejemplo: `Equipo\HKEY_CURRENT_USER\Control Panel\Appearance`
+    * `""`.....................................Ejemplo: `HKEY_CURRENT_USER\Control Panel\Appearance`
+- __Nombre de la llave (KeyName):__ Variable `keyName`, se almacenará el nombre de la llave de registro.
+    * Ejemplo: `AppEvents`, `Console`, `Control Panel`, `Environment`, `EUDC`, `Keyboard Layout`, `Network`, `Printers`, `Software`, `System`, `Voltatile Environment` 
 
+        ![KeyName - Llaves de registro](https://i.imgur.com/QtIaMI0.png)
 
-_**NOTA:** Es importante detallar que todas éstas funciones devolverán un *Código de errores, advertencias y de exito*, La lista completa puedes verla [aquí](https://github.com/SebastianEPH/WindowsRegistryTools_Libreria#c%C3%B3digo-de-errores-advertencias-y-exito)_
+- __Nombre del Valor (valueName):__ Variable `valueName`, se almacenará el nombre que tenga el Valor de la llave.
+    * Ejemplo: `Soy un valor tipo`
+
+        ![ValueName - Regedit](https://i.imgur.com/jozcZyo.png)
+
+- __Datos del Valor (ValueData):__ Variable `valueName`, se almacenará los datos dentro de un valor, éstos datos pueden variar según sea el _Tipo de Dato_.
+
+    * Ejemplo: `Cadena de Texto corta`, `01 D4 F1 08`, `5415615545`, `9498489498898`, `linea1\nlinea2\nlinea3`, `cadena de Texto larga`
+
+        ![Tipo ](https://i.imgur.com/MLFyCkv.png)
 
 <!-- Funciones e información de usos -->
 ## Función - Crear Llave
