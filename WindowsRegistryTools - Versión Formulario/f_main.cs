@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -122,16 +123,27 @@ namespace WindowsRegistryTools {
 
                     //byte.getDecoder().decode(binarys);
                     int sumador2 = 7;
-                    for (int i = 0; i < binary2.Length; i++) {
-                        textofinal2 = textofinal2 + binary2 [i] + ", ";
-                        //binarys [i] = new string(binary [i]);
-                        if (i == sumador2) {
-                            textofinal2 = textofinal2 + "\r\n";
-                            sumador2 = sumador2 + 8;
-                        }
-                    }
 
-                    getValue_Salida.Text = textofinal2;
+                    //string hexValue = intValue.ToString("X");
+
+
+                    //byte [] data = new byte [] { 1, 2, 3, 4, 5, 128, 255 };
+                    string hex = String.Join(" ", binary2.Select(b => b.ToString("x2")).ToArray());
+                    //Console.WriteLine(hex);
+
+
+
+                    //for (int i = 0; i < binary2.Length; i++) {
+                    //    textofinal2 = textofinal2 + binary2[i];
+                    //    //binarys [i] = new string(binary [i]);
+
+                    //    if (i == sumador2) {
+                    //        textofinal2 = textofinal2 + "\r\n";
+                    //        sumador2 = sumador2 + 8;
+                    //    }
+                    //}
+
+                    getValue_Salida.Text = hex;
                     break;
                     case "DWORD(32 Bits) Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_DWORD(path, valueName) + ""; break;
                     case "QWORD(64 Bits) Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_QWORD(path, valueName) + ""; break;
