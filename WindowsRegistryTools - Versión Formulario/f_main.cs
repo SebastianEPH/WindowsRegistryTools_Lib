@@ -93,7 +93,19 @@ namespace WindowsRegistryTools {
             }
         }
         private void btnGetDataValue(object sender, EventArgs e) {
-                                                                                                                                                                           
+            String path =getValues_path.Text;
+            String valueName = getValues_NameValue.Text;
+
+            switch (GetValues_Combo.Text) {
+                case "String Value":            getValue_Salida.Text = registro.getDataValue_String(path,valueName);            break;
+                case "Binary Value":            
+                    
+                case "DWORD(32 Bits) Value":            break;
+                case "QWORD(64 Bits) Value":            break;
+                case "Multi - String Value":            break;
+                case "Expandable String Value":         break;
+                default:                                break;
+               } 
         }
         private void btnDeleteValues(object sender, EventArgs e) {
 

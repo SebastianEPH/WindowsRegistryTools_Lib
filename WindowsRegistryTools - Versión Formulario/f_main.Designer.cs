@@ -47,7 +47,7 @@
             this.crearLlave_name = new System.Windows.Forms.TextBox();
             this.crearLlave_ruta = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.final = new System.Windows.Forms.TextBox();
+            this.getValue_Salida = new System.Windows.Forms.TextBox();
             this.btnGetValues = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@
             this.deleteLlave_name = new System.Windows.Forms.TextBox();
             this.deleteLlave_ruta = new System.Windows.Forms.TextBox();
             this.txt_info = new System.Windows.Forms.Label();
+            this.GetValues_Combo = new System.Windows.Forms.ComboBox();
             this.dfgfdg.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -309,7 +310,8 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.final);
+            this.tabPage3.Controls.Add(this.GetValues_Combo);
+            this.tabPage3.Controls.Add(this.getValue_Salida);
             this.tabPage3.Controls.Add(this.btnGetValues);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label8);
@@ -323,13 +325,13 @@
             this.tabPage3.Text = "Leer Valores";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // final
+            // getValue_Salida
             // 
-            this.final.Location = new System.Drawing.Point(188, 69);
-            this.final.Multiline = true;
-            this.final.Name = "final";
-            this.final.Size = new System.Drawing.Size(203, 81);
-            this.final.TabIndex = 7;
+            this.getValue_Salida.Location = new System.Drawing.Point(188, 69);
+            this.getValue_Salida.Multiline = true;
+            this.getValue_Salida.Name = "getValue_Salida";
+            this.getValue_Salida.Size = new System.Drawing.Size(203, 92);
+            this.getValue_Salida.TabIndex = 7;
             // 
             // btnGetValues
             // 
@@ -379,7 +381,7 @@
             // 
             this.getValues_path.Location = new System.Drawing.Point(12, 30);
             this.getValues_path.Name = "getValues_path";
-            this.getValues_path.Size = new System.Drawing.Size(379, 20);
+            this.getValues_path.Size = new System.Drawing.Size(168, 20);
             this.getValues_path.TabIndex = 17;
             // 
             // tabPage5
@@ -485,6 +487,24 @@
             this.txt_info.TabIndex = 2;
             this.txt_info.Text = "---";
             // 
+            // GetValues_Combo
+            // 
+            this.GetValues_Combo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.GetValues_Combo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.GetValues_Combo.FormattingEnabled = true;
+            this.GetValues_Combo.Items.AddRange(new object[] {
+            "String Value",
+            "Binary Value",
+            "DWORD (32 Bits) Value",
+            "QWORD (64 Bits) Value",
+            "Multi-String Value",
+            "Expandable String Value"});
+            this.GetValues_Combo.Location = new System.Drawing.Point(188, 20);
+            this.GetValues_Combo.Name = "GetValues_Combo";
+            this.GetValues_Combo.Size = new System.Drawing.Size(203, 21);
+            this.GetValues_Combo.TabIndex = 22;
+            this.GetValues_Combo.Text = "String Value";
+            // 
             // f_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,7 +574,8 @@
         private System.Windows.Forms.Button btn_keyDelete;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox deleteAll_ruta;
-        private System.Windows.Forms.TextBox final;
+        private System.Windows.Forms.TextBox getValue_Salida;
+        private System.Windows.Forms.ComboBox GetValues_Combo;
     }
 }
 
