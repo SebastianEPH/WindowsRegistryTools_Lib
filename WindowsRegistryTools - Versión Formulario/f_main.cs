@@ -98,28 +98,51 @@ namespace WindowsRegistryTools {
             try {
                 switch (GetValues_Combo.Text) {
                     case "String Value": getValue_Salida.Text = registro.getDataValue_String(path, valueName); txt_info.Text = ""; break;
-                    case "Binary Value":
+                    case "Binary Value Byte":
                     byte [] binary = registro.getDataValue_Binary(path, valueName); txt_info.Text = "";
                     string textofinal = "";
 
                     //byte.getDecoder().decode(binarys);
-
+                    int sumador = 7;
                     for (int i = 0; i < binary.Length; i++) {
                         textofinal = textofinal + binary [i] + ", ";
                         //binarys [i] = new string(binary [i]);
+                        if (i == sumador) {
+                            textofinal = textofinal + "\r\n";
+                            sumador = sumador + 8;
+                        }
                     }
 
                     getValue_Salida.Text = textofinal;
                     break;
+
+                    case "Binary Value Hex":
+                    byte [] binary2 = registro.getDataValue_Binary(path, valueName); txt_info.Text = "";
+                    string textofinal2 = "";
+
+                    //byte.getDecoder().decode(binarys);
+                    int sumador2 = 7;
+                    for (int i = 0; i < binary2.Length; i++) {
+                        textofinal2 = textofinal2 + binary2 [i] + ", ";
+                        //binarys [i] = new string(binary [i]);
+                        if (i == sumador2) {
+                            textofinal2 = textofinal2 + "\r\n";
+                            sumador2 = sumador2 + 8;
+                        }
+                    }
+
+                    getValue_Salida.Text = textofinal2;
+                    break;
                     case "DWORD(32 Bits) Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_DWORD(path, valueName) + ""; break;
                     case "QWORD(64 Bits) Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_QWORD(path, valueName) + ""; break;
-                    case "Multi - String Value": txt_info.Text = ""; 
+                    case "Multi-String Value": txt_info.Text = ""; 
                             string [] obtiene = registro.getDataValue_MultiString(path, valueName);
                                 string mostrar = "";
+
                             for (int i = 0; i < obtiene.Length; i++) {
-                                mostrar = mostrar + obtiene [i];
+                                mostrar = mostrar + obtiene [i]+"\r\n";
                             }
-                            getValue_Salida.Text = "";
+                            getValue_Salida.Text = mostrar;
                     break;
                     case "Expandable String Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_ExpandString(path, valueName); break;
                     default: getValue_Salida.Text = ""; txt_info.Text = "Error, escoja correctamente"; break;

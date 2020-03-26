@@ -494,7 +494,8 @@
             this.GetValues_Combo.FormattingEnabled = true;
             this.GetValues_Combo.Items.AddRange(new object[] {
             "String Value",
-            "Binary Value",
+            "Binary Value Byte",
+            "Binary Value Hex",
             "DWORD (32 Bits) Value",
             "QWORD (64 Bits) Value",
             "Multi-String Value",
