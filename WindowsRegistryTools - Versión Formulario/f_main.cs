@@ -121,7 +121,7 @@ namespace WindowsRegistryTools {
                             }
                             getValue_Salida.Text = "";
                     break;
-                    case "Expandable String Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_String(path, valueName); break;
+                    case "Expandable String Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_ExpandString(path, valueName); break;
                     default: getValue_Salida.Text = ""; txt_info.Text = "Error, escoja correctamente"; break;
                 }
             } catch  {
