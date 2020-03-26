@@ -98,8 +98,20 @@ namespace WindowsRegistryTools {
 
             switch (GetValues_Combo.Text) {
                 case "String Value":            getValue_Salida.Text = registro.getDataValue_String(path,valueName);            break;
-                case "Binary Value":            
-                    
+                case "Binary Value":
+                byte [] binary = registro.getDataValue_Binary(path, valueName);
+                string [] binarys = new string [binary.Length];
+                string hola = "";
+
+                //byte.getDecoder().decode(binarys);
+
+                for (int i = 0; i < binary.Length; i++) {
+                    hola = hola + binary [i] + ", ";
+                    //binarys [i] = new string(binary [i]);
+                }
+
+                getValue_Salida.Text = hola;
+                break;
                 case "DWORD(32 Bits) Value":            break;
                 case "QWORD(64 Bits) Value":            break;
                 case "Multi - String Value":            break;
