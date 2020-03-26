@@ -17,7 +17,7 @@ namespace WindowsRegistryTools {
           //  Ruta completa del registro
           //Ejemplo: @"HKEY_CURRENT_USER\Contenedor1"
             string ruta = crearKey_Path.Text.ToString();
-           // nombre del nuevo contenedor
+           // valueName del nuevo contenedor
             string nombre = crearKey_key.Text.ToString();
            // El mensaje de confirmación o de Falló se mostrará en la pantalla
             txt_info.Text = registro.CreateKey(ruta, nombre);
@@ -32,62 +32,75 @@ namespace WindowsRegistryTools {
             //Ejemplo: @"HKEY_CURRENT_USER\Contenedor1"
             string ruta = crearLlave_ruta.Text.ToString();
 
-            // nombre del la llave
-            string nombre = crearLlave_name.Text.ToString();
+            // valueName del la llave
+            string valueName = crearLlave_name.Text.ToString();
             //Valor tipos texto
-            string valor = createLlave_value.Text.ToString();
+            string valueData = createLlave_value.Text.ToString();
 
 
             // String
             if (rb_String.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
 
-                txt_info.Text = registro.CreateKeyValue_String(ruta, nombre, valor);
+                txt_info.Text = registro.CreateKeyValue_String(ruta, valueName, valueData);
             }
             //Binarie
             if (rb_binarie.Checked) {
-                // El mensaje de confirmación o de Falló se mostrará en la pantalla
-                //txt_info.Text = registro.CreateKeyValue_Binarie(ruta, nombre, valor);
+                bool hola;
+                    //Palabras claves para saltar 
+                    Char [] caractersalto = { ' ', ',' };
+                    // Nuevo array con saltos de linea
+                    String [] valueDataSaltos = valueData.Split(caractersalto);
+                    // Nuevo array de valores tipo binario
+                    byte [] valueDataB = new byte [valueDataSaltos.Length];
                 try {
-                    byte [] valoresBinarios = { byte.Parse(createLlave_value.Text) };
-                    //byte [] valores = { 45, 12, 4, 5, 8, 5, 4, 5, 1, 8, 4, 8, 4, 8, 41, 8, 14, 4 };
-                    txt_info.Text = registro.CreateKeyValue_Binary(ruta, nombre, valoresBinarios);
+                    // Verificar parse dato por dato 
+                    for (int i = 0; i < valueDataSaltos.Length; i++) {
+                        // Inserta datos en binario
+                        valueDataB [i] = byte.Parse(valueDataSaltos [i]);
+                    }
+                    hola = true;
                 } catch {
-                    txt_info.Text = "Si los valores los ingresa manualmente en la variable valores,ésta function trabaja normal" +
-                        "\n Todavía no eh logrado que se pueda obtener los valores decimales desde un textBox";
+                    hola = false;
+                    txt_info.Text = "Ingrese los datos correctamente";
                 }
-
+                if (hola) {
+                    // Proceso de Insertar Datos a los registros (Regedit
+                   txt_info.Text = registro.CreateKeyValue_Binary(ruta, valueName, valueDataB);
+                } else {
+                    txt_info.Text = "Ingrese los datos correctamente";
+                }
             }
             //DWORD
             if (rb_DWORD.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
                 Int32 valori = Int32.Parse(createLlave_value.Text);
-                txt_info.Text = registro.CreateKeyValue_DWORD(ruta, nombre, valori);
+                txt_info.Text = registro.CreateKeyValue_DWORD(ruta, valueName, valori);
             }
             //QWORD
             if (rb_QWORD.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
                 Int64 valori = Int64.Parse(createLlave_value.Text);
-                txt_info.Text = registro.CreateKeyValue_QWORD(ruta, nombre, valori);
+                txt_info.Text = registro.CreateKeyValue_QWORD(ruta, valueName, valori);
             }
             //MultiString
             if (rb_multiString.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
                 createLlave_value.Multiline = true;
                 string [] stringML = { createLlave_value.Text.ToString() };
-                txt_info.Text = registro.CreateKeyValue_MultiString(ruta, nombre, stringML);
+                txt_info.Text = registro.CreateKeyValue_MultiString(ruta, valueName, stringML);
             }
             //Expandable String
             if (rb_expString.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
-                txt_info.Text = registro.CreateKeyValue_ExpandString(ruta, nombre, valor);
+                txt_info.Text = registro.CreateKeyValue_ExpandString(ruta, valueName, valueData);
             }
         }
         private void btnGetDataValue(object sender, EventArgs e) {
 
             string ruta = getValues_path.Text.ToString();
 
-            // nombre del la llave
+            // valueName del la llave
             string nombre = getValues_NameValue.Text.ToString();
             //Valor tipos texto
 
@@ -97,7 +110,7 @@ namespace WindowsRegistryTools {
 
             //try {   // Obtiene Multilinea
             //    string [] tArray = (string []) Registry.GetValue(ruta,
-            //                      nombre, new string [] { "No se encontró el valor multistring" });
+            //                      valueName, new string [] { "No se encontró el valueData multistring" });
             //    // Leer Array 
             //    ArrayList vector1;
 
