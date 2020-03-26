@@ -95,29 +95,32 @@ namespace WindowsRegistryTools {
         private void btnGetDataValue(object sender, EventArgs e) {
             String path =getValues_path.Text;
             String valueName = getValues_NameValue.Text;
+            try {
+                switch (GetValues_Combo.Text) {
+                    case "String Value": getValue_Salida.Text = registro.getDataValue_String(path, valueName); txt_info.Text = ""; break;
+                    case "Binary Value":
+                    byte [] binary = registro.getDataValue_Binary(path, valueName); txt_info.Text = "";
+                    string textofinal = "";
 
-            switch (GetValues_Combo.Text) {
-                case "String Value":            getValue_Salida.Text = registro.getDataValue_String(path,valueName);            break;
-                case "Binary Value":
-                byte [] binary = registro.getDataValue_Binary(path, valueName);
-                string [] binarys = new string [binary.Length];
-                string hola = "";
+                    //byte.getDecoder().decode(binarys);
 
-                //byte.getDecoder().decode(binarys);
+                    for (int i = 0; i < binary.Length; i++) {
+                        textofinal = textofinal + binary [i] + ", ";
+                        //binarys [i] = new string(binary [i]);
+                    }
 
-                for (int i = 0; i < binary.Length; i++) {
-                    hola = hola + binary [i] + ", ";
-                    //binarys [i] = new string(binary [i]);
+                    getValue_Salida.Text = textofinal;
+                    break;
+                    case "DWORD(32 Bits) Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_DWORD(path, valueName) + ""; break;
+                    case "QWORD(64 Bits) Value": txt_info.Text = "";  getValue_Salida.Text = registro.getDataValue_QWORD(path, valueName) + ""; break;
+                    case "Multi - String Value": txt_info.Text = ""; break;
+                    case "Expandable String Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_String(path, valueName); break;
+                    default: getValue_Salida.Text = ""; txt_info.Text = "Error, escoja correctamente"; break;
                 }
-
-                getValue_Salida.Text = hola;
-                break;
-                case "DWORD(32 Bits) Value":            break;
-                case "QWORD(64 Bits) Value":            break;
-                case "Multi - String Value":            break;
-                case "Expandable String Value":         break;
-                default:                                break;
-               } 
+            } catch  {
+                getValue_Salida.Text = ""; 
+                txt_info.Text = "Error, escoja correctamente";
+            }
         }
         private void btnDeleteValues(object sender, EventArgs e) {
 

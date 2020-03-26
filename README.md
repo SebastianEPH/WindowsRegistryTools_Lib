@@ -4,8 +4,8 @@
 - Documentación actualizada el día: `25/03/2020`
 
 **Usted encontrará dos carpetas llamadas:** Estos 2 proyectos , son solo para probar el uso de las funciones de la librería.
-* `WindowsRegistryTools - Versión Consola` *terminado 100%*: Prueba de todas la funcionalidades mediante Consola
-* `WindowsRegistryTools - Versión formulario` *Terminado 90%*: Prueba de todas las funcionalidades utilizando un Formulario **Está en un 90% - está en proceso de desarrollo**
+* `WindowsRegistryTools - Versión Consola` *Terminado 100%*: Prueba de todas la funcionalidades mediante Consola
+* `WindowsRegistryTools - Versión formulario` *Terminado 95%*: Prueba de todas las funcionalidades utilizando un Formulario
 <!-- Descripción -->
 ## Descripción
 Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro de Windows (*REGEDIT*) y poder realizarlo de la manera más sencilla posible.
