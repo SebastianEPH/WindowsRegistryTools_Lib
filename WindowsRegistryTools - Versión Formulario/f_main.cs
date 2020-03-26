@@ -112,8 +112,15 @@ namespace WindowsRegistryTools {
                     getValue_Salida.Text = textofinal;
                     break;
                     case "DWORD(32 Bits) Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_DWORD(path, valueName) + ""; break;
-                    case "QWORD(64 Bits) Value": txt_info.Text = "";  getValue_Salida.Text = registro.getDataValue_QWORD(path, valueName) + ""; break;
-                    case "Multi - String Value": txt_info.Text = ""; break;
+                    case "QWORD(64 Bits) Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_QWORD(path, valueName) + ""; break;
+                    case "Multi - String Value": txt_info.Text = ""; 
+                            string [] obtiene = registro.getDataValue_MultiString(path, valueName);
+                                string mostrar = "";
+                            for (int i = 0; i < obtiene.Length; i++) {
+                                mostrar = mostrar + obtiene [i];
+                            }
+                            getValue_Salida.Text = "";
+                    break;
                     case "Expandable String Value": txt_info.Text = ""; getValue_Salida.Text = registro.getDataValue_String(path, valueName); break;
                     default: getValue_Salida.Text = ""; txt_info.Text = "Error, escoja correctamente"; break;
                 }
