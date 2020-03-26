@@ -36,17 +36,14 @@ namespace WindowsRegistryTools {
             string valueName = crearLlave_name.Text.ToString();
             //Valor tipos texto
             string valueData = createLlave_value.Text.ToString();
-
-
             // String
             if (rb_String.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
-
                 txt_info.Text = registro.CreateKeyValue_String(ruta, valueName, valueData);
             }
             //Binarie
             if (rb_binarie.Checked) {
-                bool hola;
+                    bool hola;
                     //Palabras claves para saltar 
                     Char [] caractersalto = { ' ', ',' };
                     // Nuevo array con saltos de linea
@@ -73,20 +70,19 @@ namespace WindowsRegistryTools {
             }
             //DWORD
             if (rb_DWORD.Checked) {
-                // El mensaje de confirmación o de Falló se mostrará en la pantalla
+                                // El mensaje de confirmación o de Falló se mostrará en la pantalla
                 Int32 valori = Int32.Parse(createLlave_value.Text);
                 txt_info.Text = registro.CreateKeyValue_DWORD(ruta, valueName, valori);
             }
             //QWORD
             if (rb_QWORD.Checked) {
-                // El mensaje de confirmación o de Falló se mostrará en la pantalla
+                                // El mensaje de confirmación o de Falló se mostrará en la pantalla
                 Int64 valori = Int64.Parse(createLlave_value.Text);
                 txt_info.Text = registro.CreateKeyValue_QWORD(ruta, valueName, valori);
             }
             //MultiString
             if (rb_multiString.Checked) {
                 // El mensaje de confirmación o de Falló se mostrará en la pantalla
-                createLlave_value.Multiline = true;
                 string [] stringML = { createLlave_value.Text.ToString() };
                 txt_info.Text = registro.CreateKeyValue_MultiString(ruta, valueName, stringML);
             }
@@ -97,47 +93,7 @@ namespace WindowsRegistryTools {
             }
         }
         private void btnGetDataValue(object sender, EventArgs e) {
-
-            string ruta = getValues_path.Text.ToString();
-
-            // valueName del la llave
-            string nombre = getValues_NameValue.Text.ToString();
-            //Valor tipos texto
-
-
-
-
-
-            //try {   // Obtiene Multilinea
-            //    string [] tArray = (string []) Registry.GetValue(ruta,
-            //                      valueName, new string [] { "No se encontró el valueData multistring" });
-            //    // Leer Array 
-            //    ArrayList vector1;
-
-            //    vector1 = new ArrayList();
-            //    string salida = "";
-            //    string salida2 = "";
-
-            //    for (int i = 0; i < tArray.Length; i++) {
-            //        Console.WriteLine("TestArray({0}): {1}", i, tArray [i]);
-            //        vector1.Add(tArray [i]);
-
-            //        btnGetValues_Values.Items.Add(vector1 [i]);
-
-            //        salida = string.Join(" ", vector1 [i]);
-            //        //salida = salida + "|salto de linea|";
-            //        salida2 = salida2 + "" + salida;
-
-            //    }
-
-            //    Console.WriteLine("dentro del for " + salida2);
-
-            final.Text = (registro.GetDataValues(ruta, nombre));
-            Console.WriteLine(registro.GetDataValues(ruta, nombre));
-
-
-            // no lee binario 
-                                                                                                                                                                                       
+                                                                                                                                                                           
         }
         private void btnDeleteValues(object sender, EventArgs e) {
 
@@ -154,6 +110,16 @@ namespace WindowsRegistryTools {
 
         private void BtnExit(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void rb_multiString_CheckedChanged(object sender, EventArgs e) {
+            if (rb_multiString.Checked) {
+                createLlave_value.Multiline = true;
+            } else {
+                createLlave_value.Multiline = false;
+
+
+            }
         }
     }  
 

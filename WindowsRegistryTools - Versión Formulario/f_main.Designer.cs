@@ -76,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label1.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(31, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(378, 25);
@@ -217,6 +217,7 @@
             this.rb_multiString.TabIndex = 12;
             this.rb_multiString.Text = "MultiString value";
             this.rb_multiString.UseVisualStyleBackColor = true;
+            this.rb_multiString.CheckedChanged += new System.EventHandler(this.rb_multiString_CheckedChanged);
             // 
             // rb_DWORD
             // 
