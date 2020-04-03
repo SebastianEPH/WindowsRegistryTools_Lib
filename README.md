@@ -1,7 +1,7 @@
-# Librería -Regedit de Windows v3.1
+# Librería -Regedit de Windows v3.1.1
 <!-- Botones -->
-- **NOTA:** Librería v3.1 Terminada a un `100%`
-- Documentación actualizada el día: `26/03/2020`
+- **NOTA:** Librería v3.1.1 Terminada a un `100%`
+- Documentación actualizada el día: `03/04/2020`
 
 **Usted encontrará dos carpetas llamadas:** Estos 2 proyectos , son solo para probar el uso de las funciones de la librería.
 * `WindowsRegistryTools - Versión Consola` *Terminado 100%*: Prueba de todas la funcionalidades mediante Consola
@@ -73,7 +73,7 @@ Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro 
 
 ---
 # Uso de Funciones
-Lea detalladamente éste apartado, donde se podrán despejar algunas dudas.
+Lea detalladamente éste apartado, donde se podrán despejar algunas dudas. En la versión 3.1.1 de ésta librería cuenta con documentación incluida.
 - __Camino del registro (path):__ Variable`path`, Se almacena el camino de la ruta, la librería acepta distintos tipos de sintaxis, las cuales son las siguientes:
 
     * ``"Computer\"``.................Ejemplo: `Computer\HKEY_CURRENT_USER\Control Panel\Appearance`

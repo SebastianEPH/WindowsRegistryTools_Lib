@@ -132,7 +132,6 @@ namespace WindowsRegistryTools {
                     //Console.WriteLine(hex);
 
 
-
                     //for (int i = 0; i < binary2.Length; i++) {
                     //    textofinal2 = textofinal2 + binary2[i];
                     //    //binarys [i] = new string(binary [i]);

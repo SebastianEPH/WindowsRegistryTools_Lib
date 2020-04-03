@@ -308,6 +308,8 @@ namespace WindowsRegistryTools {
             Console.SetCursorPosition(45, 2);
             Console.WriteLine("Obtención de datos - MultiString");
             Console.WriteLine("");
+           
+           
 
             String [] writeA = registro.getDataValue_MultiString(path, valueName);
                 Console.WriteLine("");
