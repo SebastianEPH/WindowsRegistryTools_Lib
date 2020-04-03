@@ -8,17 +8,6 @@ using System.Collections;
 ///// <include file='Libs/Documentation.xml' path='docs/members[@name="RegistryTools"]/RegistryTools/*'/>
 class RegistryTools {
     string message = "";
-    ///// <summary>
-    ///// Creará un valor tipo String  en el registro de Windows:
-    ///// <para>path: Ruta del registro</para>
-    ///// <para>valueVame: <c>ésto es codigo wee </c> Nombre del Valor value</para>
-    ///// <para>valueData: Dato tipo String</para>
-    ///// </summary>
-
-    ///// <returns>
-    ///// Retornará un mensaje de Erro o de exito.
-    ///// </returns>
-    ///// See <see cref="Math.Add(double, double)"/> to add doubles.
     public String CreateKeyValue_String(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, string valueData /*Datos almacenados del valor*/) {
 
             string typeRegistry = GetTypeRegistry(path);
@@ -74,50 +63,33 @@ class RegistryTools {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
         }
-    ///// <summary>
-    ///// sumary 
-    ///// Adds two doubles <paramref name="a"/> and <paramref name="b"/> and returns the result.
-    ///// <para>path: Ruta del registro</para>
-    ///// <para>valueVame: <c>ésto es codigo wee </c> Nombre del Valor value</para>
-    ///// <para>valueData: Dato tipo String</para>
-    ///// The main <c>Math</c> class.
-    ///// Contains all methods for performing basic math functions.
-    ///// <list type="bullet">
-    ///// <item>
-    ///// <term>Add</term>
-    ///// <description>Addition Operation</description>
-    ///// </item>
-    ///// <item>
-    ///// <term>Subtract</term>
-    ///// <description>Subtraction Operation</description>
-    ///// </item>
-    ///// <item>
-    ///// <term>Multiply</term>
-    ///// <description>Multiplication Operation</description>
-    ///// </item>
-    ///// <item>
-    ///// <term>Divide</term>
-    ///// <description>Division Operation</description>
-    ///// </item>
-    ///// </list>
-    ///// </summary>
-    ///// <typeparam name="T">A type that inherits from the IComparable interface.</typeparam>
-    ///// <param path="a">A double precision number.</param>
-    ///// <param name="b">A double precision number.</param>
-    ///// See <see cref="Math.Add(int, int)"/> to add integers.
-    ///// <returns>
-    ///// The sum of two integers.
-    ///// </returns>
-    ///// <example>
-    ///// <code>
-    ///// int c = Math.Add(4, 5);
-    ///// if (c > 10)
-    ///// {
-    /////     Console.WriteLine(c);
-    ///// }
-    ///// </code>
-    ///// </example>
-    ///// /// See <see cref="Math.Add(double, double)"/> to add doubles.
+    /// <summary>
+    /// Crea un nuevo valor en el registro
+    /// <para>Variables utilizadas:</para>
+    /// <list type="bullet">
+    /// <item>
+    /// <term>path</term>
+    /// <description><paramref name="String"/> | Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta </description>
+    /// <para>Variables utilizadas:</para>
+    /// </item>
+    /// <item>
+    /// <term>valueName</term>
+    /// <description><paramref name="String"/> | Nombre del valor</description>
+    /// </item>
+    /// <item>
+    /// <term>valueData</term>
+    /// <description><paramref name="byte[] "/> |  </description>
+    /// </item>
+    /// </list>
+    /// <para>Retorna un valor tipo:</para>
+    /// <list type="table">
+    /// <item>
+    /// <term>String</term>
+    /// <description>Retorna un mensaje de [Error] ó [Exito], según sea el caso.</description>
+    /// </item>
+    /// </list>
+    /// </summary>
+
     public String CreateKeyValue_Binary(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, byte [] valueData /*Datos almacenados del valor*/) {
             //los datos deben ser guardadas en binario
             string typeRegistry = GetTypeRegistry(path);
