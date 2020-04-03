@@ -62,34 +62,46 @@ class RegistryTools {
             } catch (Exception) {
                 return "E#RR04";    // No se puedo crear el valor de la llave
             }
-        }
+    }
     /// <summary>
-    /// Crea un nuevo valor en el registro
-    /// <para>Variables utilizadas:</para>
+    /// Divides an integer <paramref name="path"/> by another integer <paramref name="valueName"/> and returns the result.
+    /// Ésta función creará un nuevo valor de registro y remplazará a la existente.
+    /// <para>Argumentos: </para>
     /// <list type="bullet">
     /// <item>
     /// <term>path</term>
-    /// <description><paramref name="String"/> | Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta </description>
-    /// <para>Variables utilizadas:</para>
+    /// <description>| Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta, ejemplo:</description>
+    /// <code><paramref name="string"/> path = <paramref name="@"/>"Computer\HKEY_CURRENT_USER\Control Panel\Accessibility\AudioDescription";</code>
     /// </item>
     /// <item>
     /// <term>valueName</term>
-    /// <description><paramref name="String"/> | Nombre del valor</description>
+    /// <description>| Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.  </description>
+    /// <code><paramref name="string"/> valueName = "Data Binary";</code>
     /// </item>
     /// <item>
     /// <term>valueData</term>
-    /// <description><paramref name="byte[] "/> |  </description>
+    /// <description>| Los datos ingresados seben ser números positivos y de tipo <paramref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de 1 dato, cómo tambien de 500 datos. Ejemplo: </description>
+    /// <code><paramref name="byte"/>[] valueData ={ 1,45,78,152,23,2,1,5,4,255,0 }; </code>
     /// </item>
     /// </list>
-    /// <para>Retorna un valor tipo:</para>
-    /// <list type="table">
+    /// <para>Retorno:</para>
+    /// <list type="bullet">
     /// <item>
     /// <term>String</term>
     /// <description>Retorna un mensaje de [Error] ó [Exito], según sea el caso.</description>
     /// </item>
     /// </list>
+    /// <term>Uso correcto de la función:</term>
+    /// <description> Sintaxis sugerida, <paramref name="registro"/>: hace referencia al nombre, que usted colocó para instanciar ésta librería.</description>
+    /// <list type="table">
+    /// <item>
+    /// <code><paramref name="Console"/>.WriteLine(<paramref name="registro"/>.CreateKeyValue_Binary(<paramref name="path"/>, <paramref name="valueName"/>, <paramref name="valueData"/>));</code>
+    /// </item>
+    /// </list>
     /// </summary>
-
+    /// <param name="path">ver si aparece este texto wee .</param>
+    /// <param name="valueName"> hace referencia la nombre sdfsdfsdfsdfsdfs</param>
+    /// <param name="valueData"> esto no fue llamado, aparecerá..?</param>
     public String CreateKeyValue_Binary(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, byte [] valueData /*Datos almacenados del valor*/) {
             //los datos deben ser guardadas en binario
             string typeRegistry = GetTypeRegistry(path);

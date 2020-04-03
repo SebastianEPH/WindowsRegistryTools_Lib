@@ -129,7 +129,7 @@ namespace WindowsRegistryTools {
             String path = SetPath();
             String valueName = SetValueName();
             byte [] valueData = Parsebinary();
-            Console.WriteLine(registro.CreateKeyValue_Binary(path, valueName, valueData));
+            Console.WriteLine(registro.CreateKeyValue_Binary(path,valueName,valueData));
             Console.ReadKey();
         }      //Finish
         public void CreateKeyValue_DWORD() {
