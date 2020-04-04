@@ -5,7 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
-///// <include file='Libs/Documentation.xml' path='docs/members[@name="RegistryTools"]/RegistryTools/*'/>
+/// <summary>
+/// The main Math class.
+/// Contains all methods for performing basic math functions.
+/// </summary>
+/// <remarks>
+/// solo valido en la clase
+/// </remarks>
 class RegistryTools {
     string message = "";
     public String CreateKeyValue_String(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, string valueData /*Datos almacenados del valor*/) {
@@ -64,44 +70,47 @@ class RegistryTools {
             }
     }
     /// <summary>
-    /// Divides an integer <paramref name="path"/> by another integer <paramref name="valueName"/> and returns the result.
     /// Ésta función creará un nuevo valor de registro y remplazará a la existente.
-    /// <para>Argumentos: </para>
-    /// <list type="bullet">
-    /// <item>
-    /// <term>path</term>
-    /// <description>| Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta, ejemplo:</description>
-    /// <code><paramref name="string"/> path = <paramref name="@"/>"Computer\HKEY_CURRENT_USER\Control Panel\Accessibility\AudioDescription";</code>
-    /// </item>
-    /// <item>
-    /// <term>valueName</term>
-    /// <description>| Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.  </description>
-    /// <code><paramref name="string"/> valueName = "Data Binary";</code>
-    /// </item>
-    /// <item>
-    /// <term>valueData</term>
-    /// <description>| Los datos ingresados seben ser números positivos y de tipo <paramref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de 1 dato, cómo tambien de 500 datos. Ejemplo: </description>
-    /// <code><paramref name="byte"/>[] valueData ={ 1,45,78,152,23,2,1,5,4,255,0 }; </code>
-    /// </item>
-    /// </list>
     /// <para>Retorno:</para>
     /// <list type="bullet">
     /// <item>
-    /// <term>String</term>
-    /// <description>Retorna un mensaje de [Error] ó [Exito], según sea el caso.</description>
+    /// <term><typeparamref name="String"/></term>
+    /// <description>Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)</description>
     /// </item>
     /// </list>
-    /// <term>Uso correcto de la función:</term>
-    /// <description> Sintaxis sugerida, <paramref name="registro"/>: hace referencia al nombre, que usted colocó para instanciar ésta librería.</description>
+    /// <para>Argumentos: </para>
+    /// <list type="bullet">
+    /// <item>
+    /// <term><c><paramref name="path"/></c></term>
+    /// <description>| Ruta completa del la llave, procure usar un <typeparamref name="@"/> al momento de escribir la ruta.</description>
+    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> path = <typeparamref name="@"/>"Computer\HKEY_CURRENT_USER\Control Panel\Accessibility\AudioDescription";</c></para>
+    /// </item>
+    /// <item>
+    /// <term><c><paramref name="valueName"/></c></term>
+    /// <description>| Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</description>
+    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data Binary";</c></para>
+    /// </item>
+    /// <item>
+    /// <term><c><paramref name="valueData"/></c></term>
+    /// <description>| Los datos ingresados seben ser números positivos y de tipo <typeparamref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de 1 dato, cómo tambien de 500 datos.</description>
+    /// <para>Ejemplo:  <c> <typeparamref name=" byte"/>[] valueData = { 1,45,78,152,23,2,1,5,4,255,0 };</c></para>
+    /// </item>
+    /// </list>
+    /// <term>Sintaxis:</term>
+    /// <description> Sintaxis sugerida, <c><paramref name="registro"/></c>: hace referencia al nombre, que usted colocó para instanciar ésta librería.</description>
     /// <list type="table">
     /// <item>
-    /// <code><paramref name="Console"/>.WriteLine(<paramref name="registro"/>.CreateKeyValue_Binary(<paramref name="path"/>, <paramref name="valueName"/>, <paramref name="valueData"/>));</code>
+    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="CreateKeyValue_Binary"/>(<paramref name="path"/>, <paramref name="valueName"/>, <paramref name="valueData"/>));</code>
     /// </item>
     /// </list>
     /// </summary>
-    /// <param name="path">ver si aparece este texto wee .</param>
-    /// <param name="valueName"> hace referencia la nombre sdfsdfsdfsdfsdfs</param>
-    /// <param name="valueData"> esto no fue llamado, aparecerá..?</param>
+    /// <seealso cref="Math.Subtract(double, double)"/>
+    /// <param name="path">Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta.</param>
+    /// <param name="valueName">Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</param>
+    /// <param name="valueData">Los datos ingresados seben ser números positivos y de tipo <paramref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de un dato, cómo tambien de 500 datos.</param>
+    /// <returns>
+    /// Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)
+    /// </returns>
     public String CreateKeyValue_Binary(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/, byte [] valueData /*Datos almacenados del valor*/) {
             //los datos deben ser guardadas en binario
             string typeRegistry = GetTypeRegistry(path);
