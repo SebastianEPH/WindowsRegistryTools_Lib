@@ -642,12 +642,12 @@ class RegistryTools {
     /// <list type="bullet">
     /// <item>
     /// <term><c><paramref name="path"/></c></term>
-    /// <description>| Ruta completa del la llave, procure usar un <typeparamref name="@"/> al momento de escribir la ruta.</description>
+    /// <description>| Ruta donde se creará la llave, procure usar un <typeparamref name="@"/> al momento de escribir la ruta.</description>
     /// <para>Ejemplo:  <c> <typeparamref name=" string"/> path = <typeparamref name="@"/>"Computer\HKEY_CURRENT_USER\Control Panel\Accessibility\AudioDescription";</c></para>
     /// </item>
     /// <item>
     /// <term><c><paramref name="keyName"/></c></term>
-    /// <description>| El nombre que tendrá la llave</description>
+    /// <description>| El nombre que tendrá la llave.</description>
     /// <para>Ejemplo:  <c> <typeparamref name=" string"/> keyName = "Soy una llave";</c></para>
     /// </item>
     /// </list>
@@ -655,12 +655,12 @@ class RegistryTools {
     /// <description> Sintaxis sugerida, <c><paramref name="registro"/></c>: hace referencia al nombre, que usted colocó para instanciar ésta librería.</description>
     /// <list type="table">
     /// <item>
-    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="CreateKey"/>(<paramref name="path"/>, <paramref name="valueName"/>));</code>
+    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="CreateKey"/>(<paramref name="path"/>, <paramref name="keyName"/>));</code>
     /// </item>
     /// </list>
     /// </summary>
-    /// <param name="path">Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta.</param>
-    /// <param name="keyName">Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</param>
+    /// <param name="path">Ruta donde se creará la llave, procure usar un <typeparamref name="@"/> al momento de escribir la ruta.</param>
+    /// <param name="keyName">El nombre que tendrá la llave.</param>
     /// <returns>
     /// Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)
     /// </returns>
@@ -689,7 +689,7 @@ class RegistryTools {
 
 
     /// <summary>
-    /// Ésta función creará un nuevo valor de registro y remplazará a la existente.
+    /// Ésta función eliminará una llave con todos los valores y datos que ésta llave pueda contener.
     /// <para>Retorno:</para>
     /// <list type="bullet">
     /// <item>
@@ -701,32 +701,20 @@ class RegistryTools {
     /// <list type="bullet">
     /// <item>
     /// <term><c><paramref name="path"/></c></term>
-    /// <description>| Ruta completa del la llave, procure usar un <typeparamref name="@"/> al momento de escribir la ruta.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> path = <typeparamref name="@"/>"Computer\HKEY_CURRENT_USER\Control Panel\Accessibility\AudioDescription";</c></para>
-    /// </item>
-    /// <item>
-    /// <term><c><paramref name="valueName"/></c></term>
-    /// <description>| Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data Binary";</c></para>
-    /// </item>
-    /// <item>
-    /// <term><c><paramref name="valueData"/></c></term>
-    /// <description>| Los datos ingresados seben ser números positivos y de tipo <typeparamref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de 1 dato, cómo tambien de 500 datos.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" byte"/>[] valueData = { 1,45,78,152,23,2,1,5,4,255,0 };</c></para>
+    /// <description>| Ruta donde se encuentra la llave y debe incluir el nombre de la llave, procure usar un <typeparamref name="@"/> al momento de escribir la ruta.</description>
+    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> path = <typeparamref name="@"/>"Computer\HKEY_CURRENT_USER\Control Panel\Accessibility\AudioDescription\Soy la llave a eliminar";</c></para>
     /// </item>
     /// </list>
     /// <term>Sintaxis:</term>
     /// <description> Sintaxis sugerida, <c><paramref name="registro"/></c>: hace referencia al nombre, que usted colocó para instanciar ésta librería.</description>
     /// <list type="table">
     /// <item>
-    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="CreateKeyValue_Binary"/>(<paramref name="path"/>, <paramref name="valueName"/>, <paramref name="valueData"/>));</code>
+    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="DeleteKey"/>(<paramref name="path"/>));</code>
     /// </item>
     /// </list>
     /// </summary>
-    /// <seealso cref="Math.Subtract(double, double)"/>
-    /// <param name="path">Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta.</param>
-    /// <param name="valueName">Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</param>
-    /// <param name="valueData">Los datos ingresados seben ser números positivos y de tipo <paramref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de un dato, cómo tambien de 500 datos.</param>
+    /// <param name="path">Ruta donde se creará la llave, procure usar un <typeparamref name="@"/> al momento de escribir la ruta.</param>
+  
     /// <returns>
     /// Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)
     /// </returns>
