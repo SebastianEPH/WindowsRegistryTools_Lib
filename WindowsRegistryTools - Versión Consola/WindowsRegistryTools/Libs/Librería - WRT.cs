@@ -15,7 +15,7 @@ using System.Collections;
 class RegistryTools {
     string message = "";
     /// <summary>
-    /// Ésta función creará un nuevo valor de registro y remplazará a la existente.
+    /// Ésta función creará un nuevo valor de registro tipo <typeparamref name="String"/> y al ser creadas sobrescribirá los valores y datos existentes.
     /// <para>Retorno:</para>
     /// <list type="bullet">
     /// <item>
@@ -33,26 +33,26 @@ class RegistryTools {
     /// <item>
     /// <term><c><paramref name="valueName"/></c></term>
     /// <description>| Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data Binary";</c></para>
+    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data String";</c></para>
     /// </item>
     /// <item>
     /// <term><c><paramref name="valueData"/></c></term>
-    /// <description>| Los datos ingresados seben ser números positivos y de tipo <typeparamref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de 1 dato, cómo tambien de 500 datos.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" byte"/>[] valueData = { 1,45,78,152,23,2,1,5,4,255,0 };</c></para>
+    /// <description>| En ésta variable se almacenará el texto , la unica restricción es no poder usar saltos de linea.</description>
+    /// <para>Ejemplo:  <c> <typeparamref name=" string"/>  valueData = "Soy dato tipo texto";</c></para>
     /// </item>
     /// </list>
     /// <term>Sintaxis:</term>
     /// <description> Sintaxis sugerida, <c><paramref name="registro"/></c>: hace referencia al nombre, que usted colocó para instanciar ésta librería.</description>
     /// <list type="table">
     /// <item>
-    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="CreateKeyValue_Binary"/>(<paramref name="path"/>, <paramref name="valueName"/>, <paramref name="valueData"/>));</code>
+    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="CreateKeyValue_String"/>(<paramref name="path"/>, <paramref name="valueName"/>, <paramref name="valueData"/>));</code>
     /// </item>
     /// </list>
     /// </summary>
     /// <seealso cref="Math.Subtract(double, double)"/>
     /// <param name="path">Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta.</param>
     /// <param name="valueName">Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</param>
-    /// <param name="valueData">Los datos ingresados seben ser números positivos y de tipo <paramref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de un dato, cómo tambien de 500 datos.</param>
+    /// <param name="valueData">/>En ésta variable se almacenará el texto , la unica restricción es no poder usar saltos de linea.</param>
     /// <returns>
     /// Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)
     /// </returns>
@@ -112,7 +112,8 @@ class RegistryTools {
             }
     }
     /// <summary>
-    /// Ésta función creará un nuevo valor de registro y remplazará a la existente.
+    /// Ésta función creará un nuevos valores <c>HEX</c> en el registro, pero no es necesario introducir datos <c>HEX</c> 
+    /// , los datos aceptados son de tipo <typeparamref name=" byte"/>[] y al ser creadas sobrescribirá los valores y datos existentes.
     /// <para>Retorno:</para>
     /// <list type="bullet">
     /// <item>
@@ -134,7 +135,8 @@ class RegistryTools {
     /// </item>
     /// <item>
     /// <term><c><paramref name="valueData"/></c></term>
-    /// <description>| Los datos ingresados seben ser números positivos y de tipo <typeparamref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de 1 dato, cómo tambien de 500 datos.</description>
+    /// <description>| Los datos ingresados seben ser números positivos y de tipo <typeparamref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de 1 dato, cómo tambien de 500 datos.
+    /// Cabe mencionar que al ver estos datos en el regitro, se verán en formato HEX.</description>
     /// <para>Ejemplo:  <c> <typeparamref name=" byte"/>[] valueData = { 1,45,78,152,23,2,1,5,4,255,0 };</c></para>
     /// </item>
     /// </list>
@@ -149,7 +151,8 @@ class RegistryTools {
     /// <seealso cref="Math.Subtract(double, double)"/>
     /// <param name="path">Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta.</param>
     /// <param name="valueName">Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</param>
-    /// <param name="valueData">Los datos ingresados seben ser números positivos y de tipo <paramref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de un dato, cómo tambien de 500 datos.</param>
+    /// <param name="valueData">Los datos ingresados seben ser números positivos y de tipo <paramref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de un dato, cómo tambien de 500 datos.
+    /// Cabe mencionar que al ver estos datos en el regitro, se verán en formato HEX.</param>
     /// <returns>
     /// Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)
     /// </returns>
@@ -209,7 +212,7 @@ class RegistryTools {
             }
         }
     /// <summary>
-    /// Ésta función creará un nuevo valor de registro y remplazará a la existente.
+    /// Ésta función creará un nuevo valor de registro tipo <c> <typeparamref name="Int32"/></c> y remplazará a la existente.
     /// <para>Retorno:</para>
     /// <list type="bullet">
     /// <item>
@@ -227,26 +230,26 @@ class RegistryTools {
     /// <item>
     /// <term><c><paramref name="valueName"/></c></term>
     /// <description>| Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data Binary";</c></para>
+    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data Int32";</c></para>
     /// </item>
     /// <item>
     /// <term><c><paramref name="valueData"/></c></term>
-    /// <description>| Los datos ingresados seben ser números positivos y de tipo <typeparamref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de 1 dato, cómo tambien de 500 datos.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" byte"/>[] valueData = { 1,45,78,152,23,2,1,5,4,255,0 };</c></para>
+    /// <description>| Los datos ingresados seben ser números positivos y de tipo <typeparamref name="Int32"/> en el rango de [0-2147483647].</description>
+    /// <para>Ejemplo:  <c> <typeparamref name=" Int32"/> valueData = 2147483647;</c></para>
     /// </item>
     /// </list>
     /// <term>Sintaxis:</term>
     /// <description> Sintaxis sugerida, <c><paramref name="registro"/></c>: hace referencia al nombre, que usted colocó para instanciar ésta librería.</description>
     /// <list type="table">
     /// <item>
-    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="CreateKeyValue_Binary"/>(<paramref name="path"/>, <paramref name="valueName"/>, <paramref name="valueData"/>));</code>
+    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="CreateKeyValue_DWORD"/>(<paramref name="path"/>, <paramref name="valueName"/>, <paramref name="valueData"/>));</code>
     /// </item>
     /// </list>
     /// </summary>
     /// <seealso cref="Math.Subtract(double, double)"/>
     /// <param name="path">Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta.</param>
     /// <param name="valueName">Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</param>
-    /// <param name="valueData">Los datos ingresados seben ser números positivos y de tipo <paramref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de un dato, cómo tambien de 500 datos.</param>
+    /// <param name="valueData">Los datos ingresados seben ser números positivos y de tipo <typeparamref name="Int32"/> en el rango de [0-2147483647].</param>
     /// <returns>
     /// Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)
     /// </returns>
