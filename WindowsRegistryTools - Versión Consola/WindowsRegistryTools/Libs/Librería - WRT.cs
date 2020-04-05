@@ -1007,12 +1007,12 @@ class RegistryTools {
 
 
     /// <summary>
-    /// Ésta función retornará un tipo de dato los datos <typeparamref name="String"/> de un valor especificado del registro
+    /// Ésta función retornará  datos <typeparamref name="Byte"/>[] de un valor especificado del registro, especificamente en un array.
     /// <para>Retorno:</para>
     /// <list type="bullet">
     /// <item>
-    /// <term><typeparamref name="String"/></term>
-    /// <description>Retorna los datos del valor, en caso de error, devolverá un mensaje de [<c><paramref name="Error"/></c>].(Verifique la lista de códigos en la documentación)</description>
+    /// <term><typeparamref name="Byte"/> []</term>
+    /// <description>Retorna los datos del valor, cada valor va independientemente en cada array.</description>
     /// </item>
     /// </list>
     /// <para>Argumentos: </para>
@@ -1024,23 +1024,31 @@ class RegistryTools {
     /// </item>
     /// <item>
     /// <term><c><paramref name="valueName"/></c></term>
-    /// <description>| Nombre del valor,  si en caso no se encuentré ningún valor con ese nombre, se retornará un código de error.(Verifique la lista de códigos en la documentación)</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data String";</c></para>
+    /// <description>| Nombre del valor.</description>
+    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data Byte HEX";</c></para>
     /// </item>
     /// </list>
     /// <term>Sintaxis:</term>
     /// <description> Sintaxis sugerida, <c><paramref name="registro"/></c>: hace referencia al nombre, que usted colocó para instanciar ésta librería.</description>
     /// <list type="table">
     /// <item>
-    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="CreateKeyValue_Binary"/>(<paramref name="path"/>, <paramref name="valueName"/>, <paramref name="valueData"/>));</code>
+    /// <code>
+    /// <typeparamref name="String"/> [] texto = <paramref name="registro"/>.getDataValue_Binary(<paramref name="path"/>, <paramref name="valueName"/>);
+    /// <para><typeparamref name="    "/>// Mostrar en consola - Números enteros</para>
+    /// <para><typeparamref name="    "/>for (<typeparamref name="int"/> i = 0; i&lt; texto.<paramref name="Length"/>; i++) {</para>
+    /// <para><typeparamref name="         "/><paramref name="Console"/>.WriteLine(texto [i]);</para>
+    /// <para><typeparamref name="    "/>}</para>
+    /// <para><typeparamref name="    "/>// Mostrar en consola - Números HEX</para>
+    /// <para><typeparamref name="    "/><typeparamref name="string"/> hex = <paramref name="BitConverter"/>.ToString(texto).<paramref name="Replace"/>("-", " ");</para>
+    /// <para><typeparamref name="    "/><paramref name="Console"/>.WriteLine(hex);</para>
+    /// </code>
     /// </item>
     /// </list>
     /// </summary>
-    /// <seealso cref="Math.Subtract(double, double)"/>
     /// <param name="path">Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta.</param>
-    /// <param name="valueName">Nombre del valor,  si en caso no se encuentré ningún valor con ese nombre, se retornará un código de error.(Verifique la lista de códigos en la documentación)</param>
+    /// <param name="valueName">Nombre del valor.</param>
     /// <returns>
-    /// Retorna los datos del valor, en caso de error, devolverá un mensaje de [<c><paramref name="Error"/></c>].(Verifique la lista de códigos en la documentación)
+    /// Retorna los datos del valor, cada valor va independientemente en cada array.
     /// </returns>
     public byte [] getDataValue_Binary(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
             string typeRegistry = GetTypeRegistry(path);
