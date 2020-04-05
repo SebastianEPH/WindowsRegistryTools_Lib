@@ -714,7 +714,6 @@ class RegistryTools {
     /// </list>
     /// </summary>
     /// <param name="path">Ruta donde se creará la llave, procure usar un <typeparamref name="@"/> al momento de escribir la ruta.</param>
-  
     /// <returns>
     /// Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)
     /// </returns>
@@ -947,12 +946,12 @@ class RegistryTools {
 
 
     /// <summary>
-    /// Ésta función creará un nuevo valor de registro y remplazará a la existente.
+    /// Ésta función retornará un tipo de dato los datos <typeparamref name="String"/> de un valor especificado del registro
     /// <para>Retorno:</para>
     /// <list type="bullet">
     /// <item>
     /// <term><typeparamref name="String"/></term>
-    /// <description>Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)</description>
+    /// <description>Retorna los datos del valor, en caso de error, devolverá un mensaje de [<c><paramref name="Error"/></c>].(Verifique la lista de códigos en la documentación)</description>
     /// </item>
     /// </list>
     /// <para>Argumentos: </para>
@@ -964,13 +963,8 @@ class RegistryTools {
     /// </item>
     /// <item>
     /// <term><c><paramref name="valueName"/></c></term>
-    /// <description>| Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data Binary";</c></para>
-    /// </item>
-    /// <item>
-    /// <term><c><paramref name="valueData"/></c></term>
-    /// <description>| Los datos ingresados seben ser números positivos y de tipo <typeparamref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de 1 dato, cómo tambien de 500 datos.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" byte"/>[] valueData = { 1,45,78,152,23,2,1,5,4,255,0 };</c></para>
+    /// <description>| Nombre del valor,  si en caso no se encuentré ningún valor con ese nombre, se retornará un código de error.(Verifique la lista de códigos en la documentación)</description>
+    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data String";</c></para>
     /// </item>
     /// </list>
     /// <term>Sintaxis:</term>
@@ -983,10 +977,9 @@ class RegistryTools {
     /// </summary>
     /// <seealso cref="Math.Subtract(double, double)"/>
     /// <param name="path">Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta.</param>
-    /// <param name="valueName">Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</param>
-    /// <param name="valueData">Los datos ingresados seben ser números positivos y de tipo <paramref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de un dato, cómo tambien de 500 datos.</param>
+    /// <param name="valueName">Nombre del valor,  si en caso no se encuentré ningún valor con ese nombre, se retornará un código de error.(Verifique la lista de códigos en la documentación)</param>
     /// <returns>
-    /// Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)
+    /// Retorna los datos del valor, en caso de error, devolverá un mensaje de [<c><paramref name="Error"/></c>].(Verifique la lista de códigos en la documentación)
     /// </returns>
     public String getDataValue_String(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
             string typeRegistry = GetTypeRegistry(path);
