@@ -1034,11 +1034,11 @@ class RegistryTools {
     /// <item>
     /// <code>
     /// <typeparamref name="String"/> [] texto = <paramref name="registro"/>.getDataValue_Binary(<paramref name="path"/>, <paramref name="valueName"/>);
-    /// <para><typeparamref name="    "/>// Mostrar en consola - Números enteros</para>
+    /// <para><typeparamref name="    "/>// Mostrar Números enteros en consola</para>
     /// <para><typeparamref name="    "/>for (<typeparamref name="int"/> i = 0; i&lt; texto.<paramref name="Length"/>; i++) {</para>
     /// <para><typeparamref name="         "/><paramref name="Console"/>.WriteLine(texto [i]);</para>
     /// <para><typeparamref name="    "/>}</para>
-    /// <para><typeparamref name="    "/>// Mostrar en consola - Números HEX</para>
+    /// <para><typeparamref name="    "/>// Mostrar Números HEX en consola - </para>
     /// <para><typeparamref name="    "/><typeparamref name="string"/> hex = <paramref name="BitConverter"/>.ToString(texto).<paramref name="Replace"/>("-", " ");</para>
     /// <para><typeparamref name="    "/><paramref name="Console"/>.WriteLine(hex);</para>
     /// </code>
@@ -1071,13 +1071,15 @@ class RegistryTools {
 
             return valueData;
         }
+
+
     /// <summary>
-    /// Ésta función creará un nuevo valor de registro y remplazará a la existente.
+    /// Ésta función retornará un tipo de dato los datos <typeparamref name="Int32"/> de un valor especificado del registro
     /// <para>Retorno:</para>
     /// <list type="bullet">
     /// <item>
-    /// <term><typeparamref name="String"/></term>
-    /// <description>Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)</description>
+    /// <term><typeparamref name="Int32"/></term>
+    /// <description>Retorna los datos del valor.</description>
     /// </item>
     /// </list>
     /// <para>Argumentos: </para>
@@ -1089,29 +1091,22 @@ class RegistryTools {
     /// </item>
     /// <item>
     /// <term><c><paramref name="valueName"/></c></term>
-    /// <description>| Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data Binary";</c></para>
-    /// </item>
-    /// <item>
-    /// <term><c><paramref name="valueData"/></c></term>
-    /// <description>| Los datos ingresados seben ser números positivos y de tipo <typeparamref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de 1 dato, cómo tambien de 500 datos.</description>
-    /// <para>Ejemplo:  <c> <typeparamref name=" byte"/>[] valueData = { 1,45,78,152,23,2,1,5,4,255,0 };</c></para>
+    /// <description>| Nombre del valor.</description>
+    /// <para>Ejemplo:  <c> <typeparamref name=" string"/> valueName = "Data Int32";</c></para>
     /// </item>
     /// </list>
     /// <term>Sintaxis:</term>
     /// <description> Sintaxis sugerida, <c><paramref name="registro"/></c>: hace referencia al nombre, que usted colocó para instanciar ésta librería.</description>
     /// <list type="table">
     /// <item>
-    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="CreateKeyValue_Binary"/>(<paramref name="path"/>, <paramref name="valueName"/>, <paramref name="valueData"/>));</code>
+    /// <code><typeparamref name=" Console"/>.WriteLine(<paramref name="registro"/>.<typeparamref name="getDataValue_DWORD"/>(<paramref name="path"/>, <paramref name="valueName"/>));</code>
     /// </item>
     /// </list>
     /// </summary>
-    /// <seealso cref="Math.Subtract(double, double)"/>
     /// <param name="path">Ruta completa del la llave, procure usar un <paramref name="@"/> al momento de escribir la ruta.</param>
-    /// <param name="valueName">Nombre del valor, si existiera algún valor con ese nombre y así ésta sea de un distinto tipo de dato, se sobreescribirá el valor.</param>
-    /// <param name="valueData">Los datos ingresados seben ser números positivos y de tipo <paramref name="byte"/> en el rango de [0-255], la longitud del array, no tiene limite, el array puede ser de un dato, cómo tambien de 500 datos.</param>
+    /// <param name="valueName">Nombre del valor de error.</param>
     /// <returns>
-    /// Retorna un mensaje de [<c><paramref name="Error"/></c>] ó [<c><paramref name="Exito"/></c>], según sea el caso. (Verifique la lista de códigos en la documentación)
+    /// Retorna los datos del valor.
     /// </returns>
     public Int32 getDataValue_DWORD(string path /*Ruta completa del key*/, string valueName/*valores de la llave*/) {
             string typeRegistry = GetTypeRegistry(path);
@@ -1273,9 +1268,6 @@ class RegistryTools {
 
            
         }
-
-
-
 
     /// <summary>
     /// Ésta función retornará un tipo de dato  <typeparamref name="String"/> de un valor especificado del registro.
