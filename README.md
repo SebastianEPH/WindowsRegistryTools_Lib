@@ -1,7 +1,7 @@
 # Librería -Regedit de Windows v3.1.1
 <!-- Botones -->
 - **NOTA:** Librería v3.1.1 Terminada a un `100%`
-- Documentación actualizada el día: `03/04/2020`
+- Documentación actualizada el día: `05/04/2020`
 
 **Usted encontrará dos carpetas llamadas:** Estos 2 proyectos , son solo para probar el uso de las funciones de la librería.
 * `WindowsRegistryTools - Versión Consola` *Terminado 100%*: Prueba de todas la funcionalidades mediante Consola
@@ -338,6 +338,7 @@ Al culminar el proceso, la Consola mostrará un mensaje de error o de Exito, la 
 
 
 # Software Funcional de la librería - Formulario
+__Todavía no se suben capturas.__
 <!--
 Éste pequeño formulario fue creado, solo con el fin de mostrar cada una de las funcionalidades de ésta librería.
 
