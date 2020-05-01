@@ -7,3 +7,4 @@ O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegist
 O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\bin\Debug\seph-FullWindowsOptimitation_FWO_f.exe.config
 O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\bin\Debug\seph-FullWindowsOptimitation_FWO_f.exe
 O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\bin\Debug\seph-FullWindowsOptimitation_FWO_f.pdb
+O:\OneDrive - xKx\SoftwareProyect\C#\WindowsRegistryTools_Libreria\WindowsRegistryTools - Versión Formulario\obj\Debug\WindowsRegistryTools.csproj.CoreCompileInputs.cache

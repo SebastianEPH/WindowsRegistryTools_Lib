@@ -47,6 +47,7 @@
             this.crearLlave_name = new System.Windows.Forms.TextBox();
             this.crearLlave_ruta = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.GetValues_Combo = new System.Windows.Forms.ComboBox();
             this.getValue_Salida = new System.Windows.Forms.TextBox();
             this.btnGetValues = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.deleteLlave_name = new System.Windows.Forms.TextBox();
             this.deleteLlave_ruta = new System.Windows.Forms.TextBox();
             this.txt_info = new System.Windows.Forms.Label();
-            this.GetValues_Combo = new System.Windows.Forms.ComboBox();
             this.dfgfdg.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -161,7 +161,7 @@
             // 
             this.crearKey_Path.Location = new System.Drawing.Point(15, 42);
             this.crearKey_Path.Name = "crearKey_Path";
-            this.crearKey_Path.Size = new System.Drawing.Size(324, 20);
+            this.crearKey_Path.Size = new System.Drawing.Size(370, 20);
             this.crearKey_Path.TabIndex = 0;
             // 
             // tabPage2
@@ -325,6 +325,25 @@
             this.tabPage3.Text = "Leer Valores";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // GetValues_Combo
+            // 
+            this.GetValues_Combo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.GetValues_Combo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.GetValues_Combo.FormattingEnabled = true;
+            this.GetValues_Combo.Items.AddRange(new object[] {
+            "String Value",
+            "Binary Value Byte",
+            "Binary Value Hex",
+            "DWORD (32 Bits) Value",
+            "QWORD (64 Bits) Value",
+            "Multi-String Value",
+            "Expandable String Value"});
+            this.GetValues_Combo.Location = new System.Drawing.Point(188, 20);
+            this.GetValues_Combo.Name = "GetValues_Combo";
+            this.GetValues_Combo.Size = new System.Drawing.Size(203, 21);
+            this.GetValues_Combo.TabIndex = 22;
+            this.GetValues_Combo.Text = "String Value";
+            // 
             // getValue_Salida
             // 
             this.getValue_Salida.Location = new System.Drawing.Point(188, 69);
@@ -398,9 +417,9 @@
             // 
             // btn_keyDelete
             // 
-            this.btn_keyDelete.Location = new System.Drawing.Point(40, 104);
+            this.btn_keyDelete.Location = new System.Drawing.Point(12, 104);
             this.btn_keyDelete.Name = "btn_keyDelete";
-            this.btn_keyDelete.Size = new System.Drawing.Size(324, 23);
+            this.btn_keyDelete.Size = new System.Drawing.Size(373, 23);
             this.btn_keyDelete.TabIndex = 13;
             this.btn_keyDelete.Text = "Eliminar Llave";
             this.btn_keyDelete.UseVisualStyleBackColor = true;
@@ -409,7 +428,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(40, 28);
+            this.label13.Location = new System.Drawing.Point(9, 28);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 13);
             this.label13.TabIndex = 12;
@@ -417,9 +436,9 @@
             // 
             // deleteAll_ruta
             // 
-            this.deleteAll_ruta.Location = new System.Drawing.Point(40, 47);
+            this.deleteAll_ruta.Location = new System.Drawing.Point(12, 44);
             this.deleteAll_ruta.Name = "deleteAll_ruta";
-            this.deleteAll_ruta.Size = new System.Drawing.Size(324, 20);
+            this.deleteAll_ruta.Size = new System.Drawing.Size(373, 20);
             this.deleteAll_ruta.TabIndex = 10;
             // 
             // tabPage4
@@ -438,9 +457,9 @@
             // 
             // btnValueDelete
             // 
-            this.btnValueDelete.Location = new System.Drawing.Point(41, 117);
+            this.btnValueDelete.Location = new System.Drawing.Point(12, 117);
             this.btnValueDelete.Name = "btnValueDelete";
-            this.btnValueDelete.Size = new System.Drawing.Size(324, 23);
+            this.btnValueDelete.Size = new System.Drawing.Size(373, 23);
             this.btnValueDelete.TabIndex = 8;
             this.btnValueDelete.Text = "Eliminar Valor";
             this.btnValueDelete.UseVisualStyleBackColor = true;
@@ -449,7 +468,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(41, 72);
+            this.label10.Location = new System.Drawing.Point(9, 75);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(135, 13);
             this.label10.TabIndex = 6;
@@ -458,7 +477,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(41, 24);
+            this.label11.Location = new System.Drawing.Point(9, 18);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 13);
             this.label11.TabIndex = 7;
@@ -466,16 +485,16 @@
             // 
             // deleteLlave_name
             // 
-            this.deleteLlave_name.Location = new System.Drawing.Point(41, 91);
+            this.deleteLlave_name.Location = new System.Drawing.Point(12, 91);
             this.deleteLlave_name.Name = "deleteLlave_name";
-            this.deleteLlave_name.Size = new System.Drawing.Size(324, 20);
+            this.deleteLlave_name.Size = new System.Drawing.Size(373, 20);
             this.deleteLlave_name.TabIndex = 4;
             // 
             // deleteLlave_ruta
             // 
-            this.deleteLlave_ruta.Location = new System.Drawing.Point(41, 43);
+            this.deleteLlave_ruta.Location = new System.Drawing.Point(12, 43);
             this.deleteLlave_ruta.Name = "deleteLlave_ruta";
-            this.deleteLlave_ruta.Size = new System.Drawing.Size(324, 20);
+            this.deleteLlave_ruta.Size = new System.Drawing.Size(373, 20);
             this.deleteLlave_ruta.TabIndex = 5;
             // 
             // txt_info
@@ -486,25 +505,6 @@
             this.txt_info.Size = new System.Drawing.Size(16, 13);
             this.txt_info.TabIndex = 2;
             this.txt_info.Text = "---";
-            // 
-            // GetValues_Combo
-            // 
-            this.GetValues_Combo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.GetValues_Combo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.GetValues_Combo.FormattingEnabled = true;
-            this.GetValues_Combo.Items.AddRange(new object[] {
-            "String Value",
-            "Binary Value Byte",
-            "Binary Value Hex",
-            "DWORD (32 Bits) Value",
-            "QWORD (64 Bits) Value",
-            "Multi-String Value",
-            "Expandable String Value"});
-            this.GetValues_Combo.Location = new System.Drawing.Point(188, 20);
-            this.GetValues_Combo.Name = "GetValues_Combo";
-            this.GetValues_Combo.Size = new System.Drawing.Size(203, 21);
-            this.GetValues_Combo.TabIndex = 22;
-            this.GetValues_Combo.Text = "String Value";
             // 
             // f_main
             // 

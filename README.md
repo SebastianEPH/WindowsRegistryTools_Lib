@@ -1,7 +1,7 @@
 # Librería -Regedit de Windows v3.1.1
 <!-- Botones -->
 - **NOTA:** Librería v3.1.1 Terminada a un `100%`
-- Documentación actualizada el día: `05/04/2020`
+- Documentación actualizada el día: `01/05/2020`
 
 **Usted encontrará dos carpetas llamadas:** Estos 2 proyectos , son solo para probar el uso de las funciones de la librería.
 * `WindowsRegistryTools - Versión Consola` *Terminado 100%*: Prueba de todas la funcionalidades mediante Consola
@@ -338,17 +338,22 @@ Al culminar el proceso, la Consola mostrará un mensaje de error o de Exito, la 
 
 
 # Software Funcional de la librería - Formulario
-__Todavía no se suben capturas.__
-<!--
+
 Éste pequeño formulario fue creado, solo con el fin de mostrar cada una de las funcionalidades de ésta librería.
+## Crear LLave:
+Tan sencillo como colocar la __ruta__ y el nombre de la __llave__ y luego dar click en el botón.
+
+![función - Crear Conteiner](https://i.imgur.com/LbKcLvC.png)
+![Registro del sistema](https://i.imgur.com/htXfx42.png)
+ 
 
 
 
 
 
 
-### Crear LLave:
-![función - Crear Conteiner](https://i.imgur.com/tIypAQf.png)
+
+
 
 Podemos observar que se creó la Llave dentro de la *Software*
 ![función - crear conteiner - regedit ](https://i.imgur.com/IO0ZMYt.png)
@@ -359,7 +364,7 @@ Podemos observar que se creó la Llave dentro de la *Software*
 ### Eliminar Llave:
 ![función - Eliminar Llave](https://i.imgur.com/aASUe3w.png)
 ### Eliminar Valores:
-![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png) -->
+![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png) 
 
 ---
 # Código de errores, advertencias y exito: 

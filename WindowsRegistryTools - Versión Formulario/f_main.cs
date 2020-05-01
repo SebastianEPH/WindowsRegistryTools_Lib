@@ -23,10 +23,6 @@ namespace WindowsRegistryTools {
            // El mensaje de confirmación o de Falló se mostrará en la pantalla
             txt_info.Text = registro.CreateKey(ruta, nombre);
 
-
-
-
-
         }
         private void btnCrearValues(object sender, EventArgs e) {
             // Ruta completa del registro
