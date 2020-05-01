@@ -42,7 +42,7 @@ namespace WindowsRegistryTools {
             if (rb_binarie.Checked) {
                     bool hola;
                     //Palabras claves para saltar 
-                    Char [] caractersalto = { ' ', ',' };
+                    Char [] caractersalto = { ' ', ',', '-'};
                     // Nuevo array con saltos de linea
                     String [] valueDataSaltos = valueData.Split(caractersalto);
                     // Nuevo array de valores tipo binario
@@ -102,7 +102,7 @@ namespace WindowsRegistryTools {
                     //byte.getDecoder().decode(binarys);
                     int sumador = 7;
                     for (int i = 0; i < binary.Length; i++) {
-                        textofinal = textofinal + binary [i] + ", ";
+                        textofinal = textofinal + binary [i] + " ";
                         //binarys [i] = new string(binary [i]);
                         if (i == sumador) {
                             textofinal = textofinal + "\r\n";

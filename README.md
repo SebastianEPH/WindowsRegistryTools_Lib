@@ -344,23 +344,37 @@ Al culminar el proceso, la Consola mostrará un mensaje de error o de Exito, la 
 Tan sencillo como colocar la __ruta__ y el nombre de la __llave__ y luego dar click en el botón.
 
 ![función - Crear Conteiner](https://i.imgur.com/LbKcLvC.png)
+
+Podemos observar en el __registro__ que se creó la __llave__ exitosamente.
 ![Registro del sistema](https://i.imgur.com/htXfx42.png)
- 
 
+## Crear Valores:
+Como podemos observar en la documentación existen distintos tipos de datos aceptados en el registro de windows, las cuales son:
 
+![Tipos de datos de registro](https://i.imgur.com/jozcZyo.png)
 
+Y ésta librería si puede crear cada una de ellas.
 
+![función - crear valores de registro ](https://i.imgur.com/kPMjrn9.png)
 
+__Ejemplo:__ Crear un __Binary value__ en la anterior __llave__ creada, debemos recordar que podemos separar los números mediante un espacio, una coma o un guión: `' ', ',', '-'` y los números HEX ingresados deben ser en números enteros ya que al ir al registro, éstas se subiran en HEX, miremos el ejemplo.
 
+![dsf](https://i.imgur.com/xyx1EI5.png)
 
+Y vemos el registro:
 
+![Ejemplo - Crear registros windows - Binary Value](https://i.imgur.com/5HmTivG.png)
 
-Podemos observar que se creó la Llave dentro de la *Software*
-![función - crear conteiner - regedit ](https://i.imgur.com/IO0ZMYt.png)
-### Crear Valores:
-![función - Llave](https://i.imgur.com/qp6BicO.png)
-### Leer Valores:
-![función - Leer Llave](https://i.imgur.com/9TfWNW2.png)
+## Leer Valores:
+Este es el formulario para leer valores de una llave del registro:
+* Primero debemos escoger el tipo de valor a leer (en el caso de los bytes, `HEX`= devuelve un Array Hex // `byte` = devuelve un Array integer)
+
+![función - Leer valores de una llave](https://i.imgur.com/kOAX82b.png)
+
+Podemos observar que obtuvimos los valores del ejemplo anterior pero en `HEX` e `integer`.
+
+![Funcion lee Array binary](https://i.imgur.com/d6BOQqc.png)
+![funcion leer array binary - integer byte ](https://i.imgur.com/hrc5OaP.png)
 ### Eliminar Llave:
 ![función - Eliminar Llave](https://i.imgur.com/aASUe3w.png)
 ### Eliminar Valores:
