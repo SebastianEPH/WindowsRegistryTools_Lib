@@ -375,10 +375,15 @@ Podemos observar que obtuvimos los valores del ejemplo anterior pero en `HEX` e 
 
 ![Funcion lee Array binary](https://i.imgur.com/d6BOQqc.png)
 ![funcion leer array binary - integer byte ](https://i.imgur.com/hrc5OaP.png)
-### Eliminar Llave:
-![función - Eliminar Llave](https://i.imgur.com/aASUe3w.png)
-### Eliminar Valores:
-![función - Eliminar Conteiner](https://i.imgur.com/se2U0GF.png) 
+## Eliminar Llave:
+Solo tenemos que escribir la ruta de la llave y se borrará la llave y todos los valores que ésta obtenga.
+
+![función - Eliminar Llave](https://i.imgur.com/BQfKx5D.png)
+## Eliminar Valores:
+
+Este proceso elimina solo un __valor__ de una __llave__.
+
+![función - Eliminar valor](https://i.imgur.com/0eybU9r.png) 
 
 ---
 # Código de errores, advertencias y exito: 
@@ -401,7 +406,6 @@ Podemos observar que obtuvimos los valores del ejemplo anterior pero en `HEX` e 
 - -000001 = La Ruta ingresada está vacía.
 - -000002 = La Ruta ingresada no es valida.
 - -000003 = El nombre del valor está vació
-
 
 ---
 # Usos en Softwares
