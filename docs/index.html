@@ -66,20 +66,48 @@
             <li><b>Licence: </b>MIT</li>
             <li><b>IDE or Text Editor: </b>Visual Studio Comunity 2019</li>
             <li><b>Documentation date: </b>05/06/2020</li>
-            <li><b>Description: </b></li>
+            <li><b>Description: </b>Esta biblioteca fue desarrollada para Crear, Leer y eliminar llaves del registro de Windows (REGEDIT) y poder realizarlo de la manera más sencilla posible.</li>
         </ul>
-
-
-        <h1>Descripción:</h1>
-
     </Section>
     <section>
-        <h1>Funciones</h1>
+        <h1>Resumen de Funcionalidades</h1>
+        <p>Éstas son las funcionalidades de ésta librería en su versión v3.1.1 , Usted pueder ver aquí la forma de importar ésta biblioteca</p>
         <section>
-            <h2>Crear Llaves</h2>
+            <ul>
+                <li><b>Crear Llaves:</b></li>
+                    <ul>
+                        <li>HKEY_CLASSES_ROOT.................................. <i>(No Requiere permisos de administrador)</i></li>
+                        <li>HKEY_CURRENT_USER................................. <i>(No Requiere permisos de administrador)</i></li>
+                        <li>HKEY_LOCAL_MACHINE.............................. <i>(Requiere permisos de administrador)</i></li>
+                        <li>HKEY_USERS.................................................... <i>(Requiere permisos de administrador)</i></li>
+                        <li>HKEY_CURRENT_CONFIG........................... <i>(Requiere permisos de administrador)</i></li>
+                    </ul> 
+                <li><b>Crear Valores de llave:</b></li>
+                    <ul>
+                        <li>String Value................................................... <i>(Tipo de Valor: String)</i></li>
+                        <li>Binarie Value................................................. <i>(Tipo de Valor: Byte[] - Decimal)</i></li>
+                        <li>DWORD (32bits) Value............................. <i>(Tipo de Valor: Int32 - Decimal)</i></li>
+                        <li>QWORD (64bits) Value............................. <i>(Tipo de Valor: Int64 - Decimal)</i></li>
+                        <li>Multi-String Value...................................... <i>Multi-String Value......................................(Tipo de Valor: String [])</i></li>
+                        <li>Expandable String...................................... <i>(Tipo de Valor: String)</i></li>
+                    </ul>
+                <li><b>Obtener o leer valores de una llave:</b></li>
+                    <ul>
+                        <li>String Value.................................................. <i>(Retornará un String)</i></li>
+                        <li>Binarie Value................................................ <i>(Retornará un Byte [])</i></li>
+                        <li>DWORD (32bits) Value............................. <i>(Retornará un Int32)</i></li>
+                        <li>QWORD (64bits) Value............................. <i>(Retornará un Int64)</i></li>
+                        <li>Multi-String Value...................................... <i>(Retornará un String [])</i></li>
+                        <li>Expandable String...................................... <i>(Retornará un String)</i></li>
+                    </ul>
+                <li>Eliminar Llave</li>
+                    <p><b>Nota:</b>Esta función eliminar una llave y todos los valores que ésta pueda almacenar</p>
+       
+
+            </ul>
         </section>
         <section>
-            <h2>Crear Valores</h2>
+            
             <section>
                 <h3>Crear String</h3>
                 <h3>Crear Binary Value</h3>
@@ -87,7 +115,6 @@
             </section>
         </section>
     </section>
-
     <footer>
         WebPage creado por: SebastiánEPH
     </footer>
