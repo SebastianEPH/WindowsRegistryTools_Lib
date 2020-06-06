@@ -138,11 +138,40 @@
                 <p>Lea detalladamente éste apartado, donde se podrán despejar algunas dudas. En la versión 3.1.1 de ésta librería cuenta con documentación incluida.</p>
                 <ul>
                     <li><b>Camino del Registro (path)</b> Variable <code>path</code>, se almacena el camino de la ruta, la librería acepta distintos tipos de sintaxis, las cuales son las siguientes:</li>
-                    <p>
-                        <ul>
-                            <li><code>"Computer\"</code>.................Ejemplo: <code>Computer\HKEY_CURRENT_USER\Control Panel\Appearance</code></li>
-                        </ul>
-                    </p>
+                        <p>
+                            <ul>
+                                <li><code>"Computer\"</code>................. Ejemplo: <code>Computer\HKEY_CURRENT_USER\Control Panel\Appearance</code></li>
+                                <li><code>"Equipo\"</code>..................... Ejemplo: <code>Equipo\HKEY_CURRENT_USER\Control Panel\Appearance</code></li>
+                                <li><code>""</code>................................... Ejemplo: <code>HKEY_CURRENT_USER\Control Panel\Appearance</code></li>
+                            </ul>
+                        </p>
+                    <li><b>Nombre de la llave (keyName): </b>Variable <code>KeyName</code>, se almacenará el nombre de la llave del registro.</li>
+                        <p>
+                            <ul>
+                                <li>Ejemplo: <code>AppEvents</code>, <code>Console</code>, <code>Control Panel</code>, <code>Environment</code>, <code>EUDC</code>, <code>Keyboard Layaut</code>, <code>Network</code>, <code>Printers</code>, <code>Software</code>, <code>System</code>, <code>Voltatile Evironment</code></li>
+                                <p>
+                                    <picture ><img src="https://i.imgur.com/QtIaMI0.png" alt="" sizes="" srcset=""></picture>
+                                </p>
+                            </ul>
+                        </p>
+                    <li><b>Nombre del Valor (valueName): </b>Variable <code>valueName,</code> se almacenará el nombre que tendrá el Valor dentro de una llave.</li>
+                        <p>
+                            <ul>
+                                <li><b>Ejemplo: </b>Soy un valor tipo</li>
+                                <p>
+                                    <picture><img src="https://i.imgur.com/jozcZyo.png" alt="" sizes="" srcset=""></picture>
+                                </p>
+                            </ul>
+                        </p>
+                    <li><b>Datos del Valor (valueData):</b>Variable <code>valueName</code>, se almacenará los datos dentro de un valor, éstos datos pueden variar según sea el Tipo de Dato.</li>
+                        <p>
+                            <ul>
+                                <li><b>Ejemplo: </b><code>Cadena de Texto corta</code>, <code>01 D4 F1 00</code>, <code>5415615545</code>, <code>9498489498898</code>, <code>linea1\nlinea2\nlinea3</code>, <code>cadena de Texto larga</code></li>
+                                <p>
+                                    <picture><img src="https://i.imgur.com/MLFyCkv.png" alt="" sizes="" srcset=""></picture>
+                                </p>
+                            </ul>
+                        </p>
                 </ul>
                 <h3>Crear String</h3>
                 <h3>Crear Binary Value</h3>
