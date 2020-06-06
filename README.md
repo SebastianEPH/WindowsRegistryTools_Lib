@@ -61,7 +61,7 @@ Esta librería fue desarrollada para Crear, Leer y eliminar llaves del registro 
 
 2. => En la Carpeta **Libs** =>**Clic derecho** => **Agregar** => **Elemento Existente** 
 
-    ![02 - Importamos la librería](https://i.imgur.com/brYmXmZ.png)
+    ![02 - Importamos la librería](https://i.imgur.com/giMdTJS.png)
 
 3. Buscamos la __Librería__ y agregamos. 
 

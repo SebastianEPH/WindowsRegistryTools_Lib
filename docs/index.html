@@ -55,18 +55,18 @@
     <Section>
         <h1>Logo WindowsRegistryTools v3.1.1</h1>
         <ul>
-            <li><b>Developed by: </b> SebastiánEPH</li>
-            <li><b>Product Name: </b>WindowsRegistryTools</li>
-            <li><b>Type Software: </b>Library</li>
-            <li><b>File Version: </b>3.1.1</li>
-            <li><b>Architecture: </b> x86 bits || x64 bits</li>
-            <li><b>State: </b>Estable</li>
-            <li><b>Size: </b> 400KB aprox</li>
-            <li><b>Programming language: </b>C#.net Framework [Console-Frame]</li>
-            <li><b>Licence: </b>MIT</li>
-            <li><b>IDE or Text Editor: </b>Visual Studio Comunity 2019</li>
-            <li><b>Documentation date: </b>05/06/2020</li>
-            <li><b>Description: </b>Esta biblioteca fue desarrollada para Crear, Leer y eliminar llaves del registro de Windows (REGEDIT) y poder realizarlo de la manera más sencilla posible.</li>
+            <li><b>Developed by: </b><code>SebastiánEPH</code></li>
+            <li><b>Product Name: </b><code>WindowsRegistryTools</code></li>
+            <li><b>Type Software: </b><code>Library</code></li>
+            <li><b>File Version: </b><code>3.1.1</code></li>
+            <li><b>Architecture: </b><code>x86 bits || x64 bits</code></li>
+            <li><b>State: </b><code>Estable</code></li>
+            <li><b>Size: </b><code>400KB aprox</code></li>
+            <li><b>Programming language: </b><code>C#.net Framework [Console-Frame]</code></li>
+            <li><b>Licence: </b><code>MIT</code></li>
+            <li><b>IDE or Text Editor: </b><code>Visual Studio Comunity 2019</code></li>
+            <li><b>Documentation date: </b><code>05/06/2020</code></li>
+            <li><b>Description: </b><code>Esta biblioteca fue desarrollada para Crear, Leer y eliminar llaves del registro de Windows (REGEDIT) y poder realizarlo de la manera más sencilla posible.</code></li>
         </ul>
     </Section>
     <section>
@@ -88,7 +88,7 @@
                         <li>Binarie Value................................................. <i>(Tipo de Valor: Byte[] - Decimal)</i></li>
                         <li>DWORD (32bits) Value............................. <i>(Tipo de Valor: Int32 - Decimal)</i></li>
                         <li>QWORD (64bits) Value............................. <i>(Tipo de Valor: Int64 - Decimal)</i></li>
-                        <li>Multi-String Value...................................... <i>Multi-String Value......................................(Tipo de Valor: String [])</i></li>
+                        <li>Multi-String Value...................................... <i>(Tipo de Valor: String [])</i></li>
                         <li>Expandable String...................................... <i>(Tipo de Valor: String)</i></li>
                     </ul>
                 <li><b>Obtener o leer valores de una llave:</b></li>
@@ -100,19 +100,53 @@
                         <li>Multi-String Value...................................... <i>(Retornará un String [])</i></li>
                         <li>Expandable String...................................... <i>(Retornará un String)</i></li>
                     </ul>
-                <li>Eliminar Llave</li>
-                    <p><b>Nota:</b>Esta función eliminar una llave y todos los valores que ésta pueda almacenar</p>
-       
-
+                <li>Eliminar Llave: </li>
+                    <p><b>Nota: </b>Esta función eliminar una llave y todos los valores que ésta pueda almacenar</p>
+                <li>Eliminar Valores: </li>
+                    <p><b>NOTA: </b>Ésta funcionalidad selo eliminrapra un valor , si desea eliminar todos los valores dentro de una llave, usted puede usar la función anterios, "<b>Eliminar Llave</b>".</p>
             </ul>
         </section>
         <section>
-            
-            <section>
+            <h1>Agregar biblioteca al proyecto:</h1>
+            <ol>
+                <li>Dentro de tu <b>Proyecto</b>, cree una carpeta llamada 'Libs' "<i>Opcional</i>". </li>
+                    <picture>
+                        <p><img src="https://i.imgur.com/Rx3MY3k.png" alt="Crear carpeta libs en nuestro proyecto" sizes="" srcset=""></p>
+                    </picture>
+                <li>=> En la Carpeta Libs =>Clic derecho => Agregar => Elemento Existente</li> 
+                    <picture>
+                       <p> <img src="https://i.imgur.com/giMdTJS.png" alt="" sizes="" srcset=""></p>
+                    </picture>
+                <li>Buscamos la Librería y agregamos.</li>
+                <picture>
+                    <p><img src="https://i.imgur.com/CTd0mBG.png" alt="" sizes="" srcset=""></p>
+                </picture>
+                <li>Listo, ya está importada la librería</li>
+                <picture>
+                    <p><img src="https://i.imgur.com/vYlvPo0.png" alt="" sizes="" srcset=""></p>
+                </picture>
+                <li>Instanciamos la Librería dentro de Clase, para así poder usarlo.</li>
+                    <p>El nombre que se le dará a ésta instancia será registro. (Usted puede colocarle el nombre que desee)</p>
+                        <code>
+                            <var>RegistryTools</var> registro = new RegistryTools();       
+                        </code>
+                    <p><b>NOTA: </b>Usted tendrá que escribir el nombre "registro", vada vez va a usar las funcionalidades de la librería.</p>
+            </ol>
+        </section>
+        <section>
+            <h1>Funcionalidades</h1>
+                <p>Lea detalladamente éste apartado, donde se podrán despejar algunas dudas. En la versión 3.1.1 de ésta librería cuenta con documentación incluida.</p>
+                <ul>
+                    <li><b>Camino del Registro (path)</b> Variable <code>path</code>, se almacena el camino de la ruta, la librería acepta distintos tipos de sintaxis, las cuales son las siguientes:</li>
+                    <p>
+                        <ul>
+                            <li><code>"Computer\"</code>.................Ejemplo: <code>Computer\HKEY_CURRENT_USER\Control Panel\Appearance</code></li>
+                        </ul>
+                    </p>
+                </ul>
                 <h3>Crear String</h3>
                 <h3>Crear Binary Value</h3>
                 <h3>Crear DWORD (32 Bits) Value</h3>
-            </section>
         </section>
     </section>
     <footer>
