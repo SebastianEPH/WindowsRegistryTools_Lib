@@ -22,8 +22,10 @@ nav{
     display: inline;
 }
 #doc{
-    margin: 100px auto;
+    float: right;
     text-align: justify;
+    margin: 100px auto;
+    padding: 15px;
 }
 #imagen{
     text-align: center;
@@ -34,5 +36,11 @@ h1{
 
 footer{
     clear:both;
+
+}
+
+
+#logo{
+    text-align: center;
 
 }
