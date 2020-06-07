@@ -13,12 +13,6 @@ header{
 }
 aside{
     float: left;
-    
-    
-}
-section{
-    float: center;
-    margin: 50px auto;;
 }
 nav{
     color: black;
@@ -26,10 +20,12 @@ nav{
 }
 #nav{
     display: inline;
-    
 }
 #doc{
     margin: 100px auto;
+    text-align: justify;
+}
+#imagen{
     text-align: center;
 }
 h1{
