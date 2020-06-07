@@ -1,0 +1,31 @@
+body{
+    background-color: black;
+    margin-left: 100px;
+    margin-right: 100px;
+    color: white;
+
+}
+header{
+
+}
+#logo{
+    color: ivory;
+
+}
+aside{
+    float: left;
+}
+section{
+    float: right;
+}
+nav{
+    color: black;
+    background-color: yellow;
+
+}
+#nav{
+    display: inline;
+}
+h1{
+    font-size: 50px;
+}
