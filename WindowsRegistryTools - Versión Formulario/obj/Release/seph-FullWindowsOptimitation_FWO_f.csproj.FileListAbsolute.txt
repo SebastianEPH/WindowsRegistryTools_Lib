@@ -1,9 +1,0 @@
-D:\OneDrive - xKx\SoftwareProyect\C#\seph-FullWindowsOptimitation_FWO_f\seph-FullWindowsOptimitation_FWO_f\obj\Release\seph-FullWindowsOptimitation_FWO_f.csprojAssemblyReference.cache
-D:\OneDrive - xKx\SoftwareProyect\C#\seph-FullWindowsOptimitation_FWO_f\seph-FullWindowsOptimitation_FWO_f\obj\Release\seph_FullWindowsOptimitation_FWO_f.f_main.resources
-D:\OneDrive - xKx\SoftwareProyect\C#\seph-FullWindowsOptimitation_FWO_f\seph-FullWindowsOptimitation_FWO_f\obj\Release\seph_FullWindowsOptimitation_FWO_f.Properties.Resources.resources
-D:\OneDrive - xKx\SoftwareProyect\C#\seph-FullWindowsOptimitation_FWO_f\seph-FullWindowsOptimitation_FWO_f\obj\Release\seph-FullWindowsOptimitation_FWO_f.csproj.GenerateResource.cache
-D:\OneDrive - xKx\SoftwareProyect\C#\seph-FullWindowsOptimitation_FWO_f\seph-FullWindowsOptimitation_FWO_f\bin\Release\seph-FullWindowsOptimitation_FWO_f.exe.config
-D:\OneDrive - xKx\SoftwareProyect\C#\seph-FullWindowsOptimitation_FWO_f\seph-FullWindowsOptimitation_FWO_f\bin\Release\seph-FullWindowsOptimitation_FWO_f.exe
-D:\OneDrive - xKx\SoftwareProyect\C#\seph-FullWindowsOptimitation_FWO_f\seph-FullWindowsOptimitation_FWO_f\bin\Release\seph-FullWindowsOptimitation_FWO_f.pdb
-D:\OneDrive - xKx\SoftwareProyect\C#\seph-FullWindowsOptimitation_FWO_f\seph-FullWindowsOptimitation_FWO_f\obj\Release\seph-FullWindowsOptimitation_FWO_f.exe
-D:\OneDrive - xKx\SoftwareProyect\C#\seph-FullWindowsOptimitation_FWO_f\seph-FullWindowsOptimitation_FWO_f\obj\Release\seph-FullWindowsOptimitation_FWO_f.pdb
