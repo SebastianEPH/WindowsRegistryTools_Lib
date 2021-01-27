@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 public class RegistryWin {
 
     public string PATH = "";
+    public string[] subpath_registry = {"HKEY_CURRENT_USER",
+                                    "HKEY_CLASSES_ROOT",
+                                    "HKEY_LOCAL_MACHINE",
+                                    "HKEY_USERS",
+                                    "HKEY_CURRENT_CONFIG"};
 
     public RegistryWin(string path) {
         this.PATH = path;
@@ -49,14 +54,17 @@ public class RegistryWin {
 
     }
 
-    private bool check_path(string path) {  // Verifica si la ruta es correcta
-        int ixt = path.IndexOf(@"HKEY_");  // obtiene el index
-        if (ixt == -1) {
-            return false;// mandar error de path incorrecto 
-            // tambien se puede mandar error de path vacio
-        } else {
-            return true;
+    private bool check_path(string path, string[] subpath_registry) {  // Verifica si la ruta es correcta
+        bool pass = true;
+        foreach (string subpath in subpath_registry) {
+            int ixt = path.IndexOf(subpath);  // obtiene el index
+            if (ixt == -1) {
+                pass = false;
+                //return false;// mandar error de path incorrecto 
+                // tambien se puede mandar error de path vacio
+            }
         }
+        return pass;
     }
     private string parse_path(string path) { // Elimina el subpath de la ruta ingresada por el usuario
         int ixt = path.IndexOf(@"HKEY_");  

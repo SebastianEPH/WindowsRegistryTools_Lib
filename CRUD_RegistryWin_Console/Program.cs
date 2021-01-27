@@ -12,10 +12,8 @@ class Program {
         String path = @"dsaasdsdadassdaHKEY_CURRENT_USER\SOFTWARE\BugSplat";
         
 
-        void verifica_ruta_valida() {
-            int ixt = path.IndexOf(@"HKEY_");  // obtiene el index
-            path = path.Substring(ixt,path.Length-ixt);
-            Console.WriteLine(path);
+        bool verifica_ruta_valida() {
+
         }
 
 
