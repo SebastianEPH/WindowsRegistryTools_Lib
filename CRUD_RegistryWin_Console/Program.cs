@@ -9,7 +9,7 @@ class Program {
     
     static void Main(string[] args) {
 
-       RegistryWin hola = new RegistryWin(@"Computer\HKEY_CURRENT_USER\AppEvents");
+       RegistryWin hola = new RegistryWin(@"Computer\HKEYd_CURRENT_USER\AppEvents");
 
         Console.WriteLine(hola.check_path());
         hola.clear_path();

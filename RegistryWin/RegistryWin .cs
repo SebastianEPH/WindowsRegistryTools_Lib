@@ -18,9 +18,8 @@ public class RegistryWin {
 
     public RegistryWin(string path) {
         this.PATH = path;
-
         if (!check_path()) {
-            throw new InvalidPath();
+           throw new InvalidPath();
         }
 
         
@@ -66,14 +65,16 @@ public class RegistryWin {
 
 
     public bool check_path() {  // Verifica si la ruta es correcta
-        bool pass = true;
-        foreach (string subpath in this.TYPE_REGISTRY) {
-            int ixt = this.PATH.IndexOf(subpath);  // obtiene el index
-            if (ixt == -1) {
-                pass = false;
+        bool pass = false;
+        for (int i = 0; i < this.TYPE_REGISTRY.Length; i++) {
+            int ixt = this.PATH.IndexOf(this.TYPE_REGISTRY[i]);
+            Console.WriteLine(ixt);
+            if (ixt != -1) {
+                Console.WriteLine(ixt + " $$ " + this.TYPE_REGISTRY[i]);
+                return true;
                 //return false;// mandar error de path incorrecto 
                 // tambien se puede mandar error de path vacio
-            }
+            } 
         }
         return pass;
     }
@@ -85,7 +86,7 @@ public class RegistryWin {
         int type = 0;
         for (int i = 0; i < this.TYPE_REGISTRY.Length; i++) {
             int ixt = this.PATH.IndexOf(this.TYPE_REGISTRY[i]);
-            Console.WriteLine(ixt);
+            //Console.WriteLine(ixt);
             if (ixt != -1) {
                 type = i;
             }
