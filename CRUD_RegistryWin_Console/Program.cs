@@ -5,19 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 class Program {
+
+    
     static void Main(string[] args) {
 
-        //RegistryWin hola = new RegistryWin("path");
+       RegistryWin hola = new RegistryWin(@"Computer\HKEY_CURRENT_USER\AppEvents");
 
-        String path = @"dsaasdsdadassdaHKEY_CURRENT_USER\SOFTWARE\BugSplat";
-        
-
-        bool verifica_ruta_valida() {
-
-        }
+        Console.WriteLine(hola.check_path());
+        hola.clear_path();
+        Console.WriteLine(hola.PATH);
 
 
-        verifica_ruta_valida();
+
+
+
         Console.ReadKey();
     }
 }

@@ -9,14 +9,21 @@ using System.Threading.Tasks;
 public class RegistryWin {
 
     public string PATH = "";
-    public string[] subpath_registry = {"HKEY_CURRENT_USER",
-                                    "HKEY_CLASSES_ROOT",
+    public int TYPE = -1; 
+    public string[] TYPE_REGISTRY = {"HKEY_CLASSES_ROOT",
+                                    "HKEY_CURRENT_USER",
                                     "HKEY_LOCAL_MACHINE",
                                     "HKEY_USERS",
                                     "HKEY_CURRENT_CONFIG"};
 
     public RegistryWin(string path) {
         this.PATH = path;
+
+        if (!check_path()) {
+            throw new InvalidPath();
+        }
+
+        
     }
 
 
@@ -54,10 +61,14 @@ public class RegistryWin {
 
     }
 
-    private bool check_path(string path, string[] subpath_registry) {  // Verifica si la ruta es correcta
+
+
+
+
+    public bool check_path() {  // Verifica si la ruta es correcta
         bool pass = true;
-        foreach (string subpath in subpath_registry) {
-            int ixt = path.IndexOf(subpath);  // obtiene el index
+        foreach (string subpath in this.TYPE_REGISTRY) {
+            int ixt = this.PATH.IndexOf(subpath);  // obtiene el index
             if (ixt == -1) {
                 pass = false;
                 //return false;// mandar error de path incorrecto 
@@ -66,11 +77,35 @@ public class RegistryWin {
         }
         return pass;
     }
-    private string parse_path(string path) { // Elimina el subpath de la ruta ingresada por el usuario
-        int ixt = path.IndexOf(@"HKEY_");  
-        return path.Substring(ixt,path.Length - ixt);
+    public void clear_path() { // Elimina el subpath de la ruta ingresada por el usuario
+        int ixt = this.PATH.IndexOf(@"HKEY_");
+        this.PATH = this.PATH.Substring(ixt,this.PATH.Length - ixt);
+    }
+    public  int get_type_path() {
+        int type = 0;
+        for (int i = 0; i < this.TYPE_REGISTRY.Length; i++) {
+            int ixt = this.PATH.IndexOf(this.TYPE_REGISTRY[i]);
+            Console.WriteLine(ixt);
+            if (ixt != -1) {
+                type = i;
+            }
+        }
+        //Console.WriteLine("La ruta es tipo: " + this.TYPE_REGISTRY[type]);
+        return type;
+    }
+    public string get_only_path() {
+
+
+        return "";
     }
 
+
+}
+
+[Serializable]
+public class InvalidPath : Exception {
+    public InvalidPath()
+      : base("La ruta ingresada es invalida") { }
 
 }
 
