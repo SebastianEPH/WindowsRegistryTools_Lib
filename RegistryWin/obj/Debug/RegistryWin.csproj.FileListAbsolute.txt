@@ -1,0 +1,6 @@
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\RegistryWin\bin\Debug\RegistryWin.dll
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\RegistryWin\bin\Debug\RegistryWin.pdb
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\RegistryWin\obj\Debug\RegistryWin.csprojAssemblyReference.cache
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\RegistryWin\obj\Debug\RegistryWin.csproj.CoreCompileInputs.cache
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\RegistryWin\obj\Debug\RegistryWin.dll
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\RegistryWin\obj\Debug\RegistryWin.pdb

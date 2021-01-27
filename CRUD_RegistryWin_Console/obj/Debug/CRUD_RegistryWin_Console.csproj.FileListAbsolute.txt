@@ -1,0 +1,10 @@
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\CRUD_RegistryWin_Console\bin\Debug\CRUD_RegistryWin_Console.exe.config
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\CRUD_RegistryWin_Console\bin\Debug\CRUD_RegistryWin_Console.exe
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\CRUD_RegistryWin_Console\bin\Debug\CRUD_RegistryWin_Console.pdb
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\CRUD_RegistryWin_Console\obj\Debug\CRUD_RegistryWin_Console.csproj.CoreCompileInputs.cache
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\CRUD_RegistryWin_Console\obj\Debug\CRUD_RegistryWin_Console.exe
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\CRUD_RegistryWin_Console\obj\Debug\CRUD_RegistryWin_Console.pdb
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\CRUD_RegistryWin_Console\obj\Debug\CRUD_RegistryWin_Console.csprojAssemblyReference.cache
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\CRUD_RegistryWin_Console\bin\Debug\RegistryWin.dll
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\CRUD_RegistryWin_Console\bin\Debug\RegistryWin.pdb
+D:\SoftwareProjects\C#\[GitHub] WindowsRegistryTools_Library\CRUD_RegistryWin_Console\obj\Debug\CRUD_RegistryWin_Console.csproj.CopyComplete

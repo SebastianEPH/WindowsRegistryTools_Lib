@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistryWin", "RegistryWin.csproj", "{E628F54B-89EF-4D7A-BCC3-E11E0D6545BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD_RegistryWin_Console", "..\CRUD_RegistryWin_Console\CRUD_RegistryWin_Console.csproj", "{B99EDE05-EB49-41E6-9446-9B3436ED1AC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E628F54B-89EF-4D7A-BCC3-E11E0D6545BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E628F54B-89EF-4D7A-BCC3-E11E0D6545BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E628F54B-89EF-4D7A-BCC3-E11E0D6545BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99EDE05-EB49-41E6-9446-9B3436ED1AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99EDE05-EB49-41E6-9446-9B3436ED1AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99EDE05-EB49-41E6-9446-9B3436ED1AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99EDE05-EB49-41E6-9446-9B3436ED1AC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

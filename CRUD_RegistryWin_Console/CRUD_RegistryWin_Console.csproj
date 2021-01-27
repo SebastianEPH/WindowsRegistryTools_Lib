@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RegistryWin\RegistryWin.csproj">
+      <Project>{e628f54b-89ef-4d7a-bcc3-e11e0d6545bd}</Project>
+      <Name>RegistryWin</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
