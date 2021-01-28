@@ -6,6 +6,8 @@ public class RegistryWin {
     public string PATH = "";    // PATH Limpio 
     private int TYPE = -1;
     public string TYPE_REGISTRY = "";
+    public string CURRENT_KEY = "";
+    public string PARAMETER_SUBT_KEY = "";
     public bool HAS_PARAMETER = false; // Tiene parametros
     public string PARAMETER = "";
     private RegistryKey k;
@@ -21,7 +23,9 @@ public class RegistryWin {
         Check_path();   // Verifica si la ruta es correcta o manda una excepción 
         Clear_path();   // limpia ruta
         Get_type_path();// Obtiene el tipo de registro
-        Parameter();     // Obtiene Parametros     
+        Parameter();     // Obtiene Parametros  
+        GetCurrentKey(); // Obtiene key actual, solo si si HAS_PARAMETER es True
+        GetParameterSubtKey(); // Obtiene los parametros sin key 
                          // Si existe parametros, obtiene el nombre del ultimo key
                          // path sin subpath y sin key
 
@@ -30,14 +34,26 @@ public class RegistryWin {
 
     }
 
-    public void CreateKey() {
+    public void CreateKey(string keyName) {
+        CheckKeyname(keyName);
+        try {
+            Registry.SetValue(this.PATH + @"\" + keyName,"","");
+        } catch (Exception) {
+            Registry.SetValue(this.PATH + keyName,"","");
+        }
 
     }
     public void DeleteKey() {
-        if (!HAS_PARAMETER) { 
+        if (!HAS_PARAMETER) {
             // mandar excepcion, por que no puedes eliminar con una ruta sin key 
+        }else {
+            OpenKey(true);
+           // k = Registry.ClassesRoot.OpenSubKey(GetSubFilesSinKeyName(path),true);
+            //k.DeleteSubKeyTree(GetkeyName(path)); 
+            k.Close();
         }
     }
+   
     public void ReadValue() {
 
     }
@@ -45,10 +61,10 @@ public class RegistryWin {
 
     public void SetValue_String(string valueName, string valueData) {
         CheckValue(valueName);
-        OpenKey();
+       // OpenKey();
         try {
-            k.SetValue(valueName,valueData,RegistryValueKind.String);
-            k.Close();
+           k.SetValue(valueName,valueData,RegistryValueKind.String);
+           k.Close();
         } catch {
             throw new StringSintax();
         }
@@ -130,6 +146,11 @@ public class RegistryWin {
             throw new EmptyValueName();
         }
     }
+    private void CheckKeyname(string keyName) {
+        if (keyName.Equals("")) {
+            throw new EmptyKeyName();
+        }
+    }
     private void Check_path() {  // Verifica si la ruta es correcta
         bool pass = false;
         if (this.PATH.Equals("")) {
@@ -146,7 +167,7 @@ public class RegistryWin {
             throw new InvalidPath(this.PATH);
         }
     }
-    private void Clear_path() { // Elimina el subpath de la ruta ingresada por el usuario
+    private void Clear_path() { // Elimina sobrantes de la ruta ingresada por el usuario
         int ixt = this.PATH.IndexOf(@"HKEY_");
         this.PATH = this.PATH.Substring(ixt,this.PATH.Length - ixt);
     }
@@ -161,12 +182,30 @@ public class RegistryWin {
         }
         //Console.WriteLine("La ruta es tipo: " + this.TYPE_REGISTRY[type]);
     }
+    private void GetCurrentKey() {
+        if (HAS_PARAMETER) {
+            int ixt = this.PATH.LastIndexOf(@"\") + 1;
+            this.CURRENT_KEY =  this.PATH.Substring(ixt,this.PATH.Length - ixt);
+        }
+        // Else no tiene parametros
+    }
+    private void GetParameterSubtKey() {
+        if (HAS_PARAMETER) {
+            try {
+                int key = this.PATH.LastIndexOf(@"\");   // onlyKey 
+                int ixt = this.PATH.IndexOf(@"\") + 1;
+                PARAMETER_SUBT_KEY = this.PATH.Substring(ixt,key - ixt);
+            } catch (Exception) {
+                PARAMETER_SUBT_KEY = "";
+            }
+        }
+    }
     private void Parameter() {
         int init = TYPE_REGISTRY.Length;
         this.PARAMETER = this.PATH.Substring(init,this.PATH.Length - init);
         if (this.PARAMETER.Length > 1) {    // Elimina los \ en caso tenga // Ejemplo HKEY_CURRENT_USER\ se elimina la ultima \
             this.HAS_PARAMETER = true;
-        }
+        } 
     }
 }
 
@@ -185,6 +224,11 @@ public class InvalidPath : Exception {
 public class EmptyValueName: Exception {
     public EmptyValueName()
         : base("El nombre del valor no puede estár vacía") {
+    }
+}
+public class EmptyKeyName : Exception {
+    public EmptyKeyName()
+        : base("La El nombre de la llave no puede estár vacía ") {
     }
 }
 public class StringSintax : Exception {

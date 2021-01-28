@@ -9,7 +9,7 @@ class Program {
     
     static void Main(string[] args) {
 
-       RegistryWin hola = new RegistryWin(@"Computer\HKEY_CURRENT_USER\");
+       RegistryWin hola = new RegistryWin(@"Computer\HKEY_CURRENT_USER\sdfsdf");
 
 
         Console.WriteLine("DATA: ");
@@ -18,9 +18,8 @@ class Program {
         //Console.WriteLine("Type registry num " + hola.TYPE);
         Console.WriteLine("Parametros :? " + hola.PARAMETER);
         Console.WriteLine("tiene parametros :? " + hola.HAS_PARAMETER);
-        //Console.WriteLine(hola.PATH);
-        hola.SetValue_String("asda&&&&&","45398034906");
-
+        Console.WriteLine("GGGGGGGGGG>> "+hola.PARAMETER_SUBT_KEY);
+        hola.CreateKey("sdfsddsfdfs");
 
 
 
