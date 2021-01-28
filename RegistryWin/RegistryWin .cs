@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 public class RegistryWin {
 
-    public string PATH = "";
-    public int TYPE = -1; 
+    public string PATH = "";    // PATH Limpio 
+    public int TYPE = -1;
+    private bool HAS_PARAMETER = false; // Tiene parametros
+    public string PARAMETER = "";
     public string[] TYPE_REGISTRY = {"HKEY_CLASSES_ROOT",
                                     "HKEY_CURRENT_USER",
                                     "HKEY_LOCAL_MACHINE",
@@ -18,9 +20,13 @@ public class RegistryWin {
 
     public RegistryWin(string path) {
         this.PATH = path;
-        if (!check_path()) {
-           throw new InvalidPath();
-        }
+        check_path();   // Verifica si la ruta es correcta o manda una excepción 
+        clear_path();   // limpia ruta
+            // Obtiene Parametros
+            // Si existe parametros, obtiene el nombre del ultimo key
+            // path sin subpath y sin key
+
+        
 
         
     }
@@ -61,24 +67,24 @@ public class RegistryWin {
     }
 
 
-
-
-
-    public bool check_path() {  // Verifica si la ruta es correcta
+    private void check_path() {  // Verifica si la ruta es correcta
         bool pass = false;
+        if (this.PATH.Equals("")) {
+            throw new EmptyPath();
+        }
         for (int i = 0; i < this.TYPE_REGISTRY.Length; i++) {
             int ixt = this.PATH.IndexOf(this.TYPE_REGISTRY[i]);
             Console.WriteLine(ixt);
             if (ixt != -1) {
                 Console.WriteLine(ixt + " $$ " + this.TYPE_REGISTRY[i]);
-                return true;
-                //return false;// mandar error de path incorrecto 
-                // tambien se puede mandar error de path vacio
+                pass = true;
             } 
         }
-        return pass;
+        if (!pass) {
+            throw new InvalidPath(this.PATH);
+        }
     }
-    public void clear_path() { // Elimina el subpath de la ruta ingresada por el usuario
+    private void clear_path() { // Elimina el subpath de la ruta ingresada por el usuario
         int ixt = this.PATH.IndexOf(@"HKEY_");
         this.PATH = this.PATH.Substring(ixt,this.PATH.Length - ixt);
     }
@@ -96,7 +102,6 @@ public class RegistryWin {
     }
     public string get_only_path() {
 
-
         return "";
     }
 
@@ -106,7 +111,20 @@ public class RegistryWin {
 [Serializable]
 public class InvalidPath : Exception {
     public InvalidPath()
-      : base("La ruta ingresada es invalida") { }
-
+        :base("La ruta ingresada es invalida, debe ingresar una ruta de regedit") { }
+    public InvalidPath(string path)
+        : base("La ruta "+ path +" es invalida\n"+
+                "Ejemplo de ruta válida: \n"+
+                @"=> Computer\HKEY_CURRENT_USER\SOFTWARE\"+
+                "\n"+ 
+                @"=> HKEY_CURRENT_USER\SOFTWARE\") { }
 }
-
+[Serializable]
+public class EmptyPath : Exception {
+    public EmptyPath()
+        : base("La ruta está vacía\n"+
+                "Ejemplo de ruta válida: \n" +
+                @"=> Computer\HKEY_CURRENT_USER\SOFTWARE\" +
+                "\n" + 
+                @"=> HKEY_CURRENT_USER\SOFTWARE\") { }
+}
