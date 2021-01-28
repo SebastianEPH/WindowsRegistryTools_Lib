@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 public class RegistryWin {
 
     public string PATH = "";    // PATH Limpio 
-    public int TYPE = -1;
-    private bool HAS_PARAMETER = false; // Tiene parametros
+    private int TYPE = -1;
+    public string TYPE_REGISTRY = "";
+    public bool HAS_PARAMETER = false; // Tiene parametros
     public string PARAMETER = "";
-    public string[] TYPE_REGISTRY = {"HKEY_CLASSES_ROOT",
+
+    private string[] TYPE_REGISTRY_ARR = {"HKEY_CLASSES_ROOT",
                                     "HKEY_CURRENT_USER",
                                     "HKEY_LOCAL_MACHINE",
                                     "HKEY_USERS",
@@ -22,15 +24,13 @@ public class RegistryWin {
         this.PATH = path;
         check_path();   // Verifica si la ruta es correcta o manda una excepción 
         clear_path();   // limpia ruta
-            // Obtiene Parametros
+        get_type_path();// Obtiene el tipo de registro
+        parameter();     // Obtiene Parametros
             // Si existe parametros, obtiene el nombre del ultimo key
             // path sin subpath y sin key
 
-        
 
-        
     }
-
 
     public void createKey() {
 
@@ -72,11 +72,10 @@ public class RegistryWin {
         if (this.PATH.Equals("")) {
             throw new EmptyPath();
         }
-        for (int i = 0; i < this.TYPE_REGISTRY.Length; i++) {
-            int ixt = this.PATH.IndexOf(this.TYPE_REGISTRY[i]);
-            Console.WriteLine(ixt);
+        for (int i = 0; i < this.TYPE_REGISTRY_ARR.Length; i++) {
+            int ixt = this.PATH.IndexOf(this.TYPE_REGISTRY_ARR[i]);
             if (ixt != -1) {
-                Console.WriteLine(ixt + " $$ " + this.TYPE_REGISTRY[i]);
+                Console.WriteLine(ixt + " $$ " + this.TYPE_REGISTRY_ARR[i]);
                 pass = true;
             } 
         }
@@ -88,24 +87,24 @@ public class RegistryWin {
         int ixt = this.PATH.IndexOf(@"HKEY_");
         this.PATH = this.PATH.Substring(ixt,this.PATH.Length - ixt);
     }
-    public  int get_type_path() {
-        int type = 0;
-        for (int i = 0; i < this.TYPE_REGISTRY.Length; i++) {
-            int ixt = this.PATH.IndexOf(this.TYPE_REGISTRY[i]);
+    public  void get_type_path() {
+        for (int i = 0; i < this.TYPE_REGISTRY_ARR.Length; i++) {
+            int ixt = this.PATH.IndexOf(this.TYPE_REGISTRY_ARR[i]);
             //Console.WriteLine(ixt);
             if (ixt != -1) {
-                type = i;
+                this.TYPE_REGISTRY = this.TYPE_REGISTRY_ARR[i];
+                this.TYPE = i;
             }
         }
         //Console.WriteLine("La ruta es tipo: " + this.TYPE_REGISTRY[type]);
-        return type;
     }
-    public string get_only_path() {
-
-        return "";
+    public void parameter() {
+        int init = TYPE_REGISTRY.Length;
+        this.PARAMETER = this.PATH.Substring(init,this.PATH.Length - init);
+        if (this.PARAMETER.Length > 1) {    // Elimina los \ en caso tenga // Ejemplo HKEY_CURRENT_USER\ se elimina la ultima \
+            this.HAS_PARAMETER = true;
+        }
     }
-
-
 }
 
 [Serializable]
