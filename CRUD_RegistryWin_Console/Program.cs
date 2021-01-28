@@ -19,7 +19,7 @@ class Program {
         Console.WriteLine("Parametros :? " + hola.PARAMETER);
         Console.WriteLine("tiene parametros :? " + hola.HAS_PARAMETER);
         //Console.WriteLine(hola.PATH);
-
+        hola.SetValue_String("asda","45398034906");
 
 
 
