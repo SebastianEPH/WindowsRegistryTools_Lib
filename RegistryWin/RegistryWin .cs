@@ -93,8 +93,14 @@ public class RegistryWin {
             throw new StringSintax();
         }
     }
-    public void SetValue_QWORD() {
-
+    public void SetValue_QWORD(string valueName,Int64 valueData) {
+        CheckValue(valueName);
+        OpenKey();
+        try {
+            k.SetValue(valueName,valueData,RegistryValueKind.QWord);
+        } catch {
+            throw new StringSintax();
+        }
     }
     public void SetValue_MultiString() {
 
