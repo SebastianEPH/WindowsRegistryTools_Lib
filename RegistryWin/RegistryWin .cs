@@ -22,6 +22,7 @@ public class RegistryWin {
         Clear_path();   // limpia ruta
         Get_type_path();// Obtiene el tipo de registro
         Parameter();     // Obtiene Parametros
+        OpenKey();      
                          // Si existe parametros, obtiene el nombre del ultimo key
                          // path sin subpath y sin key
 
@@ -34,21 +35,30 @@ public class RegistryWin {
 
     }
     public void DeleteKey() {
-
+        if (!HAS_PARAMETER) { 
+            // mandar excepcion, por que no puedes eliminar con una ruta sin key 
+        }
     }
     public void ReadValue() {
 
     }
-    private void SetValue() {
+    private void OpenKey(bool delete = false) {
+        string path = "";
+        if (delete) {
+            path = this.PARAMETER; // Param sin key 
+        } else {
+            path = this.PARAMETER;
+        }
         switch (TYPE) {
-            case 0: k = Registry.ClassesRoot.OpenSubKey(this.PARAMETER,true); break;
-            case 1: k = Registry.CurrentUser.OpenSubKey(this.PARAMETER,true); break;
-            case 2: k = Registry.LocalMachine.OpenSubKey(this.PARAMETER,true); break;
-            case 3: k = Registry.Users.OpenSubKey(this.PARAMETER,true); break;
-            case 4: k = Registry.CurrentConfig.OpenSubKey(this.PARAMETER,true); break;
+            case 0: k = Registry.ClassesRoot.OpenSubKey(path,true); break;
+            case 1: k = Registry.CurrentUser.OpenSubKey(path,true); break;
+            case 2: k = Registry.LocalMachine.OpenSubKey(path,true); break;
+            case 3: k = Registry.Users.OpenSubKey(path,true); break;
+            case 4: k = Registry.CurrentConfig.OpenSubKey(path,true); break;
             default:
                 break;
         }
+
     }
     private void CheckValue(string valueName) {
         if (valueName.Equals("")) {
@@ -58,17 +68,20 @@ public class RegistryWin {
 
     public void SetValue_String(string valueName, string valueData = "") {
         CheckValue(valueName);
-        SetValue();
         try {
             k.SetValue(valueName,valueData,RegistryValueKind.String);
-            k.Close();
         } catch {
             throw new StringSintax();
         }
         
     }
-    public void SetValue_Binary() {
-
+    public void SetValue_Binary(string valueName, byte[] valueData) {
+        CheckValue(valueName);
+        try {
+            k.SetValue(valueName,valueData,RegistryValueKind.Binary);
+        } catch {
+            throw new StringSintax();
+        }
     }
     public void SetValue_DWORD() {
 
@@ -139,11 +152,12 @@ public class InvalidPath : Exception {
 [Serializable]
 public class EmptyValueName: Exception {
     public EmptyValueName()
-        : base("El nombre del valor no puede estár vacía") { }
+        : base("El nombre del valor no puede estár vacía") {
+    }
 }
 public class StringSintax : Exception {
     public StringSintax()
-        : base("No se permite caracteres especiales.") { }
+        : base("verifique la sintaxis, no se permite caracteres especiales.") { }
 }
 [Serializable]
 public class EmptyPath : Exception {
