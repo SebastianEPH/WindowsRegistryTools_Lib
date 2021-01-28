@@ -21,8 +21,7 @@ public class RegistryWin {
         Check_path();   // Verifica si la ruta es correcta o manda una excepción 
         Clear_path();   // limpia ruta
         Get_type_path();// Obtiene el tipo de registro
-        Parameter();     // Obtiene Parametros
-        OpenKey();      
+        Parameter();     // Obtiene Parametros     
                          // Si existe parametros, obtiene el nombre del ultimo key
                          // path sin subpath y sin key
 
@@ -68,6 +67,7 @@ public class RegistryWin {
 
     public void SetValue_String(string valueName, string valueData = "") {
         CheckValue(valueName);
+        OpenKey();
         try {
             k.SetValue(valueName,valueData,RegistryValueKind.String);
         } catch {
@@ -77,14 +77,21 @@ public class RegistryWin {
     }
     public void SetValue_Binary(string valueName, byte[] valueData) {
         CheckValue(valueName);
+        OpenKey();
         try {
             k.SetValue(valueName,valueData,RegistryValueKind.Binary);
         } catch {
             throw new StringSintax();
         }
     }
-    public void SetValue_DWORD() {
-
+    public void SetValue_DWORD (string valueName, Int32 valueData) {
+        CheckValue(valueName);
+        OpenKey();
+        try {
+            k.SetValue(valueName,valueData,RegistryValueKind.DWord);
+        } catch {
+            throw new StringSintax();
+        }
     }
     public void SetValue_QWORD() {
 
