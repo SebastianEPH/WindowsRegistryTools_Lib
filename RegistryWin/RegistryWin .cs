@@ -41,6 +41,72 @@ public class RegistryWin {
     public void ReadValue() {
 
     }
+    
+
+    public void SetValue_String(string valueName, string valueData) {
+        CheckValue(valueName);
+        OpenKey();
+        try {
+            k.SetValue(valueName,valueData,RegistryValueKind.String);
+            k.Close();
+        } catch {
+            throw new StringSintax();
+        }
+        
+    }
+    public void SetValue_Binary(string valueName, byte[] valueData) {
+        CheckValue(valueName);
+        OpenKey();
+        try {
+            k.SetValue(valueName,valueData,RegistryValueKind.Binary);
+            k.Close();
+        } catch {
+            throw new StringSintax();
+        }
+    }
+    public void SetValue_DWORD (string valueName, Int32 valueData) {
+        CheckValue(valueName);
+        OpenKey();
+        try {
+            k.SetValue(valueName,valueData,RegistryValueKind.DWord);
+            k.Close();
+        } catch {
+            throw new StringSintax();
+        }
+    }
+    public void SetValue_QWORD(string valueName,Int64 valueData) {
+        CheckValue(valueName);
+        OpenKey();
+        try {
+            k.SetValue(valueName,valueData,RegistryValueKind.QWord);
+            k.Close();
+        } catch {
+            throw new StringSintax();
+        }
+    }
+    public void SetValue_MultiString(string valueName, String[] valueData) {
+        CheckValue(valueName);
+        OpenKey();
+        try {
+            k.SetValue(valueName,valueData,RegistryValueKind.MultiString);
+            k.Close();
+        } catch {
+            throw new StringSintax();
+        }
+    }
+    public void SetValue_ExpandableString(string valueName,string valueData) {
+        SetValue_String(valueName,valueData);
+    }
+    public void DeleteValue(string valueName) {
+        CheckValue(valueName);
+        OpenKey();
+        try {
+            k.DeleteValue(valueName);
+            k.Close();
+        } catch {
+            throw new StringSintax();
+        }
+    }
     private void OpenKey(bool delete = false) {
         string path = "";
         if (delete) {
@@ -64,53 +130,6 @@ public class RegistryWin {
             throw new EmptyValueName();
         }
     }
-
-    public void SetValue_String(string valueName, string valueData = "") {
-        CheckValue(valueName);
-        OpenKey();
-        try {
-            k.SetValue(valueName,valueData,RegistryValueKind.String);
-        } catch {
-            throw new StringSintax();
-        }
-        
-    }
-    public void SetValue_Binary(string valueName, byte[] valueData) {
-        CheckValue(valueName);
-        OpenKey();
-        try {
-            k.SetValue(valueName,valueData,RegistryValueKind.Binary);
-        } catch {
-            throw new StringSintax();
-        }
-    }
-    public void SetValue_DWORD (string valueName, Int32 valueData) {
-        CheckValue(valueName);
-        OpenKey();
-        try {
-            k.SetValue(valueName,valueData,RegistryValueKind.DWord);
-        } catch {
-            throw new StringSintax();
-        }
-    }
-    public void SetValue_QWORD(string valueName,Int64 valueData) {
-        CheckValue(valueName);
-        OpenKey();
-        try {
-            k.SetValue(valueName,valueData,RegistryValueKind.QWord);
-        } catch {
-            throw new StringSintax();
-        }
-    }
-    public void SetValue_MultiString() {
-
-    }
-    public void SetValue_ExpandableString() {
-
-    }
-    public void DeleteValue() {
-
-    }
     private void Check_path() {  // Verifica si la ruta es correcta
         bool pass = false;
         if (this.PATH.Equals("")) {
@@ -131,7 +150,7 @@ public class RegistryWin {
         int ixt = this.PATH.IndexOf(@"HKEY_");
         this.PATH = this.PATH.Substring(ixt,this.PATH.Length - ixt);
     }
-    public  void Get_type_path() {
+    private void Get_type_path() {
         for (int i = 0; i < this.TYPE_REGISTRY_ARR.Length; i++) {
             int ixt = this.PATH.IndexOf(this.TYPE_REGISTRY_ARR[i]);
             //Console.WriteLine(ixt);
@@ -142,7 +161,7 @@ public class RegistryWin {
         }
         //Console.WriteLine("La ruta es tipo: " + this.TYPE_REGISTRY[type]);
     }
-    public void Parameter() {
+    private void Parameter() {
         int init = TYPE_REGISTRY.Length;
         this.PARAMETER = this.PATH.Substring(init,this.PATH.Length - init);
         if (this.PARAMETER.Length > 1) {    // Elimina los \ en caso tenga // Ejemplo HKEY_CURRENT_USER\ se elimina la ultima \
